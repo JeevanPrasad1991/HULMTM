@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:id="@+id/storename_header"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_weight="1"
+            android:background="#ff9933"
+            android:orientation="horizontal"
+            android:padding="2dp"
+            android:weightSum="10">
+
+            <TextView
+                android:id="@+id/sos_target"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="5"
+                android:gravity="center_vertical"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/txtsize_16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/sos_target_withohc_target"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="5"
+                android:gravity="center_vertical"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/txtsize_16sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/listlayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="3dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+
+            <Button
+                android:id="@+id/primary_window"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:background="#ff9933"
+                android:text="Primary Category" />
+
+            <Button
+                android:id="@+id/Save2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:text=""
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/shelf_visibility"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:background="#ff9933"
+                android:text="Shelf visibility"
+                android:visibility="visible" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/test"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="vertical"
+            android:weightSum="18">
+
+            <LinearLayout
+                android:id="@+id/imglayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="8"
+                android:orientation="horizontal"
+                android:weightSum="8">
+
+                <ImageView
+                    android:id="@+id/cam1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:onClick="onButtonClick"
+                    android:src="@drawable/camera_ico" />
+
+                <ImageView
+                    android:id="@+id/nnn"
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/camera_ico"
+                    android:onClick="onButtonClick"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/cam2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:onClick="onButtonClick"
+                    android:src="@drawable/camera_ico" />
+
+                <ImageView
+                    android:id="@+id/nzsnn"
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/camera_ico"
+                    android:onClick="onButtonClick"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/cam3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:onClick="onButtonClick"
+                    android:src="@drawable/camera_ico" />
+
+                <ImageView
+                    android:id="@+id/xnnn"
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_gravity="center"
+                    android:background="@drawable/camera_ico"
+                    android:onClick="onButtonClick"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/cam4"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:onClick="onButtonClick"
+                    android:src="@drawable/camera_ico" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/ListView01"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="7"
+            android:focusable="false"
+            android:focusableInTouchMode="false"></ListView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/savebtn"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_centerInParent="true"
+                android:text="Save"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <com.cpm.DailyEntry.CustomKeyboardView
+        android:id="@+id/keyboard_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone" />
+
+
+</RelativeLayout>

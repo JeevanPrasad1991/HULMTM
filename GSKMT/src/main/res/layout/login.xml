@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="100" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7"
+        android:background="#f26d20"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/geotag_title_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="LOGIN"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:orientation="horizontal"
+        android:weightSum="100" >
+
+        <ImageView
+
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+           
+            android:visibility="invisible" />
+
+        <ImageView
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+           />
+        
+        <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:orientation="horizontal" >
+    </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="44.86"
+            android:background="@drawable/parinaam_logo" />
+
+    </LinearLayout>
+    
+    <ImageView
+        android:id="@+id/gsklogo"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:background="@drawable/gsk_logo"
+        android:layout_gravity="center_horizontal">
+    </ImageView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="47"
+        android:orientation="horizontal"
+        android:weightSum="100" >
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10"
+             >
+        </ImageView>
+
+        <LinearLayout
+
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="80"
+            android:background="@drawable/login_bg"
+            android:orientation="horizontal"
+            android:weightSum="100" >
+
+            <ImageView
+
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="12" >
+            </ImageView>
+            
+            <LinearLayout
+
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="76"
+                android:orientation="vertical"
+                android:weightSum="100" >
+
+                <ImageView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="10" >
+                </ImageView>
+                
+                <ImageView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="5" 
+                    android:background="@drawable/login_txt">
+                </ImageView>
+                <ImageView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="7" >
+                </ImageView>
+                
+                <TextView
+            android:id="@+id/username_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="11"
+            android:text="Username"
+            android:textColor="#333"
+            android:textSize="14sp"
+            android:textStyle="italic" />
+
+                <EditText
+                    android:id="@+id/login_usertextbox"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="12"
+                   android:background="@drawable/txt_box_bg"
+                    android:textSize="14dp"
+                    android:textColorHint="#333"
+                    android:text=""
+                    android:singleLine="true"
+                    android:paddingLeft="5dp" >
+                </EditText>
+
+                <ImageView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="8" >
+                </ImageView>
+                
+                <TextView
+            android:id="@+id/password_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="11"
+            android:text="Password"
+            android:textColor="#333"
+            android:textSize="14dp"
+            android:textStyle="italic" />
+
+                <EditText
+                    android:id="@+id/login_locktextbox"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="12"
+                    android:background="@drawable/txt_box_bg"
+                  	android:singleLine="true"
+                    android:textSize="14dp"
+                    android:textColorHint="#333"
+                  	android:inputType="textPassword"
+                  	android:text=""
+                    android:paddingLeft="5dp" >
+                </EditText>
+
+                <ImageView
+                    android:id="@+id/imiw"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="8" >
+                </ImageView>
+
+                <LinearLayout
+                    android:id="@+id/imagddiw"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="13"
+                    android:orientation="horizontal"
+                    android:weightSum="100" >
+
+                    
+
+                    <Button
+                        android:id="@+id/login_loginbtn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="30"
+                        android:background="@drawable/signin_btn"
+                       >
+                    </Button>
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="12" >
+            </ImageView>
+        </LinearLayout>
+    </LinearLayout>
+    
+    <ImageView
+
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2">
+    </ImageView>
+    
+    
+    
+    <ImageView
+            android:id="@+id/ver"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:background="@drawable/mt_merchandising_txt"
+            
+            android:layout_gravity="center_horizontal" />
+
+    <ImageView
+        android:id="@+id/loginfooter"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="18"
+        android:background="@drawable/login_footer" />
+
+</LinearLayout>

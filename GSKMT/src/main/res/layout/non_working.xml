@@ -1,0 +1,131 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/home_root"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <!-- Include Header Bar -->
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ff9933"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/geotag_title_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="Non- Working Reason"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/picbtn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/save"
+        android:layout_below="@+id/layout1"
+        android:layout_marginRight="25dp"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="100sp"
+        android:layout_height="40sp"
+        android:layout_alignLeft="@+id/layout1"
+        android:layout_below="@+id/picbtn1"
+        android:layout_marginTop="23dp"
+        android:background="#ff9933"
+        android:text="SAVE"
+        android:textColor="#ffffff"
+        android:textSize="17sp" />
+
+    <Button
+        android:id="@+id/skip"
+        android:layout_width="100sp"
+        android:layout_height="40sp"
+        android:layout_alignBaseline="@+id/save"
+        android:layout_alignBottom="@+id/save"
+        android:layout_centerHorizontal="true"
+        android:background="#ff9933"
+        android:text="NEXT"
+        android:textColor="#ffffff"
+        android:textSize="17sp"
+        android:visibility="invisible" />
+
+    <RelativeLayout
+        android:id="@+id/layout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="3sp"
+            android:layout_marginTop="20dp"
+            android:text="Reason"
+            android:textColor="#ff9933"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/reason_spinner"
+            android:layout_width="200sp"
+            android:layout_height="50sp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/textView2"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="5dp" />
+
+        <Spinner
+            android:id="@+id/sub_reason"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/reason_spinner"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="5dp"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/picbdddtn1"
+            android:layout_width="65sp"
+            android:layout_height="50sp"
+
+            android:layout_marginLeft="15dp"
+
+            android:background="@drawable/camera"
+            android:visibility="invisible" />
+
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sub_reason"
+            android:background="@drawable/camera_ico"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/remark"
+        android:layout_width="200sp"
+        android:layout_height="50sp"
+        android:layout_alignBottom="@+id/picbtn1"
+        android:layout_alignParentLeft="true"
+        android:ems="10"
+        android:enabled="true"
+        android:hint="Remarks"
+        android:inputType="text"
+        android:textSize="17sp" />
+
+</RelativeLayout>

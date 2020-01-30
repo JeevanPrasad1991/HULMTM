@@ -1,0 +1,4 @@
+#Mon Jun 24 14:52:10 IST 2019
+base.0=F\:\\jeevanAndroidProject\\androidProject\\gskMT 7 March\\GSK_MT1\\GSKMT\\build\\intermediates\\dex\\release\\mergeDexRelease\\out
+path.0=classes.dex
+renamed.0=classes.dex

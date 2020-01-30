@@ -1,0 +1,71 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/home_root"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+   
+    android:orientation="vertical" >
+
+    <!-- Include Header Bar -->
+
+    <RelativeLayout
+        android:id="@+id/posmtheme_header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+       
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+    android:background="#f26d20"
+        android:padding="5sp" >
+
+        <TextView
+            android:id="@+id/posmtheme_remembermetext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="Upload Data"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/posmtheme_intellogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+   		    android:visibility="invisible"
+           
+            android:onClick="onButtonClick" />
+    </RelativeLayout>
+
+  <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" >
+
+        <Button
+            android:id="@+id/upload_data"
+            android:layout_width="200sp"
+            android:layout_height="wrap_content"
+            android:text="Upload Data"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20sp"
+            android:onClick="onButtonClick">
+        </Button>
+
+        <Button
+            android:id="@+id/upload_image"
+            android:layout_width="200sp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/upload_data"
+            android:text="Upload Image"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:layout_centerHorizontal="true"
+			android:onClick="onButtonClick">
+        </Button>
+    </RelativeLayout>
+
+</RelativeLayout>

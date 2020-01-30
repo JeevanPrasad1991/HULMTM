@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    
+    > 
+     <Button     android:id="@+id/header"
+                   android:layout_width="fill_parent"
+                   android:layout_height="60dp"
+                    android:textColor="#ffffff"
+                    android:background="#0066a4"
+                    android:typeface="normal"
+                    android:textSize="20sp"
+                    android:text="Click Here For Daily Reporting"
+                   
+                   />
+   <RelativeLayout android:id="@+id/layout1"
+                  android:layout_height="fill_parent" 
+                  android:layout_width="fill_parent" 
+                  
+                  android:background="@drawable/address_bar"
+                  android:layout_below="@id/header"
+                 >
+    <WebView 
+    android:id="@+id/webview"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    />
+    
+   </RelativeLayout> 
+  </RelativeLayout>

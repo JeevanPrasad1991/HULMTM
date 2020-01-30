@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ff9933"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <TextView
+                android:id="@+id/geotag_title_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:gravity="center_vertical"
+                android:text="Daily Main Menu -"
+                android:padding="5dp"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/cat_name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:gravity="center_vertical"
+                android:text="Daily Main Menu"
+                android:textColor="#ffffff"
+                android:padding="5dp"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+
+            ></ImageView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="15"></ImageView>
+
+            <!--      <TextView
+                     android:id="@+id/before_stock_target"
+                     android:layout_width="0dp"
+                     android:layout_height="match_parent"
+                     android:layout_weight="10"
+                     android:text="23"
+                      >
+                 </TextView> -->
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="30">
+
+
+                <Button
+                    android:id="@+id/after_stock"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:background="@drawable/stock_after_ico"
+                    android:enabled="true"
+                    android:onClick="onButtonClick"
+                    android:text=""
+                    android:textColor="#ff9933"
+                    android:textSize="15sp"
+                    android:textStyle="bold"></Button>
+
+
+                <TextView
+                    android:id="@+id/sos_after"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:background="#ffffff"
+                    android:gravity="center"
+                    android:text=""
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    android:translationZ="2dp"
+
+                    />
+
+
+            </RelativeLayout>
+
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="10"></ImageView>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="30">
+
+                <Button
+                    android:id="@+id/after_tot"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:background="@drawable/disabled_tot_after_ico"
+                    android:enabled="false"
+                    android:onClick="onButtonClick"
+                    android:text=""
+                    android:textColor="#ff9933"
+                    android:textSize="15sp"
+                    android:textStyle="bold"></Button>
+
+                <TextView
+                    android:id="@+id/sos_after1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:background="#ffffff"
+                    android:text=""
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+
+                    />
+
+            </RelativeLayout>
+
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="15"></ImageView>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+
+            ></ImageView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:weightSum="100">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="15"></ImageView>
+
+            <Button
+                android:id="@+id/befor_tot"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="30"
+                android:background="@drawable/disabled_tot_before_ico"
+                android:enabled="false"></Button>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="10"></ImageView>
+
+            <Button
+                android:id="@+id/after_tot1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="30"
+                android:background="@drawable/disabled_tot_after_ico"
+                android:enabled="false"></Button>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="15"></ImageView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/l"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="15"></ImageView>
+
+            <Button
+                android:id="@+id/backroom_stock"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:background="@drawable/backroom"
+                android:visibility="visible" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="10"></ImageView>
+
+            <Button
+                android:id="@+id/before_additional"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="30"
+                android:background="@drawable/additional_display_144"
+                android:enabled="true">
+            </Button>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="15"></ImageView>
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            ></ImageView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="15"></ImageView>
+
+            <Button
+                android:id="@+id/competitionTracking"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="30"
+                android:background="@drawable/competition_asset"
+                android:enabled="true"
+                android:visibility="visible"></Button>
+
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="10"></ImageView>
+
+            <Button
+                android:id="@+id/promotional_data"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="30"
+                android:background="@drawable/disabled_promo_compliance"
+                android:enabled="true"
+                android:visibility="visible"/>
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="15"></ImageView>
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="15"></ImageView>
+
+            <Button
+                android:id="@+id/salesTracking"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:background="@drawable/sales"
+                android:visibility="gone" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                android:layout_weight="10"></ImageView>
+
+            <Button
+                android:id="@+id/comptitionfor_promotion"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="30"
+                android:background="@drawable/competition_promotion"
+                android:enabled="true"
+                android:visibility="visible"/>
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="15"></ImageView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>

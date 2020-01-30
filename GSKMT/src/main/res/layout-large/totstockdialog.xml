@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/addtional_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:id="@+id/storename_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/custom_margin">
+
+            <TextView
+                android:id="@+id/posm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="#ff9933"
+                android:gravity="center_vertical"
+                android:padding="@dimen/store_p_activity_vertical_margin"
+                android:text="Stock Display"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/fortxtsize20sp" />
+
+        </LinearLayout>
+
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="@dimen/padding_10dp"
+            app:cardElevation="3dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+
+                        android:layout_weight="5"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/padding_10dp"
+                        android:text="Brand"
+                        android:textColor="@color/black"
+
+                        android:textSize="@dimen/fortxtsize20sp"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/brand_namespinner"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="5"
+                        android:dropDownSelector="#ff9933"
+                        android:gravity="center"
+                        android:inputType="text">
+
+                    </Spinner>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/custom_margin"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <TextView
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="5"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/padding_10dp"
+                        android:text="Sku"
+                        android:textColor="@color/black"
+
+                        android:textSize="@dimen/fortxtsize20sp"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/sku_nameSpinner"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="5"
+                        android:dropDownSelector="#ff9933"
+                        android:gravity="center">
+
+                    </Spinner>
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/third"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/custom_margin"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <TextView
+                        android:id="@+id/facing"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="5"
+                        android:gravity="center_vertical"
+                        android:padding="@dimen/padding_10dp"
+                        android:text="Quantity"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/fortxtsize20sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/qty_bought"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="5"
+                        android:enabled="true"
+                        android:gravity="center"
+
+                        android:inputType="number"
+                        android:maxLength="5"
+                        android:padding="@dimen/padding_10dp"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/txtsize_16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/savebtnLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/store_p_activity_vertical_margin"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/add_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="2"
+                        android:background="#ff9933"
+                        android:gravity="center"
+                        android:textSize="@dimen/fortxtsize20sp"
+                        android:text="Add" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/list_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:visibility="visible">
+
+        <ListView
+            android:id="@+id/lv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:cacheColorHint="#00000000"
+            android:choiceMode="singleChoice"
+            android:divider="#ff9933"
+            android:dividerHeight="2dp"
+            android:fastScrollEnabled="true"
+            android:smoothScrollbar="true"></ListView>
+    </LinearLayout>
+</LinearLayout>

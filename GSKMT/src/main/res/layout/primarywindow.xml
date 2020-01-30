@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/home_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/grey_background"
+    android:orientation="vertical">
+
+    <ListView
+        android:id="@+id/listView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:choiceMode="none"
+        android:divider="#ff9933"
+        android:dividerHeight="2dp" />
+
+    <LinearLayout
+        android:id="@+id/zsgd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/custom_margin"
+        android:orientation="horizontal"
+        android:weightSum="10">
+        <Button
+            android:id="@+id/Save2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/fortxtsize20sp"
+            android:layout_weight="5"
+            android:background="#ff9933"
+            android:gravity="center"
+            android:text="Save"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="@dimen/fortxtsize20sp"
+            android:layout_weight="5"
+            android:background="#ff9933"
+            android:gravity="center"
+            android:text="Cancel"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+    </LinearLayout>
+</LinearLayout>

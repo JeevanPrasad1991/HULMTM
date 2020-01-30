@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="64dp"
+        android:text="Take Checkout Image"
+        android:textSize="16sp" />
+
+
+    <ImageView
+        android:id="@+id/checkout_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/storename_header"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="55dp"
+        android:layout_toRightOf="@+id/textView1"
+        android:background="@drawable/camera_ico" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/store_image"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/store_image"
+        android:layout_marginLeft="16dp"
+        android:textColor="@color/white"
+        android:visibility="invisible"
+        android:gravity="center_horizontal"
+        android:text="Take Dealer board Photo"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/checkout_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#ff9933"
+        android:text="Save"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2" />
+
+    <RelativeLayout
+        android:id="@+id/storename_header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff9933"
+        android:padding="5sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:id="@+id/storename_remembermetext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text=" "
+            android:textColor="#ffffff"
+            android:paddingLeft="2dp"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/storename_checkout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/storename_remembermetext"
+            android:layout_alignBottom="@+id/storename_remembermetext"
+            android:layout_centerHorizontal="true"
+            android:text=""
+            android:textColor="#ffffff"
+            android:textStyle="normal"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

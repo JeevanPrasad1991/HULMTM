@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="28dp"
+        android:background="#EB9100"
+        android:paddingBottom="5sp"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp"
+        android:paddingTop="5sp">
+
+        <TextView
+            android:id="@+id/geotag_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="StoreWise Performance"
+            android:textColor="#000"
+            android:textSize="15sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:id="@+id/listviewheading"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#F1E9E9"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            android:weightSum="30">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:gravity="center"
+                android:text="Period"
+                android:textAllCaps="true"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="#EB9100" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:gravity="center"
+                android:text="SOS"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="#EB9100" />
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:gravity="center"
+                android:text="STOCK"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="#EB9100" />
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:gravity="center"
+                android:text="ASSET"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="#EB9100" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:gravity="center"
+                android:text="PROMO"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="2dp"
+                android:layout_height="match_parent"
+                android:background="#EB9100" />
+
+
+            <TextView
+
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:gravity="center"
+                android:text="PSS"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#EB9100" />
+
+        <ListView
+            android:id="@+id/listviewperformance"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8.5"></ListView>
+
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_weight="0.5"
+            android:layout_margin="@dimen/txtsize_16sp"
+            android:gravity="center"
+            android:src="@drawable/right_arrow" />
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,57 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/home_root"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+   
+    >
+
+    <!-- Include Header Bar -->
+	<RelativeLayout
+        android:id="@+id/storename_header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="#ff9933"
+        android:padding="5sp" >
+
+        <TextView
+            android:id="@+id/storename_remembermetext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:text="Category List"
+            android:textColor="#ffffff"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/storename_intellogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:visibility="invisible"
+           
+            android:onClick="onBackClick"/>
+    </RelativeLayout>
+
+	 <GridView
+        android:id="@+id/gridView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:numColumns="3" >
+
+    </GridView>
+
+   <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="35dp"
+        android:textStyle="bold"/>
+        
+
+</LinearLayout>

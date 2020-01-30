@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="50dp"
+          
+          android:background="#ff9933"
+          android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/geotag_title_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="Merchandising Store ?"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+    </LinearLayout>
+    
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        
+        android:orientation="vertical"
+        >
+
+        <RadioButton
+            android:id="@+id/yes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           
+          
+            android:text="Yes"
+            android:textColor="#000000" />
+
+        <RadioButton
+            android:id="@+id/no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            
+           
+            android:text="No"
+            android:textColor="#000000" />
+    </RadioGroup>
+
+</LinearLayout>

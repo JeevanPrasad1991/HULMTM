@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/grey_background"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="5"
+                android:gravity="center_vertical"
+                android:padding="@dimen/padding_10dp"
+                android:text="Brand Name"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txtsize_16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/brand_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="5"
+                android:gravity="center_vertical"
+                android:padding="@dimen/padding_10dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txtsize_16sp">
+
+            </TextView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/custom_margin"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="5"
+                android:gravity="center_vertical"
+                android:padding="@dimen/padding_10dp"
+                android:text="SKU Name"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txtsize_16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/display_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="5"
+                android:gravity="center_vertical"
+                android:padding="@dimen/padding_10dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txtsize_16sp">
+
+            </TextView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/third"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/custom_margin"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <TextView
+                android:id="@+id/facing"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="5"
+                android:gravity="center_vertical"
+                android:padding="@dimen/padding_10dp"
+                android:text="Quantity"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txtsize_16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/qty_bought"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="5"
+                android:gravity="center_vertical"
+                android:padding="@dimen/padding_10dp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txtsize_16sp">
+
+            </TextView>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_10dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/delete_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="10"
+                android:background="#ff9933"
+                android:gravity="center"
+                android:text="Delete"
+                android:textColor="@color/white" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
