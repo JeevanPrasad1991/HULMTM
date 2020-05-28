@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="3dp"
         android:choiceMode="none"
-        android:divider="#ff9933"
+        android:divider="@color/colorPrimary"
         android:dividerHeight="2dp" />
 
     <LinearLayout
@@ -28,7 +28,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="@dimen/fortxtsize20sp"
             android:layout_weight="5"
-            android:background="#ff9933"
+            android:background="@color/colorPrimary"
             android:gravity="center"
             android:text="Save"
             android:textColor="#ffffff"
@@ -42,7 +42,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="@dimen/fortxtsize20sp"
             android:layout_weight="5"
-            android:background="#ff9933"
+            android:background="@color/colorPrimary"
             android:gravity="center"
             android:text="Cancel"
             android:textColor="#ffffff"

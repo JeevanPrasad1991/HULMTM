@@ -80,7 +80,7 @@ public class MerchandisingAttendenceActivity extends Activity
         supAtten_spinner = findViewById(R.id.supAtten_spinner);
         imgcam = findViewById(R.id.imgcam);
         context = this;
-        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        preferences = PreferenceManager.getDefaultSharedPreferences(context);
         editor = preferences.edit();
         username = preferences.getString(CommonString.KEY_USERNAME, null);
         date = preferences.getString(CommonString.KEY_DATE, null);
@@ -315,6 +315,7 @@ public class MerchandisingAttendenceActivity extends Activity
                 if (result1.toString().equalsIgnoreCase(CommonString.KEY_SUCCESS)) {
                     if (entry_allow.equals("1")) {
                         db.open();
+                        editor = preferences.edit();
                         editor.putString(CommonString.KEY_ATTENDENCE_STATUS, "1");
                         editor.apply();
                         db.insertAttendenceData(user_NM, visit_date, staus, att_image, reasonname, reason_cd, entry_allow);
@@ -328,6 +329,7 @@ public class MerchandisingAttendenceActivity extends Activity
                             return result.toString();
                         }
                     } else {
+                        editor = preferences.edit();
                         editor.putString(CommonString.KEY_ATTENDENCE_STATUS, "2");
                         editor.apply();
                         return result1.toString();
@@ -365,7 +367,7 @@ public class MerchandisingAttendenceActivity extends Activity
             super.onPostExecute(s);
             loading.dismiss();
             if (s.equalsIgnoreCase(CommonString.KEY_SUCCESS)) {
-                if (entry_allow.equals("1")) {
+                if (!entry_allow.equals("") && entry_allow.equals("1")) {
                     Intent intent = new Intent(MerchandisingAttendenceActivity.this, CopyOfStorelistActivity.class);
                     startActivity(intent);
                     MerchandisingAttendenceActivity.this.finish();
@@ -374,6 +376,7 @@ public class MerchandisingAttendenceActivity extends Activity
                     startActivity(intent);
                     MerchandisingAttendenceActivity.this.finish();
                 }
+
                 Toast.makeText(getApplicationContext(), "Attendance Uploaded Successfullly.", Toast.LENGTH_SHORT).show();
             } else if (s.equalsIgnoreCase(CommonString.METHOD_Upload_StoreDeviationImage)) {
                 Toast.makeText(getApplicationContext(), "Image Not Uploaded Successfully. Please try again", Toast.LENGTH_SHORT).show();

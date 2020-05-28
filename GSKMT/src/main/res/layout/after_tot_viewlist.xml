@@ -295,15 +295,16 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    android:background="#ff9933"
-                    android:text="Gaps"></Button>
+                    android:background="@color/colorPrimary"
+                    android:text="Gaps"
+                    android:textColor="@color/white"></Button>
 
 
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
-                    android:background="#ff9933"
+                    android:background="@color/colorPrimary"
                     android:text=""
                     android:visibility="invisible"></Button>
 
@@ -312,8 +313,9 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
-                    android:background="#ff9933"
-                    android:text="Stock">
+                    android:background="@color/colorPrimary"
+                    android:text="Stock"
+                    android:textColor="@color/white">
 
                 </Button>
             </LinearLayout>

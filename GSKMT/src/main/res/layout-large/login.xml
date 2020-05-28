@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="7"
-        android:background="#f26d20"
+        android:background="@color/colorPrimary"
         android:orientation="vertical" >
 
         <TextView
@@ -68,10 +68,10 @@
     </LinearLayout>
     
     <ImageView
+        android:layout_marginTop="25dp"
         android:id="@+id/gsklogo"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="8"
+        android:layout_width="356px"
+        android:layout_height="91px"
         android:background="@drawable/gsk_logo"
         android:layout_gravity="center_horizontal">
     </ImageView>
@@ -80,7 +80,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/padding_10dp">
     </LinearLayout>
 
     <LinearLayout
@@ -251,8 +252,8 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="4"
+        android:layout_marginTop="@dimen/fortxtsize20sp"
             android:background="@drawable/mt_merchandising_txt"
-            
             android:layout_gravity="center_horizontal" />
 
     <ImageView
@@ -260,6 +261,19 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="18"
+        android:visibility="gone"
         android:background="@drawable/login_footer" />
+
+    <TextView
+        android:id="@+id/version_text"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="18"
+        android:text="Version"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="normal"
+        android:layout_gravity="center|bottom"
+        android:gravity="center|bottom"/>
 
 </LinearLayout>

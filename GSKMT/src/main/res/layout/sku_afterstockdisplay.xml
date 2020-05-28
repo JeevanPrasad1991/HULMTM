@@ -16,7 +16,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_weight="1"
-            android:background="#ff9933"
+            android:background="@color/colorPrimary"
             android:orientation="horizontal"
             android:padding="2dp"
             android:weightSum="10">
@@ -64,7 +64,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
-                android:background="#ff9933"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/white"
                 android:text="Primary Category" />
 
             <Button
@@ -80,7 +81,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
-                android:background="#ff9933"
+                android:textColor="@color/white"
+                android:background="@color/colorPrimary"
                 android:text="Shelf visibility"
                 android:visibility="visible" />
 
@@ -178,6 +180,7 @@
             android:layout_height="0dp"
             android:layout_weight="7"
             android:focusable="false"
+            android:divider="@color/colorPrimary"
             android:focusableInTouchMode="false"></ListView>
 
         <RelativeLayout

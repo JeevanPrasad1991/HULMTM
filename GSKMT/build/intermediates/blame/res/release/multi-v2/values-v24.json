@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "F:\\jeevanAndroidProject\\androidProject\\gskMT 7 March\\GSK_MT1\\GSKMT\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-v24\\values-v24.xml",
+            "outputFile": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-v24\\values-v24.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\jeevanp\\.gradle\\caches\\transforms-2\\files-2.1\\3811f5388f37d431fb50eed9f6c7468f\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\cpmin\\.gradle\\caches\\transforms-2\\files-2.1\\b9926cd230592debfd26e58c7dc27899\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\jeevanp\\.gradle\\caches\\transforms-2\\files-2.1\\aa9e3483da9eec0f5628e9c46b3e3de4\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\cpmin\\.gradle\\caches\\transforms-2\\files-2.1\\bf6c803565e2ebc63f471fc0ab737a89\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

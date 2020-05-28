@@ -765,8 +765,8 @@ public final class R {
         public static final int uniform = 0x7f0901e0;
         public static final int up = 0x7f0901e2;
         public static final int userContainer = 0x7f0901e7;
-        public static final int video_preview = 0x7f0901ea;
-        public static final int wrap_content = 0x7f0901f1;
+        public static final int video_preview = 0x7f0901eb;
+        public static final int wrap_content = 0x7f0901f2;
     }
     public static final class integer {
         private integer() {}

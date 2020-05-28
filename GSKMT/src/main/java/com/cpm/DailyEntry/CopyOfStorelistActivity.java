@@ -109,6 +109,7 @@ public class CopyOfStorelistActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
+
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
         Date date_device = new Date();
         if (!dateFormat.format(date_device).equalsIgnoreCase(date)) {

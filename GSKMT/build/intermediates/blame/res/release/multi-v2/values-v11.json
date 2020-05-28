@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "F:\\jeevanAndroidProject\\androidProject\\gskMT 7 March\\GSK_MT1\\GSKMT\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-v11\\values-v11.xml",
+            "outputFile": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-v11\\values-v11.xml",
             "map": [
                 {
-                    "source": "F:\\jeevanAndroidProject\\androidProject\\gskMT 7 March\\GSK_MT1\\GSKMT\\src\\main\\res\\values-v11\\styles.xml",
+                    "source": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\src\\main\\res\\values-v11\\styles.xml",
                     "from": {
                         "startLines": "6",
                         "startColumns": "4",

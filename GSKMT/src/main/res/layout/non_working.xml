@@ -10,7 +10,7 @@
         android:id="@+id/linearLayout1"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="#ff9933"
+        android:background="@color/colorPrimary"
         android:orientation="vertical">
 
         <TextView
@@ -39,7 +39,7 @@
         android:layout_alignLeft="@+id/layout1"
         android:layout_below="@+id/picbtn1"
         android:layout_marginTop="23dp"
-        android:background="#ff9933"
+        android:background="@color/colorPrimary"
         android:text="SAVE"
         android:textColor="#ffffff"
         android:textSize="17sp" />
@@ -51,7 +51,7 @@
         android:layout_alignBaseline="@+id/save"
         android:layout_alignBottom="@+id/save"
         android:layout_centerHorizontal="true"
-        android:background="#ff9933"
+        android:background="@color/colorPrimary"
         android:text="NEXT"
         android:textColor="#ffffff"
         android:textSize="17sp"
@@ -73,7 +73,7 @@
             android:layout_marginLeft="3sp"
             android:layout_marginTop="20dp"
             android:text="Reason"
-            android:textColor="#ff9933"
+            android:textColor="@color/colorPrimary"
             android:textSize="18sp"
             android:textStyle="bold" />
 

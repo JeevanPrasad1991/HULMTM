@@ -9,7 +9,7 @@
                    android:layout_width="fill_parent"
                    android:layout_height="60dp"
                     android:textColor="#ffffff"
-                    android:background="#0066a4"
+                    android:background="@color/colorPrimary"
                     android:typeface="normal"
                     android:textSize="20sp"
                     android:text="Click Here For Daily Reporting"

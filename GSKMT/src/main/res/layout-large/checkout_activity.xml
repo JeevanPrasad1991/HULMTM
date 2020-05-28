@@ -10,7 +10,7 @@
         android:layout_height="60dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:background="#ff9933"
+        android:background="@color/colorPrimary"
         android:padding="5dp">
 
         <TextView
@@ -67,12 +67,13 @@
         android:layout_alignLeft="@+id/textView2"
         android:layout_below="@+id/spinner1"
         android:layout_marginTop="55dp"
-        android:background="#ff9933"
+        android:background="@color/colorPrimary"
         android:paddingBottom="10dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:paddingTop="10dp"
         android:text="Save"
+        android:textColor="@color/white"
         android:textSize="20sp" />
 
     <ImageView

@@ -51,8 +51,9 @@
         android:id="@+id/save_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-		android:background="#ff9933"
+		android:background="@color/colorPrimary"
         android:text="Save"
+		android:textColor="@color/white"
 		android:layout_centerVertical="true"
 		android:layout_alignLeft="@+id/textView2"
 		android:layout_alignStart="@+id/textView2" />
@@ -61,7 +62,7 @@
         android:id="@+id/storename_header"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-		android:background="#ff9933"
+		android:background="@color/colorPrimary"
         android:padding="5sp"
 		android:layout_alignParentTop="true"
 		android:layout_alignParentLeft="true"
@@ -87,7 +88,6 @@
                   android:layout_alignBottom="@+id/storename_remembermetext"
                   android:layout_centerHorizontal="true"
                   android:text=""
-
                   android:textColor="#ffffff"
                   android:textStyle="italic"
                   android:textSize="18sp" />

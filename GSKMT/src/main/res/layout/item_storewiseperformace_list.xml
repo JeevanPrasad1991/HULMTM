@@ -26,7 +26,7 @@
         <View
             android:layout_width="2dp"
             android:layout_height="match_parent"
-            android:background="#EB9100" />
+            android:background="@color/colorPrimary" />
 
         <TextView
             android:id="@+id/sos_score"
@@ -42,7 +42,7 @@
         <View
             android:layout_width="2dp"
             android:layout_height="match_parent"
-            android:background="#EB9100" />
+            android:background="@color/colorPrimary" />
 
         <TextView
             android:id="@+id/stock_score"
@@ -58,7 +58,7 @@
         <View
             android:layout_width="2dp"
             android:layout_height="match_parent"
-            android:background="#EB9100" />
+            android:background="@color/colorPrimary" />
 
         <TextView
             android:id="@+id/asset_stock"
@@ -74,7 +74,7 @@
         <View
             android:layout_width="2dp"
             android:layout_height="match_parent"
-            android:background="#EB9100" />
+            android:background="@color/colorPrimary" />
 
         <TextView
             android:id="@+id/promo_score"
@@ -90,7 +90,7 @@
         <View
             android:layout_width="2dp"
             android:layout_height="match_parent"
-            android:background="#EB9100" />
+            android:background="@color/colorPrimary" />
 
         <TextView
             android:id="@+id/pss"

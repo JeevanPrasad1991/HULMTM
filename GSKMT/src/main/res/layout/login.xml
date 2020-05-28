@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="7"
-        android:background="#f26d20"
+        android:background="@color/colorPrimary"
         android:orientation="vertical" >
 
         <TextView
@@ -67,10 +67,10 @@
     </LinearLayout>
     
     <ImageView
+        android:layout_marginTop="@dimen/fortxtsize20sp"
         android:id="@+id/gsklogo"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="8"
+        android:layout_width="456px"
+        android:layout_height="171px"
         android:background="@drawable/gsk_logo"
         android:layout_gravity="center_horizontal">
     </ImageView>
@@ -104,7 +104,8 @@
             android:layout_weight="80"
             android:background="@drawable/login_bg"
             android:orientation="horizontal"
-            android:weightSum="100" >
+            android:weightSum="100"
+            android:layout_marginTop="@dimen/padding_10dp">
 
             <ImageView
 
@@ -243,12 +244,12 @@
     
     
     <ImageView
+        android:layout_marginTop="@dimen/activity_vertical_margin"
             android:id="@+id/ver"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="4"
             android:background="@drawable/mt_merchandising_txt"
-            
             android:layout_gravity="center_horizontal" />
 
     <ImageView
@@ -256,6 +257,19 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="18"
+        android:visibility="gone"
         android:background="@drawable/login_footer" />
+
+    <TextView
+        android:id="@+id/version_text"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="18"
+        android:text="Version"
+        android:textColor="@color/black"
+        android:textSize="@dimen/txtsize_16sp"
+        android:textStyle="normal"
+        android:layout_gravity="center|bottom"
+        android:gravity="center|bottom"/>
 
 </LinearLayout>

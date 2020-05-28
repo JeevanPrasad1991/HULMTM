@@ -65,6 +65,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class LoginActivity extends Activity implements OnClickListener, LocationListener {
@@ -88,6 +89,7 @@ public class LoginActivity extends Activity implements OnClickListener, Location
     NoticeBoardGetterSetter noticeboardgsetter = null;
     private FirebaseAnalytics mFirebaseAnalytics;
     private final static int PERMISSION_ALL = 99;
+    TextView version_text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,8 +99,12 @@ public class LoginActivity extends Activity implements OnClickListener, Location
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         mUsername = (EditText) findViewById(R.id.login_usertextbox);
         mPassword = (EditText) findViewById(R.id.login_locktextbox);
-        mUsername.setText("ashutosh");
-        mPassword.setText("cpm@5678");
+        version_text = (TextView) findViewById(R.id.version_text);
+       // mUsername.setText("testmer");
+        //mPassword.setText("cpm123");
+
+       // mUsername.setText("ashutosh");
+       // mPassword.setText("cpm@5678");
 
         mLogin = (Button) findViewById(R.id.login_loginbtn);
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -111,6 +117,8 @@ public class LoginActivity extends Activity implements OnClickListener, Location
         } catch (NameNotFoundException e) {
             e.printStackTrace();
         }
+
+        version_text.setText("(MT) Version - " + app_ver);
 
         database = new GSKMTDatabase(this);
         database.open();
