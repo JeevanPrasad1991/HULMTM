@@ -128,7 +128,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="10"
-                android:background="#ff9933"
+                android:background="@color/colorPrimary"
                 android:gravity="center"
                 android:text="Delete"
                 android:textColor="@color/white"

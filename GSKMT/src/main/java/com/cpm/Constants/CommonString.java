@@ -80,7 +80,7 @@ public class CommonString {
 
     public static final String NAMESPACE = "http://tempuri.org/";
 
-    public static final String URL = "http://gskmtm.parinaam.in/GSKmtService.asmx";
+    public static final String URL = "http://hulmtm.parinaam.in/GSKmtService.asmx";
     //public static final String NOTICE_BOARD_URL = "http://gskmtm.parinaam.in/notice/notice.html";
 
     public static final String METHOD_LOGIN = "UserLoginDetail";

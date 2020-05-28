@@ -6,10 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/grey_background"
     android:orientation="vertical"
-    android:paddingLeft="@dimen/store_p_activity_vertical_margin"
-    android:paddingTop="@dimen/store_p_activity_vertical_margin"
-    android:paddingRight="@dimen/store_p_activity_vertical_margin"
-    android:paddingBottom="@dimen/store_p_activity_vertical_margin"
+    android:padding="@dimen/store_p_activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.cpm.DailyEntry.BeforeAdditionalDisplay"
     tools:showIn="@layout/addtional_before_display">
@@ -52,12 +49,12 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
+                                android:layout_gravity="center"
                                 android:layout_marginLeft="3dp"
                                 android:layout_weight="7"
-                                android:gravity="center_vertical"
+                                android:gravity="center"
                                 android:padding="@dimen/store_p_activity_vertical_margin"
-                                android:text="is there any additional display ?"
+                                android:text="is there any additional\n display ?"
                                 android:textAllCaps="true"
                                 android:textColor="@color/colorPrimary"
                                 android:textSize="14sp"
@@ -72,7 +69,9 @@
                                 android:checked="true"
                                 android:gravity="center"
                                 android:textOff="NO"
-                                android:textOn="YES" />
+                                android:textOn="YES"
+                                android:textSize="14sp"
+                                android:textColor="@color/colorPrimary"/>
 
                         </LinearLayout>
 
@@ -94,7 +93,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
-                                    android:layout_weight="4"
+                                    android:layout_weight="3"
                                     android:gravity="center_vertical"
                                     android:padding="@dimen/store_p_activity_vertical_margin"
                                     android:text="Brand"
@@ -107,7 +106,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:layout_weight="6"
+                                    android:layout_weight="7"
                                     android:gravity="center"></Spinner>
 
                             </LinearLayout>
@@ -123,7 +122,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
-                                    android:layout_weight="4"
+                                    android:layout_weight="3"
                                     android:gravity="center_vertical"
                                     android:padding="@dimen/store_p_activity_vertical_margin"
                                     android:text="Display"
@@ -136,8 +135,8 @@
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:layout_weight="6"
-                                    android:dropDownSelector="#ff9933"
+                                    android:layout_weight="7"
+                                    android:dropDownSelector="@color/colorPrimary"
                                     android:gravity="center">
 
                                 </Spinner>
@@ -155,7 +154,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
-                                    android:layout_weight="5"
+                                    android:layout_weight="4"
                                     android:gravity="center_vertical"
                                     android:padding="@dimen/store_p_activity_vertical_margin"
                                     android:text="Quantity"
@@ -184,9 +183,11 @@
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:layout_weight="3"
+                                    android:layout_weight="4"
                                     android:gravity="center"
-                                    android:text="Ref Image" />
+                                    android:text="Ref Image"
+                                    android:layout_marginRight="2dp"
+                                    android:layout_marginLeft="2dp"/>
                             </LinearLayout>
 
                             <LinearLayout
@@ -201,7 +202,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_gravity="center_vertical"
-                                    android:layout_weight="4"
+                                    android:layout_weight="3"
                                     android:gravity="center_vertical"
                                     android:padding="@dimen/store_p_activity_vertical_margin"
                                     android:text="Photo"
@@ -214,7 +215,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
-                                    android:layout_weight="6"
+                                    android:layout_weight="7"
                                     android:onClick="onButtonClick"
                                     android:src="@drawable/camera_ico"></ImageView>
                             </LinearLayout>
@@ -250,7 +251,7 @@
                                 android:layout_marginRight="10dp"
                                 android:layout_marginBottom="4dp"
                                 android:layout_weight=".5"
-                                android:background="#ff9933"
+                                android:background="@color/colorPrimary"
                                 android:gravity="center"
                                 android:padding="@dimen/store_p_activity_vertical_margin"
                                 android:text="add"

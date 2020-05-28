@@ -1,5 +1,6 @@
 package com.cpm.geotagging;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -23,6 +24,7 @@ import android.provider.MediaStore;
 import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -32,6 +34,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cpm.Constants.CommonFunctions;
 import com.cpm.Constants.CommonString;
 import com.cpm.DailyEntry.AfterTOT;
 import com.cpm.database.GSKMTDatabase;
@@ -72,18 +75,18 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 public class GeoTagActivity extends AppCompatActivity implements
-        OnMapReadyCallback,GoogleApiClient.ConnectionCallbacks,
+        OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener, LocationListener {
     private GoogleMap mMap;
-    double latitude =0.0;
-    double longitude =0.0;
+    double latitude = 0.0;
+    double longitude = 0.0;
     LocationManager locationManager;
     Geocoder geocoder;
     // LogCat tag
     private static final String TAG = GeoTagActivity.class.getSimpleName();
     private Dialog dialog;
     private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 1000;
-    String storeid,str,status;
+    String storeid, str, status;
     private Location mLastLocation;
     private LocationManager locmanager = null;
     // Google client to interact with Google API
@@ -97,11 +100,11 @@ public class GeoTagActivity extends AppCompatActivity implements
     private static int UPDATE_INTERVAL = 500; // 5 sec
     private static int FATEST_INTERVAL = 100; // 1 sec
     private static int DISPLACEMENT = 5; // 10 meters
-    String  username;
+    String username;
     private FailureGetterSetter failureGetterSetter = null;
     SupportMapFragment mapFragment;
     GSKMTDatabase db;
-    FloatingActionButton fab,fabcarmabtn;
+    FloatingActionButton fab, fabcarmabtn;
     File file;
     SharedPreferences preferences;
     ArrayList<GeotaggingBeans> geotaglist = new ArrayList<GeotaggingBeans>();
@@ -109,7 +112,8 @@ public class GeoTagActivity extends AppCompatActivity implements
     private int factor, k;
     String errormsg = "";
     String result;
-    protected String diskpath = "",_path,_pathforcheck,img_str="";
+    protected String diskpath = "", _path, _pathforcheck, img_str = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,7 +122,7 @@ public class GeoTagActivity extends AppCompatActivity implements
         setSupportActionBar(toolbar);
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
         username = preferences.getString(CommonString.KEY_USERNAME, null);
-         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         db = new GSKMTDatabase(GeoTagActivity.this);
         db.open();
@@ -129,14 +133,13 @@ public class GeoTagActivity extends AppCompatActivity implements
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!img_str.equals("")){
-                    status="Y";
-                    db.updateStatus(storeid,status, latitude, longitude);
-                    db.InsertSTOREgeotag(storeid, latitude, longitude, img_str,status);
-                    img_str="";
+                if (!img_str.equals("")) {
+                    status = "Y";
+                    db.updateStatus(storeid, status, latitude, longitude);
+                    db.InsertSTOREgeotag(storeid, latitude, longitude, img_str, status);
+                    img_str = "";
                     new GeoTagUpload(GeoTagActivity.this).execute();
-                }
-                else {
+                } else {
                     Snackbar.make(view, "Please Take Image Before Save", Snackbar.LENGTH_LONG).setAction("Action", null).show();
 
                 }
@@ -147,10 +150,9 @@ public class GeoTagActivity extends AppCompatActivity implements
         fabcarmabtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                _pathforcheck = storeid + "Store" + "Image" +  getCurrentTime().replace(":","")+".jpg";
+                _pathforcheck = storeid + "Storegeo" + "Image" + getCurrentTime().replace(":", "") + ".jpg";
                 _path = CommonString.FILE_PATH + _pathforcheck;
-                startCameraActivity();
-
+                CommonFunctions.startAnncaCameraActivity(GeoTagActivity.this, _path);
 
 
             }
@@ -160,6 +162,16 @@ public class GeoTagActivity extends AppCompatActivity implements
         locationManager = (LocationManager) this
                 .getSystemService(LOCATION_SERVICE);
         geocoder = new Geocoder(this);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
         Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
 
@@ -407,15 +419,8 @@ public class GeoTagActivity extends AppCompatActivity implements
 
                 if (_pathforcheck != null && !_pathforcheck.equals("")) {
                     if (new File(str + _pathforcheck).exists()) {
-
-                      //  fabcarmabtn.setBackgroundResource(R.drawable.camera_icon_done);
-
                         fabcarmabtn.setImageDrawable(ContextCompat.getDrawable(getApplicationContext(), R.drawable.camera_icon_done));
-
-                       // fabcarmabtn.setBackgroundColor(Color.parseColor("#FF0066"));
-
                         fabcarmabtn.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF0066")));
-
                         img_str = _pathforcheck;
                         _pathforcheck = "";
 

@@ -49,10 +49,7 @@ public class MainMenuActivity extends Activity {
     GSKMTDatabase db;
     ArrayList<StoreBean> storelist;
     ArrayList<StoreBean> temp = new ArrayList<StoreBean>();
-    ArrayList<CoverageBean> coverageBeanlist = new ArrayList<CoverageBean>();
-    private int versionCode;
     AlertDialog alert;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,7 +83,10 @@ public class MainMenuActivity extends Activity {
                         startActivity(in);
                     } else {
                         if (ATTENDENCE_STATUS != null && ATTENDENCE_STATUS.equals("2")) {
-                            AlertDialog.Builder builder = new AlertDialog.Builder(MainMenuActivity.this).setTitle("Parinaam").setMessage("You have not selected Present. So you can not work in this store.");
+                            AlertDialog.Builder builder = new AlertDialog.Builder(
+
+                                    MainMenuActivity.this).setTitle("Parinaam").
+                                    setMessage("You have not selected Present. So you can not work in this store.");
                             builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
@@ -305,6 +305,17 @@ public class MainMenuActivity extends Activity {
         return connected;
     }
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        db.open();
+        date = preferences.getString(CommonString.KEY_DATE, null);
+        ATTENDENCE_STATUS = preferences.getString(CommonString.KEY_ATTENDENCE_STATUS, null);
+        user_id = preferences.getString(CommonString.KEY_USERNAME, "");
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

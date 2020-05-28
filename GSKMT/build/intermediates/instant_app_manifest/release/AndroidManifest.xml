@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.gsk_mtt"
     android:targetSandboxVersion="2"
-    android:versionCode="47"
-    android:versionName="5.0" >
+    android:versionCode="49"
+    android:versionName="5.2" >
 
     <uses-sdk
         android:minSdkVersion="16"
@@ -188,9 +188,14 @@
 
 
         <!-- //signed -->
-        <meta-data
+        <!--
+            <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyB0jbPbIdqYps3O3mEvJ15myZFtPH1Dj5I" />
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCs2VZqLl4OgStAraUHr8012cUc7vf3Uo8" />
         <!-- // AIzaSyBunnuzSc_LddBUutCvQCh8Of12OVmTzTw -->
         <meta-data
             android:name="com.google.android.gms.version"

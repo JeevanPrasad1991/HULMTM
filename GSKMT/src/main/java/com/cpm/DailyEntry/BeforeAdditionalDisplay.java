@@ -165,7 +165,7 @@ public class BeforeAdditionalDisplay extends Activity implements OnClickListener
         brand_list = db.getBrandList(category_id);
         brandAdaptor = new ArrayAdapter<CharSequence>(BeforeAdditionalDisplay.this, R.layout.spinner_custom_item);
         brandAdaptor.setDropDownViewResource(R.layout.spinner_custom_item);
-        brandAdaptor.add("-Select Brand-");
+        brandAdaptor.add("- Select Brand -");
         for (int i = 0; i < brand_list.size(); i++) {
             brandAdaptor.add(brand_list.get(i).getBrand());
         }
@@ -175,7 +175,7 @@ public class BeforeAdditionalDisplay extends Activity implements OnClickListener
         display_list = db.getDisplayList(category_id, store_id, store_type_id, process_id);
         displayAdaptor = new ArrayAdapter<CharSequence>(BeforeAdditionalDisplay.this, R.layout.spinner_custom_item);
         displayAdaptor.setDropDownViewResource(R.layout.spinner_custom_item);
-        displayAdaptor.add("-Select Display-");
+        displayAdaptor.add("- Select Display -");
         for (int i = 0; i < display_list.size(); i++) {
             displayAdaptor.add(display_list.get(i).getDisplay());
         }
@@ -251,18 +251,6 @@ public class BeforeAdditionalDisplay extends Activity implements OnClickListener
 
     }
 
-    protected void startCameraActivity() {
-        try {
-            Log.i("MakeMachine", "startCameraActivity()");
-            File file = new File(_path);
-            Uri outputFileUri = Uri.fromFile(file);
-            Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-            intent.putExtra(MediaStore.EXTRA_OUTPUT, outputFileUri);
-            startActivityForResult(intent, 0);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

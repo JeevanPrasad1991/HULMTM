@@ -6395,17 +6395,18 @@ public final class R {
     public static final int userContainer=0x7f0901e7;
     public static final int username_title_text=0x7f0901e8;
     public static final int ver=0x7f0901e9;
-    public static final int video_preview=0x7f0901ea;
-    public static final int view_offset_helper=0x7f0901eb;
-    public static final int visible=0x7f0901ec;
-    public static final int webview=0x7f0901ed;
-    public static final int wide=0x7f0901ee;
-    public static final int withText=0x7f0901ef;
-    public static final int wrap=0x7f0901f0;
-    public static final int wrap_content=0x7f0901f1;
-    public static final int xnnn=0x7f0901f2;
-    public static final int yes=0x7f0901f3;
-    public static final int zsgd=0x7f0901f4;
+    public static final int version_text=0x7f0901ea;
+    public static final int video_preview=0x7f0901eb;
+    public static final int view_offset_helper=0x7f0901ec;
+    public static final int visible=0x7f0901ed;
+    public static final int webview=0x7f0901ee;
+    public static final int wide=0x7f0901ef;
+    public static final int withText=0x7f0901f0;
+    public static final int wrap=0x7f0901f1;
+    public static final int wrap_content=0x7f0901f2;
+    public static final int xnnn=0x7f0901f3;
+    public static final int yes=0x7f0901f4;
+    public static final int zsgd=0x7f0901f5;
   }
   public static final class integer {
     public static final int abc_config_activityDefaultDur=0x7f0a0000;

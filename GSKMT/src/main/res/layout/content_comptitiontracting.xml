@@ -247,7 +247,7 @@
                                 android:layout_weight=".5"
                                 android:layout_gravity="center"
                                 android:gravity="center"
-                                android:background="#ff9933"
+                                android:background="@color/colorPrimary"
                                 android:text="add"
                                 android:textColor="@color/white" />
                         </LinearLayout>

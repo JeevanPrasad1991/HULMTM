@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.94"
-            android:background="#ff9933"
+            android:background="@color/colorPrimary"
             android:gravity="center_vertical"
             android:text="Competition Tracking"
             android:textColor="#ffffff"
@@ -187,7 +187,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:background="#ff9933"
+                android:background="@color/colorPrimary"
                 android:text="Save"
                 android:textColor="@color/white"
                 android:textSize="20sp" />

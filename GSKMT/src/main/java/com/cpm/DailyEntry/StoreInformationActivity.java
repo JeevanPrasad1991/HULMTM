@@ -69,7 +69,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class StoreInformationActivity extends Activity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+public class StoreInformationActivity extends Activity implements
+        GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
     String date, imgDate, store_id, _path, img1 = "", picStatus = "", process_id, reason_id = "0", remark = "", storename,
             intime, username, app_version, lat = "0.0", longi = "0.0", str, _pathforcheck = "", image1 = "";
     private FailureGetterSetter failureGetterSetter = null;

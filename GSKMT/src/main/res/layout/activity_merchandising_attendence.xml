@@ -9,7 +9,7 @@
         android:id="@+id/uperL"
         android:layout_width="fill_parent"
         android:layout_height="40dp"
-        android:background="#EB9100"
+        android:background="@color/colorPrimary"
         android:paddingBottom="5sp"
         android:paddingLeft="10sp"
         android:paddingRight="10sp"
@@ -22,7 +22,7 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:text=" Attendence "
-            android:textColor="#000"
+            android:textColor="@color/white"
             android:textSize="15sp" />
     </RelativeLayout>
 
@@ -44,9 +44,9 @@
             android:gravity="center"
             android:padding="16dp"
             android:text="Merchandiser Attendence "
-            android:textColor="#f26d20"
+            android:textColor="@color/colorPrimary"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="normal" />
 
         <Spinner
             android:id="@+id/supAtten_spinner"

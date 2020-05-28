@@ -102,10 +102,8 @@ public class CompleteDownloadActivity extends Activity {
         setContentView(R.layout.mainpage);
         tb = new TableBean();
         db = new GSKMTDatabase(this);
-
         preferences = PreferenceManager.getDefaultSharedPreferences(CompleteDownloadActivity.this);
         user_name = preferences.getString(CommonString.KEY_USERNAME, "");
-
         new BackgroundTask(this).execute();
     }
 
@@ -118,6 +116,15 @@ public class CompleteDownloadActivity extends Activity {
     class Data {
         int value;
         String name;
+    }
+
+    @Override
+    protected void onDestroy() {
+
+        if (dialog != null && dialog.isShowing()) {
+            dialog.dismiss();
+        }
+        super.onDestroy();
     }
 
     private class BackgroundTask extends AsyncTask<Void, Data, String> {

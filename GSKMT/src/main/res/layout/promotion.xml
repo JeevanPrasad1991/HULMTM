@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="#ff9933"
+            android:background="@color/colorPrimary"
             android:textColor="#ffffff"
            	android:text="Promo Compliance"
             android:textSize="20sp" />
@@ -35,7 +35,7 @@
         android:orientation="horizontal"
         android:layout_weight=".2"
         android:visibility="invisible"
-         android:background="#ff9933"
+         android:background="@color/colorPrimary"
         android:weightSum="10" >
 
             <TextView
@@ -43,14 +43,11 @@
                 android:layout_width="0dp"
                 android:layout_weight="3"
                 android:layout_height="match_parent"
-                
                 android:gravity="center_vertical"
-                
                 android:text="  Name"
                 android:textColor="#ffffff"
-                
                 android:textSize="14sp"
-                 android:background="#ff9933"
+                 android:background="@color/colorPrimary"
                 android:textStyle="normal" />
 
             <TextView
@@ -62,7 +59,7 @@
                 android:text="Quantity"
                
                 android:textColor="#ffffff"
-                 android:background="#ff9933"
+                 android:background="@color/colorPrimary"
                 android:textSize="14sp"
                 android:textStyle="normal" />
    
@@ -72,7 +69,7 @@
                 android:layout_weight="2.5"
                 
                 android:layout_height="match_parent"
-                 android:background="#ff9933"
+                 android:background="@color/colorPrimary"
      			 android:gravity="center"
                 android:text=" Picture"
                 android:textColor="#ffffff"
@@ -89,7 +86,7 @@
         android:layout_weight="7.66"
         android:cacheColorHint="#00000000"
         android:choiceMode="none"
-        android:divider="#ff9933"
+        android:divider="@color/colorPrimary"
         android:dividerHeight="2dp" >
     </ListView>
 
@@ -100,7 +97,7 @@
         android:layout_gravity="center"
         android:layout_marginRight="5sp"
         android:layout_weight=".8"
-        android:background="#ff9933"
+        android:background="@color/colorPrimary"
        
         android:text="Save"
         android:textColor="#ffffff"

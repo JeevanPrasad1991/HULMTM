@@ -14,7 +14,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ff9933"
+            android:background="@color/colorPrimary"
             android:orientation="horizontal"
             android:weightSum="10">
 
@@ -210,7 +210,7 @@
             <Button
                 android:id="@+id/backroom_stock"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="30"
                 android:background="@drawable/backroom"
                 android:visibility="visible" />
@@ -270,7 +270,7 @@
             <Button
                 android:id="@+id/promotional_data"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="match_parent"
                 android:layout_weight="30"
                 android:background="@drawable/disabled_promo_compliance"
                 android:enabled="true"
@@ -317,7 +317,7 @@
             <Button
                 android:id="@+id/comptitionfor_promotion"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="match_parent"
                 android:layout_weight="30"
                 android:background="@drawable/competition_promotion"
                 android:enabled="true"

@@ -7,7 +7,7 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="28dp"
-        android:background="#EB9100"
+        android:background="@color/colorPrimary"
         android:paddingBottom="5sp"
         android:paddingLeft="10sp"
         android:paddingRight="10sp"
@@ -20,7 +20,7 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:text="StoreWise Performance"
-            android:textColor="#000"
+            android:textColor="@color/white"
             android:textSize="15sp" />
     </RelativeLayout>
 
@@ -55,7 +55,7 @@
             <View
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
-                android:background="#EB9100" />
+                android:background="@color/colorPrimary" />
 
             <TextView
                 android:layout_width="0dp"
@@ -70,7 +70,7 @@
             <View
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
-                android:background="#EB9100" />
+                android:background="@color/colorPrimary" />
 
 
             <TextView
@@ -86,7 +86,7 @@
             <View
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
-                android:background="#EB9100" />
+                android:background="@color/colorPrimary" />
 
 
             <TextView
@@ -102,7 +102,7 @@
             <View
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
-                android:background="#EB9100" />
+                android:background="@color/colorPrimary" />
 
             <TextView
                 android:layout_width="0dp"
@@ -117,7 +117,7 @@
             <View
                 android:layout_width="2dp"
                 android:layout_height="match_parent"
-                android:background="#EB9100" />
+                android:background="@color/colorPrimary" />
 
 
             <TextView
@@ -135,7 +135,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
-            android:background="#EB9100" />
+            android:background="@color/colorPrimary" />
 
         <ListView
             android:id="@+id/listviewperformance"

@@ -11,7 +11,7 @@
         android:layout_height="0dp"
         android:layout_gravity="center_vertical"
         android:layout_weight="10"
-        android:background="#ff9933"
+        android:background="@color/colorPrimary"
         android:gravity="center_vertical"
         android:padding="@dimen/custom_margin"
         android:text="TOT Post"
@@ -27,7 +27,7 @@
         android:cacheColorHint="#00000000"
         android:choiceMode="none"
         android:descendantFocusability="beforeDescendants"
-        android:divider="#ff9933"
+        android:divider="@color/colorPrimary"
         android:dividerHeight="2dp" />
 
     <Button
@@ -37,7 +37,7 @@
         android:layout_gravity="center"
         android:layout_margin="@dimen/custom_margin"
         android:layout_weight="8"
-        android:background="#ff9933"
+        android:background="@color/colorPrimary"
         android:gravity="center"
         android:text="Save"
         android:textColor="#ffffff"

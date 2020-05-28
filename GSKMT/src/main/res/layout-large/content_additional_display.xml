@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_background"
+    android:orientation="vertical"
+    android:padding="@dimen/store_p_activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.cpm.DailyEntry.BeforeAdditionalDisplay"
+    tools:showIn="@layout/addtional_before_display">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                card_view:cardBackgroundColor="@color/white"
+                card_view:cardCornerRadius="3dp"
+                card_view:cardElevation="3dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="3dp"
+                            android:orientation="horizontal"
+                            android:weightSum="10">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="3dp"
+                                android:layout_weight="7"
+                                android:gravity="center"
+                                android:padding="@dimen/store_p_activity_vertical_margin"
+                                android:text="is there any additional\n display ?"
+                                android:textAllCaps="true"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="@dimen/txtsize_16sp"
+                                android:textStyle="normal" />
+
+                            <ToggleButton
+                                android:id="@+id/toggle"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="3"
+                                android:checked="true"
+                                android:gravity="center"
+                                android:textOff="NO"
+                                android:textOn="YES"
+                                android:textSize="@dimen/txtsize_16sp"
+                                android:textColor="@color/colorPrimary"/>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/rl_allDATA"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_weight="3"
+                                    android:gravity="center_vertical"
+                                    android:padding="@dimen/store_p_activity_vertical_margin"
+                                    android:text="Brand"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/txtsize_16sp"
+                                    android:textStyle="bold" />
+
+                                <Spinner
+                                    android:id="@+id/brand_name"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="7"
+                                    android:dropDownSelector="@color/colorPrimary"
+                                    android:gravity="center"></Spinner>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="3dp"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_weight="3"
+                                    android:gravity="center_vertical"
+                                    android:padding="@dimen/store_p_activity_vertical_margin"
+                                    android:text="Display"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/txtsize_16sp"
+                                    android:textStyle="bold" />
+
+                                <Spinner
+                                    android:id="@+id/display_name"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="7"
+                                    android:dropDownSelector="@color/colorPrimary"
+                                    android:gravity="center">
+
+                                </Spinner>
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_weight="4"
+                                    android:gravity="center_vertical"
+                                    android:padding="@dimen/store_p_activity_vertical_margin"
+                                    android:text="Quantity"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/txtsize_16sp"
+                                    android:textStyle="bold" />
+
+                                <EditText
+                                    android:id="@+id/qty_bought"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_weight="2"
+                                    android:enabled="false"
+                                    android:focusable="true"
+                                    android:focusableInTouchMode="true"
+                                    android:gravity="center"
+                                    android:inputType="number"
+                                    android:padding="@dimen/store_p_activity_vertical_margin"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/txtsize_16sp"
+                                    android:text="1">
+
+                                </EditText>
+
+                                <Button
+                                    android:id="@+id/refimage"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="4"
+                                    android:gravity="center"
+                                    android:text="Ref Image"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/txtsize_16sp"
+                                    android:layout_marginRight="2dp"
+                                    android:layout_marginLeft="2dp"
+                                    android:background="@color/colorPrimary"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="3dp"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
+
+                                <TextView
+                                    android:id="@+id/gg"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_weight="3"
+                                    android:gravity="center_vertical"
+                                    android:padding="@dimen/store_p_activity_vertical_margin"
+                                    android:text="Photo"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/txtsize_16sp"
+                                    android:textStyle="bold" />
+
+                                <ImageView
+                                    android:id="@+id/camera"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_weight="7"
+                                    android:onClick="onButtonClick"
+                                    android:src="@drawable/camera_ico"></ImageView>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/savebtnLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/padding_10dp"
+                            android:layout_marginBottom="@dimen/padding_10dp"
+                            android:weightSum="2">
+
+                            <Button
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginBottom="4dp"
+                                android:layout_weight="1.5"
+                                android:gravity="center_vertical"
+                                android:padding="@dimen/store_p_activity_vertical_margin"
+                                android:text="Save"
+                                android:textColor="@color/white"
+                                android:visibility="invisible" />
+
+                            <Button
+                                android:id="@+id/add_btn"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_gravity="center"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginBottom="4dp"
+                                android:layout_weight=".5"
+                                android:background="@color/colorPrimary"
+                                android:gravity="center"
+                                android:padding="@dimen/store_p_activity_vertical_margin"
+                                android:text="add"
+                                android:textSize="@dimen/txtsize_16sp"
+                                android:textColor="@color/white" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <LinearLayout
+                android:id="@+id/RL_headerS"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:orientation="horizontal"
+                android:weightSum="3.5">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:background="@color/colorPrimary"
+                    android:gravity="center"
+                    android:padding="@dimen/store_p_activity_vertical_margin"
+                    android:text="Brand "
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/txtsize_16sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:background="@color/colorPrimary"
+                    android:gravity="center"
+                    android:padding="@dimen/store_p_activity_vertical_margin"
+                    android:text="Display"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/txtsize_16sp"
+                    android:textStyle="bold" />
+
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:background="@color/colorPrimary"
+                    android:gravity="center"
+                    android:padding="@dimen/store_p_activity_vertical_margin"
+                    android:text="Quantity"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/txtsize_16sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight=".5"
+                    android:background="@color/colorPrimary"
+                    android:gravity="center"
+                    android:padding="@dimen/store_p_activity_vertical_margin"
+                    android:text="DLT"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/txtsize_16sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/additional_Recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"></android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

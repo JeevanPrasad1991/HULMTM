@@ -16,7 +16,7 @@
             android:layout_height="0dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:background="#ff9933"
+            android:background="@color/colorPrimary"
             android:padding="5sp"
             android:weightSum="15"
             android:layout_weight="1">

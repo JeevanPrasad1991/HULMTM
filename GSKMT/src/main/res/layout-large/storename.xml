@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:background="#ff9933"
+        android:background="@color/colorPrimary"
         android:padding="5sp" >
 
         <TextView
@@ -39,7 +39,7 @@
 	<ListView  android:id="@+id/list"
     		    android:layout_width="fill_parent"
     		    android:layout_height="wrap_content" 
-    			android:divider="#ff9933"
+    			android:divider="@color/colorPrimary"
     			 
     		    android:dividerHeight="4dp"
     	  		android:fastScrollEnabled="true"

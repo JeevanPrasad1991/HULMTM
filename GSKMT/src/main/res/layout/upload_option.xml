@@ -14,7 +14,7 @@
        
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-    android:background="#f26d20"
+    android:background="@color/colorPrimary"
         android:padding="5sp" >
 
         <TextView
@@ -48,11 +48,12 @@
             android:layout_width="200sp"
             android:layout_height="wrap_content"
             android:text="Upload Data"
-            android:textColor="#000000"
+            android:textColor="@color/white"
             android:textSize="15sp"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="20sp"
-            android:onClick="onButtonClick">
+            android:onClick="onButtonClick"
+            android:background="@color/colorPrimary">
         </Button>
 
         <Button
@@ -61,10 +62,11 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/upload_data"
             android:text="Upload Image"
-            android:textColor="#000000"
+            android:textColor="@color/white"
             android:textSize="15sp"
             android:layout_centerHorizontal="true"
-			android:onClick="onButtonClick">
+			android:onClick="onButtonClick"
+            android:background="@color/colorPrimary">
         </Button>
     </RelativeLayout>
 
