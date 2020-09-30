@@ -156,7 +156,9 @@ public class AfterStockActivity extends Activity implements OnClickListener {
 
 
         ////for target sos and ohc category............
+        db.open();
         if (db.getTargetOHCCategoryWise(store_id, category_id, process_id).size() > 0) {
+            db.open();
             tagetforohcCategoryList = db.getTargetOHCCategoryWise(store_id, category_id, process_id);
             if (tagetforohcCategoryList.size() > 0) {
                 if (!tagetforohcCategoryList.get(0).getTarget().get(0).equals("")) {
@@ -201,6 +203,7 @@ public class AfterStockActivity extends Activity implements OnClickListener {
             }
         }
 
+        db.open();
         coveragelist = db.getCoverageData(date, store_id, process_id);
         if (coveragelist.get(0).getImage_allow().equalsIgnoreCase("NOT Allowed")) {
             cam1.setEnabled(false);
@@ -221,9 +224,11 @@ public class AfterStockActivity extends Activity implements OnClickListener {
         str = Environment.getExternalStorageDirectory() + "/MT_GSK_Images/";
         imgDate = date.replace("/", "-");
         String pkd;
-        sku_brand_list = db.getAfterStockData2(store_id, category_id, state_id, store_type_id, process_id, key_id, class_id);
+        db.open();
+        sku_brand_list = db.getAfterStockData2(store_id, category_id, process_id);
         if (sku_brand_list.size() == 0) {
-            sku_brand_list = db.getBrandSkuList(category_id, store_id, process_id, state_id, store_type_id, key_id, class_id);
+            db.open();
+            sku_brand_list = db.getBrandSkuList(category_id, store_id, process_id);
         }
 
         if (paked_key.equalsIgnoreCase("n")) {
@@ -236,14 +241,15 @@ public class AfterStockActivity extends Activity implements OnClickListener {
         }
 
         if (sku_brand_list.size() == 0) {
-            sku_brand_list = db.getBrandSkuList(category_id, store_id, process_id, state_id, store_type_id, key_id, class_id);
+            db.open();
+            sku_brand_list = db.getBrandSkuList(category_id, store_id, process_id);
         } else {
             update = true;
             if (sku_brand_list.size() > 0) {
                 System.out.println("" + sku_brand_list.size());
                 adaptorfor_stock = new MyAdaptor(this, paked_key);
                 list_view_for_stock.setAdapter(adaptorfor_stock);
-
+                db.open();
                 stock_images_list = db.getStockImagesLIST(store_id, category_id, username, process_id);
                 if (stock_images_list.size() > 0) {
                     save.setText("UPDATE");
@@ -305,8 +311,10 @@ public class AfterStockActivity extends Activity implements OnClickListener {
                 lv2 = (ListView) dialog2.findViewById(R.id.listView2);
                 save2 = (Button) dialog2.findViewById(R.id.Save2);
                 cancel = (Button) dialog2.findViewById(R.id.cancel);
+                db.open();
                 sku_brand_list_second = db.getInsertedDisplayListAfterStock(category_id, store_id, process_id);
                 if (sku_brand_list_second.size() == 0) {
+                    db.open();
                     sku_brand_list_second = db.getDisplayListAfterStock(category_id, store_id, process_id);
                 }
 
@@ -352,6 +360,7 @@ public class AfterStockActivity extends Activity implements OnClickListener {
                                         if (conditionForPrimaryWindowsa()) {
                                             dialog2.dismiss();
                                         } else {
+                                            db.open();
                                             db.deleteQuestionList(sku_brand_list_second, store_id, category_id, process_id);
                                             dialog2.dismiss();
                                         }
@@ -380,14 +389,17 @@ public class AfterStockActivity extends Activity implements OnClickListener {
 
             @Override
             public void onClick(View v) {
+                db.open();
                 if (db.getPdrForSelfData(process_id, state_id, store_type_id, category_id, key_id).size() > 0) {
                     final Dialog dialog2 = new Dialog(AfterStockActivity.this, R.style.theme_sms_receive_dialog);
                     dialog2.setContentView(R.layout.dialog_shelf);
                     dialog2.setTitle("Shelf Visibility");
                     lv2 = (ListView) dialog2.findViewById(R.id.listView2);
                     save2 = (Button) dialog2.findViewById(R.id.Save2);
+                    db.open();
                     shelf_list = db.getInsertedShelfData(store_id, category_id, process_id, store_type_id);
                     if (shelf_list.size() == 0) {
+                        db.open();
                         shelf_list = db.getPdrForSelfData(process_id, state_id, store_type_id, category_id, key_id);
                     } else {
                         update1 = true;
@@ -415,9 +427,11 @@ public class AfterStockActivity extends Activity implements OnClickListener {
                                         new DialogInterface.OnClickListener() {
                                             public void onClick(DialogInterface dialog1, int id) {
                                                 if (update1) {
+                                                    db.open();
                                                     db.updateShelWithStockfData(shelf_list, store_id, process_id, store_type_id);
                                                     dialog2.dismiss();
                                                 } else {
+                                                    db.open();
                                                     db.SaveShelfStockData(shelf_list, process_id, store_type_id, category_id, store_id);
                                                     dialog2.dismiss();
                                                 }
@@ -1116,6 +1130,7 @@ public class AfterStockActivity extends Activity implements OnClickListener {
                 error_msg = "Select exist spinner";
                 break;
             } else if (sku_brand_list_second.get(i).getExist() == 1) {
+                db.open();
                 question_list = db.getInsertedQuestionsData(store_id, sku_brand_list_second.get(i).getDisplay_id(),
                         category_id, process_id);
 
@@ -1145,9 +1160,11 @@ public class AfterStockActivity extends Activity implements OnClickListener {
 
     public boolean conditionForPrimaryWindowsa() {
         boolean result = true;
+        db.open();
         sku_brand_list_second = db.getInsertedDisplayListAfterStock(category_id, store_id, process_id);
         for (int i = 0; i < sku_brand_list_second.size(); i++) {
             if (sku_brand_list_second.get(i).getYesNo().equalsIgnoreCase("NO")) {
+                db.open();
                 question_list = db.getInsertedQuestionsData(store_id, sku_brand_list_second.get(i).getDisplay_id(), category_id, process_id);
                 if (question_list.size() > 0) {
                     result = false;
@@ -1234,8 +1251,10 @@ public class AfterStockActivity extends Activity implements OnClickListener {
 
     public boolean validate_primaryWindowsData() {
         boolean result = true;
+        db.open();
         sku_brand_list_second = db.getDisplayListAfterStock(category_id, store_id, process_id);
         if (sku_brand_list_second.size() > 0) {
+            db.open();
             sku_brand_list_second = db.getInsertedDisplayListAfterStock(category_id, store_id, process_id);
             if (!(sku_brand_list_second.size() > 0)) {
                 result = false;
@@ -1250,8 +1269,10 @@ public class AfterStockActivity extends Activity implements OnClickListener {
     public boolean validate_ShelfVisibilityData() {
         boolean result = true;
         // if (category_id.equalsIgnoreCase("2")) {
+        db.open();
         shelf_list = db.getPdrForSelfData(process_id, state_id, store_type_id, category_id, key_id);
         if (shelf_list.size() > 0) {
+            db.open();
             shelf_list = db.getInsertedShelfData(store_id, category_id, process_id, store_type_id);
             if (!(shelf_list.size() > 0)) {
                 result = false;
@@ -1301,7 +1322,9 @@ public class AfterStockActivity extends Activity implements OnClickListener {
                                             builder.setMessage("Are you sure you want to save").setCancelable(false).setPositiveButton("Yes",
                                                     new DialogInterface.OnClickListener() {
                                                         public void onClick(DialogInterface dialog, int id) {
+                                                            db.open();
                                                             db.InsertBeforerStockData(store_id, sku_brand_list, username, category_id, process_id);
+                                                            db.open();
                                                             db.InsertBeforeStockImagese(store_id, category_id, image1, image2, image3, image4, username, process_id);
                                                             Intent in = new Intent(AfterStockActivity.this, DailyEntryMainMenu.class);
                                                             startActivity(in);
@@ -1319,6 +1342,7 @@ public class AfterStockActivity extends Activity implements OnClickListener {
                                             Toast.makeText(getBaseContext(), "Please fill questions in primary category ", Toast.LENGTH_LONG).show();
                                         }
                                     } else {
+                                        db.open();
                                         sku_brand_list_second = db.getDisplayListAfterStock(category_id, store_id, process_id);
                                         Toast.makeText(getBaseContext(), "Please fill Primary window ", Toast.LENGTH_LONG).show();
                                     }
@@ -1348,6 +1372,7 @@ public class AfterStockActivity extends Activity implements OnClickListener {
             builder.setMessage("Are you sure you want to save").setCancelable(false).setPositiveButton("Yes",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
+                            db.open();
                             db.SaveData(sku_brand_list_second, category_id, store_id, process_id);
 
                         }
@@ -1544,8 +1569,10 @@ public class AfterStockActivity extends Activity implements OnClickListener {
                 holder.gaps.setOnClickListener(new OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        db.open();
                         question_list = db.getInsertedQuestionsData(store_id, sku_brand_list_second.get(position).getDisplay_id(), category_id, process_id);
                         if (question_list.size() == 0) {
+                            db.open();
                             question_list = db.getQuestionsData(sku_brand_list_second.get(position).getDisplay_id());
                         }
                         primary_windowIssues = "YES";
@@ -1563,6 +1590,7 @@ public class AfterStockActivity extends Activity implements OnClickListener {
 
                             @Override
                             public void onClick(View v) {
+                                db.open();
                                 db.InsertQuestionDataafterStock(question_list, sku_brand_list_second.get(position).getDisplay_id(), store_id, category_id, sku_brand_list_second.get(position).getUID(), process_id);
                                 dialog.dismiss();
 

@@ -120,7 +120,7 @@ public class NonWorkingActivity extends Activity implements OnItemSelectedListen
                 }
             }
         }
-
+        db.open();
         reasonData = db.getNonWorkingReason(upload_status);
         for (int i = 0; i < reasonData.size(); i++) {
             if (reasonData.get(i).getReason().equalsIgnoreCase("pjp deviation")) {

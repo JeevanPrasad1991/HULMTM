@@ -69,6 +69,7 @@ public class TOTstock_Activity extends Activity implements OnItemSelectedListene
 
         unique_id = getIntent().getStringExtra("UniqueId");
         display_id = getIntent().getStringExtra("DisplayId");
+        db.open();
         brand_list = db.getBrandList(category_id);
         brandAdaptor = new ArrayAdapter<CharSequence>(TOTstock_Activity.this, android.R.layout.simple_spinner_item);
         skuAdaptor = new ArrayAdapter<CharSequence>(TOTstock_Activity.this, android.R.layout.simple_spinner_item);
@@ -83,7 +84,7 @@ public class TOTstock_Activity extends Activity implements OnItemSelectedListene
         brand.setOnItemSelectedListener(this);
         sku.setOnItemSelectedListener(this);
 
-
+        db.open();
         list = db.getTOTStockEntryDetail(store_id, category_id, process_id, display_id, unique_id);
 
         if (list.size() > 0) {
@@ -117,6 +118,7 @@ public class TOTstock_Activity extends Activity implements OnItemSelectedListene
                         brand.setSelection(0);
                         sku.setSelection(0);
                         quantity.setText("");
+                        db.open();
                         list = db.getTOTStockEntryDetail(store_id, category_id, process_id, display_id, unique_id);
                         adapterData = new MyAdaptor(TOTstock_Activity.this, list);
                         listview.setAdapter(adapterData);

@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.gsk_mtt"
     android:targetSandboxVersion="2"
-    android:versionCode="49"
-    android:versionName="5.2" >
+    android:versionCode="51"
+    android:versionName="5.4" >
 
     <uses-sdk
         android:minSdkVersion="16"

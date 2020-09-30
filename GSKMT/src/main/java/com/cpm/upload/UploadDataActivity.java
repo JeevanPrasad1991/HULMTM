@@ -234,6 +234,7 @@ public class UploadDataActivity extends Activity {
                             if (validity.equalsIgnoreCase(CommonString.KEY_SUCCESS)) {
                                 database.open();
                                 database.updateCoverageStatus(coverageBeanlist.get(i).getStoreId(), CommonString.KEY_P, coverageBeanlist.get(i).getProcess_id());
+                                database.open();
                                 database.updateStoreStatusOnLeave(coverageBeanlist.get(i).getStoreId(), visit_date, CommonString.KEY_P, coverageBeanlist.get(i).getProcess_id());
                             } else {
                                 if (result.toString().equalsIgnoreCase(CommonString.KEY_FALSE)) {

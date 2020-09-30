@@ -139,7 +139,7 @@ public class CompetitionPromotionActivity extends Activity implements AdapterVie
         db = new GSKMTDatabase(context);
         db.open();
         str = Environment.getExternalStorageDirectory() + "/MT_GSK_Images/";
-
+        db.open();
         competitionList = db.getcomptitiondataforpromotion(category_id);
         competitionAdapter = new ArrayAdapter<CharSequence>(context, R.layout.spinner_custom_item);
         competitionAdapter.setDropDownViewResource(R.layout.spinner_custom_item);
@@ -224,7 +224,7 @@ public class CompetitionPromotionActivity extends Activity implements AdapterVie
                 if (position != 0) {
                     competition_id = competitionList.get(position - 1).getCompany_id().get(0);
                     competition_name = competitionList.get(position - 1).getCompany().get(0);
-
+                    db.open();
                     brand_list = db.getbrandListByCompanyId(competition_id, category_id);
                     if (brand_list.size() > 0) {
                         rl_brandLayout.setVisibility(View.VISIBLE);
@@ -256,6 +256,7 @@ public class CompetitionPromotionActivity extends Activity implements AdapterVie
                 if (position != 0) {
                     brand_name = brand_list.get(position - 1).getBrand().get(0);
                     brand_id = brand_list.get(position - 1).getBrand_id().get(0);
+                    db.open();
                     competi_segmentList = db.getSegmentListByBrandId(brand_id, category_id);
                     if (competi_segmentList.size() > 0) {
                         rl_skusegmentLayout.setVisibility(View.VISIBLE);
@@ -284,6 +285,7 @@ public class CompetitionPromotionActivity extends Activity implements AdapterVie
                 if (position != 0) {
                     segment_Id = competi_segmentList.get(position - 1).getComp_segment_Id();
                     segment = competi_segmentList.get(position - 1).getComp_segment();
+                    db.open();
                     sku_Listwithprice = db.getSkuListByBrandId(brand_id, category_id, segment_Id);
                     if (sku_Listwithprice.size() > 0) {
                         rl_skuLayout.setVisibility(View.VISIBLE);
@@ -582,6 +584,7 @@ public class CompetitionPromotionActivity extends Activity implements AdapterVie
                         builder.setMessage("Are you sure you want to Delete").setCancelable(false).setPositiveButton("Yes",
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
+                                        db.open();
                                         db.deleteCompetitionPromotion(list.get(position).getKey_id());
                                         list.remove(position);
                                         notifyDataSetChanged();
@@ -649,6 +652,7 @@ public class CompetitionPromotionActivity extends Activity implements AdapterVie
 
 
     public void setcompetitionpromotionDats() {
+        db.open();
         compltCompetitionList = db.getcompetitionPromotionfromDatabase(store_id, category_id, process_id);
         if (compltCompetitionList.size() > 0) {
             competitionPRecycler.setAdapter(new MyAdaptor(context, compltCompetitionList));

@@ -123,6 +123,7 @@ public class BeforeAdditionalDisplay extends Activity implements OnClickListener
                 s = toggle.getText().toString();
                 if (s.equalsIgnoreCase("YES")) {
                     if (list.size() > 0 && list.get(0).getYesorno().equalsIgnoreCase("NO")) {
+                        db.open();
                         db.deleteProductEntryData(store_id, process_id, category_id);
                         list.clear();
                     }
@@ -162,6 +163,7 @@ public class BeforeAdditionalDisplay extends Activity implements OnClickListener
 
 
         str = Environment.getExternalStorageDirectory() + "/MT_GSK_Images/";
+        db.open();
         brand_list = db.getBrandList(category_id);
         brandAdaptor = new ArrayAdapter<CharSequence>(BeforeAdditionalDisplay.this, R.layout.spinner_custom_item);
         brandAdaptor.setDropDownViewResource(R.layout.spinner_custom_item);
@@ -171,7 +173,7 @@ public class BeforeAdditionalDisplay extends Activity implements OnClickListener
         }
 
         brand.setAdapter(brandAdaptor);
-
+        db.open();
         display_list = db.getDisplayList(category_id, store_id, store_type_id, process_id);
         displayAdaptor = new ArrayAdapter<CharSequence>(BeforeAdditionalDisplay.this, R.layout.spinner_custom_item);
         displayAdaptor.setDropDownViewResource(R.layout.spinner_custom_item);
@@ -506,6 +508,7 @@ public class BeforeAdditionalDisplay extends Activity implements OnClickListener
                                 .setPositiveButton("Yes",
                                         new DialogInterface.OnClickListener() {
                                             public void onClick(DialogInterface dialog, int id) {
+                                                db.open();
                                                 db.deleteProductEntry(list.get(position).getKey_id());
                                                 list.remove(position);
                                                 notifyDataSetChanged();

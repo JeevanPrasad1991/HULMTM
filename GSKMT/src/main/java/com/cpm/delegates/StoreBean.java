@@ -25,6 +25,16 @@ public class StoreBean {
 
 	String COMP_ENABLE;
 
+	public String getSale_enableFlag() {
+		return sale_enableFlag;
+	}
+
+	public void setSale_enableFlag(String sale_enableFlag) {
+		this.sale_enableFlag = sale_enableFlag;
+	}
+
+	String sale_enableFlag;
+
 	public String getImage() {
 		return image;
 	}

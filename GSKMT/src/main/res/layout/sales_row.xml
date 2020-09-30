@@ -13,6 +13,7 @@
         android:gravity="center_vertical"
         android:padding="@dimen/store_p_activity_vertical_margin"
         android:text="Horlicks"
+        android:textSize="@dimen/txtsize_16sp"
         android:textColor="#000000" />
 
     <LinearLayout
@@ -28,7 +29,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_weight="5"
+            android:layout_weight="7"
             android:gravity="center_vertical"
             android:padding="@dimen/store_p_activity_vertical_margin"
             android:paddingLeft="5dp"
@@ -38,20 +39,18 @@
         <EditText
             android:id="@+id/editText2"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="5"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="3"
             android:gravity="center"
-            android:hint="Qty"
+            android:hint="Sales"
             android:inputType="number"
             android:padding="@dimen/store_p_activity_vertical_margin"
-            android:text="5">
-
-        </EditText>
+            android:text=""
+            android:maxLength="4"
+            android:textSize="14sp"/>
 
     </LinearLayout>
-
-
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="0dp"
@@ -77,11 +76,9 @@
             android:layout_weight="5"
             android:paddingLeft="5dp"
             android:text=""
-
             android:textSize="20sp" />
 
         <EditText
-
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2.5"
@@ -153,9 +150,5 @@
             android:inputType="number"
             android:textSize="12sp"
             android:visibility="invisible" />
-
-
     </LinearLayout>
-
-
 </LinearLayout>

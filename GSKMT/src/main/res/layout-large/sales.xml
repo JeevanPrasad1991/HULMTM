@@ -61,13 +61,5 @@
         </RelativeLayout>
 
     </LinearLayout>
-
-    <com.cpm.DailyEntry.CustomKeyboardView
-        android:layout_height="wrap_content"
-        android:layout_width="fill_parent"
-        android:id="@+id/keyboard_view"
-        android:layout_alignParentBottom="true"
-        android:visibility="gone"/>
-
 </RelativeLayout>
 

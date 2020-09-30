@@ -217,6 +217,7 @@ public class MainMenuActivity extends Activity {
                             e.printStackTrace();
                         }
 
+                        db.open();
                         storelist = db.getJCP(date);
                         if (storelist.size() > 0) {
                             alertMessage("Do you want to download jcp again?", CompleteDownloadActivity.class);

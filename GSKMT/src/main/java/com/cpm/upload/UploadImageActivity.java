@@ -121,6 +121,7 @@ public class UploadImageActivity extends Activity {
             try {
                 database.open();
                 coverageBeanlist = database.getCoverageData(visit_date, null, null);
+                database.open();
                 geotaglist = database.getGeotaggingData(CommonString.KEY_D);
                 if (coverageBeanlist.size() > 0 || geotaglist.size() > 0) {
                     if (coverageBeanlist.size() == 1 && geotaglist.size() == 0) {

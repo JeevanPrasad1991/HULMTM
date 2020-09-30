@@ -127,9 +127,11 @@ public class StockwareHouse extends Activity implements OnClickListener {
 
         str = Environment.getExternalStorageDirectory() + "/MT_GSK_Images/";
         imgDate = date.replace("/", "-");
+        db.open();
         sku_brand_list = db.getBackRoomStock(store_id, category_id, process_id);
         if (sku_brand_list.size() == 0) {
-            sku_brand_list = db.getBrandSkuListBackroom(category_id, store_id, process_id, state_id, store_type_id, key_id, class_id);
+            db.open();
+            sku_brand_list = db.getBrandSkuListBackroom(category_id, store_id, process_id);
         } else {
             save.setText("Update");
             update = true;
@@ -317,6 +319,7 @@ public class StockwareHouse extends Activity implements OnClickListener {
                             public void onClick(DialogInterface dialog, int id) {
                                 if (update) {
                                     for (int i = 0; i < sku_brand_list.size(); i++) {
+                                        db.open();
                                         db.updateBackStoreData(store_id, category_id, process_id, sku_brand_list.get(i).getBackRoomStock(), sku_brand_list.get(i).getSku_id());
                                         Intent in = new Intent(StockwareHouse.this, DailyEntryMainMenu.class);
                                         startActivity(in);
@@ -325,6 +328,7 @@ public class StockwareHouse extends Activity implements OnClickListener {
                                     }
 
                                 } else {
+                                    db.open();
                                     db.InsertStockwareHouseData(store_id, sku_brand_list, username, category_id, process_id);
                                     Intent in = new Intent(StockwareHouse.this, DailyEntryMainMenu.class);
                                     startActivity(in);

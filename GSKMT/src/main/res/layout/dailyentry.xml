@@ -306,12 +306,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="30"
                 android:background="@drawable/sales"
-                android:visibility="gone" />
+                android:visibility="visible" />
 
             <ImageView
+                android:id="@+id/salstrackingsupportimg"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:visibility="gone"
+                android:visibility="visible"
                 android:layout_weight="10"></ImageView>
 
             <Button

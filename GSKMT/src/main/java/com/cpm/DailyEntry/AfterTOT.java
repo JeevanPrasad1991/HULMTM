@@ -13,7 +13,6 @@ import com.cpm.database.GSKMTDatabase;
 import com.cpm.delegates.SkuBean;
 import com.cpm.delegates.TOTBean;
 import com.cpm.message.AlertMessage;
-import com.cpm.xmlGetterSetter.StockMappingGetterSetter;
 import com.crashlytics.android.Crashlytics;
 import com.example.gsk_mtt.R;
 
@@ -127,6 +126,7 @@ public class AfterTOT extends Activity {
         }
         str = Environment.getExternalStorageDirectory() + "/MT_GSK_Images/";
         imgDate = date.replace("/", "-");
+        db.open();
         data = db.getInsertedAfterTOTData(store_id, category_id, process_id); //need to add_btn the process id
         if (data.size() == 0) {
             data = db.getTOTData(store_id, process_id, category_id);
@@ -209,7 +209,7 @@ public class AfterTOT extends Activity {
 
                                                         if (update) {
                                                             for (int i = 0; i < data.size(); i++) {
-
+                                                                db.open();
                                                                 db.updateAfterTOTData(store_id, data.get(i).getBrand_id(), data.get(i).getDisplay_id(),
                                                                         data.get(i).getAFTER_QTY(), data.get(i).getStock_count(), data.get(i).getImage1(),
                                                                         data.get(i).getImage2(), data.get(i).getImage3(), process_id);
@@ -220,6 +220,7 @@ public class AfterTOT extends Activity {
                                                             startActivity(i);
                                                             AfterTOT.this.finish();
                                                         } else {
+                                                            db.open();
                                                             db.InsertAfterTOTData(store_id, data, category_id, process_id);
                                                             Intent i = new Intent(getApplicationContext(), DailyEntryMainMenu.class);
                                                             startActivity(i);
@@ -347,6 +348,7 @@ public class AfterTOT extends Activity {
         boolean result = true;
 
         for (int i = 0; i < data.size(); i++) {
+            db.open();
             question_list = db.getInsertedTOTQuestionsData(store_id, data.get(i).getDisplay_id(), category_id, data.get(i).getUnique_id(), process_id);
             if (question_list.size() == 0) {
                 result = false;
@@ -364,6 +366,7 @@ public class AfterTOT extends Activity {
     public boolean check_conditionForSTOCK() {
         boolean result = true;
         for (int i = 0; i < data.size(); i++) {
+            db.open();
             stocklist = db.getTOTStockEntryDetail(store_id, category_id, process_id, data.get(i).getDisplay_id(),
                     data.get(i).getUnique_id());
             if (!data.get(i).getAFTER_QTY().equals("0")) {
@@ -517,9 +520,11 @@ public class AfterTOT extends Activity {
 
             if (data.get(position).getAFTER_QTY().equals("0")) {
                 ArrayList<TOTBean> totStocklist = new ArrayList<TOTBean>();
+                db.open();
                 totStocklist = db.getTOTStockEntryDetail(store_id, category_id, process_id, data.get(position).getDisplay_id(),
                         data.get(position).getUnique_id());
                 if (totStocklist.size() > 0) {
+                    db.open();
                     db.deleteTOTStockEntry(store_id, category_id, process_id, data.get(position).getDisplay_id(),
                             data.get(position).getUnique_id());
                 }
@@ -689,7 +694,7 @@ public class AfterTOT extends Activity {
                     quantity = (EditText) stockdialog.findViewById(R.id.qty_bought);
                     save_btnn = (Button) stockdialog.findViewById(R.id.add_btn);
                     listview = (ListView) stockdialog.findViewById(R.id.lv);
-                    brand_list = db.gettotBrandList(category_id, process_id, state_id, storetype_id, key_id, class_id);
+                    brand_list = db.gettotBrandList(category_id, process_id, store_id);
                     brandAdaptor = new ArrayAdapter<CharSequence>(mcontext, android.R.layout.simple_spinner_item);
                     brandAdaptor.add("- Select -");
 
@@ -709,7 +714,7 @@ public class AfterTOT extends Activity {
                             if (pos != 0 && brand_list.size() > 0) {
                                 brand_name = brand_list.get(pos - 1).getBrand();
                                 brand_id = brand_list.get(pos - 1).getBrand_id();
-                                sku_list = db.getSKUList(category_id, brand_id, process_id, state_id, storetype_id, key_id, class_id);
+                                sku_list = db.getSKUList(category_id, brand_id, process_id, store_id);
                                 if (sku_list.size() > 0) {
                                     skuAdaptor = new ArrayAdapter<CharSequence>(mcontext, android.R.layout.simple_spinner_item);
                                     skuAdaptor.add("- Select -");
@@ -751,7 +756,7 @@ public class AfterTOT extends Activity {
 
                         }
                     });
-
+                    db.open();
                     list = db.getTOTStockEntryDetail(store_id, category_id, process_id, data.get(position).getDisplay_id(), data.get(position).getUnique_id());
                     if (list.size() > 0) {
                         adapterData = new MyAdaptorStock(AfterTOT.this, list);
@@ -785,6 +790,7 @@ public class AfterTOT extends Activity {
                                         brand.setSelection(0);
                                         sku.setSelection(0);
                                         quantity.setText("");
+                                        db.open();
                                         list = db.getTOTStockEntryDetail(store_id, category_id, process_id,
                                                 data.get(position).getDisplay_id(), data.get(position).getUnique_id());
                                         adapterData = new MyAdaptorStock(AfterTOT.this, list);
@@ -820,12 +826,13 @@ public class AfterTOT extends Activity {
                     dialog.setTitle("Gap Reasons");
                     ListView listofquestion = (ListView) dialog.findViewById(R.id.list_q);
                     Button save_q = (Button) dialog.findViewById(R.id.save_q);
-
+                    db.open();
                     question_list = db.getInsertedTOTQuestionsData(store_id,
                             data.get(position1).getDisplay_id(), category_id, data.get(position1).getUnique_id(), process_id);
 
                     if (question_list.size() == 0) {
                         update1 = false;
+                        db.open();
                         question_list = db.getQuestionsData(data.get(position1).getDisplay_id());
                         listofquestion.setAdapter(new questionAdaptor(AfterTOT.this));
                     } else {
@@ -847,12 +854,14 @@ public class AfterTOT extends Activity {
                         public void onClick(View v) {
                             if (update1) {
                                 for (int i = 0; i < question_list.size(); i++) {
+                                    db.open();
                                     db.updateGapsData(store_id, category_id, question_list.get(i).getDisplay_id(),
                                             question_list.get(i).getQuestion_id(), question_list.get(i).getAnswer(),
                                             data.get(position1).getUnique_id(), process_id);
                                     dialog.dismiss();
                                 }
                             } else {
+                                db.open();
                                 db.InsertQuestionData(question_list, data.get(position1).getDisplay_id(), store_id
                                         , category_id, data.get(position1).getUnique_id(), process_id);
                                 dialog.dismiss();
@@ -1094,11 +1103,11 @@ public class AfterTOT extends Activity {
                                 public void onClick(DialogInterface dialog, int id) {
                                     // if this button is clicked, close
                                     // current activity
-
+                                    db.open();
                                     db.deleteTOTStockEntry(list.get(position1).getKEY_ID());
 
                                     adapterData.notifyDataSetChanged();
-
+                                    db.open();
                                     list = db.getTOTStockEntryDetail(store_id, category_id, process_id,
                                             list.get(position1).getDisplay_id(), list.get(position1).getUnique_id());
                                     listview.setAdapter(new MyAdaptorStock(AfterTOT.this, list));
@@ -1152,6 +1161,7 @@ public class AfterTOT extends Activity {
 
     public boolean validateduplicateEntry(String display_id, String unique_id) {
         boolean result = true;
+        db.open();
         list = db.getTOTStockEntryDetailFORVAlidation(store_id, category_id, process_id,
                 display_id, unique_id, brand_id, sku_id);
 

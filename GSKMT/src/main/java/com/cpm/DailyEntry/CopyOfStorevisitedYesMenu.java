@@ -8,7 +8,6 @@ import com.cpm.database.GSKMTDatabase;
 import com.cpm.delegates.PromotionBean;
 import com.cpm.delegates.SkuBean;
 import com.cpm.delegates.TOTBean;
-import com.cpm.xmlGetterSetter.SKUGetterSetter;
 import com.example.gsk_mtt.R;
 
 import android.app.Activity;
@@ -31,7 +30,7 @@ public class CopyOfStorevisitedYesMenu extends Activity {
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor = null;
     GSKMTDatabase db;
-    String date, process_id, store_id, state_id, key_id, class_id, COMPETITION_PROMOTION_flag;
+    String date, process_id, store_id, state_id, key_id, class_id, COMPETITION_PROMOTION_flag, saleenable_flag = "";
     ArrayList<SkuBean> category_list;
     ListView lv;
     GridView gv;
@@ -49,7 +48,7 @@ public class CopyOfStorevisitedYesMenu extends Activity {
     boolean before_tot = true, after_tot = true;
     boolean flagpromo = true;
     boolean flagTOT = true;
-    boolean competition_promoFLAG = false;
+    boolean competition_promoFLAG = false, sales_flag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,25 +63,47 @@ public class CopyOfStorevisitedYesMenu extends Activity {
         store_id = preferences.getString(CommonString.KEY_STORE_ID, null);
         ///change by jeevan RAna
         COMPETITION_PROMOTION_flag = preferences.getString(CommonString.KEY_COMPETITION_PROMOTION, null);
+        saleenable_flag = preferences.getString(CommonString.KEY_SALEENABLE_FLAG, "");
         state_id = preferences.getString(CommonString.KEY_STATE_ID, null);
         key_id = preferences.getString(CommonString.KEY_ID, null);
         class_id = preferences.getString(CommonString.KEY_CLASS_ID, null);
-        category_list = db.getCategoryList(process_id, key_id, state_id, class_id);
+        category_list = db.getCategoryList(process_id, store_id);
         key_id = preferences.getString(CommonString.KEY_ID, null);
-
 
         for (int i = 0; i < category_list.size(); i++) {
             ///comptiitionTacking
+            db.open();
             comptitionTrackingList = db.getEnteredCompetitionDetail(store_id, category_list.get(i).getCategory_id(), process_id);
+            db.open();
             afterStockData = db.getAfterStockData(store_id, category_list.get(i).getCategory_id(), process_id);
+            db.open();
             additionaldata = db.getProductEntryDetail(store_id, category_list.get(i).getCategory_id(), process_id);
+            db.open();
             mappingPromotion = db.getPromoComplianceData(key_id, process_id, category_list.get(i).getCategory_id());
-
+            db.open();
+            salesData = db.getSalesStockData(store_id, category_list.get(i).getCategory_id(), process_id);
+            if (saleenable_flag != null && !saleenable_flag.equals("") && saleenable_flag.equals("1") && category_list.get(i).getShowsalesflag() != null
+                    && category_list.get(i).getShowsalesflag().equals("1") && category_list.get(i).getShowsalesflag()!=null
+                    &&category_list.get(i).getShowsalesflag().equals("1")) {
+                if (db.getBrandSkuListForSales(category_list.get(i).getCategory_id(), store_id, process_id).size() > 0) {
+                    if (salesData.size() > 0) {
+                        sales_flag = true;
+                    } else {
+                        sales_flag = false;
+                    }
+                } else {
+                    sales_flag = true;
+                }
+            } else {
+                sales_flag = true;
+            }
 
 ///for cometition promotion flagwise
             if (category_list.get(i).getCategory_id().equals("1") || category_list.get(i).getCategory_id().equals("3")) {
                 if (COMPETITION_PROMOTION_flag != null && COMPETITION_PROMOTION_flag.equalsIgnoreCase("Y")) {
+                    db.open();
                     if (db.getcomptitiondataforpromotion(category_list.get(i).getCategory_id()).size() > 0) {
+                        db.open();
                         if (db.getcompetitionPromotionfromDatabase(store_id, category_list.get(i).getCategory_id(), process_id).size() > 0) {
                             competition_promoFLAG = true;
                         } else {
@@ -101,6 +122,7 @@ public class CopyOfStorevisitedYesMenu extends Activity {
 
             ///for promotion condition
             if (mappingPromotion.size() > 0) {
+                db.open();
                 promotionlist = db.getInsertedPromoCompliance(store_id, category_list.get(i).getCategory_id(), process_id);
                 if (promotionlist.size() > 0) {
                     flagpromo = true;
@@ -113,8 +135,10 @@ public class CopyOfStorevisitedYesMenu extends Activity {
 
 
             //fot tot condition
+            db.open();
             TOTdata = db.getTOTData(store_id, process_id, category_list.get(i).getCategory_id());
             if (TOTdata.size() > 0) {
+                db.open();
                 TOTInsertdata = db.getInsertedAfterTOTData(store_id, category_list.get(i).getCategory_id(), process_id);
                 if (TOTInsertdata.size() > 0) {
                     flagTOT = true;
@@ -125,10 +149,10 @@ public class CopyOfStorevisitedYesMenu extends Activity {
                 flagTOT = true;
             }
 
-
+            db.open();
             totMappingdata = db.getTOTData(store_id, process_id, category_list.get(i).getCategory_id());
-            salesData = db.getSalesStockData(store_id, category_list.get(i).getCategory_id(), process_id);
             if (totMappingdata.size() > 0) {
+                db.open();
                 aftertotData = db.getAfterTOTData(store_id, category_list.get(i).getCategory_id(), process_id);
                 if (aftertotData.size() > 0) {
                     before_tot = true;
@@ -141,7 +165,7 @@ public class CopyOfStorevisitedYesMenu extends Activity {
 
             if (process_id.equals("2")) {
                 if (totMappingdata.size() > 0) {
-                    if (afterStockData.size() > 0 && additionaldata.size() > 0 && flagpromo && flagTOT && comptitionTrackingList.size() > 0 && competition_promoFLAG) {
+                    if (afterStockData.size() > 0 && additionaldata.size() > 0 && flagpromo && flagTOT && comptitionTrackingList.size() > 0 && competition_promoFLAG && sales_flag) {
                         if (category_list.get(i).getCategory_id().equals("1"))
                             cat_HFD = true;
                         if (category_list.get(i).getCategory_id().equals("2"))
@@ -161,8 +185,7 @@ public class CopyOfStorevisitedYesMenu extends Activity {
                             flagOUTS = false;
                     }
                 } else {
-
-                    if (afterStockData.size() > 0 && additionaldata.size() > 0 && flagpromo && flagTOT && comptitionTrackingList.size() > 0 && competition_promoFLAG) {
+                    if (afterStockData.size() > 0 && additionaldata.size() > 0 && flagpromo && flagTOT && comptitionTrackingList.size() > 0 && competition_promoFLAG && sales_flag) {
                         if (category_list.get(i).getCategory_id().equals("1"))
                             cat_HFD = true;
                         if (category_list.get(i).getCategory_id().equals("2"))
@@ -181,12 +204,11 @@ public class CopyOfStorevisitedYesMenu extends Activity {
                         if (category_list.get(i).getCategory_id().equals("6"))
                             flagOUTS = false;
                     }
-
                 }
 
             } else {
                 if (totMappingdata.size() > 0) {
-                    if (afterStockData.size() > 0 && additionaldata.size() > 0 && flagpromo && flagTOT && comptitionTrackingList.size() > 0 && competition_promoFLAG) {
+                    if (afterStockData.size() > 0 && additionaldata.size() > 0 && flagpromo && flagTOT && comptitionTrackingList.size() > 0 && competition_promoFLAG && sales_flag) {
                         if (category_list.get(i).getCategory_id().equals("1"))
                             cat_HFD = true;
                         if (category_list.get(i).getCategory_id().equals("2"))
@@ -197,7 +219,7 @@ public class CopyOfStorevisitedYesMenu extends Activity {
                             flagOUTS = true;
                     }
                 } else {
-                    if (afterStockData.size() > 0 && additionaldata.size() > 0 && flagpromo && flagTOT && comptitionTrackingList.size() > 0 && competition_promoFLAG) {
+                    if (afterStockData.size() > 0 && additionaldata.size() > 0 && flagpromo && flagTOT && comptitionTrackingList.size() > 0 && competition_promoFLAG && sales_flag) {
                         if (category_list.get(i).getCategory_id().equals("1"))
                             cat_HFD = true;
                         if (category_list.get(i).getCategory_id().equals("2"))
@@ -262,6 +284,7 @@ public class CopyOfStorevisitedYesMenu extends Activity {
                 holder = (ViewHolder) convertView.getTag();
             }
 
+
             holder.CategoryName.setText(category_list.get(position).getCategory());
 
             if (category_list.get(position).getCategory_id().equals("2")) {
@@ -306,6 +329,7 @@ public class CopyOfStorevisitedYesMenu extends Activity {
                     editor = preferences.edit();
                     editor.putString(CommonString.KEY_CATEGORY_ID, category_list.get(position).getCategory_id());
                     editor.putString(CommonString.KEY_CATEGORY_NAME, category_list.get(position).getCategory());
+                    editor.putString(CommonString.KEY_CATEGORY_WISESALE_FLAG, category_list.get(position).getShowsalesflag());
                     editor.commit();
                     if (process_id.equals("3")) {
                         Intent in = new Intent(getBaseContext(), CategoryWisePerformance.class);

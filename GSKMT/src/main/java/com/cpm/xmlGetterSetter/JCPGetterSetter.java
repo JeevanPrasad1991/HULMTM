@@ -37,6 +37,16 @@ public class JCPGetterSetter {
 
 	ArrayList<String>COMP_ENABLE = new ArrayList<String>();
 
+	public ArrayList<String> getSaleEnable() {
+		return saleEnable;
+	}
+
+	public void setSaleEnable(String saleEnable) {
+		this.saleEnable.add(saleEnable);
+	}
+
+	ArrayList<String>saleEnable = new ArrayList<String>();
+
 	public ArrayList<String> getPACKED_KEY() {
 		return PACKED_KEY;
 	}

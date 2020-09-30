@@ -426,7 +426,9 @@ public class StoreInformationActivity extends Activity implements
                 data.setImage_allow(picStatus);
                 data.setStatus(CommonString.KEY_CHECK_IN);
                 data.setCHECKOUT_IMG("");
+                db.open();
                 db.InsertCoverage(data, store_id, date, process_id);
+                db.open();
                 db.updateStoreStatusOnLeave(store_id, date, CommonString.KEY_CHECK_IN, process_id);
                 Intent in = new Intent(StoreInformationActivity.this, CopyOfStorevisitedYesMenu.class);
                 startActivity(in);

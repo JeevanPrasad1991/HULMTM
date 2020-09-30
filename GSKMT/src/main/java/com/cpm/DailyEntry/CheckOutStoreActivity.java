@@ -242,8 +242,11 @@ public class CheckOutStoreActivity extends Activity implements GoogleApiClient.C
                     editor.commit();
                     db.open();
                     db.updateStoreStatusOnCheckout(store_id, visit_date, CommonString.KEY_C, process_id);
+                    db.open();
                     db.updateCoverageCheckoutIMAGE(store_id, image1, process_id);
+                    db.open();
                     db.updateCoverageStatus(store_id, CommonString.KEY_C, process_id);
+                    db.open();
                     db.updateOutTime(store_id, getCurrentTime());
                 } else {
                     if (result.toString().equalsIgnoreCase(CommonString.KEY_FALSE)) {

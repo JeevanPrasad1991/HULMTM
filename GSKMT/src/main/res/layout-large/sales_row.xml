@@ -13,7 +13,8 @@
           android:gravity="center_vertical"
           android:layout_gravity="center_vertical"
           android:padding="@dimen/padding_10dp"
-            android:textColor="#000000" />
+          android:textSize="@dimen/padding_18sp"
+            android:textColor="@color/colorPrimary" />
 
     <LinearLayout
     android:id="@+id/mainpage_header"
@@ -28,38 +29,27 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:paddingLeft="5dp"
-            android:layout_weight="5"
+            android:layout_weight="7"
             android:text=""
             android:gravity="center_vertical"
             android:layout_gravity="center_vertical"
             android:padding="@dimen/padding_10dp"
-            android:textSize="14sp" />
+            android:textSize="@dimen/txtsize_16sp" />
 
         <EditText
             android:id="@+id/editText2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="5"
+            android:layout_weight="3"
              android:gravity="center"
-            android:hint="Qty"
-            android:text="5"
-            android:layout_gravity="center_vertical"
+            android:hint="Sale"
+            android:text=""
+            android:maxLength="4"
+            android:layout_gravity="center"
             android:padding="@dimen/padding_10dp"
             android:inputType="number" >
 
         </EditText>
-
-        <!-- <EditText
-            android:id="@+id/editText1"
-            android:layout_width="0dp"
-             android:gravity="center"
-            android:hint="faceup"
-            android:text="4"
-            android:layout_height="match_parent"
-            android:layout_weight="2.5"
-            android:ems="3"
-            android:inputType="number" /> -->
-
    </LinearLayout>
    
     
