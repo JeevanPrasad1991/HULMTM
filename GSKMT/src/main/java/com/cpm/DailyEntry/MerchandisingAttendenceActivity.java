@@ -88,6 +88,7 @@ public class MerchandisingAttendenceActivity extends Activity
         db = new GSKMTDatabase(this);
         db.open();
         storelist = db.getStoreData(date);
+        db.open();
         nonworkingAttendenceList = db.getNonWoATTENDENCEData();
         if (nonworkingAttendenceList.size() > 0) {
             reason_adapter = new ArrayAdapter<>(this, R.layout.spinner_text_view);

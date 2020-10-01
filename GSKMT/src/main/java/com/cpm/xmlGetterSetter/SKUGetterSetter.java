@@ -4,6 +4,15 @@ import java.util.ArrayList;
 
 
 public class SKUGetterSetter {
+    ArrayList<String>showforsalesflag=new ArrayList<>();
+
+    public ArrayList<String> getShowforsalesflag() {
+        return showforsalesflag;
+    }
+
+    public void setShowforsalesflag(String showforsalesflag) {
+        this.showforsalesflag.add(showforsalesflag);
+    }
 
     public ArrayList<String> getSku_id() {
         return sku_id;

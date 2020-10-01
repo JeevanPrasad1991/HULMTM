@@ -88,6 +88,7 @@ public class StoreVisitedActivity extends Activity {
                                                     editor.putString(CommonString.KEY_STOREVISITED, store_id);
                                                     editor.putString(CommonString.KEY_STOREVISITED_STATUS, "yes");
                                                     editor.commit();
+                                                    db.open();
                                                     UpdateData(user_id, store_id, date, "I");
                                                 } else {
                                                     showToast("No Internet Available");
@@ -170,6 +171,7 @@ public class StoreVisitedActivity extends Activity {
                                                     editor.putString(CommonString.KEY_LATITUDE, "");
                                                     editor.putString(CommonString.KEY_LONGITUDE, "");
                                                     editor.commit();
+                                                    db.open();
                                                     UpdateData(user_id, store_id, date, "N");
                                                 } else {
                                                     showToast("No Internet Available");
@@ -196,6 +198,7 @@ public class StoreVisitedActivity extends Activity {
                     editor.putString(CommonString.KEY_LATITUDE, "");
                     editor.putString(CommonString.KEY_LONGITUDE, "");
                     editor.commit();
+                    db.open();
                     db.updateStoreStatusOnLeave(store_id, date, CommonString.KEY_N, process_id);
                     Intent in = new Intent(StoreVisitedActivity.this, NonWorkingActivity.class);
                     startActivity(in);
@@ -301,6 +304,7 @@ public class StoreVisitedActivity extends Activity {
                 if (result1.toString().equalsIgnoreCase(CommonString.KEY_SUCCESS)) {
                     db.open();
                     db.deleteAllTables(store_id, process_id);
+                    db.open();
                     db.updateStoreStatusOnLeave(store_id, date, CommonString.KEY_N, process_id);
                     return CommonString.KEY_SUCCESS;
                 } else {

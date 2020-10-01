@@ -19,17 +19,19 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class DailyEntryMainMenu extends Activity {
 
     public Button after_stock,
-            after_tot, before_add, after_add, addtional_info_before, comptitionfor_promotion,
+            after_tot, addtional_info_before, comptitionfor_promotion,
             promo_compliance, comp, backroom_stock, sales;
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor = null;
-    String store_id, category_id, date, process_id, key_id, cat_name, COMPETITION_PROMOTION_flag;
+    String store_id, category_id, date, process_id, key_id, cat_name, COMPETITION_PROMOTION_flag, saleenable_flag = "", categorywise_salesflag = "";
     TextView category_name;
+    ImageView salstrackingsupportimg;
     GSKMTDatabase db;
     ArrayList<SkuBean> beforeAddtionalData, afterStockData, sos_target_list, entered_comp_data, backRoomStockData;
     ArrayList<TOTBean> afterTOTData, totstockdata;
@@ -51,6 +53,7 @@ public class DailyEntryMainMenu extends Activity {
         category_name = (TextView) findViewById(R.id.cat_name);
         comp = (Button) findViewById(R.id.competitionTracking);
         sales = (Button) findViewById(R.id.salesTracking);
+        salstrackingsupportimg = (ImageView) findViewById(R.id.salstrackingsupportimg);
         backroom_stock = (Button) findViewById(R.id.backroom_stock);
         after_sos = (TextView) findViewById(R.id.sos_after);
         ///new Add 11/september
@@ -62,6 +65,8 @@ public class DailyEntryMainMenu extends Activity {
         cat_name = preferences.getString(CommonString.KEY_CATEGORY_NAME, null);
         process_id = preferences.getString(CommonString.KEY_PROCESS_ID, null);
         COMPETITION_PROMOTION_flag = preferences.getString(CommonString.KEY_COMPETITION_PROMOTION, null);
+        saleenable_flag = preferences.getString(CommonString.KEY_SALEENABLE_FLAG, "");
+        categorywise_salesflag = preferences.getString(CommonString.KEY_CATEGORY_WISESALE_FLAG, "");
         key_id = preferences.getString(CommonString.KEY_ID, null);
         beforeAddtionalData = new ArrayList<SkuBean>();
         afterTOTData = new ArrayList<TOTBean>();
@@ -74,26 +79,49 @@ public class DailyEntryMainMenu extends Activity {
         db = new GSKMTDatabase(DailyEntryMainMenu.this);
         db.open();
         category_name.setText(cat_name);
+        db.open();
         afterStockData = db.getAfterStockData(store_id, category_id, process_id);
+        db.open();
         backRoomStockData = db.getBackRoomStock(store_id, category_id, process_id);
+        db.open();
         salesData = db.getSalesStockData(store_id, category_id, process_id);
-        sales.setVisibility(View.GONE);
-        sales.setEnabled(false);
+        if (saleenable_flag != null && !saleenable_flag.equals("") && saleenable_flag.equals("1") && categorywise_salesflag != null
+                && !categorywise_salesflag.equals("") && categorywise_salesflag.equals("1")) {
+            sales.setVisibility(View.VISIBLE);
+            sales.setEnabled(true);
 
-        if (salesData.size() > 0) {
-            sales.setBackgroundResource(R.drawable.sales_tick);
+            salstrackingsupportimg.setVisibility(View.VISIBLE);
+            salstrackingsupportimg.setEnabled(true);
         } else {
-            sales.setBackgroundResource(R.drawable.sales);
+            sales.setVisibility(View.GONE);
+            sales.setEnabled(false);
+            salstrackingsupportimg.setVisibility(View.GONE);
+            salstrackingsupportimg.setEnabled(false);
         }
+
+        if (db.getBrandSkuListForSales(category_id, store_id, process_id).size() > 0) {
+            if (salesData.size() > 0) {
+                sales.setBackgroundResource(R.drawable.sales_tick);
+            } else {
+                sales.setBackgroundResource(R.drawable.sales);
+            }
+        } else {
+            sales.setBackgroundResource(R.drawable.sales_grey);
+        }
+
 
         for (int i = 0; i < afterStockData.size(); i++) {
             afterStockQuantity = afterStockData.get(i).getAfter_Stock();
         }
-
+        db.open();
         beforeAddtionalData = db.getProductEntryDetail(store_id, category_id, process_id);
+        db.open();
         afterTOTData = db.getAfterTOTData(store_id, category_id, process_id);
+        db.open();
         promotionData = db.getInsertedPromoCompliances(store_id, category_id, process_id);
+        db.open();
         entered_comp_data = db.getEnteredCompetitionDetail(store_id, category_id, process_id);
+        db.open();
         sos_target_list = db.getSOSTarget(store_id, category_id, process_id);
 
         if (backRoomStockData.size() > 0) {
@@ -103,7 +131,9 @@ public class DailyEntryMainMenu extends Activity {
             backroom_stock.setBackgroundResource(R.drawable.backroom);
         }
 
+        db.open();
         mappingDataTOTCategoryWise = db.getTOTData(store_id, process_id, category_id);
+        db.open();
         mappingPromotion = db.getPromoComplianceData(key_id, process_id, category_id);
 
         if (!afterStockQuantity.equals("")) {
@@ -159,6 +189,7 @@ public class DailyEntryMainMenu extends Activity {
         }
 
         if (!afterStockQuantity.equals("")) {
+            db.open();
             TOTdata = db.getTOTData(store_id, process_id, category_id);
             if (TOTdata.size() > 0) {
                 after_tot.setEnabled(true);
@@ -208,7 +239,9 @@ public class DailyEntryMainMenu extends Activity {
             if (COMPETITION_PROMOTION_flag != null && COMPETITION_PROMOTION_flag.equalsIgnoreCase("Y")) {
                 comptitionfor_promotion.setEnabled(true);
                 comptitionfor_promotion.setVisibility(View.VISIBLE);
+                db.open();
                 if (db.getcomptitiondataforpromotion(category_id).size() > 0) {
+                    db.open();
                     if (db.getcompetitionPromotionfromDatabase(store_id, category_id, process_id).size() > 0) {
                         comptitionfor_promotion.setBackgroundResource(R.drawable.competition_promotion_done);
                     } else {

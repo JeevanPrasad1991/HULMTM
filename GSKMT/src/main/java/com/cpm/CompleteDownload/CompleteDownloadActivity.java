@@ -201,7 +201,6 @@ public class CompleteDownloadActivity extends Activity {
 
 
                 request = new SoapObject(CommonString.NAMESPACE, CommonString.METHOD_NAME_UNIVERSAL_DOWNLOAD);
-                // request.addProperty("UserName", "admin");
                 request.addProperty("UserName", user_name);
                 request.addProperty("Type", "SKUMASTER");
                 envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
@@ -212,7 +211,6 @@ public class CompleteDownloadActivity extends Activity {
                 result = (Object) envelope.getResponse();
                 if (result.toString().equalsIgnoreCase(CommonString.KEY_FALSE)) {
                     return CommonString.METHOD_NAME_UNIVERSAL_DOWNLOAD;
-
                 }
                 if (result.toString().equalsIgnoreCase(CommonString.KEY_NO_DATA)) {
                     return CommonString.METHOD_NAME_UNIVERSAL_DOWNLOAD;
@@ -226,7 +224,6 @@ public class CompleteDownloadActivity extends Activity {
                 if (failureGetterSetter.getStatus().equalsIgnoreCase(CommonString.KEY_FAILURE)) {
                     return CommonString.METHOD_NAME_UNIVERSAL_DOWNLOAD + "," + failureGetterSetter.getErrorMsg();
                 }
-
                 if (!result.toString().equalsIgnoreCase(CommonString.KEY_FALSE)) {
                     xpp.setInput(new StringReader(result.toString()));
                     xpp.next();
@@ -238,7 +235,6 @@ public class CompleteDownloadActivity extends Activity {
                     data.name = "Sku Master";
                     publishProgress(data);
                 }
-
 
                 // Brand - master list
                 request = new SoapObject(CommonString.NAMESPACE, CommonString.METHOD_NAME_UNIVERSAL_DOWNLOAD);
@@ -326,10 +322,10 @@ public class CompleteDownloadActivity extends Activity {
                     publishProgress(data);
                 }
 
-                // download STOCKMAPPING Mapping
+                ////for STOCK_MAPPING_STOREWISE
                 request = new SoapObject(CommonString.NAMESPACE, CommonString.METHOD_NAME_UNIVERSAL_DOWNLOAD);
                 request.addProperty("UserName", user_name);
-                request.addProperty("Type", "STOCK_MAPPING");
+                request.addProperty("Type", "STOCK_MAPPING_STOREWISE");
                 envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
                 envelope.dotNet = true;
                 envelope.setOutputSoapObject(request);
@@ -337,44 +333,33 @@ public class CompleteDownloadActivity extends Activity {
                 androidHttpTransport.call(CommonString.SOAP_ACTION_UNIVERSAL, envelope);
                 result = (Object) envelope.getResponse();
                 if (result.toString().equalsIgnoreCase(CommonString.KEY_FALSE)) {
-
+                    return CommonString.METHOD_NAME_UNIVERSAL_DOWNLOAD;
                 }
                 if (result.toString().equalsIgnoreCase(CommonString.KEY_NO_DATA)) {
-
-                }
-                if (result.toString().equalsIgnoreCase(CommonString.KEY_FAILURE)) {
-                    // for failure
-                    xpp.setInput(new StringReader(result.toString()));
-                    xpp.next();
-                    eventType = xpp.getEventType();
-                    failureGetterSetter = XMLHandlers.failureXMLHandler(xpp,
-                            eventType);
-
-                    if (failureGetterSetter.getStatus().equalsIgnoreCase(
-                            CommonString.KEY_FAILURE)) {
-                        return CommonString.METHOD_NAME_UNIVERSAL_DOWNLOAD + ","
-                                + failureGetterSetter.getErrorMsg();
-                    }
+                    return CommonString.METHOD_NAME_UNIVERSAL_DOWNLOAD;
                 }
 
-                if (!result.toString()
-                        .equalsIgnoreCase(CommonString.KEY_FALSE)) {
-                    //return CommonString.METHOD_NAME_JCP;
-
+                // for failure
+                xpp.setInput(new StringReader(result.toString()));
+                xpp.next();
+                eventType = xpp.getEventType();
+                failureGetterSetter = XMLHandlers.failureXMLHandler(xpp, eventType);
+                if (failureGetterSetter.getStatus().equalsIgnoreCase(CommonString.KEY_FAILURE)) {
+                    return CommonString.METHOD_NAME_UNIVERSAL_DOWNLOAD + "," + failureGetterSetter.getErrorMsg();
+                }
+                if (!result.toString().equalsIgnoreCase(CommonString.KEY_FALSE)) {
                     xpp.setInput(new StringReader(result.toString()));
                     xpp.next();
                     eventType = xpp.getEventType();
                     stockData = XMLHandlers.StockMappingXMLHandler(xpp, eventType);
-                    String stock_table = stockData.getMeta_data();
-                    TableBean.setStock_mapping_master_table(stock_table);
+                    TableBean.setStock_mapping_master_table(stockData.getStockmapping_table());
                     data.value = 30;
-                    data.name = "STOCK MAPPING Data";
+                    data.name = "Stock Mapping";
                     publishProgress(data);
                 }
 
 
                 // starting download for promotional master
-
                 request = new SoapObject(CommonString.NAMESPACE, CommonString.METHOD_NAME_UNIVERSAL_DOWNLOAD);
                 request.addProperty("UserName", user_name);
                 request.addProperty("Type", "DISPLAYMASTER_NEW_WITHPATH");
@@ -422,9 +407,6 @@ public class CompleteDownloadActivity extends Activity {
                         CommonString.METHOD_NAME_UNIVERSAL_DOWNLOAD);
 
                 request.addProperty("UserName", user_name);
-//				request.addProperty("Type","DTSMAPPING");
-
-                /*new Change*/
 
                 request.addProperty("Type", "TOT_MAPPING");
 

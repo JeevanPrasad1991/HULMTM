@@ -114,6 +114,7 @@ public class BeforeTOT extends Activity{
 		  str = Environment.getExternalStorageDirectory() + "/MT_GSK_Images/";
 		
 		imgDate = date.replace("/", "-");
+		db.open();
 		data = db.getTOTData(store_id, process_id, category_id);
 		
 		if (data.size()>0) {
@@ -124,7 +125,7 @@ public class BeforeTOT extends Activity{
 		} else {
 			
 		}
-		
+		db.open();
 		coveragelist = db.getCoverageData(date, store_id, process_id);
 
 		

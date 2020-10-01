@@ -106,7 +106,7 @@ public class CompetitionTracking extends Activity implements OnClickListener, Ad
         db = new GSKMTDatabase(CompetitionTracking.this);
         db.open();
         str = Environment.getExternalStorageDirectory() + "/MT_GSK_Images/";
-
+        db.open();
         brand_list = db.getCompetitionBrandList(category_id);
         display_list = db.getDisplayListForComp();
 
@@ -189,6 +189,7 @@ public class CompetitionTracking extends Activity implements OnClickListener, Ad
 
 
     public void setCompetitorPOIData() {
+        db.open();
         list = db.getEnteredCompetitionDetail(store_id, category_id, process_id);
         if (list.size() > 0) {
             if (list.get(0).isCompTExist() == true) {

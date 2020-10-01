@@ -560,6 +560,10 @@
         "source": "C:\\Users\\cpmin\\.gradle\\caches\\transforms-2\\files-2.1\\b9926cd230592debfd26e58c7dc27899\\res\\layout\\abc_screen_content_include.xml"
     },
     {
+        "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_sales_grey.png.flat",
+        "source": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\src\\main\\res\\drawable-mdpi\\sales_grey.png"
+    },
+    {
         "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_geotag_ico.png.flat",
         "source": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\src\\main\\res\\drawable-hdpi\\geotag_ico.png"
     },
@@ -2456,12 +2460,12 @@
         "source": "C:\\Users\\cpmin\\.gradle\\caches\\transforms-2\\files-2.1\\9069e68506944dd1f3782e8d2a418032\\res\\color\\mtrl_chip_text_color.xml"
     },
     {
-        "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\drawable_ic_mtrl_chip_close_circle.xml.flat",
-        "source": "C:\\Users\\cpmin\\.gradle\\caches\\transforms-2\\files-2.1\\9069e68506944dd1f3782e8d2a418032\\res\\drawable\\ic_mtrl_chip_close_circle.xml"
-    },
-    {
         "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_txt_box_bg.png.flat",
         "source": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\src\\main\\res\\drawable-hdpi\\txt_box_bg.png"
+    },
+    {
+        "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\drawable_ic_mtrl_chip_close_circle.xml.flat",
+        "source": "C:\\Users\\cpmin\\.gradle\\caches\\transforms-2\\files-2.1\\9069e68506944dd1f3782e8d2a418032\\res\\drawable\\ic_mtrl_chip_close_circle.xml"
     },
     {
         "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_ic_camera_front_white_24dp.png.flat",
@@ -3444,6 +3448,10 @@
         "source": "C:\\Users\\cpmin\\.gradle\\caches\\transforms-2\\files-2.1\\9069e68506944dd1f3782e8d2a418032\\res\\color\\mtrl_btn_ripple_color.xml"
     },
     {
+        "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_sales_grey.png.flat",
+        "source": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\src\\main\\res\\drawable-hdpi\\sales_grey.png"
+    },
+    {
         "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\color-v23_abc_btn_colored_borderless_text_material.xml.flat",
         "source": "C:\\Users\\cpmin\\.gradle\\caches\\transforms-2\\files-2.1\\b9926cd230592debfd26e58c7dc27899\\res\\color-v23\\abc_btn_colored_borderless_text_material.xml"
     },
@@ -3790,6 +3798,10 @@
     {
         "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\drawable-v21_avd_show_password.xml.flat",
         "source": "C:\\Users\\cpmin\\.gradle\\caches\\transforms-2\\files-2.1\\9069e68506944dd1f3782e8d2a418032\\res\\drawable-v21\\avd_show_password.xml"
+    },
+    {
+        "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\drawable_sales_grey.png.flat",
+        "source": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\src\\main\\res\\drawable\\sales_grey.png"
     },
     {
         "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\color_abc_tint_btn_checkable.xml.flat",

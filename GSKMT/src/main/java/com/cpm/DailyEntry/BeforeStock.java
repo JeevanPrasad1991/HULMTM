@@ -121,7 +121,9 @@ public class BeforeStock extends Activity implements OnClickListener {
             (new File(Environment.getExternalStorageDirectory() + "/MT_GSK_Images/")).mkdir();
         }
         str = Environment.getExternalStorageDirectory() + "/MT_GSK_Images/";
+        db.open();
         sos_target_list = db.getSOSTarget(store_id, category_id, process_id);
+        db.open();
         coveragelist = db.getCoverageData(date, store_id, process_id);
         if (coveragelist.get(0).getImage_allow().equalsIgnoreCase("NOT Allowed")) {
             cam1.setEnabled(false);
@@ -133,8 +135,8 @@ public class BeforeStock extends Activity implements OnClickListener {
             cam3.setEnabled(true);
         }
 
-
-        sku_brand_list = db.getBrandSkuList(category_id, store_id, process_id, state_id, store_type_id, key_id, class_id);
+        db.open();
+        sku_brand_list = db.getBrandSkuList(category_id, store_id, process_id);
 
         if (sku_brand_list.size() > 0) {
 
@@ -914,10 +916,10 @@ public class BeforeStock extends Activity implements OnClickListener {
 
 //                        		db.InsertCoverage(store_id, date, intime, getCurrentTime(),
 //										reason_id, remark,username,app_version,process_id);
-
+                                            db.open();
                                             db.InsertBeforeStockImagese(store_id, category_id, image1, image2, image3, image4
                                                     , username, process_id);
-
+                                            db.open();
                                             db.InsertBeforerStockData(store_id, sku_brand_list, username, category_id, process_id);
 
 

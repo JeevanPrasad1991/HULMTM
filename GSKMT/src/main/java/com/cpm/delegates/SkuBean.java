@@ -286,6 +286,16 @@ public class SkuBean {
 	public void setCategory(String category) {
 		this.category = category;
 	}
+	String showsalesflag="";
+
+	public String getShowsalesflag() {
+		return showsalesflag;
+	}
+
+	public void setShowsalesflag(String showsalesflag) {
+		this.showsalesflag = showsalesflag;
+	}
+
 	public String getCompany_id() {
 		return company_id;
 	}

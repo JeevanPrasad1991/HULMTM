@@ -57,6 +57,7 @@ public class CommonString {
     public static final String KEY_STATE_ID = "STATE_ID";
     public static final String KEY_CLASS_ID = "CLASS_ID";
     public static final String KEY_COMPETITION_PROMOTION = "COMPETITION_PROMOTION";
+    public static final String KEY_SALEENABLE_FLAG= "SALEENABLE";
     public static final String KEY_SKU_ID = "SKU_ID";
     public static final String KEY_SKUNAME = "SKUNAME";
     public static final String KEY_IMAGE = "IMAGE";
@@ -356,6 +357,7 @@ public class CommonString {
     public static final String storetype_id = "STORETYPE_ID";
     public static final String KEY_CATEGORY_ID = "CATEGORY_ID";
     public static final String KEY_CATEGORY_NAME = "CATEGORY_NAME";
+    public static final String KEY_CATEGORY_WISESALE_FLAG = "CATEGORY_WISESALE_FLAG";
 
     public static final String KEY_COMP_TRACT_EXIST = "TRACT_EXIST";
 
@@ -398,35 +400,35 @@ public class CommonString {
 
     public static final String CREATE_TABLE_ADDITIONAL_DETAILS = "CREATE TABLE "
             + TABLE_INSERT_ADDTIONAL_DETAILS + " (" + KEY_ID
-            + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_STORE_ID + " VARCHAR,"
-            + KEY_BRAND_ID + " VARCHAR," + KEY_BRAND + " VARCHAR,"
-            + KEY_DISPLAY_ID + " VARCHAR,"
-            + KEY_DISPLAY + " VARCHAR," + KEY_QUANTITY + " VARCHAR," + KEY_IMAGE + " VARCHAR,"
-            + KEY_CATEGORY_ID + " VARCHAR,"
+            + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_STORE_ID + " INTEGER,"
+            + KEY_BRAND_ID + " INTEGER," + KEY_BRAND + " VARCHAR,"
+            + KEY_DISPLAY_ID + " INTEGER,"
+            + KEY_DISPLAY + " VARCHAR," + KEY_QUANTITY + " INTEGER," + KEY_IMAGE + " VARCHAR,"
+            + KEY_CATEGORY_ID + " INTEGER,"
             + KEY_ADDITIONAL_YESYorNO + " VARCHAR,"
-            + KEY_PROCESS_ID + " VARCHAR)";
+            + KEY_PROCESS_ID + " INTEGER)";
 
 
     public static final String CREATE_TABLE_STOCK_TOT = "CREATE TABLE "
             + TABLE_INSERT_STOCK_TOT + " (" + KEY_ID
-            + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_STORE_ID + " VARCHAR,"
-            + KEY_BRAND_ID + " VARCHAR," + KEY_BRAND + " VARCHAR,"
-            + KEY_DISPLAY_ID + " VARCHAR,"
-            + KEY_SKU_ID + " VARCHAR," + KEY_QUANTITY + " VARCHAR," + UNIQUE_KEY_ID + " VARCHAR,"
-            + KEY_CATEGORY_ID + " VARCHAR,"
+            + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_STORE_ID + " INTEGER,"
+            + KEY_BRAND_ID + " INTEGER," + KEY_BRAND + " VARCHAR,"
+            + KEY_DISPLAY_ID + " INTEGER,"
+            + KEY_SKU_ID + " INTEGER," + KEY_QUANTITY + " INTEGER," + UNIQUE_KEY_ID + " VARCHAR,"
+            + KEY_CATEGORY_ID + " INTEGER,"
             + KEY_SKUNAME + " VARCHAR,"
-            + KEY_PROCESS_ID + " VARCHAR)";
+            + KEY_PROCESS_ID + " INTEGER)";
 
 
     public static final String CREATE_TABLE_SALES_STOCK = "CREATE TABLE "
             + TABLE_INSERT_SALES_STOCK + " (" + KEY_ID
-            + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_STORE_ID + " VARCHAR,"
+            + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_STORE_ID + " INTEGER,"
 
-            + KEY_BRAND_ID + " VARCHAR," + KEY_BRAND + " VARCHAR,"
-            + KEY_SKU_ID + " VARCHAR," + KEY_QUANTITY + " INTEGER,"
-            + KEY_CATEGORY_ID + " VARCHAR,"
+            + KEY_BRAND_ID + " INTEGER," + KEY_BRAND + " VARCHAR,"
+            + KEY_SKU_ID + " INTEGER," + KEY_QUANTITY + " INTEGER,"
+            + KEY_CATEGORY_ID + " INTEGER,"
             + KEY_SKUNAME + " VARCHAR,"
-            + KEY_PROCESS_ID + " VARCHAR,"
+            + KEY_PROCESS_ID + " INTEGER,"
             + KEY_USER_ID + " VARCHAR)";
 
 
@@ -443,48 +445,48 @@ public class CommonString {
 
     public static final String CREATE_TABLE_AFTER_ADDITIONAL_DETAILS = "CREATE TABLE "
             + TABLE_INSERT_AFTER_ADDTIONAL_DETAILS + " (" + KEY_ID
-            + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_STORE_ID + " VARCHAR,"
-            + KEY_BRAND_ID + " VARCHAR," + KEY_BRAND + " VARCHAR,"
-            + KEY_DISPLAY_ID + " VARCHAR,"
-            + KEY_DISPLAY + " VARCHAR," + KEY_QUANTITY + " VARCHAR," + KEY_IMAGE + " VARCHAR,"
-            + KEY_CATEGORY_ID + " VARCHAR)";
+            + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_STORE_ID + " INTEGER,"
+            + KEY_BRAND_ID + " INTEGER," + KEY_BRAND + " VARCHAR,"
+            + KEY_DISPLAY_ID + " INTEGER,"
+            + KEY_DISPLAY + " VARCHAR," + KEY_QUANTITY + " INTEGER," + KEY_IMAGE + " VARCHAR,"
+            + KEY_CATEGORY_ID + " INTEGER)";
 
 
     public static final String CREATE_TABLE_TOT_AFTER = "CREATE TABLE "
             + TABLE_TOT_AFTER + " (" + KEY_ID
             + " INTEGER PRIMARY KEY AUTOINCREMENT ," + KEY_AFTER_QUANTITY + " VARCHAR,"
-            + KEY_DISPLAY_ID + " VARCHAR,"
+            + KEY_DISPLAY_ID + " INTEGER,"
             + KEY_AFTER_STOCK_COUNT + " VARCHAR,"
-            + KEY_STORE_ID + " VARCHAR,"
-            + KEY_CATEGORY_ID + " VARCHAR,"
+            + KEY_STORE_ID + " INTEGER,"
+            + KEY_CATEGORY_ID + " INTEGER,"
             + KEY_IMAGE1 + " VARCHAR,"
             + KEY_IMAGE2 + " VARCHAR,"
             + KEY_IMAGE3 + " VARCHAR,"
             + KEY_DISPLAY + " VARCHAR,"
             + KEY_TARGER_QUANTITY + " VARCHAR,"
-            + KEY_BRAND_ID + " VARCHAR,"
+            + KEY_BRAND_ID + " INTEGER,"
             + KEY_BRAND + " VARCHAR,"
             + UNIQUE_KEY_ID + " VARCHAR,"
             + KEY_TYPE + " VARCHAR,"
             + KEY_IMAGE_URL + " VARCHAR,"
-            + KEY_PROCESS_ID + " VARCHAR)";
+            + KEY_PROCESS_ID + " INTEGER)";
 
 
     public static final String CREATE_TABLE_TOT_BEFORE = "CREATE TABLE "
             + TABLE_TOT_BEFORE + " (" + KEY_ID
             + " INTEGER PRIMARY KEY AUTOINCREMENT ," + KEY_BEFORE_QUANTITY + " VARCHAR,"
-            + KEY_DISPLAY_ID + " VARCHAR,"
+            + KEY_DISPLAY_ID + " INTEGER,"
             + KEY_BEFORE_STOCK_COUNT + " VARCHAR,"
-            + KEY_STORE_ID + " VARCHAR,"
-            + KEY_CATEGORY_ID + " VARCHAR,"
+            + KEY_STORE_ID + " INTEGER,"
+            + KEY_CATEGORY_ID + " INTEGER,"
             + KEY_IMAGE1 + " VARCHAR,"
             + KEY_IMAGE2 + " VARCHAR,"
             + KEY_IMAGE3 + " VARCHAR,"
             + KEY_DISPLAY + " VARCHAR,"
             + KEY_TARGER_QUANTITY + " VARCHAR,"
-            + KEY_BRAND_ID + " VARCHAR,"
+            + KEY_BRAND_ID + " INTEGER,"
             + KEY_TYPE + " VARCHAR,"
-            + KEY_PROCESS_ID + " VARCHAR)";
+            + KEY_PROCESS_ID + " INTEGER)";
 
 
     public static final String CREATE_TABLE_COVERAGE_DATA = "CREATE TABLE DR_STORE_COVERAGE " +
@@ -523,7 +525,7 @@ public class CommonString {
     public static final String CREATE_TABLE_INSERT_GEOTAG = "CREATE TABLE "
             + TABLE_INSERT_GEO_TAG + " (" + KEY_ID
             + " INTEGER PRIMARY KEY AUTOINCREMENT ," + KEY_STORE_ID
-            + " VARCHAR," + KEY_LATITUDE + " VARCHAR," + KEY_LONGITUDE
+            + " INTEGER," + KEY_LATITUDE + " VARCHAR," + KEY_LONGITUDE
             + " VARCHAR," + KEY_STATUS + " VARCHAR," + KEY_IMAGE_PATH1
             + " VARCHAR," + KEY_IMAGE_PATH2 + " VARCHAR," + KEY_IMAGE_PATH3
             + " VARCHAR)";
@@ -531,38 +533,38 @@ public class CommonString {
 
     public static final String CREATE_TABLE_QUESTION_ANSWER = "CREATE TABLE "
             + TABLE_QUESTION_ANSWER + " (" + KEY_ID
-            + " INTEGER PRIMARY KEY AUTOINCREMENT ," + "QUESTION_ID" + " VARCHAR,"
-            + "DISPLAY_ID" + " VARCHAR,"
+            + " INTEGER PRIMARY KEY AUTOINCREMENT ," + "QUESTION_ID" + " INTEGER,"
+            + "DISPLAY_ID" + " INTEGER,"
             + "ANSWER" + " VARCHAR,"
-            + KEY_STORE_ID + " VARCHAR,"
-            + KEY_CATEGORY_ID + " VARCHAR,"
+            + KEY_STORE_ID + " INTEGER,"
+            + KEY_CATEGORY_ID + " INTEGER,"
             + UNIQUE_KEY_ID + " VARCHAR,"
             + "QUESTION" + " VARCHAR,"
-            + KEY_PROCESS_ID + " VARCHAR)";
+            + KEY_PROCESS_ID + " INTEGER)";
 
 
     public static final String CREATE_TABLE_QUESTION_ANSWER_STOCKAFTER = "CREATE TABLE "
             + TABLE_QUESTION_ANSWER_STOCKAFTER + " (" + KEY_ID
-            + " INTEGER PRIMARY KEY AUTOINCREMENT ," + "QUESTION_ID" + " VARCHAR,"
-            + "DISPLAY_ID" + " VARCHAR,"
+            + " INTEGER PRIMARY KEY AUTOINCREMENT ," + "QUESTION_ID" + " INTEGER,"
+            + "DISPLAY_ID" + " INTEGER,"
             + "ANSWER" + " VARCHAR,"
-            + KEY_STORE_ID + " VARCHAR,"
-            + KEY_CATEGORY_ID + " VARCHAR,"
+            + KEY_STORE_ID + " INTEGER,"
+            + KEY_CATEGORY_ID + " INTEGER,"
             + UNIQUE_KEY_ID + " VARCHAR,"
             + "QUESTION" + " VARCHAR,"
-            + KEY_PROCESS_ID + " VARCHAR)";
+            + KEY_PROCESS_ID + " INTEGER)";
 
 
     public static final String CREATE_TABLE_PROMOTION_DATA = "CREATE TABLE "
             + TABLE_PROMOTION_DATA + " (" + KEY_ID
             + " INTEGER PRIMARY KEY AUTOINCREMENT ," + "PROMOTION" + " VARCHAR,"
-            + "SKU_ID" + " VARCHAR,"
+            + "SKU_ID" + " INTEGER,"
             + "STOCK" + " VARCHAR,"
             + "POP" + " VARCHAR,"
             + "RUNNING" + " VARCHAR,"
-            + KEY_STORE_ID + " VARCHAR,"
-            + KEY_CATEGORY_ID + " VARCHAR,"
-            + KEY_PROCESS_ID + " VARCHAR,"
+            + KEY_STORE_ID + " INTEGER,"
+            + KEY_CATEGORY_ID + " INTEGER,"
+            + KEY_PROCESS_ID + " INTEGER,"
             + KEY_IMAGE + " VARCHAR,"
             + "SPECIAL_ID" + " VARCHAR,"
             + "RUNNING_CHILD_TOGGLE" + " VARCHAR,"
@@ -589,26 +591,26 @@ public class CommonString {
     public static final String CREATE_TABLE_INSERT_AFTERSOCK_OTHER = "CREATE TABLE IF NOT EXISTS "
             + TABLE_AFTERSTOCK_OTHER + " (" + KEY_ID
             + " INTEGER PRIMARY KEY AUTOINCREMENT ," + KEY_STORE_ID
-            + " VARCHAR," + YESNO + " VARCHAR," + DISPLAY_ID + " VARCHAR," + CAT_ID
-            + " VARCHAR," + DISPLAY
+            + " INTEGER," + YESNO + " VARCHAR," + DISPLAY_ID + " INTEGER," + CAT_ID
+            + " INTEGER," + DISPLAY
             + " VARCHAR," + UID + " VARCHAR," + " VARCHAR,"
             + " IMAGE_URL" + " VARCHAR,"
-            + KEY_PROCESS_ID + " VARCHAR,"
+            + KEY_PROCESS_ID + " INTEGER,"
             + KEY_IMAGE + " VARCHAR,"
             + KEY_EXISTS + " INTEGER,"
             + KEY_BRAND + " VARCHAR,"
-            + KEY_BRAND_ID + " VARCHAR)";
+            + KEY_BRAND_ID + " INTEGER)";
 
 
     public static final String CREATE_TABLE_INSERT_STOCKWAREHOUSE = "CREATE TABLE IF NOT EXISTS "
             + TABLE_STOCKWAREHOUSE + " (" + KEY_ID
             + " INTEGER PRIMARY KEY AUTOINCREMENT ," + KEY_STORE_ID
-            + " VARCHAR," + KEY_CATEGORY_ID + " VARCHAR," + KEY_STOCK + " INTEGER,"
-            + KEY_PROCESS_ID + " VARCHAR,"
+            + " INTEGER," + KEY_CATEGORY_ID + " INTEGER," + KEY_STOCK + " INTEGER,"
+            + KEY_PROCESS_ID + " INTEGER,"
             + KEY_BRAND + " VARCHAR,"
-            + KEY_SKU_ID + " VARCHAR,"
+            + KEY_SKU_ID + " INTEGER,"
             + KEY_SKUNAME + " VARCHAR,"
-            + KEY_BRAND_ID + " VARCHAR,"
+            + KEY_BRAND_ID + " INTEGER,"
             + KEY_USER_ID + " VARCHAR)";
 
 
@@ -617,11 +619,11 @@ public class CommonString {
             + " INTEGER PRIMARY KEY AUTOINCREMENT ," + KEY_STORE_ID
             + " INTEGER,"
             + KEY_BRAND_ID + " INTEGER," + CAT_ID
-            + " VARCHAR,"
+            + " INTEGER,"
             + " IMAGE_URL" + " VARCHAR,"
             + " FACING_TARGET" + " INTEGER,"
-            + KEY_PROCESS_ID + " VARCHAR,"
-            + KEY_STORE_TYPEID + " VARCHAR,"
+            + KEY_PROCESS_ID + " INTEGER,"
+            + KEY_STORE_TYPEID + " INTEGER,"
             + KEY_BRAND + " VARCHAR,"
             + CommonString.YESNO + " INTEGER)";
 
@@ -629,7 +631,7 @@ public class CommonString {
     public static final String CREATE_TABLE_GEO_TAG_MAPPING = "CREATE TABLE IF NOT EXISTS "
             + TABLE_GEO_TAG_MAPPING + " (" + KEY_ID
             + " INTEGER PRIMARY KEY AUTOINCREMENT ," + KEY_STORE_ID
-            + " VARCHAR," + "STORETYPE" + " VARCHAR," + "STORENAME" + " VARCHAR," + KEY_LATITUDE
+            + " INTEGER," + "STORETYPE" + " VARCHAR," + "STORENAME" + " VARCHAR," + KEY_LATITUDE
             + " VARCHAR," + KEY_LONGITUDE + " VARCHAR," + "GEO_TAG_STATUS"
             + " VARCHAR," + "CITY" + " VARCHAR," + "KEYACCOUNT" + " VARCHAR)";
 
@@ -641,7 +643,7 @@ public class CommonString {
             + " INTEGER PRIMARY KEY AUTOINCREMENT ,"
 
             + "STORE_ID"
-            + " VARCHAR,"
+            + " INTEGER,"
 
             + "LATITUDE"
             + " VARCHAR,"

@@ -81,8 +81,10 @@ public class PromoCompliance extends Activity {
         key_id = preferences.getString(CommonString.KEY_ID, null);
         storename = preferences.getString(CommonString.KEY_STORE_NAME, "");
         cat_name = preferences.getString(CommonString.KEY_CATEGORY_NAME, "");
+        db.open();
         promotionlist = db.getInsertedPromoCompliance(store_id, category_id, process_id);
         if (promotionlist.size() == 0) {
+            db.open();
             promotionlist = db.getPromoComplianceData2(key_id, process_id, category_id, state_id);
         } else {
             update = true;
@@ -134,6 +136,7 @@ public class PromoCompliance extends Activity {
                                                 if (update) {
 
                                                     for (int i = 0; i < promotionlist.size(); i++) {
+                                                        db.open();
                                                         db.updatePromotionData(store_id, category_id, process_id, promotionlist.get(i).getSpecial_id(), promotionlist.get(i).getSku_id(),
                                                                 promotionlist.get(i).getStock(), promotionlist.get(i).getPop(), promotionlist.get(i).getRunning(), promotionlist.get(i).getRunning_child_toggle(),
                                                                 promotionlist.get(i).getPop_img(), promotionlist.get(i).getRunning_child_price());
@@ -146,6 +149,7 @@ public class PromoCompliance extends Activity {
                                                     startActivity(i);
                                                     PromoCompliance.this.finish();
                                                 } else {
+                                                    db.open();
                                                     db.InsertPromotionData(promotionlist, store_id
                                                             , category_id, process_id);
 

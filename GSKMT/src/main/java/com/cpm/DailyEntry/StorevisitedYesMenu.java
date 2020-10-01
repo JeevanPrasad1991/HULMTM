@@ -71,15 +71,24 @@ public class StorevisitedYesMenu extends Activity {
         state_id = preferences.getString(CommonString.KEY_STATE_ID, null);
         key_id = preferences.getString(CommonString.KEY_ID, null);
         class_id = preferences.getString(CommonString.KEY_CLASS_ID, null);
-        category_list = db.getCategoryList(process_id, key_id, state_id, class_id);
+        db.open();
+        category_list = db.getCategoryList(process_id, store_id);
+        db.open();
         beforeStockDataHFD = db.getBeforeStockData(store_id, "1", process_id);
+        db.open();
         afterStockDataHFD = db.getAfterStockData(store_id, "1", process_id);
+        db.open();
         beforeaddtionalDataHFD = db.getProductEntryDetail(store_id, "1", process_id);
+        db.open();
         mappingPromotion1 = db.getInsertedPromoCompliance(store_id, "1", process_id);
+        db.open();
         mappingPromotion2 = db.getInsertedPromoCompliance(store_id, "2", process_id);
+        db.open();
         mappingPromotion3 = db.getInsertedPromoCompliance(store_id, "3", process_id);
+        db.open();
         totMappingDataHFD = db.getTOTData(store_id, process_id, "1");
         if (totMappingDataHFD.size() > 0) {
+            db.open();
             afterTOTDataHFD = db.getAfterTOTData(store_id, "1", process_id);
             if (afterTOTDataHFD.size() > 0) {
                 before_totHFD = true;
@@ -106,15 +115,18 @@ public class StorevisitedYesMenu extends Activity {
 
         }
 
-
+        db.open();
         beforeStockDataWellness = db.getBeforeStockData(store_id, "2", process_id);
+        db.open();
         afterStockDataWellness = db.getAfterStockData(store_id, "2", process_id);
+        db.open();
         beforeaddtionalDataWellness = db.getProductEntryDetail(store_id, "2", process_id);
 
-
+        db.open();
         totMappingDataWellness = db.getTOTData(store_id, process_id, "2");
 
         if (totMappingDataWellness.size() > 0) {
+            db.open();
             afterTOTDataWellness = db.getAfterTOTData(store_id, "2", process_id);
 
             if (afterTOTDataWellness.size() > 0) {
@@ -144,12 +156,16 @@ public class StorevisitedYesMenu extends Activity {
 
         }
 
-
+        db.open();
         beforeStockDataOralcare = db.getBeforeStockData(store_id, "3", process_id);
+        db.open();
         afterStockDataOral = db.getAfterStockData(store_id, "3", process_id);
+        db.open();
         beforeaddtionalDataOral = db.getProductEntryDetail(store_id, "3", process_id);
+        db.open();
         totMappingDataOral = db.getTOTData(store_id, process_id, "3");
         if (totMappingDataOral.size() > 0) {
+            db.open();
             afterTOTDataOral = db.getAfterTOTData(store_id, "3", process_id);
             if (afterTOTDataOral.size() > 0) {
                 before_totOral = true;

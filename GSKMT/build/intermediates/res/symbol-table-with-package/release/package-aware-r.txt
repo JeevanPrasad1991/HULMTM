@@ -1280,6 +1280,7 @@ drawable right_arrow
 drawable rouded_corner
 drawable s
 drawable sales
+drawable sales_grey
 drawable sales_tick
 drawable shelfinshelf
 drawable signin_btn
@@ -1665,6 +1666,7 @@ id running_childlayout
 id running_childtoggel
 id salesTracking
 id salesthru_intellogo
+id salstrackingsupportimg
 id satellite
 id save
 id save_btn

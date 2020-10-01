@@ -93,6 +93,7 @@ public class CopyOfStorelistActivity extends Activity {
         key_id = preferences.getString(CommonString.KEY_ID, null);
         user_id = preferences.getString(CommonString.KEY_USERNAME, "");
         fillData();
+        db.open();
         storelist = db.getStoreData(date);
         if (storelist.size() > 0) {
             lv.setAdapter(new MyAdaptor());
@@ -109,7 +110,6 @@ public class CopyOfStorelistActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
         Date date_device = new Date();
         if (!dateFormat.format(date_device).equalsIgnoreCase(date)) {
@@ -132,33 +132,35 @@ public class CopyOfStorelistActivity extends Activity {
         ArrayList<CoverageBean> coverageBeanlist = new ArrayList<CoverageBean>();
         coverageBeanlist = db.getCoverageData(date, null, null);
         for (int i = 0; i < coverageBeanlist.size(); i++) {
-            boolean before_tot = false, after_tot = false, flagTOT = false, Promo = false, competitionpromotionflag = false;
+            boolean before_tot = false, after_tot = false, flagTOT = false, Promo = false, competitionpromotionflag = false, sales_flag = false;
             boolean flagCheckout = false;
             ///change by jeevan RAna
+            db.open();
             storestatus = db.getStoreStatus(coverageBeanlist.get(i).getStoreId(), coverageBeanlist.get(i).getProcess_id());
             if (storestatus.getCHECKOUT_STATUS() != null && storestatus.getCHECKOUT_STATUS().equalsIgnoreCase(CommonString.STORE_STATUS_LEAVE) ||
                     storestatus.getUPLOAD_STATUS() != null && storestatus.getUPLOAD_STATUS().equalsIgnoreCase(
                             CommonString.STORE_STATUS_LEAVE) || storestatus.getCHECKOUT_STATUS() != null && storestatus.getCHECKOUT_STATUS().equalsIgnoreCase(CommonString.KEY_C)) {
             } else {
-                category_list = db.getCategoryList(coverageBeanlist.get(i).getProcess_id(), storestatus.getKey_id(), storestatus.getSTATE_ID(), storestatus.getCLASS_ID());
+                db.open();
+                category_list = db.getCategoryList(coverageBeanlist.get(i).getProcess_id(), storestatus.getSTORE_ID());
                 if (category_list.size() > 0) {
                     for (int j = 0; j < category_list.size(); j++) {
+                        db.open();
                         afterStockData = db.getAfterStockData(coverageBeanlist.get(i).getStoreId(), category_list.get(j).getCategory_id(),
                                 coverageBeanlist.get(i).getProcess_id());
-
+                        db.open();
                         additionalData = db.getProductEntryDetail(coverageBeanlist.get(i).getStoreId(), category_list.get(j).getCategory_id(),
                                 coverageBeanlist.get(i).getProcess_id());
-
-                        totMappingData = db.getTOTData(coverageBeanlist.get(i).getStoreId(), coverageBeanlist
-                                .get(i).getProcess_id(), category_list.get(j).getCategory_id());
-
+                        db.open();
+                        totMappingData = db.getTOTData(coverageBeanlist.get(i).getStoreId(), coverageBeanlist.get(i).getProcess_id(),
+                                category_list.get(j).getCategory_id());
+                        db.open();
                         salesData = db.getSalesStockData(coverageBeanlist.get(i).getStoreId(), category_list.get(j).getCategory_id(),
                                 coverageBeanlist.get(i).getProcess_id());
-
-                        mappingPromotion = db.getPromoComplianceData(key_id, coverageBeanlist.get(i).getProcess_id(),
-                                category_list.get(j).getCategory_id());
-
+                        db.open();
+                        mappingPromotion = db.getPromoComplianceData(key_id, coverageBeanlist.get(i).getProcess_id(), category_list.get(j).getCategory_id());
                         if (mappingPromotion.size() > 0) {
+                            db.open();
                             mappingPromotion1 = db.getInsertedPromoCompliance(coverageBeanlist.get(i).getStoreId(),
                                     category_list.get(j).getCategory_id(), coverageBeanlist.get(i).getProcess_id());
                             if (mappingPromotion1.size() > 0) {
@@ -170,9 +172,36 @@ public class CopyOfStorelistActivity extends Activity {
                             Promo = true;
                         }
 
-                        TOTdata = db.getTOTData(coverageBeanlist.get(i).getStoreId(), coverageBeanlist.get(i).getProcess_id(), category_list.get(j).getCategory_id());
+                        db.open();
+                        StoreBean storeSalesStatus = db.getStoreStatus(coverageBeanlist.get(i).getStoreId(), coverageBeanlist.get(i).getProcess_id());
+
+                        if (storeSalesStatus != null && storeSalesStatus.getSale_enableFlag() != null && !storeSalesStatus.getSale_enableFlag().equals("")
+                                && storeSalesStatus.getSale_enableFlag().equals("1")&& category_list.get(j).getShowsalesflag()!=null
+                                &&category_list.get(j).getShowsalesflag().equals("1")) {
+                           if (db.getBrandSkuListForSales(category_list.get(j).getCategory_id(),
+                                   coverageBeanlist.get(i).getStoreId()
+                                   , coverageBeanlist.get(i).getProcess_id()).size() > 0){
+                               if (salesData.size() > 0) {
+                                   sales_flag = true;
+                               } else {
+                                   sales_flag = false;
+                               }
+                           }else {
+                               sales_flag = true;
+                           }
+
+                        } else {
+                            sales_flag = true;
+                        }
+
+                        db.open();
+                        TOTdata = db.getTOTData(coverageBeanlist.get(i).getStoreId(),
+                                coverageBeanlist.get(i).getProcess_id(),
+                                category_list.get(j).getCategory_id());
                         if (TOTdata.size() > 0) {
-                            TOTInsertdata = db.getInsertedAfterTOTData(coverageBeanlist.get(i).getStoreId(), category_list.get(j).getCategory_id(), coverageBeanlist.get(i).getProcess_id());
+                            db.open();
+                            TOTInsertdata = db.getInsertedAfterTOTData(coverageBeanlist.get(i).getStoreId(),
+                                    category_list.get(j).getCategory_id(), coverageBeanlist.get(i).getProcess_id());
                             if (TOTInsertdata.size() > 0) {
                                 flagTOT = true;
                             } else {
@@ -183,7 +212,9 @@ public class CopyOfStorelistActivity extends Activity {
                         }
 
                         if (totMappingData.size() > 0) {
-                            aftertotData = db.getAfterTOTData(coverageBeanlist.get(i).getStoreId(), category_list.get(j).getCategory_id(), coverageBeanlist.get(i).getProcess_id());
+                            db.open();
+                            aftertotData = db.getAfterTOTData(coverageBeanlist.get(i).getStoreId(), category_list.get(j).getCategory_id(),
+                                    coverageBeanlist.get(i).getProcess_id());
                             if (aftertotData.size() > 0) {
                                 before_tot = true;
                                 after_tot = true;
@@ -195,7 +226,9 @@ public class CopyOfStorelistActivity extends Activity {
 
                         if (category_list.get(j).getCategory_id().equals("1") || category_list.get(j).getCategory_id().equals("3")) {
                             if (storestatus != null && storestatus.getCOMP_ENABLE() != null && storestatus.getCOMP_ENABLE().equalsIgnoreCase("Y")) {
+                                db.open();
                                 if (db.getcomptitiondataforpromotion(category_list.get(j).getCategory_id()).size() > 0) {
+                                    db.open();
                                     if (db.getcompetitionPromotionfromDatabase(coverageBeanlist.get(i).getStoreId(),
                                             category_list.get(j).getCategory_id(), coverageBeanlist.get(i).getProcess_id()).size() > 0) {
                                         competitionpromotionflag = true;
@@ -215,7 +248,8 @@ public class CopyOfStorelistActivity extends Activity {
                         if (coverageBeanlist.get(i).getProcess_id().equals("2")) {
                             if (before_tot == true && after_tot == true && afterStockData.size() > 0 && additionalData.size() > 0 && Promo
                                     && flagTOT && db.getEnteredCompetitionDetail(coverageBeanlist.get(i).getStoreId(),
-                                    category_list.get(j).getCategory_id(), coverageBeanlist.get(i).getProcess_id()).size() > 0 && competitionpromotionflag == true) {
+                                    category_list.get(j).getCategory_id(), coverageBeanlist.get(i).getProcess_id()).size() > 0
+                                    && competitionpromotionflag == true && sales_flag) {
                                 flagCheckout = true;
                             } else {
                                 flagCheckout = false;
@@ -225,7 +259,8 @@ public class CopyOfStorelistActivity extends Activity {
                             if (before_tot == true && after_tot == true && afterStockData.size() > 0
                                     && additionalData.size() > 0 && Promo && flagTOT
                                     && db.getEnteredCompetitionDetail(coverageBeanlist.get(i).getStoreId(),
-                                    category_list.get(j).getCategory_id(), coverageBeanlist.get(i).getProcess_id()).size() > 0 && competitionpromotionflag == true) {
+                                    category_list.get(j).getCategory_id(), coverageBeanlist.get(i).getProcess_id()).size() > 0
+                                    && competitionpromotionflag == true && sales_flag) {
                                 flagCheckout = true;
                             } else {
                                 flagCheckout = false;
@@ -237,7 +272,9 @@ public class CopyOfStorelistActivity extends Activity {
 
 
                 if (flagCheckout) {
+                    db.open();
                     db.updateStoreStatusOnLeave(coverageBeanlist.get(i).getStoreId(), date, CommonString.KEY_VALID, visit_process_id);
+                    db.open();
                     db.updateCoverageStatus(coverageBeanlist.get(i).getStoreId(), CommonString.KEY_VALID, visit_process_id);
                 }
             }
@@ -361,6 +398,7 @@ public class CopyOfStorelistActivity extends Activity {
                                     editor.putString(CommonString.KEY_STATE_ID, sb.getSTATE_ID());
                                     editor.putString(CommonString.KEY_CLASS_ID, sb.getCLASS_ID());
                                     editor.putString(CommonString.KEY_COMPETITION_PROMOTION, sb.getCOMP_ENABLE());
+                                    editor.putString(CommonString.KEY_SALEENABLE_FLAG, sb.getSale_enableFlag());
                                     editor.commit();
                                     if (sb.getPROCESS_ID().equals("3")) {
                                         Intent intent = new Intent(getBaseContext(), StoreWisePerformance.class);
@@ -539,6 +577,7 @@ public class CopyOfStorelistActivity extends Activity {
                 leavestaus = false;
                 holidaystatus = false;
                 for (int i = 0; i < storelist.size(); i++) {
+                    db.open();
                     reasonlist = db.getCoverageData(date, storelist.get(position).getSTORE_ID(), storelist.get(position).getPROCESS_ID());
                     if (reasonlist.size() > 0) {
                         if (reasonlist.get(0).getReasonid().equals("2")) {
@@ -637,7 +676,9 @@ public class CopyOfStorelistActivity extends Activity {
                 if (result1.toString().equalsIgnoreCase(CommonString.KEY_SUCCESS)) {
                     db.open();
                     db.updateStoreStatusOnLeave(store_cd, visit_date, status, PROCESS_ID);
+                    db.open();
                     db.deleteCoverage(store_cd);
+                    db.open();
                     db.deleteAllTables(store_cd, PROCESS_ID);
                     return CommonString.KEY_SUCCESS;
                 } else {

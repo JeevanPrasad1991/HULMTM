@@ -129,8 +129,13 @@ public class XMLHandlers {
                     if (xpp.getName().equals("COMPANY_ID")) {
                         jcpGetterSetter.setCompany_id(xpp.nextText());
                     }
+
                     if (xpp.getName().equals("MRP")) {
                         jcpGetterSetter.setMRP_sku(xpp.nextText());
+                    }
+
+                    if (xpp.getName().equals("SHOW_FOR_SALE")) {
+                        jcpGetterSetter.setShowforsalesflag(xpp.nextText());
                     }
                 }
                 xpp.next();
@@ -211,6 +216,11 @@ public class XMLHandlers {
                         jcpGetterSetter.setCOMP_ENABLE(xpp.nextText());
                     }
 
+
+                    if (xpp.getName().equals("SALE_ENABLE")) {
+                        jcpGetterSetter.setSaleEnable(xpp.nextText());
+                    }
+
                 }
                 xpp.next();
             }
@@ -271,42 +281,29 @@ public class XMLHandlers {
                 if (xpp.getEventType() == XmlPullParser.START_TAG) {
 
                     if (xpp.getName().equals("META_DATA")) {
-                        jcpGetterSetter.setMeta_data(xpp.nextText());
+                        jcpGetterSetter.setStockmapping_table(xpp.nextText());
+                    }
+
+                    if (xpp.getName().equals("STORE_ID")) {
+                        jcpGetterSetter.setStore_cd(xpp.nextText());
                     }
 
                     if (xpp.getName().equals("SKU_ID")) {
                         jcpGetterSetter.setSku_id(xpp.nextText());
                     }
                     if (xpp.getName().equals("BRAND_ID")) {
-                        jcpGetterSetter.setBrand_id(xpp.nextText());
+                        jcpGetterSetter.setBrand_cd(xpp.nextText());
                     }
 
                     if (xpp.getName().equals("SKU_SEQUENCE")) {
                         jcpGetterSetter.setSku_sequence(xpp.nextText());
                     }
                     if (xpp.getName().equals("BRAND_SEQUENCE")) {
-                        jcpGetterSetter.setBrand_sequence(xpp.nextText());
+                        jcpGetterSetter.setBrand_sequnence(xpp.nextText());
                     }
                     if (xpp.getName().equals("PROCESS_ID")) {
                         jcpGetterSetter.setProcess_id(xpp.nextText());
                     }
-
-                    if (xpp.getName().equals("KEY_ID")) {
-                        jcpGetterSetter.setKEY_ID(xpp.nextText());
-                    }
-
-                    if (xpp.getName().equals("STORETYPE_ID")) {
-                        jcpGetterSetter.setSTORETYPE_ID(xpp.nextText());
-                    }
-
-                    if (xpp.getName().equals("CLASS_ID")) {
-                        jcpGetterSetter.setCLASS_ID(xpp.nextText());
-                    }
-
-                    if (xpp.getName().equals("STATE_ID")) {
-                        jcpGetterSetter.setSTATE_ID(xpp.nextText());
-                    }
-
                 }
                 xpp.next();
             }
