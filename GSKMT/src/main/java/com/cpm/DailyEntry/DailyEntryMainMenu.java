@@ -10,6 +10,7 @@ import com.cpm.delegates.TOTBean;
 import com.example.gsk_mtt.R;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -26,10 +27,10 @@ public class DailyEntryMainMenu extends Activity {
 
     public Button after_stock,
             after_tot, addtional_info_before, comptitionfor_promotion,
-            promo_compliance, comp, backroom_stock, sales;
+            promo_compliance, comp, backroom_stock, sales, subcat_sos_facing;
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor = null;
-    String store_id, category_id, date, process_id, key_id, cat_name, COMPETITION_PROMOTION_flag, saleenable_flag = "", categorywise_salesflag = "";
+    String store_id, category_id, date, process_id, key_id, region_id, store_type_id, cat_name, COMPETITION_PROMOTION_flag, saleenable_flag = "", categorywise_salesflag = "";
     TextView category_name;
     ImageView salstrackingsupportimg;
     GSKMTDatabase db;
@@ -41,12 +42,15 @@ public class DailyEntryMainMenu extends Activity {
     String sos_after = "", afterStockQuantity = "";
     TextView after_sos;
     public static ArrayList<TOTBean> TOTdata = new ArrayList<TOTBean>();
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dailyentry);
+        context = this;
         after_stock = (Button) findViewById(R.id.after_stock);
+        subcat_sos_facing = (Button) findViewById(R.id.subcat_sos_facing);
         after_tot = (Button) findViewById(R.id.after_tot);
         addtional_info_before = (Button) findViewById(R.id.before_additional);
         promo_compliance = (Button) findViewById(R.id.promotional_data);
@@ -58,7 +62,7 @@ public class DailyEntryMainMenu extends Activity {
         after_sos = (TextView) findViewById(R.id.sos_after);
         ///new Add 11/september
         comptitionfor_promotion = (Button) findViewById(R.id.comptitionfor_promotion);
-        preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        preferences = PreferenceManager.getDefaultSharedPreferences(context);
         date = preferences.getString(CommonString.KEY_DATE, null);
         store_id = preferences.getString(CommonString.KEY_STORE_ID, null);
         category_id = preferences.getString(CommonString.KEY_CATEGORY_ID, null);
@@ -68,6 +72,8 @@ public class DailyEntryMainMenu extends Activity {
         saleenable_flag = preferences.getString(CommonString.KEY_SALEENABLE_FLAG, "");
         categorywise_salesflag = preferences.getString(CommonString.KEY_CATEGORY_WISESALE_FLAG, "");
         key_id = preferences.getString(CommonString.KEY_ID, null);
+        region_id = preferences.getString(CommonString.region_id, null);
+        store_type_id = preferences.getString(CommonString.storetype_id, null);
         beforeAddtionalData = new ArrayList<SkuBean>();
         afterTOTData = new ArrayList<TOTBean>();
         totstockdata = new ArrayList<TOTBean>();
@@ -76,7 +82,7 @@ public class DailyEntryMainMenu extends Activity {
         entered_comp_data = new ArrayList<SkuBean>();
         salesData = new ArrayList<SkuBean>();
         mappingDataTOTCategoryWise = new ArrayList<TOTBean>();
-        db = new GSKMTDatabase(DailyEntryMainMenu.this);
+        db = new GSKMTDatabase(context);
         db.open();
         category_name.setText(cat_name);
         db.open();
@@ -89,7 +95,6 @@ public class DailyEntryMainMenu extends Activity {
                 && !categorywise_salesflag.equals("") && categorywise_salesflag.equals("1")) {
             sales.setVisibility(View.VISIBLE);
             sales.setEnabled(true);
-
             salstrackingsupportimg.setVisibility(View.VISIBLE);
             salstrackingsupportimg.setEnabled(true);
         } else {
@@ -135,11 +140,11 @@ public class DailyEntryMainMenu extends Activity {
         mappingDataTOTCategoryWise = db.getTOTData(store_id, process_id, category_id);
         db.open();
         mappingPromotion = db.getPromoComplianceData(key_id, process_id, category_id);
-
         if (!afterStockQuantity.equals("")) {
             after_stock.setBackgroundResource(R.drawable.tick_stock_after_ico);
             sos_after = db.getAFTERSOS(store_id, category_id, process_id);
-            if (category_id.equals("2") || category_id.equals("6")) {
+            if (category_id.equals("2")) {
+                after_sos.setVisibility(View.VISIBLE);
                 if (sos_target_list.size() > 0) {
                     if (sos_after == null) {
                         after_sos.setText("SOS : 0");
@@ -162,7 +167,8 @@ public class DailyEntryMainMenu extends Activity {
                     after_sos.setText("SOS : 0");
                 }
             } else {
-                if (sos_target_list.size() > 0) {
+                after_sos.setVisibility(View.INVISIBLE);
+                /*if (sos_target_list.size() > 0) {
                     if (sos_after == null) {
                         after_sos.setText("SOS : 0");
                     } else {
@@ -184,7 +190,7 @@ public class DailyEntryMainMenu extends Activity {
                     }
                 } else {
                     after_sos.setText("SOS : 0");
-                }
+                }*/
             }
         }
 
@@ -199,9 +205,11 @@ public class DailyEntryMainMenu extends Activity {
             }
         }
 
+
         if (!afterStockQuantity.equals("") && afterTOTData.size() > 0) {
             after_tot.setBackgroundResource(R.drawable.tick_tot_after_ico);
         }
+
 
         if (mappingDataTOTCategoryWise.size() > 0) {
             if (beforeAddtionalData.size() > 0) {
@@ -212,7 +220,6 @@ public class DailyEntryMainMenu extends Activity {
                 addtional_info_before.setBackgroundResource(R.drawable.additional_display_tick);
             }
         }
-
 
         if (mappingPromotion.size() > 0) {
             promo_compliance.setEnabled(true);
@@ -260,12 +267,27 @@ public class DailyEntryMainMenu extends Activity {
             comptitionfor_promotion.setVisibility(View.GONE);
         }
 
+        if (category_id != null && !category_id.equals("2") && afterStockData.size() > 0 && db.getsubcategorySOS(store_id, process_id, region_id, store_type_id, key_id, category_id).size() > 0) {
+            subcat_sos_facing.setEnabled(true);
+            subcat_sos_facing.setBackgroundResource(R.drawable.sos);
+            db.open();
+            if (db.getsos_facing(store_id, category_id, process_id).size() > 0) {
+                subcat_sos_facing.setEnabled(true);
+                subcat_sos_facing.setBackgroundResource(R.drawable.sos_tick);
+            } else {
+                subcat_sos_facing.setEnabled(true);
+                subcat_sos_facing.setBackgroundResource(R.drawable.sos);
+            }
+        } else {
+            subcat_sos_facing.setEnabled(false);
+            subcat_sos_facing.setBackgroundResource(R.drawable.sos_gray);
+        }
 
         promo_compliance.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getBaseContext(), PromoCompliance.class);
+                Intent in = new Intent(context, PromoCompliance.class);
                 startActivity(in);
                 DailyEntryMainMenu.this.finish();
 
@@ -275,7 +297,7 @@ public class DailyEntryMainMenu extends Activity {
         sales.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getBaseContext(), Sales.class);
+                Intent in = new Intent(context, Sales.class);
                 startActivity(in);
                 DailyEntryMainMenu.this.finish();
 
@@ -285,7 +307,7 @@ public class DailyEntryMainMenu extends Activity {
 
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getBaseContext(), BeforeAdditionalDisplay.class);
+                Intent in = new Intent(context, BeforeAdditionalDisplay.class);
                 startActivity(in);
                 DailyEntryMainMenu.this.finish();
 
@@ -296,17 +318,16 @@ public class DailyEntryMainMenu extends Activity {
 
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getBaseContext(), AfterStockActivity.class);
+                Intent in = new Intent(context, AfterStockActivity.class);
                 startActivity(in);
                 DailyEntryMainMenu.this.finish();
-
             }
         });
 
         after_tot.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getBaseContext(), AfterTOT.class);
+                Intent in = new Intent(context, AfterTOT.class);
                 startActivity(in);
                 DailyEntryMainMenu.this.finish();
 
@@ -317,7 +338,7 @@ public class DailyEntryMainMenu extends Activity {
 
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getBaseContext(), CompetitionTracking.class);
+                Intent in = new Intent(context, CompetitionTracking.class);
                 startActivity(in);
                 DailyEntryMainMenu.this.finish();
 
@@ -328,7 +349,7 @@ public class DailyEntryMainMenu extends Activity {
 
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getBaseContext(), StockwareHouse.class);
+                Intent in = new Intent(context, StockwareHouse.class);
                 startActivity(in);
                 DailyEntryMainMenu.this.finish();
             }
@@ -339,7 +360,16 @@ public class DailyEntryMainMenu extends Activity {
         comptitionfor_promotion.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(getBaseContext(), CompetitionPromotionActivity.class);
+                Intent in = new Intent(context, CompetitionPromotionActivity.class);
+                startActivity(in);
+                DailyEntryMainMenu.this.finish();
+            }
+        });
+
+        subcat_sos_facing.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(context, ShareofShelfActivity.class);
                 startActivity(in);
                 DailyEntryMainMenu.this.finish();
             }
@@ -350,7 +380,7 @@ public class DailyEntryMainMenu extends Activity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent in = new Intent(DailyEntryMainMenu.this, CopyOfStorevisitedYesMenu.class);
+        Intent in = new Intent(context, CopyOfStorevisitedYesMenu.class);
         startActivity(in);
         DailyEntryMainMenu.this.finish();
 

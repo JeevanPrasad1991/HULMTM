@@ -1,13 +1,10 @@
-
 package com.cpm.geotagging;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.StringReader;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Timer;
-import java.util.TimerTask;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -19,6 +16,7 @@ import org.ksoap2.transport.HttpTransportSE;
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -29,13 +27,10 @@ import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Point;
 import android.graphics.drawable.BitmapDrawable;
 import android.hardware.Camera;
 import android.location.Geocoder;
 import android.location.Location;
-import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -43,18 +38,18 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.content.ContextCompat;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentActivity;
+
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -66,11 +61,9 @@ import com.cpm.Constants.CommonString;
 
 import com.cpm.database.GSKMTDatabase;
 import com.cpm.delegates.GeotaggingBeans;
-import com.cpm.delegates.SkuBean;
 import com.cpm.message.AlertMessage;
 import com.cpm.upload.Base64;
 import com.cpm.upload.ImageUploadActivity;
-import com.cpm.upload.UploadDataActivity;
 import com.cpm.xmlGetterSetter.FailureGetterSetter;
 import com.cpm.xmlHandler.FailureXMLHandler;
 import com.example.gsk_mtt.R;
@@ -86,12 +79,12 @@ import com.google.android.gms.maps.GoogleMap;
 
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class LocationActivity extends FragmentActivity  implements OnMapReadyCallback,GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, com.google.android.gms.location.LocationListener {
+public class LocationActivity extends FragmentActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, com.google.android.gms.location.LocationListener {
 
     private static final String TAG = "LocationActivity";
     protected static final String PHOTO_TAKEN = "photo_taken";
@@ -160,12 +153,13 @@ public class LocationActivity extends FragmentActivity  implements OnMapReadyCal
     LocationRequest mLocationRequest;
     Marker currLocationMarker;
     LatLng latLng;
-    private GoogleMap  mMap;
-    double latitude =0.0;
-    double longitude =0.0;
+    private GoogleMap mMap;
+    double latitude = 0.0;
+    double longitude = 0.0;
 
     // boolean flag to toggle periodic location updates
     private boolean mRequestingLocationUpdates = false;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -175,7 +169,7 @@ public class LocationActivity extends FragmentActivity  implements OnMapReadyCal
         capture_2 = (ImageView) findViewById(R.id.geotag_insidecamera1);
         capture_3 = (ImageView) findViewById(R.id.geotag_insidecamera2);
         Stroename = (TextView) findViewById(R.id.geotag_store_orginalname);
-       // progress = (ProgressBar) findViewById(R.id.progressBar1);
+        // progress = (ProgressBar) findViewById(R.id.progressBar1);
 
        /* map.setBuiltInZoomControls(true);
         map.setSatellite(true);*/
@@ -369,6 +363,16 @@ public class LocationActivity extends FragmentActivity  implements OnMapReadyCal
 
     @Override
     public void onConnected(@Nullable Bundle bundle) {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
         mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
 
         if (ContextCompat.checkSelfPermission(this,
@@ -467,6 +471,7 @@ public class LocationActivity extends FragmentActivity  implements OnMapReadyCal
 
 
     }
+
     protected synchronized void buildGoogleApiClient() {
         mGoogleApiClient = new GoogleApiClient.Builder(this).
                 addConnectionCallbacks(this).
@@ -478,6 +483,7 @@ public class LocationActivity extends FragmentActivity  implements OnMapReadyCal
     public void onLocationChanged(Location location) {
         mLastLocation = location;
     }
+
     @Override
     protected void onStop() {
         super.onStop();
@@ -491,12 +497,22 @@ public class LocationActivity extends FragmentActivity  implements OnMapReadyCal
         super.onPause();
         stopLocationUpdates();
     }
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
 
-
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
         mMap.setMyLocationEnabled(true);
         mMap.getUiSettings().setCompassEnabled(true);
         mMap.getUiSettings().setZoomControlsEnabled(true);
@@ -688,6 +704,7 @@ public class LocationActivity extends FragmentActivity  implements OnMapReadyCal
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
         outState.putBoolean(this.PHOTO_TAKEN, _taken);
     }
 

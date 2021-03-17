@@ -17,7 +17,6 @@ import android.os.AsyncTask;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -38,7 +37,6 @@ import com.cpm.gsk_mt.MainMenuActivity;
 import com.cpm.message.AlertMessage;
 import com.cpm.upload.Base64;
 import com.cpm.xmlGetterSetter.NonWorkingAttendenceGetterSetter;
-import com.crashlytics.android.Crashlytics;
 import com.example.gsk_mtt.R;
 
 import org.ksoap2.SoapEnvelope;
@@ -199,7 +197,6 @@ public class MerchandisingAttendenceActivity extends Activity
                         }
                     }
                 } catch (Exception e) {
-                    Crashlytics.logException(e);
                     e.printStackTrace();
                 }
                 break;
@@ -347,7 +344,6 @@ public class MerchandisingAttendenceActivity extends Activity
                     }
                 });
             } catch (final IOException e) {
-                Crashlytics.logException(e);
                 runOnUiThread(new Runnable() {
                     public void run() {
                         ShowAlert2(e.toString());

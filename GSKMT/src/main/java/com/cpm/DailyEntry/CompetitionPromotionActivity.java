@@ -6,24 +6,19 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.support.v4.widget.NestedScrollView;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.AttributeSet;
+
+import androidx.core.widget.NestedScrollView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
@@ -36,16 +31,11 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import com.cpm.Constants.CommonString;
 import com.cpm.database.GSKMTDatabase;
-
-
 import com.cpm.xmlGetterSetter.SKUGetterSetter;
-import com.crashlytics.android.Crashlytics;
 import com.example.gsk_mtt.R;
-
 import java.io.File;
 import java.util.ArrayList;
 
@@ -193,7 +183,6 @@ public class CompetitionPromotionActivity extends Activity implements AdapterVie
                                 edt_comp_priceoff.setText(value.toString());
                             }
                         } catch (NumberFormatException e) {
-                            Crashlytics.logException(e);
                             e.printStackTrace();
                         }
                     } else {
@@ -703,7 +692,6 @@ public class CompetitionPromotionActivity extends Activity implements AdapterVie
                 }
             }
         } catch (Exception e) {
-            Crashlytics.logException(e);
             e.printStackTrace();
         }
 

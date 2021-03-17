@@ -17,9 +17,8 @@ import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import com.cpm.Constants.CommonString;
-import com.crashlytics.android.Crashlytics;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 
 public class ImageUploadActivity extends Activity{
@@ -116,14 +115,12 @@ public class ImageUploadActivity extends Activity{
 		catch (MalformedURLException e) {
 			image_valid = false;
 			e.printStackTrace();
-			Crashlytics.logException(e);
 		} catch (IOException e) {
 			image_valid = false;
 			e.printStackTrace();
-			Crashlytics.logException(e);
 		}
 		catch (Exception e) {
-			Crashlytics.logException(e);
+			FirebaseCrashlytics.getInstance().recordException(e);
 			System.out.println(e.getMessage());
 
 		}
@@ -165,7 +162,7 @@ public class ImageUploadActivity extends Activity{
 			}
 
 		} catch (Exception e) {
-			Crashlytics.logException(e);
+			FirebaseCrashlytics.getInstance().recordException(e);
 			System.out.println(e.getMessage());
 		}
 

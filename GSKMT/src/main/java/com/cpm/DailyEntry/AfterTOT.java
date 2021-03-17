@@ -6,15 +6,12 @@ import java.util.Calendar;
 
 import com.cpm.Constants.CommonFunctions;
 import com.cpm.Constants.CommonString;
-
-import com.cpm.DailyEntry.AfterStockActivity.ViewHolder;
-import com.cpm.DailyEntry.TOTstock_Activity.MyAdaptor;
 import com.cpm.database.GSKMTDatabase;
 import com.cpm.delegates.SkuBean;
 import com.cpm.delegates.TOTBean;
 import com.cpm.message.AlertMessage;
-import com.crashlytics.android.Crashlytics;
 import com.example.gsk_mtt.R;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -89,18 +86,16 @@ public class AfterTOT extends Activity {
     public ArrayList<TOTBean> stocklist = new ArrayList<TOTBean>();
     Boolean update = false;
     Boolean update1 = false;
-    private CustomKeyboardView mKeyboardView;
-    private Keyboard mKeyboard;
-    static int currentVersion = 1;
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.after_tot);
+        context = this;
         save_btn = (Button) findViewById(R.id.save);
         lv = (ListView) findViewById(R.id.list);
-        preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        preferences = PreferenceManager.getDefaultSharedPreferences(context);
         store_id = preferences.getString(CommonString.KEY_STORE_ID, null);
         category_id = preferences.getString(CommonString.KEY_CATEGORY_ID, null);
         process_id = preferences.getString(CommonString.KEY_PROCESS_ID, null);
@@ -117,7 +112,7 @@ public class AfterTOT extends Activity {
         storename = preferences.getString(CommonString.KEY_STORE_NAME, "");
         cat_name = preferences.getString(CommonString.KEY_CATEGORY_NAME, "");
 
-        db = new GSKMTDatabase(AfterTOT.this);
+        db = new GSKMTDatabase(context);
         db.open();
         if ((new File(Environment.getExternalStorageDirectory() + "/MT_GSK_Images/")).exists()) {
             Log.i("directory is created", "directory is created");
@@ -145,14 +140,14 @@ public class AfterTOT extends Activity {
             update = true;
             save_btn.setText("update");
             for (int i2 = 0; i2 < data.size(); i2++) {
-                if (!data.get(i2).getImage1().equalsIgnoreCase("")) {
+                if (!data.get(i2).getImage1().equals("")) {
                     data.get(i2).setCamera1("YES");
                     data.get(i2).setImage1(data.get(i2).getImage1());
                 } else {
                     data.get(i2).setCamera1("NO");
                     data.get(i2).setImage1("");
                 }
-                if (!data.get(i2).getImage2().equalsIgnoreCase("")) {
+                if (!data.get(i2).getImage2().equals("")) {
                     data.get(i2).setCamera2("YES");
                     data.get(i2).setImage2(data.get(i2).getImage2());
                 } else {
@@ -161,7 +156,7 @@ public class AfterTOT extends Activity {
                 }
 
 
-                if (!data.get(i2).getImage3().equalsIgnoreCase("")) {
+                if (!data.get(i2).getImage3().equals("")) {
 
                     data.get(i2).setCamera3("YES");
                     data.get(i2).setImage3(data.get(i2).getImage3());
@@ -175,7 +170,7 @@ public class AfterTOT extends Activity {
 
 
         if (data.size() > 0) {
-            lv.setAdapter(new MyAdaptor(this));
+            lv.setAdapter(new MyAdaptor(context));
             System.out.println("" + data.size());
         }
 
@@ -186,27 +181,25 @@ public class AfterTOT extends Activity {
                 lv.clearFocus();
                 lv.invalidateViews();
                 if (!check_condition()) {
-                    Toast.makeText(getApplicationContext(), AlertMessage.MESSAGE_INVALID_DATA, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, AlertMessage.MESSAGE_INVALID_DATA, Toast.LENGTH_SHORT).show();
                 } else {
                     if (!check_conditionForImages()) {
-                        Toast.makeText(getApplicationContext(), AlertMessage.MESSAGE_IMAGE, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, AlertMessage.MESSAGE_IMAGE, Toast.LENGTH_SHORT).show();
                     } else {
                         if (!check_conditionForQuestions()) {
-                            Toast.makeText(getApplicationContext(), AlertMessage.MESSAGE_GAPS, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, AlertMessage.MESSAGE_GAPS, Toast.LENGTH_SHORT).show();
                         } else {
 
                             if (!check_conditionForSTOCK()) {
-                                Toast.makeText(getApplicationContext(), AlertMessage.MESSAGE_TOT_STOCK, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, AlertMessage.MESSAGE_TOT_STOCK, Toast.LENGTH_SHORT).show();
                             } else {
-                                AlertDialog.Builder builder = new AlertDialog.Builder(
-                                        AfterTOT.this);
-                                builder.setMessage("Do you want to save the data ")
+                                AlertDialog.Builder builder = new AlertDialog.Builder(context).setTitle(R.string.parinamm);
+                                builder.setMessage("Do you want to save the data ?")
                                         .setCancelable(false)
                                         .setPositiveButton("OK",
                                                 new DialogInterface.OnClickListener() {
                                                     public void onClick(DialogInterface dialog,
                                                                         int id) {
-
                                                         if (update) {
                                                             for (int i = 0; i < data.size(); i++) {
                                                                 db.open();
@@ -216,17 +209,16 @@ public class AfterTOT extends Activity {
 
                                                             }
 
-                                                            Intent i = new Intent(getApplicationContext(), DailyEntryMainMenu.class);
+                                                            Intent i = new Intent(context, DailyEntryMainMenu.class);
                                                             startActivity(i);
                                                             AfterTOT.this.finish();
                                                         } else {
                                                             db.open();
                                                             db.InsertAfterTOTData(store_id, data, category_id, process_id);
-                                                            Intent i = new Intent(getApplicationContext(), DailyEntryMainMenu.class);
+                                                            Intent i = new Intent(context, DailyEntryMainMenu.class);
                                                             startActivity(i);
                                                             AfterTOT.this.finish();
                                                         }
-
 
                                                     }
                                                 })
@@ -254,7 +246,6 @@ public class AfterTOT extends Activity {
 
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
-
                 lv.clearFocus();
 
             }
@@ -279,12 +270,12 @@ public class AfterTOT extends Activity {
 
     @Override
     public void onBackPressed() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setMessage("Are you sure you want to quit ?").setCancelable(false).setPositiveButton("Yes",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 
-                        Intent in = new Intent(AfterTOT.this, DailyEntryMainMenu.class);
+                        Intent in = new Intent(context, DailyEntryMainMenu.class);
                         startActivity(in);
                         AfterTOT.this.finish();
 
@@ -302,7 +293,6 @@ public class AfterTOT extends Activity {
     }
 
     static class ViewHolder {
-
         TextView brand_name, display_name, target_quantity, question_text;
         ImageView image1, image2, image3;
         EditText actual_quanity, stock_count;
@@ -1023,7 +1013,7 @@ public class AfterTOT extends Activity {
                         }
                     }
                 } catch (Exception e) {
-                    Crashlytics.logException(e);
+                    FirebaseCrashlytics.getInstance().recordException(e);
                     e.printStackTrace();
                 }
                 break;

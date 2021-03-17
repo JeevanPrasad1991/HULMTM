@@ -20,8 +20,8 @@ import com.cpm.delegates.TOTBean;
 import com.cpm.gsk_mt.LoginActivity;
 import com.cpm.gsk_mt.MainMenuActivity;
 import com.cpm.message.AlertMessage;
-import com.crashlytics.android.Crashlytics;
 import com.example.gsk_mtt.R;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -62,6 +62,8 @@ public class CopyOfStorelistActivity extends Activity {
     boolean leavestaus = false, holidaystatus = false;
     ArrayList<SkuBean> category_list = new ArrayList<SkuBean>();
     ArrayList<SkuBean> afterStockData = new ArrayList<SkuBean>();
+    ArrayList<SkuBean> sosfacingList = new ArrayList<SkuBean>();
+    ArrayList<SkuBean> sosfacingfilledList = new ArrayList<SkuBean>();
     ArrayList<SkuBean> additionalData = new ArrayList<SkuBean>();
     ArrayList<SkuBean> salesData = new ArrayList<SkuBean>();
     ArrayList<TOTBean> totMappingData = new ArrayList<TOTBean>();
@@ -132,14 +134,15 @@ public class CopyOfStorelistActivity extends Activity {
         ArrayList<CoverageBean> coverageBeanlist = new ArrayList<CoverageBean>();
         coverageBeanlist = db.getCoverageData(date, null, null);
         for (int i = 0; i < coverageBeanlist.size(); i++) {
-            boolean before_tot = false, after_tot = false, flagTOT = false, Promo = false, competitionpromotionflag = false, sales_flag = false;
+            boolean before_tot = false, after_tot = false, flagTOT = false, Promo = false, competitionpromotionflag = false, sales_flag = false, sos_facing = false;
             boolean flagCheckout = false;
             ///change by jeevan RAna
             db.open();
             storestatus = db.getStoreStatus(coverageBeanlist.get(i).getStoreId(), coverageBeanlist.get(i).getProcess_id());
             if (storestatus.getCHECKOUT_STATUS() != null && storestatus.getCHECKOUT_STATUS().equalsIgnoreCase(CommonString.STORE_STATUS_LEAVE) ||
                     storestatus.getUPLOAD_STATUS() != null && storestatus.getUPLOAD_STATUS().equalsIgnoreCase(
-                            CommonString.STORE_STATUS_LEAVE) || storestatus.getCHECKOUT_STATUS() != null && storestatus.getCHECKOUT_STATUS().equalsIgnoreCase(CommonString.KEY_C)) {
+                            CommonString.STORE_STATUS_LEAVE) || storestatus.getCHECKOUT_STATUS() != null &&
+                    storestatus.getCHECKOUT_STATUS().equalsIgnoreCase(CommonString.KEY_C)) {
             } else {
                 db.open();
                 category_list = db.getCategoryList(coverageBeanlist.get(i).getProcess_id(), storestatus.getSTORE_ID());
@@ -147,6 +150,13 @@ public class CopyOfStorelistActivity extends Activity {
                     for (int j = 0; j < category_list.size(); j++) {
                         db.open();
                         afterStockData = db.getAfterStockData(coverageBeanlist.get(i).getStoreId(), category_list.get(j).getCategory_id(),
+                                coverageBeanlist.get(i).getProcess_id());
+                        db.open();
+                        sosfacingList = db.getsubcategorySOS(coverageBeanlist.get(i).getStoreId(), coverageBeanlist.get(i).getProcess_id(),
+                                storestatus.getREGION_ID(), storestatus.getStoreType_id(), storestatus.getKey_id(), category_list.get(j).getCategory_id());
+
+                        db.open();
+                        sosfacingfilledList = db.getsos_facing(coverageBeanlist.get(i).getStoreId(), category_list.get(j).getCategory_id(),
                                 coverageBeanlist.get(i).getProcess_id());
                         db.open();
                         additionalData = db.getProductEntryDetail(coverageBeanlist.get(i).getStoreId(), category_list.get(j).getCategory_id(),
@@ -176,19 +186,19 @@ public class CopyOfStorelistActivity extends Activity {
                         StoreBean storeSalesStatus = db.getStoreStatus(coverageBeanlist.get(i).getStoreId(), coverageBeanlist.get(i).getProcess_id());
 
                         if (storeSalesStatus != null && storeSalesStatus.getSale_enableFlag() != null && !storeSalesStatus.getSale_enableFlag().equals("")
-                                && storeSalesStatus.getSale_enableFlag().equals("1")&& category_list.get(j).getShowsalesflag()!=null
-                                &&category_list.get(j).getShowsalesflag().equals("1")) {
-                           if (db.getBrandSkuListForSales(category_list.get(j).getCategory_id(),
-                                   coverageBeanlist.get(i).getStoreId()
-                                   , coverageBeanlist.get(i).getProcess_id()).size() > 0){
-                               if (salesData.size() > 0) {
-                                   sales_flag = true;
-                               } else {
-                                   sales_flag = false;
-                               }
-                           }else {
-                               sales_flag = true;
-                           }
+                                && storeSalesStatus.getSale_enableFlag().equals("1") && category_list.get(j).getShowsalesflag() != null
+                                && category_list.get(j).getShowsalesflag().equals("1")) {
+                            if (db.getBrandSkuListForSales(category_list.get(j).getCategory_id(),
+                                    coverageBeanlist.get(i).getStoreId()
+                                    , coverageBeanlist.get(i).getProcess_id()).size() > 0) {
+                                if (salesData.size() > 0) {
+                                    sales_flag = true;
+                                } else {
+                                    sales_flag = false;
+                                }
+                            } else {
+                                sales_flag = true;
+                            }
 
                         } else {
                             sales_flag = true;
@@ -245,11 +255,22 @@ public class CopyOfStorelistActivity extends Activity {
                             competitionpromotionflag = true;
                         }
 
+
+                        if (!category_list.get(j).getCategory_id().equals("2") && sosfacingList.size() > 0) {
+                            if (sosfacingfilledList.size() > 0) {
+                                sos_facing = true;
+                            } else {
+                                sos_facing = false;
+                            }
+                        } else {
+                            sos_facing = true;
+                        }
+
                         if (coverageBeanlist.get(i).getProcess_id().equals("2")) {
                             if (before_tot == true && after_tot == true && afterStockData.size() > 0 && additionalData.size() > 0 && Promo
                                     && flagTOT && db.getEnteredCompetitionDetail(coverageBeanlist.get(i).getStoreId(),
                                     category_list.get(j).getCategory_id(), coverageBeanlist.get(i).getProcess_id()).size() > 0
-                                    && competitionpromotionflag == true && sales_flag) {
+                                    && competitionpromotionflag == true && sales_flag && sos_facing) {
                                 flagCheckout = true;
                             } else {
                                 flagCheckout = false;
@@ -260,7 +281,7 @@ public class CopyOfStorelistActivity extends Activity {
                                     && additionalData.size() > 0 && Promo && flagTOT
                                     && db.getEnteredCompetitionDetail(coverageBeanlist.get(i).getStoreId(),
                                     category_list.get(j).getCategory_id(), coverageBeanlist.get(i).getProcess_id()).size() > 0
-                                    && competitionpromotionflag == true && sales_flag) {
+                                    && competitionpromotionflag == true && sales_flag && sos_facing) {
                                 flagCheckout = true;
                             } else {
                                 flagCheckout = false;
@@ -280,7 +301,6 @@ public class CopyOfStorelistActivity extends Activity {
             }
         }
     }
-
 
     private class ViewHolder {
         TextView storename, storeaddress;
@@ -425,7 +445,7 @@ public class CopyOfStorelistActivity extends Activity {
                             builder.show();
                         }
                     } catch (Exception e) {
-                        Crashlytics.logException(e);
+                        FirebaseCrashlytics.getInstance().recordException(e);
                         e.printStackTrace();
                     }
 
@@ -478,8 +498,8 @@ public class CopyOfStorelistActivity extends Activity {
                 @Override
                 public void onClick(View v) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(
-                            CopyOfStorelistActivity.this);
-                    builder.setMessage("Are you sure you want to checkout")
+                            CopyOfStorelistActivity.this).setTitle(R.string.parinamm);
+                    builder.setMessage("Are you sure you want to checkout ?")
                             .setCancelable(false)
                             .setPositiveButton("OK",
                                     new DialogInterface.OnClickListener() {
@@ -691,7 +711,6 @@ public class CopyOfStorelistActivity extends Activity {
                     }
                 });
             } catch (final IOException e) {
-                Crashlytics.logException(e);
                 runOnUiThread(new Runnable() {
                     public void run() {
                         ShowAlert2(e.toString());

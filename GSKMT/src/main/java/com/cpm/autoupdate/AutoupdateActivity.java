@@ -19,23 +19,20 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.PreferenceManager;
-import android.support.v4.content.FileProvider;
+import androidx.core.content.FileProvider;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.cpm.Constants.CommonString;
-import com.cpm.gsk_mt.LoginActivity;
-import com.cpm.gsk_mt.MainMenuActivity;
 import com.cpm.message.AlertMessage;
-import com.crashlytics.android.Crashlytics;
 import com.example.gsk_mtt.R;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 
 public class AutoupdateActivity extends Activity {
@@ -181,7 +178,7 @@ public class AutoupdateActivity extends Activity {
 				});
 			} catch (Exception e) {
 				update_flag = false;
-				Crashlytics.logException(e);
+				FirebaseCrashlytics.getInstance().recordException(e);
 				final AlertMessage message = new AlertMessage(
 						AutoupdateActivity.this, AlertMessage.MESSAGE_EXCEPTION, "store_checking", e);
 				runOnUiThread(new Runnable() {

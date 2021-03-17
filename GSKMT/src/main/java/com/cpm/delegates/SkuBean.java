@@ -1,8 +1,17 @@
 package com.cpm.delegates;
 
 public class SkuBean {
-	
 	public String sku_id;
+
+	public String getLINEAR_MEASUREMENT() {
+		return LINEAR_MEASUREMENT;
+	}
+
+	public void setLINEAR_MEASUREMENT(String LINEAR_MEASUREMENT) {
+		this.LINEAR_MEASUREMENT = LINEAR_MEASUREMENT;
+	}
+
+	public String LINEAR_MEASUREMENT="";
 	public String sku_name;
 	public String brand;
 	public String brand_id;
@@ -14,8 +23,19 @@ public class SkuBean {
 	public int backroomStockValue;
 	public int sales_value;
 	public String sales_qty;
+
+	public String getAchieved_sosper() {
+		return achieved_sosper;
+	}
+
+	public void setAchieved_sosper(String achieved_sosper) {
+		this.achieved_sosper = achieved_sosper;
+	}
+
+	public String achieved_sosper="";
 	public int exist=-1;
 	public String brand_img = "";
+
 
 
 	public int getSales_value() {
@@ -287,6 +307,25 @@ public class SkuBean {
 		this.category = category;
 	}
 	String showsalesflag="";
+	String subcategory="";
+
+	public String getSubcategory() {
+		return subcategory;
+	}
+
+	public void setSubcategory(String subcategory) {
+		this.subcategory = subcategory;
+	}
+
+	public String getSubcategoryId() {
+		return subcategoryId;
+	}
+
+	public void setSubcategoryId(String subcategoryId) {
+		this.subcategoryId = subcategoryId;
+	}
+
+	String subcategoryId="0";
 
 	public String getShowsalesflag() {
 		return showsalesflag;
@@ -336,4 +375,41 @@ public class SkuBean {
 	}
 
 	boolean compTExist=true;
+	String categoryEyelevel="";
+	String categoryNonEyelevel="";
+	String eyelevel="";
+
+	public String getCategoryEyelevel() {
+		return categoryEyelevel;
+	}
+
+	public void setCategoryEyelevel(String categoryEyelevel) {
+		this.categoryEyelevel = categoryEyelevel;
+	}
+
+	public String getCategoryNonEyelevel() {
+		return categoryNonEyelevel;
+	}
+
+	public void setCategoryNonEyelevel(String categoryNonEyelevel) {
+		this.categoryNonEyelevel = categoryNonEyelevel;
+	}
+
+	public String getEyelevel() {
+		return eyelevel;
+	}
+
+	public void setEyelevel(String eyelevel) {
+		this.eyelevel = eyelevel;
+	}
+
+	public String getNoneyelevel() {
+		return noneyelevel;
+	}
+
+	public void setNoneyelevel(String noneyelevel) {
+		this.noneyelevel = noneyelevel;
+	}
+
+	String noneyelevel="";
 }

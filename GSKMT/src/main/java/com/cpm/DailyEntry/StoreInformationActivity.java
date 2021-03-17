@@ -25,7 +25,6 @@ import com.cpm.delegates.CoverageBean;
 import com.cpm.message.AlertMessage;
 import com.cpm.xmlGetterSetter.FailureGetterSetter;
 import com.cpm.xmlHandler.FailureXMLHandler;
-import com.crashlytics.android.Crashlytics;
 import com.example.gsk_mtt.R;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -34,28 +33,27 @@ import com.google.android.gms.location.LocationServices;
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.PreferenceManager;
-import android.provider.MediaStore;
 
 import android.provider.Settings;
-import android.support.v4.content.ContextCompat;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -64,7 +62,6 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -171,8 +168,8 @@ public class StoreInformationActivity extends Activity implements
             public void onClick(View v) {
                 if (CheckNetAvailability()) {
                     if (!picStatus.equalsIgnoreCase("Select") && !image1.equalsIgnoreCase("")) {
-                        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                        builder.setMessage("Are you sure you want to save").setCancelable(false).setPositiveButton("Yes",
+                        AlertDialog.Builder builder = new AlertDialog.Builder(context).setTitle(R.string.parinamm);
+                        builder.setMessage("Are you sure you want to save ?").setCancelable(false).setPositiveButton("Yes",
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
                                         ArrayList<CoverageBean> coverageBeanlist = new ArrayList<CoverageBean>();
@@ -398,7 +395,6 @@ public class StoreInformationActivity extends Activity implements
                 return errormesg;
 
             } catch (Exception e) {
-                Crashlytics.logException(e);
                 errormesg = e.toString();
                 return errormesg;
             }
@@ -476,7 +472,6 @@ public class StoreInformationActivity extends Activity implements
                         }
                     }
                 } catch (Exception e) {
-                    Crashlytics.logException(e);
                     e.printStackTrace();
                 }
                 break;
@@ -485,6 +480,16 @@ public class StoreInformationActivity extends Activity implements
 
     @Override
     public void onConnected(Bundle bundle) {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
         Location mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
         if (mLastLocation != null) {
             lat = String.valueOf(mLastLocation.getLatitude());

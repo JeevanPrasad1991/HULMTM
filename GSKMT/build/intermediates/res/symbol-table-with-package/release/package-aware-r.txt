@@ -638,6 +638,7 @@ attr uiCompass
 attr uiMapToolbar
 attr uiRotateGestures
 attr uiScrollGestures
+attr uiScrollGesturesDuringRotateOrZoom
 attr uiTiltGestures
 attr uiZoomControls
 attr uiZoomGestures
@@ -748,6 +749,7 @@ color grey_textview
 color highlighted_text_material_dark
 color highlighted_text_material_light
 color light_orange_background
+color lightcolorPrimary
 color material_blue_grey_800
 color material_blue_grey_900
 color material_blue_grey_950
@@ -1031,6 +1033,10 @@ dimen notification_top_pad_large_text
 dimen padding_10dp
 dimen padding_18sp
 dimen store_p_activity_vertical_margin
+dimen subtitle_corner_radius
+dimen subtitle_outline_width
+dimen subtitle_shadow_offset
+dimen subtitle_shadow_radius
 dimen text_size_xsmall
 dimen tooltip_corner_radius
 dimen tooltip_horizontal_padding
@@ -1285,6 +1291,9 @@ drawable sales_tick
 drawable shelfinshelf
 drawable signin_btn
 drawable skirting
+drawable sos
+drawable sos_gray
+drawable sos_tick
 drawable start_video_record_button
 drawable stock_after_ico
 drawable stock_before_ico
@@ -1322,6 +1331,39 @@ id RLoffprice
 id SHIFT
 id SYM
 id Save2
+id accessibility_action_clickable_span
+id accessibility_custom_action_0
+id accessibility_custom_action_1
+id accessibility_custom_action_10
+id accessibility_custom_action_11
+id accessibility_custom_action_12
+id accessibility_custom_action_13
+id accessibility_custom_action_14
+id accessibility_custom_action_15
+id accessibility_custom_action_16
+id accessibility_custom_action_17
+id accessibility_custom_action_18
+id accessibility_custom_action_19
+id accessibility_custom_action_2
+id accessibility_custom_action_20
+id accessibility_custom_action_21
+id accessibility_custom_action_22
+id accessibility_custom_action_23
+id accessibility_custom_action_24
+id accessibility_custom_action_25
+id accessibility_custom_action_26
+id accessibility_custom_action_27
+id accessibility_custom_action_28
+id accessibility_custom_action_29
+id accessibility_custom_action_3
+id accessibility_custom_action_30
+id accessibility_custom_action_31
+id accessibility_custom_action_4
+id accessibility_custom_action_5
+id accessibility_custom_action_6
+id accessibility_custom_action_7
+id accessibility_custom_action_8
+id accessibility_custom_action_9
 id action0
 id action_bar
 id action_bar_activity_content
@@ -1436,6 +1478,7 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
+id dialog_button
 id dimensions
 id direct
 id disableHome
@@ -1458,6 +1501,8 @@ id exit
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id eyelavel_faceup
+id eyelavel_faceupown
 id fab
 id fab_label
 id faceup
@@ -1587,6 +1632,8 @@ id never
 id nnn
 id no
 id none
+id noneyelavel_faceup
+id noneyelavel_faceupown
 id normal
 id noticeRl
 id notice_fab
@@ -1713,6 +1760,7 @@ id snapMargins
 id sos
 id sos_after
 id sos_after1
+id sos_img
 id sos_score
 id sos_target
 id sos_target_withohc_target
@@ -1745,10 +1793,16 @@ id storename_remembermetext
 id storenamelistview_layout
 id stretch
 id sub_reason
+id subcat_sos_facing
 id submenuarrow
 id submit_area
 id supAtten_spinner
 id tabMode
+id tag_accessibility_actions
+id tag_accessibility_clickable_spans
+id tag_accessibility_heading
+id tag_accessibility_pane_title
+id tag_screen_reader_focusable
 id tag_transition_group
 id tag_unhandled_key_event_manager
 id tag_unhandled_key_listeners
@@ -1791,6 +1845,9 @@ id trgt_quantity
 id tv
 id tv_text
 id tv_title
+id txt_brands
+id txt_ownbrands
+id txt_target
 id uniform
 id unlabeled
 id up
@@ -1890,6 +1947,7 @@ layout content_competitionpromotion
 layout content_comptitiontracting
 layout content_geo_tag
 layout custom
+layout custom_dialog
 layout custom_spinner_item
 layout custom_spinner_layout
 layout dailyentry
@@ -1915,6 +1973,7 @@ layout generic_camera_layout
 layout geoname
 layout geoviewlist
 layout gps_location
+layout item_sos
 layout item_storewiseperformace_list
 layout keyboard1
 layout keyboardforphone
@@ -1955,6 +2014,7 @@ layout shelf_visibility
 layout sku_afterstockdisplay
 layout sku_row
 layout sku_row_after
+layout sos_activity
 layout spinner_custom_item
 layout spinner_text_view
 layout stock_warehouse
@@ -2046,6 +2106,7 @@ string common_signin_button_text_long
 string default_web_client_id
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string fcm_fallback_notification_channel_label
 string firebase_database_url
 string gcm_defaultSenderId
 string google_api_key
@@ -2055,10 +2116,12 @@ string google_maps_key
 string google_storage_bucket
 string hello_world
 string hide_bottom_view_on_scroll_behavior
+string hul
 string is_the_price_of_same_as_mentioned_in_offer
 string mtrl_chip_close_icon_content_description
 string no
 string ok_label
+string parinamm
 string password_toggle_content_description
 string path_password_eye
 string path_password_eye_mask_strike_through
@@ -2639,7 +2702,7 @@ styleable LinearLayoutCompat android_gravity android_orientation android_baselin
 styleable LinearLayoutCompat_Layout android_layout_gravity android_layout_width android_layout_height android_layout_weight
 styleable ListPopupWindow android_dropDownHorizontalOffset android_dropDownVerticalOffset
 styleable LoadingImageView circleCrop imageAspectRatio imageAspectRatioAdjust
-styleable MapAttrs ambientEnabled cameraBearing cameraMaxZoomPreference cameraMinZoomPreference cameraTargetLat cameraTargetLng cameraTilt cameraZoom latLngBoundsNorthEastLatitude latLngBoundsNorthEastLongitude latLngBoundsSouthWestLatitude latLngBoundsSouthWestLongitude liteMode mapType uiCompass uiMapToolbar uiRotateGestures uiScrollGestures uiTiltGestures uiZoomControls uiZoomGestures useViewLifecycle zOrderOnTop
+styleable MapAttrs ambientEnabled cameraBearing cameraMaxZoomPreference cameraMinZoomPreference cameraTargetLat cameraTargetLng cameraTilt cameraZoom latLngBoundsNorthEastLatitude latLngBoundsNorthEastLongitude latLngBoundsSouthWestLatitude latLngBoundsSouthWestLongitude liteMode mapType uiCompass uiMapToolbar uiRotateGestures uiScrollGestures uiScrollGesturesDuringRotateOrZoom uiTiltGestures uiZoomControls uiZoomGestures useViewLifecycle zOrderOnTop
 styleable MaterialButton android_insetLeft android_insetRight android_insetTop android_insetBottom backgroundTint backgroundTintMode cornerRadius icon iconGravity iconPadding iconSize iconTint iconTintMode rippleColor strokeColor strokeWidth
 styleable MaterialCardView strokeColor strokeWidth
 styleable MaterialComponentsTheme bottomSheetDialogTheme bottomSheetStyle chipGroupStyle chipStandaloneStyle chipStyle colorAccent colorBackgroundFloating colorPrimary colorPrimaryDark colorSecondary editTextStyle floatingActionButtonStyle materialButtonStyle materialCardViewStyle navigationViewStyle scrimBackground snackbarButtonStyle tabStyle textAppearanceBody1 textAppearanceBody2 textAppearanceButton textAppearanceCaption textAppearanceHeadline1 textAppearanceHeadline2 textAppearanceHeadline3 textAppearanceHeadline4 textAppearanceHeadline5 textAppearanceHeadline6 textAppearanceOverline textAppearanceSubtitle1 textAppearanceSubtitle2 textInputStyle

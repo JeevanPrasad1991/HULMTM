@@ -19,7 +19,6 @@ import android.widget.EditText;
 
 
 public class AlertMessage {
-
     public static final String MESSAGE_DELETE = "Do You Want To Delete This Record";
     public static final String MESSAGE_SAVE = "Do You Want To Save The Data ";
     public static final String MESSAGE_FAILURE = "Server Error.Please Access After Some Time";
@@ -78,7 +77,6 @@ public class AlertMessage {
     }
 
     public void showMessage() {
-
         if (condition.equals("acra_login")) {
             acra_login(data);
         } else if (condition.equals("socket_login")) {
@@ -410,24 +408,12 @@ public class AlertMessage {
         builder.setMessage(str).setCancelable(false)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-
                         dialog.cancel();
                         Intent i = new Intent(activity, MainMenuActivity.class);
                         activity.startActivity(i);
-
                         activity.finish();
                     }
                 });
-
-        /*
-         * .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-         * public void onClick(DialogInterface dialog, int id) {
-         * dialog.cancel(); Intent i = new Intent(activity,
-         * MainMenuActivity.class); activity.startActivity(i);
-         *
-         * activity.finish(); } });
-         */
-
         AlertDialog alert = builder.create();
         alert.show();
 
@@ -441,11 +427,9 @@ public class AlertMessage {
                 .setCancelable(false)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-
                         dialog.cancel();
                         Intent i = new Intent(activity, MainMenuActivity.class);
                         activity.startActivity(i);
-
                         activity.finish();
                     }
                 })

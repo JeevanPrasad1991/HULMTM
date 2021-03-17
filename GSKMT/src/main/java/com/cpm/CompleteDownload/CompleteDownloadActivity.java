@@ -31,6 +31,7 @@ import com.cpm.xmlGetterSetter.EmpMeetingStatus;
 import com.cpm.xmlGetterSetter.FailureGetterSetter;
 import com.cpm.xmlGetterSetter.JCPGetterSetter;
 import com.cpm.xmlGetterSetter.MappingCompetitionPromotionGetterSetter;
+import com.cpm.xmlGetterSetter.MappingSos;
 import com.cpm.xmlGetterSetter.MappingWellnessSos;
 import com.cpm.xmlGetterSetter.NonWorkingAttendenceGetterSetter;
 import com.cpm.xmlGetterSetter.NonWorkingGetterSetter;
@@ -42,12 +43,14 @@ import com.cpm.xmlGetterSetter.SOSTargetGetterSetter;
 import com.cpm.xmlGetterSetter.ShelfMaster;
 import com.cpm.xmlGetterSetter.StockMappingGetterSetter;
 import com.cpm.xmlGetterSetter.StoreWise_Pss;
+import com.cpm.xmlGetterSetter.SubCategoryMaster;
 import com.cpm.xmlGetterSetter.TDSGetterSetter;
 import com.cpm.xmlGetterSetter.TargetToothpestforOHCGetterSetter;
+import com.cpm.xmlGetterSetter.Targetsossubcategorywise;
 import com.cpm.xmlGetterSetter.catmanMapping;
 import com.cpm.xmlHandler.XMLHandlers;
-import com.crashlytics.android.Crashlytics;
 import com.example.gsk_mtt.R;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -90,21 +93,26 @@ public class CompleteDownloadActivity extends Activity {
     MappingCompetitionPromotionGetterSetter mappingCompetitionPromotionGetterSetter;
     NonWorkingAttendenceGetterSetter nonWorkingAttendenceGetterSetter;
     TargetToothpestforOHCGetterSetter targetToothpestforOHCObject;
+    SubCategoryMaster subCategoryMaster;
+    MappingSos mappingSos;
+    Targetsossubcategorywise targetsossubcategorywise;
     GSKMTDatabase db;
     TableBean tb;
     String user_name;
     SharedPreferences preferences;
     private SharedPreferences.Editor editor = null;
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mainpage);
+        context=this;
         tb = new TableBean();
-        db = new GSKMTDatabase(this);
-        preferences = PreferenceManager.getDefaultSharedPreferences(CompleteDownloadActivity.this);
+        db = new GSKMTDatabase(context);
+        preferences = PreferenceManager.getDefaultSharedPreferences(context);
         user_name = preferences.getString(CommonString.KEY_USERNAME, "");
-        new BackgroundTask(this).execute();
+        new BackgroundTask(context).execute();
     }
 
     @Override
@@ -924,71 +932,43 @@ public class CompleteDownloadActivity extends Activity {
 
                 // Generic Tables Structure download
 
-                request = new SoapObject(CommonString.NAMESPACE,
-                        CommonString.METHOD_NAME_UNIVERSAL_DOWNLOAD);
-
+                request = new SoapObject(CommonString.NAMESPACE, CommonString.METHOD_NAME_UNIVERSAL_DOWNLOAD);
                 request.addProperty("UserName", user_name);
                 request.addProperty("Type", "DATAENTRYTABLES");
-
                 envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
                 envelope.dotNet = true;
                 envelope.setOutputSoapObject(request);
-
                 androidHttpTransport = new HttpTransportSE(CommonString.URL);
-
-                androidHttpTransport.call(
-                        CommonString.SOAP_ACTION_UNIVERSAL, envelope);
+                androidHttpTransport.call(CommonString.SOAP_ACTION_UNIVERSAL, envelope);
                 result = (Object) envelope.getResponse();
-
                 if (result.toString().equalsIgnoreCase(CommonString.KEY_FALSE)) {
-                    //	return CommonString.METHOD_NAME_DownLoad_Promotional_Master;
                 }
 
-                if (result.toString()
-                        .equalsIgnoreCase(CommonString.KEY_NO_DATA)) {
-                    //return CommonString.METHOD_NAME_DownLoad_Promotional_Master;
+                if (result.toString().equalsIgnoreCase(CommonString.KEY_NO_DATA)) {
                 }
-
                 // for failure
-
-
                 if (result.toString().equalsIgnoreCase(CommonString.KEY_FAILURE)) {
-
                     xpp.setInput(new StringReader(result.toString()));
                     xpp.next();
                     eventType = xpp.getEventType();
-                    failureGetterSetter = XMLHandlers.failureXMLHandler(xpp,
-                            eventType);
-
-                    if (failureGetterSetter.getStatus().equalsIgnoreCase(
-                            CommonString.KEY_FAILURE)) {
-                        return CommonString.METHOD_NAME_UNIVERSAL_DOWNLOAD
-                                + "," + failureGetterSetter.getErrorMsg();
+                    failureGetterSetter = XMLHandlers.failureXMLHandler(xpp, eventType);
+                    if (failureGetterSetter.getStatus().equalsIgnoreCase(CommonString.KEY_FAILURE)) {
+                        return CommonString.METHOD_NAME_UNIVERSAL_DOWNLOAD + "," + failureGetterSetter.getErrorMsg();
                     }
-
                 }
 
-                if (!result.toString()
-                        .equalsIgnoreCase(CommonString.KEY_FALSE)) {
-                    //return CommonString.METHOD_NAME_JCP;
-
+                if (!result.toString().equalsIgnoreCase(CommonString.KEY_FALSE)) {
                     xpp.setInput(new StringReader(result.toString()));
                     xpp.next();
                     eventType = xpp.getEventType();
-
                     alltable = XMLHandlers.XMLHandler(xpp, eventType);
-                    String all_entry_tables = alltable.getMeta_data();
-                    String stock_table = alltable.getStock_entry_table();
-                    String stock_image_table = alltable.getStock_image_table();
-                    String tot_entry_table = alltable.getTot_entry_table();
-                    String tot_image_table = alltable.getTot_image_table();
 
-                    TableBean.setCoverage_table(all_entry_tables);
-                    TableBean.setStock_table(stock_table);
-                    TableBean.setStock_image_table(stock_image_table);
-
-                    TableBean.setTot_entry_table(tot_entry_table);
-                    TableBean.setTot_image_table(tot_image_table);
+                    TableBean.setCoverage_table(alltable.getMeta_data());
+                    TableBean.setStock_table(alltable.getStock_entry_table());
+                    TableBean.setStock_image_table(alltable.getStock_image_table());
+                    TableBean.setTot_entry_table(alltable.getTot_entry_table());
+                    TableBean.setTot_image_table(alltable.getTot_image_table());
+                    TableBean.setDr_sos_subcategory_faceup(alltable.getSub_category_sos_faceup());
 
                     data.value = 80;
                     data.name = "DATA ENTRY TABLES Data";
@@ -1000,22 +980,15 @@ public class CompleteDownloadActivity extends Activity {
 
                 // PROMOTION_MAPPING_NEW download
 
-                request = new SoapObject(CommonString.NAMESPACE,
-                        CommonString.METHOD_NAME_UNIVERSAL_DOWNLOAD);
-
+                request = new SoapObject(CommonString.NAMESPACE, CommonString.METHOD_NAME_UNIVERSAL_DOWNLOAD);
                 request.addProperty("UserName", user_name);
                 request.addProperty("Type", "PROMOTION_MAPPING_NEW");
-
                 envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
                 envelope.dotNet = true;
                 envelope.setOutputSoapObject(request);
-
                 androidHttpTransport = new HttpTransportSE(CommonString.URL);
-
-                androidHttpTransport.call(
-                        CommonString.SOAP_ACTION_UNIVERSAL, envelope);
+                androidHttpTransport.call(CommonString.SOAP_ACTION_UNIVERSAL, envelope);
                 result = (Object) envelope.getResponse();
-
                 if (result.toString().equalsIgnoreCase(CommonString.KEY_FALSE)) {
                     //	return CommonString.METHOD_NAME_DownLoad_Promotional_Master;
                 }
@@ -1213,7 +1186,7 @@ public class CompleteDownloadActivity extends Activity {
                     editor.commit();
                     TableBean.setEmp_meeting_status_table(empMeetingStatustable);
 
-                    data.value = 89;
+                    data.value = 86;
                     data.name = "EMP MEETING STATUS";
                     publishProgress(data);
 
@@ -1237,7 +1210,7 @@ public class CompleteDownloadActivity extends Activity {
                     eventType = xpp.getEventType();
                     nonWorkingAttendenceGetterSetter = XMLHandlers.MarchAttendenceXMLHandler(xpp, eventType);
                     TableBean.setNonwokingAttendenceTable(nonWorkingAttendenceGetterSetter.getMetaDATA());
-                    data.value = 90;
+                    data.value = 87;
                     data.name = "NON WORKING ATTENDANCE";
                     publishProgress(data);
                 }
@@ -1262,7 +1235,7 @@ public class CompleteDownloadActivity extends Activity {
                     String mappingwellnesstable = pdrFacingStockGetterSetter.getPdrFacingStock();
                     TableBean.setMappingPdrFacingTable(mappingwellnesstable);
 
-                    data.value = 91;
+                    data.value = 88;
                     data.name = "MAPPING PDR FACING STATEWISE";
                     publishProgress(data);
                 }
@@ -1286,7 +1259,7 @@ public class CompleteDownloadActivity extends Activity {
                     mappingCompetitionPromotionGetterSetter = XMLHandlers.MappingCompetitionPromotionXMLHandler(xpp, eventType);
                     TableBean.setMAPPINGCompeti_promotionTable(mappingCompetitionPromotionGetterSetter.getTable());
 
-                    data.value = 93;
+                    data.value = 89;
                     data.name = "MAPPING_COMPETITION_PROMO";
                     publishProgress(data);
                 }
@@ -1352,7 +1325,7 @@ public class CompleteDownloadActivity extends Activity {
 
                     TableBean.setMapping_shelf_table(mappingwellnesstable);
 
-                    data.value = 93;
+                    data.value = 90;
                     data.name = "MAPPING WELLNESS SOS";
                     publishProgress(data);
                 }
@@ -1392,12 +1365,12 @@ public class CompleteDownloadActivity extends Activity {
                     storeWisePssData = XMLHandlers.StoreWisePssXMLHandler(xpp, eventType);
                     String StoreWisePsstable = storeWisePssData.getTable_Structure();
                     TableBean.setStorewise_pss_table(StoreWisePsstable);
-                    data.value = 94;
+                    data.value = 91;
                     data.name = "STOREWISE PSS Data";
                     publishProgress(data);
                 }
-                //Downloading STOREWISE_PSS replace by STOREWISE_PSS_SCORE
 
+                //Downloading STOREWISE_PSS replace by STOREWISE_PSS_SCORE
                 request = new SoapObject(CommonString.NAMESPACE, CommonString.METHOD_NAME_UNIVERSAL_DOWNLOAD);
                 request.addProperty("UserName", user_name);
                 request.addProperty("Type", "TARGET_BRAND_GROUP_WISE");
@@ -1428,8 +1401,119 @@ public class CompleteDownloadActivity extends Activity {
                     eventType = xpp.getEventType();
                     targetToothpestforOHCObject = XMLHandlers.TargetforOHCCategoryHandler(xpp, eventType);
                     TableBean.setTargetforohctoothpestTable(targetToothpestforOHCObject.getTableMetaData());
-                    data.value = 96;
+                    data.value = 93;
                     data.name = "TARGET BRAND GROUP WISE Data";
+                    publishProgress(data);
+                }
+
+
+                //Downloading MAPPING_SHARE_OF_SHELF
+                request = new SoapObject(CommonString.NAMESPACE, CommonString.METHOD_NAME_UNIVERSAL_DOWNLOAD);
+                request.addProperty("UserName", user_name);
+                request.addProperty("Type", "MAPPING_SHARE_OF_SHELF");
+                envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+                envelope.dotNet = true;
+                envelope.setOutputSoapObject(request);
+                androidHttpTransport = new HttpTransportSE(CommonString.URL);
+                androidHttpTransport.call(CommonString.SOAP_ACTION_UNIVERSAL, envelope);
+                result = (Object) envelope.getResponse();
+                if (result.toString().equalsIgnoreCase(CommonString.KEY_FALSE)) {
+                }
+                if (result.toString().equalsIgnoreCase(CommonString.KEY_NO_DATA)) {
+                }
+
+                // for failure
+                if (result.toString().equalsIgnoreCase(CommonString.KEY_FAILURE)) {
+                    xpp.setInput(new StringReader(result.toString()));
+                    xpp.next();
+                    eventType = xpp.getEventType();
+                    failureGetterSetter = XMLHandlers.failureXMLHandler(xpp, eventType);
+                    if (failureGetterSetter.getStatus().equalsIgnoreCase(CommonString.KEY_FAILURE)) {
+                        return CommonString.METHOD_NAME_UNIVERSAL_DOWNLOAD + "," + failureGetterSetter.getErrorMsg();
+                    }
+                }
+
+                if (!result.toString().equalsIgnoreCase(CommonString.KEY_FALSE)) {
+                    xpp.setInput(new StringReader(result.toString()));
+                    xpp.next();
+                    eventType = xpp.getEventType();
+                    mappingSos = XMLHandlers.MappingSosHandler(xpp, eventType);
+                    TableBean.setMappingsos_table(mappingSos.getMappingsostable());
+                    data.value = 94;
+                    data.name = "MAPPING_SHARE_OF_SHELF Data";
+                    publishProgress(data);
+                }
+
+                //Downloading TARGET_SOS_SUB_CATEGORY_WISE
+                request = new SoapObject(CommonString.NAMESPACE, CommonString.METHOD_NAME_UNIVERSAL_DOWNLOAD);
+                request.addProperty("UserName", user_name);
+                request.addProperty("Type", "TARGET_SOS_SUB_CATEGORY_WISE");
+                envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+                envelope.dotNet = true;
+                envelope.setOutputSoapObject(request);
+                androidHttpTransport = new HttpTransportSE(CommonString.URL);
+                androidHttpTransport.call(CommonString.SOAP_ACTION_UNIVERSAL, envelope);
+                result = (Object) envelope.getResponse();
+                if (result.toString().equalsIgnoreCase(CommonString.KEY_FALSE)) {
+                }
+                if (result.toString().equalsIgnoreCase(CommonString.KEY_NO_DATA)) {
+                }
+
+                // for failure
+                if (result.toString().equalsIgnoreCase(CommonString.KEY_FAILURE)) {
+                    xpp.setInput(new StringReader(result.toString()));
+                    xpp.next();
+                    eventType = xpp.getEventType();
+                    failureGetterSetter = XMLHandlers.failureXMLHandler(xpp, eventType);
+                    if (failureGetterSetter.getStatus().equalsIgnoreCase(CommonString.KEY_FAILURE)) {
+                        return CommonString.METHOD_NAME_UNIVERSAL_DOWNLOAD + "," + failureGetterSetter.getErrorMsg();
+                    }
+                }
+
+                if (!result.toString().equalsIgnoreCase(CommonString.KEY_FALSE)) {
+                    xpp.setInput(new StringReader(result.toString()));
+                    xpp.next();
+                    eventType = xpp.getEventType();
+                    targetsossubcategorywise = XMLHandlers.TargetsossubcategoryHandler(xpp, eventType);
+                    TableBean.setTargetsossubcatwise(targetsossubcategorywise.getTable());
+                    data.value = 95;
+                    data.name = "TARGET_SOS_SUB_CATEGORY_WISE Data";
+                    publishProgress(data);
+                }
+
+                //Downloading SUB_CATEGORY_MASTER
+                request = new SoapObject(CommonString.NAMESPACE, CommonString.METHOD_NAME_UNIVERSAL_DOWNLOAD);
+                request.addProperty("UserName", user_name);
+                request.addProperty("Type", "SUB_CATEGORY_MASTER");
+                envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+                envelope.dotNet = true;
+                envelope.setOutputSoapObject(request);
+                androidHttpTransport = new HttpTransportSE(CommonString.URL);
+                androidHttpTransport.call(CommonString.SOAP_ACTION_UNIVERSAL, envelope);
+                result = (Object) envelope.getResponse();
+                if (result.toString().equalsIgnoreCase(CommonString.KEY_FALSE)) {
+                }
+                if (result.toString().equalsIgnoreCase(CommonString.KEY_NO_DATA)) {
+                }
+                // for failure
+                if (result.toString().equalsIgnoreCase(CommonString.KEY_FAILURE)) {
+                    xpp.setInput(new StringReader(result.toString()));
+                    xpp.next();
+                    eventType = xpp.getEventType();
+                    failureGetterSetter = XMLHandlers.failureXMLHandler(xpp, eventType);
+                    if (failureGetterSetter.getStatus().equalsIgnoreCase(CommonString.KEY_FAILURE)) {
+                        return CommonString.METHOD_NAME_UNIVERSAL_DOWNLOAD + "," + failureGetterSetter.getErrorMsg();
+                    }
+                }
+
+                if (!result.toString().equalsIgnoreCase(CommonString.KEY_FALSE)) {
+                    xpp.setInput(new StringReader(result.toString()));
+                    xpp.next();
+                    eventType = xpp.getEventType();
+                    subCategoryMaster = XMLHandlers.subCategoryMasterHandler(xpp, eventType);
+                    TableBean.setSubcategory_table(subCategoryMaster.getSubcat_table());
+                    data.value = 96;
+                    data.name = "SUB_CATEGORY_MASTER Data";
                     publishProgress(data);
                 }
 
@@ -1458,6 +1542,7 @@ public class CompleteDownloadActivity extends Activity {
                 data.value = 99;
                 data.name = "Data Inserting";
                 publishProgress(data);
+
                 db.open();
                 db.InsertSkuMasterData(skudata);
                 db.InsertJCP(jcpData);
@@ -1484,6 +1569,9 @@ public class CompleteDownloadActivity extends Activity {
                 db.InsertStoreWisePss(storeWisePssData);
                 //insert for ohc category target
                 db.InsertTargetOHC(targetToothpestforOHCObject);
+                db.insertsubcategorymaster(subCategoryMaster);
+                db.insertmappingsos(mappingSos);
+                db.inserttargetsubcategorywise(targetsossubcategorywise);
 
                 db.InsertEmpMeetingStatus(empstatusData);
                 db.InsertNonWoATTENDENCEData(nonWorkingAttendenceGetterSetter);
@@ -1495,7 +1583,7 @@ public class CompleteDownloadActivity extends Activity {
                 return CommonString.KEY_SUCCESS;
 
             } catch (MalformedURLException e) {
-                Crashlytics.logException(e);
+                FirebaseCrashlytics.getInstance().recordException(e);
                 final AlertMessage message = new AlertMessage(CompleteDownloadActivity.this,
                         AlertMessage.MESSAGE_EXCEPTION, "download", e);
                 runOnUiThread(new Runnable() {
@@ -1520,9 +1608,9 @@ public class CompleteDownloadActivity extends Activity {
                     }
                 });
             } catch (Exception e) {
-                Crashlytics.logException(e);
+                FirebaseCrashlytics.getInstance().recordException(e);
                 final AlertMessage message = new AlertMessage(CompleteDownloadActivity.this,
-                        AlertMessage.MESSAGE_EXCEPTION, "download", e);
+                        AlertMessage.MESSAGE_EXCEPTION + ""+e.toString(), "download", e);
 
                 e.getMessage();
                 e.printStackTrace();
@@ -1552,7 +1640,7 @@ public class CompleteDownloadActivity extends Activity {
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
             dialog.dismiss();
-            if (result.equals(CommonString.KEY_SUCCESS)) {
+            if (result!=null && !result.equals("") && result.equalsIgnoreCase(CommonString.KEY_SUCCESS)) {
                 AlertMessage message = new AlertMessage(CompleteDownloadActivity.this, AlertMessage.MESSAGE_DOWNLOAD, "success", null);
                 message.showMessage();
             } else if (result.equals(CommonString.METHOD_NAME_JCP)) {
@@ -1598,15 +1686,15 @@ public class CompleteDownloadActivity extends Activity {
                 }
             }
         } catch (FileNotFoundException e) {
-            Crashlytics.logException(e);
+            FirebaseCrashlytics.getInstance().recordException(e);
             e.printStackTrace();
         } catch (ProtocolException e) {
             e.printStackTrace();
         } catch (MalformedURLException e) {
-            Crashlytics.logException(e);
+            FirebaseCrashlytics.getInstance().recordException(e);
             e.printStackTrace();
         } catch (IOException e) {
-            Crashlytics.logException(e);
+            FirebaseCrashlytics.getInstance().recordException(e);
             e.printStackTrace();
         }
     }

@@ -7,13 +7,11 @@ import java.util.Calendar;
 import java.util.Date;
 
 import com.cpm.Constants.CommonString;
-
-import com.cpm.DailyEntry.AfterStockActivity.ViewHolder;
 import com.cpm.database.GSKMTDatabase;
 import com.cpm.delegates.CoverageBean;
 import com.cpm.delegates.SkuBean;
-import com.crashlytics.android.Crashlytics;
 import com.example.gsk_mtt.R;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -23,7 +21,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.inputmethodservice.Keyboard;
 import android.net.Uri;
@@ -53,7 +50,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class BeforeStock extends Activity implements OnClickListener {
-
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor = null;
     ListView lv;
@@ -81,13 +77,9 @@ public class BeforeStock extends Activity implements OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.before_stock);
-
         lv = (ListView) findViewById(R.id.ListView01);
-
-
         preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         store_id = preferences.getString(CommonString.KEY_STORE_ID, null);
         store_type_id = preferences.getString(CommonString.storetype_id, null);
@@ -308,7 +300,7 @@ public class BeforeStock extends Activity implements OnClickListener {
                         }
                     }
                 } catch (Exception e) {
-                    Crashlytics.logException(e);
+                    FirebaseCrashlytics.getInstance().recordException(e);
                     e.printStackTrace();
                 }
                 break;
@@ -894,57 +886,21 @@ public class BeforeStock extends Activity implements OnClickListener {
 
             lv.clearFocus();
             row_pos = 10000;
-
-            /*
-            * if (check_condition()) { Toast.makeText(getApplicationContext(),
-            * AlertMessage.MESSAGE_INVALID_DATA, Toast.LENGTH_SHORT) .show(); }
-            * else {
-            */
-
             if (validate_allvalues()) {
                 if (validate_values()) {
                     if (condition()) {
-//                if (condition_lastmonth_stock()) {
-
                         if (validate_primaryWindows()) {
-
                             AlertDialog.Builder builder = new AlertDialog.Builder(this);
                             builder.setMessage("Are you sure you want to save").setCancelable(false).setPositiveButton("Yes",
                                     new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int id) {
-
-
-//                        		db.InsertCoverage(store_id, date, intime, getCurrentTime(),
-//										reason_id, remark,username,app_version,process_id);
                                             db.open();
-                                            db.InsertBeforeStockImagese(store_id, category_id, image1, image2, image3, image4
-                                                    , username, process_id);
+                                            db.InsertBeforeStockImagese(store_id, category_id, image1, image2, image3, image4, username, process_id);
                                             db.open();
                                             db.InsertBeforerStockData(store_id, sku_brand_list, username, category_id, process_id);
-
-
                                             Intent in = new Intent(BeforeStock.this, DailyEntryMainMenu.class);
                                             startActivity(in);
                                             BeforeStock.this.finish();
-                        	 
-                        	 
-                        	 
-                        	 
-
-                          /*  database.open();
-                          if (check) {
-                             database.UpdateSkuData( getMid(),store_id, stockdata);
-                              database.UpdatePrimaryWindowImages(store_id,image1,image2,image3);
-                                                                                                                                                                               
-                          	} else {
-                            database.InsertAssetData( getMid(),store_id, stockdata);
-                                                                                                                                                                                            
-                            database.InsertPrimaryWindowImages(store_id,image1,image2,image3);
-                          	}
-
-                            Intent DailyEntryMenu = new Intent(SkuDisplay.this, DailyentryMenuActivity.class);
-                             startActivity(DailyEntryMenu);*/
-
                                         }
                                     }).setNegativeButton("No",
                                     new DialogInterface.OnClickListener() {

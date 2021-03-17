@@ -28,10 +28,6 @@ import com.cpm.delegates.SkuBean;
 import com.cpm.delegates.StoreBean;
 import com.cpm.delegates.TOTBean;
 import com.cpm.message.AlertMessage;
-import com.cpm.xmlGetterSetter.FailureGetterSetter;
-import com.cpm.xmlHandler.FailureXMLHandler;
-
-import com.crashlytics.android.Crashlytics;
 import com.example.gsk_mtt.R;
 
 import android.app.Activity;
@@ -550,6 +546,29 @@ public class UploadImageActivity extends Activity {
                                     }
                                 }
                             }
+
+                            database.open();
+                            ArrayList<SkuBean> sosfacingList = database.getSOSFacingDataForUpload(coverageBeanlist.get(i).getStoreId(), coverageBeanlist.get(i).getProcess_id());
+                            if (sosfacingList.size() > 0) {
+                                for (int j = 0; j < sosfacingList.size(); j++) {
+                                    if (sosfacingList.get(j).getImage1() != null && !sosfacingList.get(j).getImage1().equals("")) {
+                                        if (new File(Environment.getExternalStorageDirectory() + "/MT_GSK_Images/" + sosfacingList.get(j).getImage1()).exists()) {
+                                            result = UploadPOSMImage(sosfacingList.get(j).getImage1(), "SOSFacingImages");
+                                            if (result.equalsIgnoreCase(CommonString.KEY_FAILURE)) {
+                                                return CommonString.METHOD_Upload_StoreDeviationImage + "," + errormsg;
+                                            }
+
+                                            runOnUiThread(new Runnable() {
+                                                public void run() {
+                                                    message.setText("SOS Images Uploaded");
+                                                }
+                                            });
+                                        }
+                                    }
+                                }
+
+                            }
+
                             database.open();
                             afterAddaitionalData = database.getAfterProductEntryDetail(coverageBeanlist.get(i).getStoreId());
                             for (int j = 0; j < afterAddaitionalData.size(); j++) {
@@ -624,7 +643,6 @@ public class UploadImageActivity extends Activity {
 
                 return CommonString.KEY_SUCCESS;
             } catch (MalformedURLException e) {
-                Crashlytics.logException(e);
                 final AlertMessage message = new AlertMessage(
                         UploadImageActivity.this,
                         AlertMessage.MESSAGE_EXCEPTION, "download", e);
@@ -652,7 +670,6 @@ public class UploadImageActivity extends Activity {
                     }
                 });
             } catch (Exception e) {
-                Crashlytics.logException(e);
                 final AlertMessage message = new AlertMessage(
                         UploadImageActivity.this,
                         AlertMessage.MESSAGE_EXCEPTION, "download", e);

@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: artifacts:annca:unspecified">
+    <ANNOTATIONS>
+      <root url="jar://$PROJECT_DIR$/annca/build/.transforms/2a91f8f02d6b6ff915fedc2f9367b13b/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/annca/build/.transforms/2a91f8f02d6b6ff915fedc2f9367b13b/AndroidManifest.xml" />
+      <root url="jar://$PROJECT_DIR$/annca/build/.transforms/2a91f8f02d6b6ff915fedc2f9367b13b/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/annca/build/.transforms/2a91f8f02d6b6ff915fedc2f9367b13b/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

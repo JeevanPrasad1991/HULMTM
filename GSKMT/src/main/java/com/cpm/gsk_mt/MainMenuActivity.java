@@ -17,7 +17,6 @@ import com.cpm.delegates.StoreBean;
 import com.cpm.geotagging.GeoTagging;
 import com.cpm.message.AlertMessage;
 import com.cpm.upload.UploadOptionActivity;
-import com.crashlytics.android.Crashlytics;
 import com.example.gsk_mtt.BuildConfig;
 import com.example.gsk_mtt.R;
 
@@ -32,7 +31,6 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Environment;
 import android.preference.PreferenceManager;
-import android.support.design.widget.Snackbar;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -282,7 +280,6 @@ public class MainMenuActivity extends Activity {
                 }
             }
         } catch (Exception e) {
-            Crashlytics.logException(e);
             e.printStackTrace();
         }
 
@@ -315,6 +312,12 @@ public class MainMenuActivity extends Activity {
         date = preferences.getString(CommonString.KEY_DATE, null);
         ATTENDENCE_STATUS = preferences.getString(CommonString.KEY_ATTENDENCE_STATUS, null);
         user_id = preferences.getString(CommonString.KEY_USERNAME, "");
+
+        File sdCard = Environment.getExternalStorageDirectory();
+        File dir = new File(sdCard.getAbsolutePath() + "/" + CommonString.FOLDER_NAME_IMAGE);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
 
     }
 

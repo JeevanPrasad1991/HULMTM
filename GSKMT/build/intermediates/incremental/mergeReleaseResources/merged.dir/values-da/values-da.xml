@@ -46,6 +46,7 @@
     <string msgid="5201977337835724196" name="common_open_on_phone">"Åbn på telefonen"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"Log ind"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"Log ind med Google"</string>
+    <string msgid="4133737464567140336" name="fcm_fallback_notification_channel_label">"Diverse"</string>
     <string name="ok_label">Ok</string>
     <string name="preview_controls_cancel">Fortryd</string>
     <string name="preview_controls_confirm">Færdig</string>
@@ -55,5 +56,5 @@
     <string msgid="146198913615257606" name="search_menu_title">"Søg"</string>
     <string name="settings_photo_quality_title">Billed størrelse</string>
     <string name="settings_video_quality_title">Video størrelse %s</string>
-    <string msgid="7988687684186075107" name="status_bar_notification_info_overflow">"999+"</string>
+    <string msgid="6277540029070332960" name="status_bar_notification_info_overflow">"999+"</string>
 </resources>

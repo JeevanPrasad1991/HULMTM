@@ -48,7 +48,6 @@ import com.cpm.message.AlertMessage;
 import com.example.gsk_mtt.R;
 
 public class BeforeTOT extends Activity{
-	
 	private SharedPreferences preferences;
 	private SharedPreferences.Editor editor = null;static int mposition = -1;
 	

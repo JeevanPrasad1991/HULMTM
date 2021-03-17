@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GSKMT/GSKMT.iml" filepath="$PROJECT_DIR$/GSKMT/GSKMT.iml" />
       <module fileurl="file://$PROJECT_DIR$/GSK_MT1.iml" filepath="$PROJECT_DIR$/GSK_MT1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/annca/annca.iml" filepath="$PROJECT_DIR$/annca/annca.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/GSKMT/GSK_MT1.GSKMT.iml" filepath="$PROJECT_DIR$/.idea/modules/GSKMT/GSK_MT1.GSKMT.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/annca/GSK_MT1.annca.iml" filepath="$PROJECT_DIR$/.idea/modules/annca/GSK_MT1.annca.iml" />
     </modules>
   </component>
 </project>

@@ -45,10 +45,8 @@ import android.widget.Toast;
 import android.widget.AbsListView.OnScrollListener;
 
 public class StockwareHouse extends Activity implements OnClickListener {
-
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor = null;
-
     public ArrayList<TOTBean> question_list = new ArrayList<TOTBean>();
     ListView lv, lv2;
     Button save, save2, shelf_visibility, cancel;

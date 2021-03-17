@@ -21,7 +21,6 @@ import com.cpm.delegates.CoverageBean;
 import com.cpm.delegates.StoreBean;
 import com.cpm.gsk_mt.MainMenuActivity;
 import com.cpm.message.AlertMessage;
-import com.crashlytics.android.Crashlytics;
 import com.example.gsk_mtt.R;
 
 public class UploadOptionActivity extends Activity {
@@ -32,16 +31,18 @@ public class UploadOptionActivity extends Activity {
     Button upload_data, upload_image;
     private Intent intent;
     private String date;
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.upload_option);
+        context=this;
         upload_data = findViewById(R.id.upload_data);
         upload_image = findViewById(R.id.upload_image);
-        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        preferences = PreferenceManager.getDefaultSharedPreferences(context);
         date = preferences.getString(CommonString.KEY_DATE, null);
-        database = new GSKMTDatabase(this);
+        database = new GSKMTDatabase(context);
         database.open();
     }
 
@@ -52,7 +53,7 @@ public class UploadOptionActivity extends Activity {
                 database.open();
                 cdata = database.getCoverageData(date, null, null);
                 if (cdata.size() == 0) {
-                    Toast.makeText(getBaseContext(), AlertMessage.MESSAGE_NO_DATA, Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, AlertMessage.MESSAGE_NO_DATA, Toast.LENGTH_LONG).show();
                 } else {
                     if (CheckNetAvailability()) {
                         if ((validate_data())) {
@@ -117,8 +118,8 @@ public class UploadOptionActivity extends Activity {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            Crashlytics.logException(e);
         }
+
         return result;
     }
 
@@ -136,7 +137,6 @@ public class UploadOptionActivity extends Activity {
                 }
             }
         } catch (Exception e) {
-            Crashlytics.logException(e);
             e.printStackTrace();
         }
         return result;

@@ -1,0 +1,159 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/grey_background">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/padding_10dp"
+        android:layout_margin="2dp"
+        app:cardElevation="3dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="2dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="10"
+                android:background="@color/lightcolorPrimary">
+
+                <TextView
+                    android:id="@+id/txt_brands"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/padding_10dp"
+                    android:layout_weight="8"
+                    android:padding="@dimen/padding_10dp"
+                    android:paddingLeft="5dp"
+                    android:text="Jeevan "
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/txtsize_16sp" />
+
+                <ImageView
+                    android:id="@+id/sos_img"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:src="@drawable/camera_ico"
+                    android:layout_gravity="center|right"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/mainpage_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/list_selector"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <EditText
+                    android:id="@+id/eyelavel_faceup"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/padding_10dp"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:hint="EyeLevel'Category'"
+                    android:imeOptions="actionDone"
+                    android:maxLength="6"
+                    android:text=""
+                    android:textSize="14sp"/>
+
+                <EditText
+                    android:id="@+id/noneyelavel_faceup"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="@dimen/padding_10dp"
+                    android:layout_weight="5"
+                    android:imeOptions="actionDone"
+                    android:gravity="center"
+                    android:hint="Non EyeLevel'Category'"
+                    android:textSize="14sp"
+                    android:maxLength="6"
+                    android:text="" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_ownbrands"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/padding_10dp"
+                    android:padding="@dimen/padding_10dp"
+                    android:paddingLeft="5dp"
+                    android:text="Jeevan "
+                    android:textColor="#000000"
+                    android:textSize="@dimen/txtsize_16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/list_selector"
+                android:orientation="horizontal"
+                android:weightSum="10">
+
+                <EditText
+                    android:id="@+id/eyelavel_faceupown"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/padding_10dp"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:hint="EyeLevel"
+                    android:imeOptions="actionDone"
+                    android:maxLength="6"
+                    android:text=""
+                    android:textSize="14sp"/>
+
+                <EditText
+                    android:id="@+id/noneyelavel_faceupown"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginRight="@dimen/padding_10dp"
+                    android:layout_weight="5"
+                    android:imeOptions="actionDone"
+                    android:gravity="center"
+                    android:hint="Non EyeLevel"
+                    android:textSize="14sp"
+                    android:maxLength="6"
+                    android:text="" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/custom_margin">
+
+                <TextView
+                    android:id="@+id/txt_target"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/padding_10dp"
+                    android:padding="@dimen/padding_10dp"
+                    android:paddingLeft="5dp"
+                    android:text=""
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/txtsize_16sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

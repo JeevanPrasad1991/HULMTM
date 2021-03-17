@@ -1,11 +1,13 @@
 package io.github.memfis19.annca.internal.ui.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.annotation.IntDef;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
+
+import androidx.annotation.IntDef;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageButton;
@@ -55,6 +57,7 @@ public class MediaActionSwitchView extends ImageButton {
         this(context, attrs);
     }
 
+    @SuppressLint("ResourceType")
     private void initializeView() {
         photoDrawable = ContextCompat.getDrawable(context, R.drawable.ic_photo_camera_white_24dp);
         photoDrawable = DrawableCompat.wrap(photoDrawable);

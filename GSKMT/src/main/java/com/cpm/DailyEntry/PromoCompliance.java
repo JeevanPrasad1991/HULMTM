@@ -7,10 +7,8 @@ import java.util.Calendar;
 
 import com.cpm.Constants.CommonFunctions;
 import com.cpm.Constants.CommonString;
-import com.cpm.DailyEntry.AfterTOT.ViewHolder;
 import com.cpm.database.GSKMTDatabase;
 import com.cpm.delegates.PromotionBean;
-import com.crashlytics.android.Crashlytics;
 import com.example.gsk_mtt.R;
 
 import android.app.Activity;
@@ -20,14 +18,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
-import android.support.design.widget.Snackbar;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,8 +37,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
-
-import static com.cpm.DailyEntry.BeforeTOT.imgDate;
 
 public class PromoCompliance extends Activity {
     ListView lv;
@@ -143,20 +135,13 @@ public class PromoCompliance extends Activity {
 
                                                     }
 
-                                                    Intent i = new Intent(
-                                                            getApplicationContext(),
-                                                            DailyEntryMainMenu.class);
+                                                    Intent i = new Intent(getApplicationContext(), DailyEntryMainMenu.class);
                                                     startActivity(i);
                                                     PromoCompliance.this.finish();
                                                 } else {
                                                     db.open();
-                                                    db.InsertPromotionData(promotionlist, store_id
-                                                            , category_id, process_id);
-
-
-                                                    Intent i = new Intent(
-                                                            getApplicationContext(),
-                                                            DailyEntryMainMenu.class);
+                                                    db.InsertPromotionData(promotionlist, store_id, category_id, process_id);
+                                                    Intent i = new Intent(getApplicationContext(), DailyEntryMainMenu.class);
                                                     startActivity(i);
                                                     PromoCompliance.this.finish();
                                                 }
@@ -494,7 +479,6 @@ public class PromoCompliance extends Activity {
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
-                        Crashlytics.logException(e);
                     }
 
                 }

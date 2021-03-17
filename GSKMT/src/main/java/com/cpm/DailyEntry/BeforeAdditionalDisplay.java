@@ -8,12 +8,8 @@ import com.cpm.Constants.CommonString;
 
 
 import com.cpm.database.GSKMTDatabase;
-
-
 import com.cpm.delegates.SkuBean;
-import com.crashlytics.android.Crashlytics;
 import com.example.gsk_mtt.R;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -30,8 +26,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,8 +46,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-public class BeforeAdditionalDisplay extends Activity implements OnClickListener, AdapterView.OnItemSelectedListener {
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+
+public class BeforeAdditionalDisplay extends Activity implements OnClickListener, AdapterView.OnItemSelectedListener {
     public RecyclerView additional_Recycler;
     Spinner brand, display;
     EditText quantity;
@@ -282,7 +279,6 @@ public class BeforeAdditionalDisplay extends Activity implements OnClickListener
                             break;
                         }
                     } catch (Exception e) {
-                        Crashlytics.logException(e);
                         e.printStackTrace();
                     }
                 }

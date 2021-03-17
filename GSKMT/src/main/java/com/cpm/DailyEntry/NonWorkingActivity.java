@@ -12,9 +12,8 @@ import com.cpm.database.GSKMTDatabase;
 import com.cpm.delegates.CoverageBean;
 import com.cpm.delegates.ReasonModel;
 import com.cpm.delegates.StoreBean;
-
-import com.crashlytics.android.Crashlytics;
 import com.example.gsk_mtt.R;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -214,7 +213,6 @@ public class NonWorkingActivity extends Activity implements OnItemSelectedListen
                                                 new UploadNonworkingData(NonWorkingActivity.this, data).execute();
                                             }
                                         } catch (Exception e) {
-                                            Crashlytics.logException(e);
                                             e.printStackTrace();
                                         }
                                     }
@@ -379,7 +377,7 @@ public class NonWorkingActivity extends Activity implements OnItemSelectedListen
                         }
                     }
                 } catch (Exception e) {
-                    Crashlytics.logException(e);
+                    FirebaseCrashlytics.getInstance().recordException(e);
                     e.printStackTrace();
                 }
 
@@ -564,7 +562,6 @@ public class NonWorkingActivity extends Activity implements OnItemSelectedListen
 
                 return errormesg;
             } catch (Exception e) {
-                Crashlytics.logException(e);
                 errormesg = e.toString();
                 return errormesg;
             }

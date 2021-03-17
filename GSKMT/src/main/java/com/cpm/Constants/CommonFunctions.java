@@ -13,25 +13,22 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Point;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import android.provider.MediaStore;
-import android.support.v4.app.ActivityCompat;
-import android.util.Log;
-import android.view.Display;
+
+import androidx.core.app.ActivityCompat;
+
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.crashlytics.android.Crashlytics;
 import com.example.gsk_mtt.R;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -42,8 +39,6 @@ import java.util.List;
 
 import io.github.memfis19.annca.Annca;
 import io.github.memfis19.annca.internal.configuration.AnncaConfiguration;
-
-import static io.github.memfis19.annca.internal.utils.CameraHelper.TAG;
 
 /**
  * Created by jeevan on 2/16/2017.
@@ -124,7 +119,7 @@ public class CommonFunctions {
             activity.startActivityForResult(intent, 1);
 
         } catch (Exception e) {
-            Crashlytics.logException(e);
+            FirebaseCrashlytics.getInstance().recordException(e);
             e.printStackTrace();
         }
     }
@@ -195,7 +190,7 @@ public class CommonFunctions {
         return ss;
     }
 
-    public static String setMetadataAtImagesforattendence( String type, String userId) {
+    public static String setMetadataAtImagesforattendence(String type, String userId) {
         String ss = "Merchandiser Id : " + userId + " | Image Type : " + type;
         return ss;
     }
@@ -212,7 +207,6 @@ public class CommonFunctions {
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-            Crashlytics.logException(e);
             return bmp1;
         }
     }
@@ -239,10 +233,9 @@ public class CommonFunctions {
                 lastIndex = lastIndex * 2;
                 copleteValue = a + lastIndex;
             } catch (NumberFormatException e) {
-                Crashlytics.logException(e);
+                FirebaseCrashlytics.getInstance().recordException(e);
                 e.printStackTrace();
             }
-
 
 
             // storeM.setTextSize(5 * context.getResources().getDisplayMetrics().density);
@@ -260,7 +253,6 @@ public class CommonFunctions {
             try {
                 dest.compress(Bitmap.CompressFormat.JPEG, 100, new FileOutputStream(new File(path)));
             } catch (FileNotFoundException e) {
-                Crashlytics.logException(e);
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
@@ -282,4 +274,35 @@ public class CommonFunctions {
         } finally {
         }
     }
+
+    public static String return_decimal_value(String value1) {
+        String final_value = "";
+        try {
+            String tempsubstr = value1.substring(0, 1);
+            if (tempsubstr.equals(".")) {
+                if (value1.length() == 2) {
+                    char tempsubstrsecond = value1.charAt(1);
+                    final_value = "0" + tempsubstr + "" + tempsubstrsecond;
+                } else {
+                    final_value = "0" + tempsubstr + "0";
+                }
+            } else {
+                if (value1.contains(".")) {
+                    String strlastindex = value1.substring(value1.lastIndexOf(".") + 1);
+                    if (strlastindex == null || strlastindex.equals("")) {
+                        final_value = value1 + "0";
+                    } else {
+                        final_value = value1;
+                    }
+                } else {
+                    final_value = value1;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return final_value;
+    }
+
 }

@@ -3,13 +3,13 @@ package io.github.memfis19.annca;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
-import android.support.annotation.IntRange;
-import android.support.annotation.RequiresPermission;
-import android.support.v4.app.Fragment;
+
+import androidx.annotation.IntRange;
+import androidx.annotation.RequiresPermission;
+import androidx.fragment.app.Fragment;
 
 import io.github.memfis19.annca.internal.configuration.AnncaConfiguration;
 import io.github.memfis19.annca.internal.ui.camera.Camera1Activity;
-import io.github.memfis19.annca.internal.ui.camera2.Camera2Activity;
 import io.github.memfis19.annca.internal.utils.CameraHelper;
 
 /**

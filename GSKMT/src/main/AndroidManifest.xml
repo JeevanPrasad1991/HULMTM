@@ -29,6 +29,7 @@
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true">
         <activity
             android:name="com.cpm.gsk_mt.LoginActivity"
@@ -54,10 +55,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.cpm.DailyEntry.StoreInformationActivity"
-            android:configChanges="screenSize|orientation|keyboardHidden"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name="com.cpm.geotagging.LocationActivity"
             android:configChanges="screenSize|orientation|keyboardHidden"
             android:screenOrientation="portrait" />
         <activity
@@ -144,6 +141,11 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|adjustResize" />
         <activity
+            android:name="com.cpm.DailyEntry.ShareofShelfActivity"
+            android:configChanges="screenSize|orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|adjustResize" />
+        <activity
             android:name="com.cpm.DailyEntry.CheckOutStoreActivity"
             android:configChanges="screenSize|orientation|keyboardHidden"
             android:screenOrientation="portrait" />
@@ -216,7 +218,7 @@
             android:configChanges="screenSize|orientation|keyboardHidden"
             android:label="Competition Promotion"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"></activity>
+            android:windowSoftInputMode="adjustPan"/>
 
         <!-- ///for custom camera -->
         <activity
@@ -233,7 +235,7 @@
             android:theme="@style/ThemeFullscreen" />
 
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">

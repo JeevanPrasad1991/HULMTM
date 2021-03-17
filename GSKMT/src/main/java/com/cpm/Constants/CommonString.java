@@ -3,9 +3,9 @@ package com.cpm.Constants;
 import android.os.Environment;
 
 public class CommonString {
-
-
     // preferenec keys
+    public static final String FOLDER_NAME_IMAGE = "MT_GSK_Images";
+    public static final String KEY_LOGIN_DATA = "login_data";
     public static final String KEY_USERNAME = "username";
     public static final String KEY_PASSWORD = "password";
     public static final String KEY_REMEMBER = "remember";
@@ -57,7 +57,7 @@ public class CommonString {
     public static final String KEY_STATE_ID = "STATE_ID";
     public static final String KEY_CLASS_ID = "CLASS_ID";
     public static final String KEY_COMPETITION_PROMOTION = "COMPETITION_PROMOTION";
-    public static final String KEY_SALEENABLE_FLAG= "SALEENABLE";
+    public static final String KEY_SALEENABLE_FLAG = "SALEENABLE";
     public static final String KEY_SKU_ID = "SKU_ID";
     public static final String KEY_SKUNAME = "SKUNAME";
     public static final String KEY_IMAGE = "IMAGE";
@@ -78,18 +78,14 @@ public class CommonString {
 
 
     public static final String KEY_REMARK = "REMARK";
-
-    public static final String NAMESPACE = "http://tempuri.org/";
-
-    public static final String URL = "http://hulmtm.parinaam.in/GSKmtService.asmx";
-    //public static final String NOTICE_BOARD_URL = "http://gskmtm.parinaam.in/notice/notice.html";
+    public static final String NAMESPACE = "urn:parinaam.in/svc/";
+    public static final String URL = "https://hulmtm.parinaam.in/HULMTMService.asmx";
 
     public static final String METHOD_LOGIN = "UserLoginDetail";
-    public static final String SOAP_ACTION_LOGIN = "http://tempuri.org/" + METHOD_LOGIN;
+    public static final String SOAP_ACTION_LOGIN = NAMESPACE + METHOD_LOGIN;
 
     public static final String METHOD_UPLOAD_STORE_STATUS = "InsertUserCurrentLocation";
-    public static final String SOAP_ACTION_UPLOAD_STORE_STATUS = "http://tempuri.org/"
-            + METHOD_UPLOAD_STORE_STATUS;
+    public static final String SOAP_ACTION_UPLOAD_STORE_STATUS = NAMESPACE + METHOD_UPLOAD_STORE_STATUS;
     public static final String METHOD_NAME_JCP = "DownLoadStoreJcp_Special";
 
     public static final String METHOD_NAME_UNIVERSAL_DOWNLOAD = "Download_Universal";
@@ -98,60 +94,44 @@ public class CommonString {
 
     public static final String METHOD_Checkout_StatusNew_deviation = "Upload_Store_ChecOut_Status_Deviation";
 
-    public static final String SOAP_ACTION_UNIVERSAL = "http://tempuri.org/"
-            + METHOD_NAME_UNIVERSAL_DOWNLOAD;
+    public static final String SOAP_ACTION_UNIVERSAL = NAMESPACE + METHOD_NAME_UNIVERSAL_DOWNLOAD;
 
-    public static final String SOAP_ACTION_PJP = "http://tempuri.org/"
-            + METHOD_NAME_PJP_STORE;
+    public static final String SOAP_ACTION_PJP = NAMESPACE + METHOD_NAME_PJP_STORE;
 
     public static final String METHOD_NAME_STORE_LAYOUT = "DownLoad_Store_Layout";
-    public static final String SOAP_ACTION_STORE_LAYOUT = "http://tempuri.org/"
-            + METHOD_NAME_STORE_LAYOUT;
+    public static final String SOAP_ACTION_STORE_LAYOUT = NAMESPACE + METHOD_NAME_STORE_LAYOUT;
 
     public static final String METHOD_NAME_STORE_SIZE = "DownLoad_Store_Size";
-    public static final String SOAP_ACTION_STORE_SIZE = "http://tempuri.org/"
-            + METHOD_NAME_STORE_SIZE;
+    public static final String SOAP_ACTION_STORE_SIZE = NAMESPACE + METHOD_NAME_STORE_SIZE;
 
     public static final String METHOD_NAME_UPLOAD_GEOTAG_IMAGE = "Upload_StoreGeoTag_IMAGES";
-    public static final String SOAP_ACTION_UPLOAD_GEOTAG_IMAGE = "http://tempuri.org/"
-            + METHOD_NAME_UPLOAD_GEOTAG_IMAGE;
-
+    public static final String SOAP_ACTION_UPLOAD_GEOTAG_IMAGE = NAMESPACE + METHOD_NAME_UPLOAD_GEOTAG_IMAGE;
     public static final String METHOD_NAME_PLANOGRAM_IMAGES = "DownLoad_PlanoGramMapping";
-    public static final String SOAP_ACTION_PLANOGRAM_IMAGES = "http://tempuri.org/"
-            + METHOD_NAME_PLANOGRAM_IMAGES;
-
+    public static final String SOAP_ACTION_PLANOGRAM_IMAGES = NAMESPACE + METHOD_NAME_PLANOGRAM_IMAGES;
     public static final String METHOD_NAME_delete_coverage = "DeleteChekoutAndCoverage";
-    public static final String SOAP_ACTION_delete_coverage = "http://tempuri.org/"
-            + METHOD_NAME_delete_coverage;
-
+    public static final String SOAP_ACTION_delete_coverage = NAMESPACE + METHOD_NAME_delete_coverage;
     public static final String METHOD_Checkout_StatusNew = "Upload_Store_ChecOut_Status";
     public static final String METHOD_STORE_VISIT = "STORE_VISITNEW";
-    public static final String SOAP_ACTION_Checkout_StatusNew = "http://tempuri.org/"
-            + METHOD_Checkout_StatusNew;
-
-    public static final String SOAP_ACTION_STORE_VISIT = "http://tempuri.org/"
-            + METHOD_STORE_VISIT;
+    public static final String SOAP_ACTION_Checkout_StatusNew = NAMESPACE + METHOD_Checkout_StatusNew;
+    public static final String SOAP_ACTION_STORE_VISIT = NAMESPACE + METHOD_STORE_VISIT;
 
     // String value for promotional master
 
     public static final String METHOD_NAME_DownLoad_Promotional_Master = "DownLoad_Promotional_Master";
-    public static final String SOAP_ACTION_Promotional_Master = "http://tempuri.org/"
-            + METHOD_NAME_DownLoad_Promotional_Master;
+    public static final String SOAP_ACTION_Promotional_Master = NAMESPACE + METHOD_NAME_DownLoad_Promotional_Master;
 
 
     // String value for Marchendiser code and name
     public static final String METHOD_NAME_ALL_EMP = "GetEmployee";
-    public static final String SOAP_ACTION_ALL_EMP = "http://tempuri.org/" + METHOD_NAME_ALL_EMP;
+    public static final String SOAP_ACTION_ALL_EMP = NAMESPACE + METHOD_NAME_ALL_EMP;
 
     public static final String METHOD_NAME_WINDOW_SIZE_STATUS = "Download_WindowSize_Status";
-    public static final String SOAP_ACTION_WINDOW_SIZE = "http://tempuri.org/"
-            + METHOD_NAME_WINDOW_SIZE_STATUS;
+    public static final String SOAP_ACTION_WINDOW_SIZE = NAMESPACE + METHOD_NAME_WINDOW_SIZE_STATUS;
 
     // String value for SKU master
 
     public static final String METHOD_NAME_DOWNLOAD_SKU_MASTER = "DownLoad_SKU_Master";
-    public static final String SOAP_ACTION_DOWNLAOD_SKU_MASTER = "http://tempuri.org/"
-            + METHOD_NAME_DOWNLOAD_SKU_MASTER;
+    public static final String SOAP_ACTION_DOWNLAOD_SKU_MASTER = NAMESPACE + METHOD_NAME_DOWNLOAD_SKU_MASTER;
 
     // string value for Master
 
@@ -159,96 +139,73 @@ public class CommonString {
 
     public static final String METHOD_NAME_DOWNLOAD_NON_WORKING_MASTER_subReason = "DownLoad_NonWorkingSubReason_ByReason";
 
-    public static final String SOAP_ACTION_DOWNLAOD_NON_WORKING_MASTER = "http://tempuri.org/"
-            + METHOD_NAME_DOWNLOAD_NON_WORKING_MASTER;
+    public static final String SOAP_ACTION_DOWNLAOD_NON_WORKING_MASTER = NAMESPACE + METHOD_NAME_DOWNLOAD_NON_WORKING_MASTER;
 
-    public static final String SOAP_ACTION_DOWNLAOD_NON_WORKING_MASTER_SUBREASON = "http://tempuri.org/"
-            + METHOD_NAME_DOWNLOAD_NON_WORKING_MASTER_subReason;
+    public static final String SOAP_ACTION_DOWNLAOD_NON_WORKING_MASTER_SUBREASON = NAMESPACE + METHOD_NAME_DOWNLOAD_NON_WORKING_MASTER_subReason;
 
     public static final String METHOD_NAME_DOWNLOAD_sku_mapping = "DownLoad_SKU_By_Mapping";
-    public static final String SOAP_ACTION_DOWNLAOD_sku_mapping = "http://tempuri.org/"
-            + METHOD_NAME_DOWNLOAD_sku_mapping;
+    public static final String SOAP_ACTION_DOWNLAOD_sku_mapping = NAMESPACE + METHOD_NAME_DOWNLOAD_sku_mapping;
 
     // string value for DowloadComplaince
 
     public static final String METHOD_NAME_DOWNLOAD_COMPLIANCE = "DowloadComplaince";
-    public static final String SOAP_ACTION_DOWNLAOD_COMPLIANCE = "http://tempuri.org/"
-            + METHOD_NAME_DOWNLOAD_COMPLIANCE;
+    public static final String SOAP_ACTION_DOWNLAOD_COMPLIANCE = NAMESPACE + METHOD_NAME_DOWNLOAD_COMPLIANCE;
 
     // STRING VALUE FOR DowloadPromotionWithComplainceByMapping
 
     public static final String METHOD_NAME_DOWNLOAD_COMPLIANCE_MAPPING = "DowloadPromotionWithComplainceByMapping";
-    public static final String SOAP_ACTION_DOWNLAOD_COMPLIANCE_MAPPING = "http://tempuri.org/"
-            + METHOD_NAME_DOWNLOAD_COMPLIANCE_MAPPING;
-
+    public static final String SOAP_ACTION_DOWNLAOD_COMPLIANCE_MAPPING = NAMESPACE + METHOD_NAME_DOWNLOAD_COMPLIANCE_MAPPING;
     public static final String METHOD_NAME_DOWNLOAD_COMPLIANCE_MAPPING_SPECIAL = "DownLoad_PROMOTION_COMPLIANCE_MAPPING_SPECIAL";
-    public static final String SOAP_ACTION_DOWNLAOD_COMPLIANCE_MAPPING_SPECIAL = "http://tempuri.org/"
-            + METHOD_NAME_DOWNLOAD_COMPLIANCE_MAPPING_SPECIAL;
-
+    public static final String SOAP_ACTION_DOWNLAOD_COMPLIANCE_MAPPING_SPECIAL = NAMESPACE + METHOD_NAME_DOWNLOAD_COMPLIANCE_MAPPING_SPECIAL;
     public static final String METHOD_VERTICAL_MASTER = "DOWLOAD_VERTICALMASTER";
-    public static final String SOAP_ACTION_VERTICAL_MASTER = "http://tempuri.org/"
-            + METHOD_VERTICAL_MASTER;
-
+    public static final String SOAP_ACTION_VERTICAL_MASTER = NAMESPACE + METHOD_VERTICAL_MASTER;
     public static final String METHOD_BRAND_MASTER = "DOWLOAD_BRANDMASTER";
-    public static final String SOAP_ACTION_BRAND_Master = "http://tempuri.org/"
-            + METHOD_BRAND_MASTER;
-
+    public static final String SOAP_ACTION_BRAND_Master = NAMESPACE + METHOD_BRAND_MASTER;
     public static final String METHOD_VERTICAL_BRAND_MAPPING = "DOWLOAD_VERTICALBRANDMAPPING";
-    public static final String SOAP_ACTION_VERTICAL_BRAND_Mapping = "http://tempuri.org/"
-            + METHOD_VERTICAL_BRAND_MAPPING;
+    public static final String SOAP_ACTION_VERTICAL_BRAND_Mapping = NAMESPACE + METHOD_VERTICAL_BRAND_MAPPING;
 
     public static final String METHOD_VERTICAL_SKU_MAPPING = "SKUBRANDMAPPINGDownload";
-    public static final String SOAP_ACTION_VERTICAL_SKU_Mapping = "http://tempuri.org/"
-            + METHOD_VERTICAL_SKU_MAPPING;
+    public static final String SOAP_ACTION_VERTICAL_SKU_Mapping = NAMESPACE + METHOD_VERTICAL_SKU_MAPPING;
 
     public static final String METHOD_CATEGORY_MASTER = "DOWLOAD_CATEGORYMASTER";
-    public static final String SOAP_ACTION_CATEGORY_MASTER = "http://tempuri.org/"
-            + METHOD_CATEGORY_MASTER;
+    public static final String SOAP_ACTION_CATEGORY_MASTER = NAMESPACE + METHOD_CATEGORY_MASTER;
 
     public static final String METHOD_CATEGORY_SKU_MAPPING = "CATEGORYSKUMAPPINGDownload";
-    public static final String SOAP_ACTION_CATEGORY_SKU_MAPPING = "http://tempuri.org/"
-            + METHOD_CATEGORY_SKU_MAPPING;
+    public static final String SOAP_ACTION_CATEGORY_SKU_MAPPING = NAMESPACE + METHOD_CATEGORY_SKU_MAPPING;
 
     public static final String METHOD_CATEGORY_VERTICAL_MAPPING = "CATEGORYVERTICALMAPPINGDownload";
-    public static final String SOAP_ACTION_CATEGORY_VERTICAL_MAPPING = "http://tempuri.org/"
-            + METHOD_CATEGORY_VERTICAL_MAPPING;
+    public static final String SOAP_ACTION_CATEGORY_VERTICAL_MAPPING = NAMESPACE + METHOD_CATEGORY_VERTICAL_MAPPING;
 
     public static final String METHOD_CATEGORY_POSM_MAPPING = "POSMBRANDMAPPINGDownload";
-    public static final String SOAP_ACTION_POSM_MAPPING = "http://tempuri.org/"
-            + METHOD_CATEGORY_POSM_MAPPING;
+    public static final String SOAP_ACTION_POSM_MAPPING = NAMESPACE + METHOD_CATEGORY_POSM_MAPPING;
 
     public static final String METHOD_SKU_MASTER_DOWNLOAD = "SKU_MASTERDownload";
-    public static final String SOAP_ACTION_SKU_MASTER = "http://tempuri.org/"
-            + METHOD_SKU_MASTER_DOWNLOAD;
+    public static final String SOAP_ACTION_SKU_MASTER = NAMESPACE + METHOD_SKU_MASTER_DOWNLOAD;
 
     public static final String METHOD_COMPANY_MASTER_DOWNLOAD = "COMPANY_MASTERDownload";
-    public static final String SOAP_ACTION_COMPANY_MASTER = "http://tempuri.org/"
-            + METHOD_COMPANY_MASTER_DOWNLOAD;
+    public static final String SOAP_ACTION_COMPANY_MASTER = NAMESPACE + METHOD_COMPANY_MASTER_DOWNLOAD;
 
     // Shahab
     public static final String METHOD_NONSKU_REASON = "DOWLOAD_NON_STOCK_REASON_MASTER";
-    public static final String SOAP_ACTION_NONSKU_REASON = "http://tempuri.org/"
-            + METHOD_NONSKU_REASON;
+    public static final String SOAP_ACTION_NONSKU_REASON = NAMESPACE + METHOD_NONSKU_REASON;
 
     public static final String METHOD_SKU_FOCUS_DOWNLOAD = "SKUAVALIBILITY_FOCUS";
-    public static final String SOAP_ACTION_SKU_FOCUS = "http://tempuri.org/"
+    public static final String SOAP_ACTION_SKU_FOCUS = NAMESPACE
             + METHOD_SKU_FOCUS_DOWNLOAD;
 
     public static final String METHOD_MAPPING_COMPETITOR = "DOWLOAD_MAPPINGCOMPEPITORBRAND";
-    public static final String SOAP_ACTION_MAPPING_COMPETITOR = "http://tempuri.org/"
+    public static final String SOAP_ACTION_MAPPING_COMPETITOR = NAMESPACE
             + METHOD_MAPPING_COMPETITOR;
 
-    public static final String SOAP_ACTION = "http://tempuri.org/";
+    public static final String SOAP_ACTION = NAMESPACE;
 
     // Upload Coverage
     public static final String METHOD_UPLOAD_DR_STORE_COVERAGE = "UPLOAD_COVERAGE";
     public static final String METHOD_UPLOAD_DR_STORE_COVERAGE_LOC = "UPLOAD_STORE_COVERAGE_WSC_NEW";
     public static final String METHOD_UPLOAD_COVERAGE_NONWORKING_DATA = "UPLOAD_CoverageEntryNotAllow";
-    public static final String SOAP_ACTION_UPLOAD_DR_STORE_COVERAGE = "http://tempuri.org/"
-            + METHOD_UPLOAD_DR_STORE_COVERAGE_LOC;
+    public static final String SOAP_ACTION_UPLOAD_DR_STORE_COVERAGE = NAMESPACE + METHOD_UPLOAD_DR_STORE_COVERAGE_LOC;
 
-    public static final String SOAP_ACTION_METHOD_UPLOAD_COVERAGE_NONWORKING_DATA = "http://tempuri.org/"
-            + METHOD_UPLOAD_COVERAGE_NONWORKING_DATA;
+    public static final String SOAP_ACTION_METHOD_UPLOAD_COVERAGE_NONWORKING_DATA = NAMESPACE + METHOD_UPLOAD_COVERAGE_NONWORKING_DATA;
 
     public static final String MEHTOD_DELETE_COVERAGE = "DeleteCoverage";
 
@@ -261,53 +218,53 @@ public class CommonString {
 
     public static final String METHOD_UPLOAD_PRIMARY_WINDOW_IMAGES = "GetImageNew";
 
-    public static final String SOAP_ACTION_UPLOAD_PRIMARY_WINDOW_IMAGES = "http://tempuri.org/"
+    public static final String SOAP_ACTION_UPLOAD_PRIMARY_WINDOW_IMAGES = NAMESPACE
             + METHOD_UPLOAD_PRIMARY_WINDOW_IMAGES;
 
-    public static final String SOAP_ACTION_PRIMARY_WINDOW_IMAGES = "http://tempuri.org/"
+    public static final String SOAP_ACTION_PRIMARY_WINDOW_IMAGES = NAMESPACE
             + METHOD_PRIMARY_WINDOW_IMAGES;
 
     public static final String METHOD_UPLOAD_STOCK_XML_DATA = "DrUploadXml";
-    public static final String SOAP_ACTION_UPLOAD_ASSET = "http://tempuri.org/"
+    public static final String SOAP_ACTION_UPLOAD_ASSET = NAMESPACE
             + METHOD_UPLOAD_ASSET;
 
-    public static final String SOAP_ACTION_UPLOAD_ASSET_XMLDATA = "http://tempuri.org/"
+    public static final String SOAP_ACTION_UPLOAD_ASSET_XMLDATA = NAMESPACE
             + METHOD_UPLOAD_STOCK_XML_DATA;
 
     public static final String METHOD_UPLOAD_SEC_SKU = "Upload_Stock_Availiablity_SECONDARY";
-    public static final String SOAP_ACTION_UPLOAD_SEC_SKU = "http://tempuri.org/"
+    public static final String SOAP_ACTION_UPLOAD_SEC_SKU = NAMESPACE
             + METHOD_UPLOAD_SEC_SKU;
 
     public static final String METHOD_UPLOAD_PCKGE_SKU = "Upload_DR_CORE_SKU_PACKAGING";
-    public static final String SOAP_ACTION_UPLOAD_PCKGE_SKU = "http://tempuri.org/"
+    public static final String SOAP_ACTION_UPLOAD_PCKGE_SKU = NAMESPACE
             + METHOD_UPLOAD_PCKGE_SKU;
 
     public static final String METHOD_UPLOAD_POSM = "Upload_Posm_Deployed";
-    public static final String SOAP_ACTION_UPLOAD_POSM = "http://tempuri.org/"
+    public static final String SOAP_ACTION_UPLOAD_POSM = NAMESPACE
             + METHOD_UPLOAD_POSM;
 
     public static final String METHOD_Upload_Posm_Deployed_Deviation = "Upload_Posm_Deployed_Deviation";
-    public static final String SOAP_ACTION_Upload_Posm_Deployed_Deviation = "http://tempuri.org/"
+    public static final String SOAP_ACTION_Upload_Posm_Deployed_Deviation = NAMESPACE
             + METHOD_Upload_Posm_Deployed_Deviation;
 
     public static final String METHOD_UPLOAD_COMPLIANCE = "Upload_Promotion_WindowExists";
-    public static final String SOAP_ACTION_COMPLIANCE = "http://tempuri.org/"
+    public static final String SOAP_ACTION_COMPLIANCE = NAMESPACE
             + METHOD_UPLOAD_COMPLIANCE;
 
     public static final String METHOD_UPLOAD_COMPLIANCE_SPECIAL = "Upload_Promotion_Special";
-    public static final String SOAP_ACTION_COMPLIANCE_SPECIAL = "http://tempuri.org/"
+    public static final String SOAP_ACTION_COMPLIANCE_SPECIAL = NAMESPACE
             + METHOD_UPLOAD_COMPLIANCE_SPECIAL;
 
     public static final String METHOD_NON_WORKING_MASTER = "DOWLOAD_NONWORKINGREGIONMASTER";
-    public static final String SOAP_ACTION_NONWORKING = "http://tempuri.org/"
+    public static final String SOAP_ACTION_NONWORKING = NAMESPACE
             + METHOD_NON_WORKING_MASTER;
 
     public static final String METHOD_SET_COVERAGE_STATUS = "Upload_Status";
-    public static final String SOAP_ACTION_SET_COVERAGE_STATUS = "http://tempuri.org/"
+    public static final String SOAP_ACTION_SET_COVERAGE_STATUS = NAMESPACE
             + METHOD_SET_COVERAGE_STATUS;
 
     public static final String METHOD_SET_UPLOAD_GEODATA = "Upload_Store_Geo_Tag";
-    public static final String SOAP_ACTION_UPLOAD_GEODATA = "http://tempuri.org/"
+    public static final String SOAP_ACTION_UPLOAD_GEODATA = NAMESPACE
             + METHOD_SET_UPLOAD_GEODATA;
 
     // database
@@ -364,7 +321,7 @@ public class CommonString {
 
     // geo tag
     public static final String METHOD_NAME_DOWNLOAD_GEO = "DownLoadStoreByUser";
-    public static final String SOAP_ACTION_DOWNLAOD_GEO = "http://tempuri.org/"
+    public static final String SOAP_ACTION_DOWNLAOD_GEO = NAMESPACE
             + METHOD_NAME_DOWNLOAD_GEO;
 
     public static final String TABLE_STORE_DETAIL = "STORE_MASTER";
@@ -498,28 +455,28 @@ public class CommonString {
     // Upload Image
 
     public static final String METHOD_Get_DR_STORE_IMAGES = "GET_StoreLayout_IMAGES";
-    public static final String SOAP_ACTION_Get_DR_STORE_IMAGES = "http://tempuri.org/"
+    public static final String SOAP_ACTION_Get_DR_STORE_IMAGES = NAMESPACE
             + METHOD_Get_DR_STORE_IMAGES;
 
     public static final String METHOD_Get_DR_CHEQUE_IMAGES = "Upload_StoreCheque_IMAGES";
-    public static final String SOAP_ACTION_Get_DR_CHEQUE_IMAGES = "http://tempuri.org/"
+    public static final String SOAP_ACTION_Get_DR_CHEQUE_IMAGES = NAMESPACE
             + METHOD_Get_DR_CHEQUE_IMAGES;
 
     public static final String METHOD_Get_DR_POSM_IMAGES = "GetImageNew";
-    public static final String SOAP_ACTION_Get_DR_POSM_IMAGES = "http://tempuri.org/"
+    public static final String SOAP_ACTION_Get_DR_POSM_IMAGES = NAMESPACE
             + METHOD_Get_DR_POSM_IMAGES;
 
 
     public static final String METHOD_Upload_StoreDeviationImage = "GetImageNew";
-    public static final String SOAP_ACTION_Upload_StoreDeviationImage = "http://tempuri.org/"
+    public static final String SOAP_ACTION_Upload_StoreDeviationImage = NAMESPACE
             + METHOD_Upload_StoreDeviationImage;
 
     public static final String METHOD_Get_DR_COMPLIANCE_IMAGES = "GET_Store_SecondaryWindowImage";
-    public static final String SOAP_ACTION_Get_DR_COMPLIANCE_IMAGES = "http://tempuri.org/"
+    public static final String SOAP_ACTION_Get_DR_COMPLIANCE_IMAGES = NAMESPACE
             + METHOD_Get_DR_COMPLIANCE_IMAGES;
 
     public static final String METHOD_Get_DR_STORE_IMAGES_GEO = "Upload_StoreGeoTag_IMAGES";
-    public static final String SOAP_ACTION_DR_STORE_IMAGES_GEO = "http://tempuri.org/"
+    public static final String SOAP_ACTION_DR_STORE_IMAGES_GEO = NAMESPACE
             + METHOD_Get_DR_STORE_IMAGES_GEO;
 
     public static final String CREATE_TABLE_INSERT_GEOTAG = "CREATE TABLE "
@@ -695,8 +652,5 @@ public class CommonString {
             + KEY_COMP_SEGMENT + " VARCHAR,"
 
             + KEY_IMAGE + " VARCHAR)";
-
-   // + KEY_COMP_TRACT_EXIST + " INTEGER,"
-
 
 }

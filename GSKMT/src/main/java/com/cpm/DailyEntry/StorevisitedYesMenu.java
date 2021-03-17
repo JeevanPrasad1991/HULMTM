@@ -121,10 +121,8 @@ public class StorevisitedYesMenu extends Activity {
         afterStockDataWellness = db.getAfterStockData(store_id, "2", process_id);
         db.open();
         beforeaddtionalDataWellness = db.getProductEntryDetail(store_id, "2", process_id);
-
         db.open();
         totMappingDataWellness = db.getTOTData(store_id, process_id, "2");
-
         if (totMappingDataWellness.size() > 0) {
             db.open();
             afterTOTDataWellness = db.getAfterTOTData(store_id, "2", process_id);
@@ -138,7 +136,7 @@ public class StorevisitedYesMenu extends Activity {
             after_totWellness = true;
         }
 
-        if (totMappingDataWellness.size() != 0) {
+        if (totMappingDataWellness.size() > 0) {
             if (beforeStockDataWellness.size() > 0 && afterStockDataWellness.size() > 0 &&
                     afterTOTDataWellness.size() > 0 &&
                     beforeaddtionalDataWellness.size() > 0 && mappingPromotion2.size() > 0) {
@@ -147,7 +145,6 @@ public class StorevisitedYesMenu extends Activity {
 
             }
         } else {
-
             if (beforeStockDataWellness.size() > 0 && afterStockDataWellness.size() > 0 &&
                     beforeaddtionalDataWellness.size() > 0 && mappingPromotion2.size() > 0) {
                 cat_wellness = true;
@@ -176,9 +173,8 @@ public class StorevisitedYesMenu extends Activity {
             after_totOral = true;
         }
 
-        if (totMappingDataOral.size() != 0) {
-            if (beforeStockDataOralcare.size() > 0 && afterStockDataOral.size() > 0 && afterTOTDataOral.size() > 0 &&
-                    beforeaddtionalDataOral.size() > 0 && mappingPromotion3.size() > 0) {
+        if (totMappingDataOral.size() > 0) {
+            if (beforeStockDataOralcare.size() > 0 && afterStockDataOral.size() > 0 && afterTOTDataOral.size() > 0 && beforeaddtionalDataOral.size() > 0 && mappingPromotion3.size() > 0) {
                 cat_oral = true;
             }
         } else {
@@ -209,22 +205,18 @@ public class StorevisitedYesMenu extends Activity {
     }
 
     private class MyAdaptor extends BaseAdapter {
-
         @Override
         public int getCount() {
-
             return category_list.size();
         }
 
         @Override
         public Object getItem(int position) {
-
             return position;
         }
 
         @Override
         public long getItemId(int position) {
-
             return position;
         }
 
@@ -235,17 +227,14 @@ public class StorevisitedYesMenu extends Activity {
                 holder = new ViewHolder();
                 LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 convertView = inflater.inflate(R.layout.category_grid_view, null);
-
                 holder.CategoryName = (TextView) convertView.findViewById(R.id.name);
-
                 holder.img = (ImageView) convertView.findViewById(R.id.img);
-
             } else {
                 holder = (ViewHolder) convertView.getTag();
             }
 
             holder.CategoryName.setText(category_list.get(position).getCategory());
-            if (category_list.get(position).getCategory_id().equalsIgnoreCase("2")) {
+            if (category_list.get(position).getCategory_id().equals("2")) {
                 if (cat_wellness == true) {
                     holder.img.setImageResource(R.drawable.wellness_tick);
                 } else {

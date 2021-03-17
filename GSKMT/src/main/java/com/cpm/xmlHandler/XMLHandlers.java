@@ -14,6 +14,7 @@ import com.cpm.xmlGetterSetter.FailureGetterSetter;
 import com.cpm.xmlGetterSetter.JCPGetterSetter;
 import com.cpm.xmlGetterSetter.LoginGetterSetter;
 import com.cpm.xmlGetterSetter.MappingCompetitionPromotionGetterSetter;
+import com.cpm.xmlGetterSetter.MappingSos;
 import com.cpm.xmlGetterSetter.MappingWellnessSos;
 import com.cpm.xmlGetterSetter.NonWorkingAttendenceGetterSetter;
 import com.cpm.xmlGetterSetter.NonWorkingGetterSetter;
@@ -26,8 +27,10 @@ import com.cpm.xmlGetterSetter.SOSTargetGetterSetter;
 import com.cpm.xmlGetterSetter.ShelfMaster;
 import com.cpm.xmlGetterSetter.StockMappingGetterSetter;
 import com.cpm.xmlGetterSetter.StoreWise_Pss;
+import com.cpm.xmlGetterSetter.SubCategoryMaster;
 import com.cpm.xmlGetterSetter.TDSGetterSetter;
 import com.cpm.xmlGetterSetter.TargetToothpestforOHCGetterSetter;
+import com.cpm.xmlGetterSetter.Targetsossubcategorywise;
 import com.cpm.xmlGetterSetter.catmanMapping;
 
 
@@ -304,6 +307,7 @@ public class XMLHandlers {
                     if (xpp.getName().equals("PROCESS_ID")) {
                         jcpGetterSetter.setProcess_id(xpp.nextText());
                     }
+
                 }
                 xpp.next();
             }
@@ -426,11 +430,10 @@ public class XMLHandlers {
         try {
             while (xpp.getEventType() != XmlPullParser.END_DOCUMENT) {
                 if (xpp.getEventType() == XmlPullParser.START_TAG) {
-
                     if (xpp.getName().equals("META_DATA")) {
                         failureGetterSetter.setMeta_data(xpp.nextText());
                     }
-
+                    ////Rename Stock Table
                     if (xpp.getName().equals("META_DATA1")) {
                         failureGetterSetter.setStock_entry_table(xpp.nextText());
                     }
@@ -443,9 +446,12 @@ public class XMLHandlers {
                         failureGetterSetter.setTot_entry_table(xpp.nextText());
                     }
 
-
                     if (xpp.getName().equals("META_DATA4")) {
                         failureGetterSetter.setTot_image_table(xpp.nextText());
+                    }
+
+                    if (xpp.getName().equals("META_DATA15")) {
+                        failureGetterSetter.setSub_category_sos_faceup(xpp.nextText());
                     }
 
 
@@ -787,6 +793,130 @@ public class XMLHandlers {
                     if (xpp.getName().equals("TARGET")) {
                         failureGetterSetter.setTarget(xpp.nextText());
                     }
+                }
+                xpp.next();
+            }
+        } catch (XmlPullParserException e) {
+
+            e.printStackTrace();
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+        return failureGetterSetter;
+    }
+
+
+    public static MappingSos MappingSosHandler(XmlPullParser xpp, int eventType) {
+        MappingSos failureGetterSetter = new MappingSos();
+
+        try {
+            while (xpp.getEventType() != XmlPullParser.END_DOCUMENT) {
+                if (xpp.getEventType() == XmlPullParser.START_TAG) {
+
+                    if (xpp.getName().equals("META_DATA")) {
+                        failureGetterSetter.setMappingsostable(xpp.nextText());
+                    }
+
+                    if (xpp.getName().equals("PROCESS_ID")) {
+                        failureGetterSetter.setProcessId(xpp.nextText());
+
+                    }
+                    if (xpp.getName().equals("REGION_ID")) {
+                        failureGetterSetter.setRegionId(xpp.nextText());
+                    }
+                    if (xpp.getName().equals("STORETYPE_ID")) {
+                        failureGetterSetter.setStoretypeId(xpp.nextText());
+                    }
+                    if (xpp.getName().equals("KEY_ID")) {
+                        failureGetterSetter.setKeyAcId(xpp.nextText());
+                    }
+
+                    if (xpp.getName().equals("SUB_CATEGORY_ID")) {
+                        failureGetterSetter.setSubcategoryId(xpp.nextText());
+                    }
+
+                    if (xpp.getName().equals("LINEAR_MEASUREMENT")) {
+                        failureGetterSetter.setLinearMeasurement(xpp.nextText());
+                    }
+                }
+                xpp.next();
+            }
+        } catch (XmlPullParserException e) {
+
+            e.printStackTrace();
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+        return failureGetterSetter;
+    }
+
+
+    public static Targetsossubcategorywise TargetsossubcategoryHandler(XmlPullParser xpp, int eventType) {
+        Targetsossubcategorywise failureGetterSetter = new Targetsossubcategorywise();
+
+        try {
+            while (xpp.getEventType() != XmlPullParser.END_DOCUMENT) {
+                if (xpp.getEventType() == XmlPullParser.START_TAG) {
+
+                    if (xpp.getName().equals("META_DATA")) {
+                        failureGetterSetter.setTable(xpp.nextText());
+                    }
+
+                    if (xpp.getName().equals("PROCESS_ID")) {
+                        failureGetterSetter.setProcessid(xpp.nextText());
+
+                    }
+                    if (xpp.getName().equals("STORE_ID")) {
+                        failureGetterSetter.setStoreid(xpp.nextText());
+                    }
+                    if (xpp.getName().equals("SUB_CATEGORY_ID")) {
+                        failureGetterSetter.setSubcategoryId(xpp.nextText());
+                    }
+                    if (xpp.getName().equals("TARGET")) {
+                        failureGetterSetter.setTarget(xpp.nextText());
+                    }
+                }
+
+                xpp.next();
+            }
+        } catch (XmlPullParserException e) {
+
+            e.printStackTrace();
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+        return failureGetterSetter;
+    }
+
+
+    public static SubCategoryMaster subCategoryMasterHandler(XmlPullParser xpp, int eventType) {
+        SubCategoryMaster failureGetterSetter = new SubCategoryMaster();
+
+        try {
+            while (xpp.getEventType() != XmlPullParser.END_DOCUMENT) {
+                if (xpp.getEventType() == XmlPullParser.START_TAG) {
+
+                    if (xpp.getName().equals("META_DATA")) {
+                        failureGetterSetter.setSubcat_table(xpp.nextText());
+                    }
+                    if (xpp.getName().equals("SUB_CATEGORY_ID")) {
+                        failureGetterSetter.setSubcategoryId(xpp.nextText());
+                    }
+
+                    if (xpp.getName().equals("SUB_CATEGORY")) {
+                        failureGetterSetter.setSubcategory(xpp.nextText());
+
+                    }
+                    if (xpp.getName().equals("CATEGORY_ID")) {
+                        failureGetterSetter.setCategoryId(xpp.nextText());
+                    }
+                    if (xpp.getName().equals("SUB_CATEGORY_SEQUENCE")) {
+                        failureGetterSetter.setSequencesubcategory(xpp.nextText());
+                    }
+
                 }
                 xpp.next();
             }

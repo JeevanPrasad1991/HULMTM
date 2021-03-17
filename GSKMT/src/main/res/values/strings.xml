@@ -6,10 +6,12 @@
     <string name="version">Ver 5.2</string>
     <string name="title_activity_geo_tag">Geo Tag</string>
     <string name="title_activity_maps">Map</string>
+    <string name="parinamm">Parinaam</string>
     <string name="click_image_alert_str">Please click image for checked POP</string>
     <string name="select">Select</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="hul">HUL</string>
     <string name="is_the_price_of_same_as_mentioned_in_offer">Is the price-off same as mentioned in offer?</string>
 
     <array name="autosize_text_sizes">

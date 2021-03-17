@@ -30,7 +30,7 @@ public class CopyOfStorevisitedYesMenu extends Activity {
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor = null;
     GSKMTDatabase db;
-    String date, process_id, store_id, state_id, key_id, class_id, COMPETITION_PROMOTION_flag, saleenable_flag = "";
+    String date, process_id, store_id, state_id, key_id, class_id, COMPETITION_PROMOTION_flag, saleenable_flag = "", region_id, store_type_id;
     ArrayList<SkuBean> category_list;
     ListView lv;
     GridView gv;
@@ -62,6 +62,10 @@ public class CopyOfStorevisitedYesMenu extends Activity {
         process_id = preferences.getString(CommonString.KEY_PROCESS_ID, null);
         store_id = preferences.getString(CommonString.KEY_STORE_ID, null);
         ///change by jeevan RAna
+
+        region_id = preferences.getString(CommonString.region_id, null);
+        store_type_id = preferences.getString(CommonString.storetype_id, null);
+        key_id = preferences.getString(CommonString.KEY_ID, null);
         COMPETITION_PROMOTION_flag = preferences.getString(CommonString.KEY_COMPETITION_PROMOTION, null);
         saleenable_flag = preferences.getString(CommonString.KEY_SALEENABLE_FLAG, "");
         state_id = preferences.getString(CommonString.KEY_STATE_ID, null);
@@ -83,8 +87,8 @@ public class CopyOfStorevisitedYesMenu extends Activity {
             db.open();
             salesData = db.getSalesStockData(store_id, category_list.get(i).getCategory_id(), process_id);
             if (saleenable_flag != null && !saleenable_flag.equals("") && saleenable_flag.equals("1") && category_list.get(i).getShowsalesflag() != null
-                    && category_list.get(i).getShowsalesflag().equals("1") && category_list.get(i).getShowsalesflag()!=null
-                    &&category_list.get(i).getShowsalesflag().equals("1")) {
+                    && category_list.get(i).getShowsalesflag().equals("1") && category_list.get(i).getShowsalesflag() != null
+                    && category_list.get(i).getShowsalesflag().equals("1")) {
                 if (db.getBrandSkuListForSales(category_list.get(i).getCategory_id(), store_id, process_id).size() > 0) {
                     if (salesData.size() > 0) {
                         sales_flag = true;
@@ -286,7 +290,6 @@ public class CopyOfStorevisitedYesMenu extends Activity {
 
 
             holder.CategoryName.setText(category_list.get(position).getCategory());
-
             if (category_list.get(position).getCategory_id().equals("2")) {
                 if (cat_wellness) {
                     holder.img.setImageResource(R.drawable.wellness_tick);
@@ -295,9 +298,8 @@ public class CopyOfStorevisitedYesMenu extends Activity {
                 }
             }
 
-
             if (category_list.get(position).getCategory().equalsIgnoreCase("HFD")) {
-                if (cat_HFD) {
+                if (cat_HFD && checkcatwise_sosfacing(category_list.get(position).getCategory_id())) {
                     holder.img.setImageResource(R.drawable.hfd_tick);
                 } else {
                     holder.img.setImageResource(R.drawable.hfd_ico);
@@ -306,7 +308,7 @@ public class CopyOfStorevisitedYesMenu extends Activity {
 
 
             if (category_list.get(position).getCategory_id().equals("6") || category_list.get(position).getCategory().equalsIgnoreCase("Oats")) {
-                if (flagOUTS) {
+                if (flagOUTS && checkcatwise_sosfacing(category_list.get(position).getCategory_id())) {
                     holder.img.setImageResource(R.drawable.oats_done);
                 } else {
                     holder.img.setImageResource(R.drawable.oats);
@@ -315,7 +317,7 @@ public class CopyOfStorevisitedYesMenu extends Activity {
 
             if (category_list.get(position).getCategory_id().equals("3") ||
                     category_list.get(position).getCategory().equalsIgnoreCase("Oral Care")) {
-                if (cat_oral) {
+                if (cat_oral && checkcatwise_sosfacing(category_list.get(position).getCategory_id())) {
                     holder.img.setImageResource(R.drawable.ohc_tick);
                 } else {
                     holder.img.setImageResource(R.drawable.ohc_ico);
@@ -346,6 +348,27 @@ public class CopyOfStorevisitedYesMenu extends Activity {
             return convertView;
         }
 
+    }
+
+    private boolean checkcatwise_sosfacing(String category_id) {
+        boolean flag = true;
+        try {
+            if (category_id != null && !category_id.equals("2") && db.getsubcategorySOS(store_id, process_id, region_id, store_type_id, key_id, category_id).size() > 0) {
+                db.open();
+                if (db.getsos_facing(store_id, category_id, process_id).size() > 0) {
+                    flag = true;
+                } else {
+                    flag = false;
+                }
+            } else {
+                flag = true;
+            }
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return flag;
     }
 
 }

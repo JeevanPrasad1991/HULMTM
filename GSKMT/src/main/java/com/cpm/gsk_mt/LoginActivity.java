@@ -23,17 +23,14 @@ import com.cpm.Constants.CommonString;
 import com.cpm.autoupdate.AutoupdateActivity;
 import com.cpm.database.GSKMTDatabase;
 import com.cpm.message.AlertMessage;
-
 import com.cpm.xmlGetterSetter.AttendenceStatusGetterSetter;
 import com.cpm.xmlGetterSetter.FailureGetterSetter;
 import com.cpm.xmlGetterSetter.LoginGetterSetter;
-
 import com.cpm.xmlGetterSetter.NoticeBoardGetterSetter;
 import com.cpm.xmlHandler.XMLHandlers;
-import com.crashlytics.android.Crashlytics;
 import com.example.gsk_mtt.R;
 import com.google.firebase.analytics.FirebaseAnalytics;
-
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
 import android.Manifest;
 import android.app.Activity;
@@ -56,11 +53,11 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.provider.Settings;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -90,24 +87,23 @@ public class LoginActivity extends Activity implements OnClickListener, Location
     private FirebaseAnalytics mFirebaseAnalytics;
     private final static int PERMISSION_ALL = 99;
     TextView version_text;
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+        context = this;
         ContentResolver.setMasterSyncAutomatically(false);
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         mUsername = (EditText) findViewById(R.id.login_usertextbox);
         mPassword = (EditText) findViewById(R.id.login_locktextbox);
         version_text = (TextView) findViewById(R.id.version_text);
-       // mUsername.setText("testmer");
-       // mPassword.setText("cpm123");
-
-       // mUsername.setText("ashutosh");
-       // mPassword.setText("cpm@5678");
+        //mUsername.setText("testmer");
+        ///// mPassword.setText("cpm123");
 
         mLogin = (Button) findViewById(R.id.login_loginbtn);
-        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        preferences = PreferenceManager.getDefaultSharedPreferences(context);
         editor = preferences.edit();
         p_username = preferences.getString(CommonString.KEY_USERNAME, null);
         p_password = preferences.getString(CommonString.KEY_PASSWORD, null);
@@ -119,8 +115,7 @@ public class LoginActivity extends Activity implements OnClickListener, Location
         }
 
         version_text.setText("(MT) Version - " + app_ver);
-
-        database = new GSKMTDatabase(this);
+        database = new GSKMTDatabase(context);
         database.open();
         if (!isChecked) {
         } else {
@@ -134,7 +129,7 @@ public class LoginActivity extends Activity implements OnClickListener, Location
         // Better solution would be to display a dialog and suggesting to
         // go to the settings
         if (!enabled) {
-            AlertDialog.Builder alertDialog = new AlertDialog.Builder(LoginActivity.this);
+            AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
             // Setting Dialog Title
             alertDialog.setTitle("GPS IS DISABLED...");
             // Setting Dialog Message
@@ -165,11 +160,11 @@ public class LoginActivity extends Activity implements OnClickListener, Location
     protected void onResume() {
         super.onResume();
         // Create a Folder for Images
-        File file = new File(Environment.getExternalStorageDirectory(), "MT_GSK_Images");
-        if (!file.isDirectory()) {
-            file.mkdir();
+        File sdCard = Environment.getExternalStorageDirectory();
+        File dir = new File(sdCard.getAbsolutePath() + "/" + CommonString.FOLDER_NAME_IMAGE);
+        if (!dir.exists()) {
+            dir.mkdirs();
         }
-
 
         checkAndRequestPermissions();
     }
@@ -207,7 +202,7 @@ public class LoginActivity extends Activity implements OnClickListener, Location
                             if (CheckNetAvailability()) {
                                 new AuthenticateTask().execute();
                             } else if (password.equals(p_password)) {
-                                intent = new Intent(this, NoticeBoardActivity.class);
+                                intent = new Intent(context, NoticeBoardActivity.class);
                                 startActivity(intent);
                                 this.finish();
                                 showToast("No Network and offline login");
@@ -226,6 +221,7 @@ public class LoginActivity extends Activity implements OnClickListener, Location
 
     private class AuthenticateTask extends AsyncTask<Void, Void, String> {
         private ProgressDialog dialog = null;
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -262,8 +258,7 @@ public class LoginActivity extends Activity implements OnClickListener, Location
                 Object result = (Object) envelope.getResponse();
 
                 if (result.toString().equalsIgnoreCase(CommonString.KEY_FAILURE)) {
-                    final AlertMessage message = new AlertMessage(
-                            LoginActivity.this, AlertMessage.MESSAGE_FAILURE, "login", null);
+                    final AlertMessage message = new AlertMessage((Activity) context, AlertMessage.MESSAGE_FAILURE, "login", null);
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
@@ -272,7 +267,7 @@ public class LoginActivity extends Activity implements OnClickListener, Location
                     });
 
                 } else if (result.toString().equalsIgnoreCase(CommonString.KEY_FALSE)) {
-                    final AlertMessage message = new AlertMessage(LoginActivity.this, AlertMessage.MESSAGE_FALSE, "login", null);
+                    final AlertMessage message = new AlertMessage((Activity) context, AlertMessage.MESSAGE_FALSE, "login", null);
                     runOnUiThread(new Runnable() {
 
                         @Override
@@ -281,7 +276,7 @@ public class LoginActivity extends Activity implements OnClickListener, Location
                         }
                     });
                 } else if (result.toString().equalsIgnoreCase(CommonString.KEY_CHANGED)) {
-                    final AlertMessage message = new AlertMessage(LoginActivity.this, AlertMessage.MESSAGE_CHANGED, "login", null);
+                    final AlertMessage message = new AlertMessage((Activity) context, AlertMessage.MESSAGE_CHANGED, "login", null);
                     runOnUiThread(new Runnable() {
 
                         @Override
@@ -300,7 +295,7 @@ public class LoginActivity extends Activity implements OnClickListener, Location
                     FailureGetterSetter failureGetterSetter = XMLHandlers.failureXMLHandler(xpp, eventType);
                     if (failureGetterSetter.getStatus().equalsIgnoreCase(CommonString.KEY_FAILURE)) {
                         final AlertMessage message = new AlertMessage(
-                                LoginActivity.this, CommonString.METHOD_LOGIN + failureGetterSetter.getErrorMsg(), "login", null);
+                                (Activity) context, CommonString.METHOD_LOGIN + failureGetterSetter.getErrorMsg(), "login", null);
                         runOnUiThread(new Runnable() {
 
                             @Override
@@ -369,13 +364,13 @@ public class LoginActivity extends Activity implements OnClickListener, Location
                         editor.putString(CommonString.KEY_SERVER_NOTICE_BOARD_URL, noticeboardgsetter.getNoticeBoard());
                         editor.putString(CommonString.KEY_SERVER_QUIZ_URL, noticeboardgsetter.getQuizUrl());
                         editor.apply();
-                        Bundle bundle = new Bundle();
-                        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, username);
-                        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, "Login Data");
-                        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "image");
-                        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
-                        Crashlytics.setUserIdentifier(username);
 
+                        Bundle bundle = new Bundle();
+                        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, username.toLowerCase());
+                        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, CommonString.KEY_LOGIN_DATA);
+                        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "Data");
+                        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+                        FirebaseCrashlytics.getInstance().setUserId(username.toLowerCase());
                         return CommonString.KEY_SUCCESS;
                     }
                 }
@@ -383,9 +378,9 @@ public class LoginActivity extends Activity implements OnClickListener, Location
                 return "";
 
             } catch (MalformedURLException e) {
-                Crashlytics.logException(e);
+                FirebaseCrashlytics.getInstance().recordException(e);
                 final AlertMessage message = new AlertMessage(
-                        LoginActivity.this, AlertMessage.MESSAGE_EXCEPTION,
+                        (Activity) context, AlertMessage.MESSAGE_EXCEPTION,
                         "acra_login", e);
                 runOnUiThread(new Runnable() {
 
@@ -397,7 +392,7 @@ public class LoginActivity extends Activity implements OnClickListener, Location
 
             } catch (IOException e) {
                 final AlertMessage message = new AlertMessage(
-                        LoginActivity.this,
+                        (Activity) context,
                         AlertMessage.MESSAGE_SOCKETEXCEPTION, "socket_login", e);
                 counter++;
                 runOnUiThread(new Runnable() {
@@ -415,13 +410,12 @@ public class LoginActivity extends Activity implements OnClickListener, Location
                 });
             } catch (Exception e) {
                 final AlertMessage message = new AlertMessage(
-                        LoginActivity.this,
+                        (Activity) context,
                         AlertMessage.MESSAGE_SOCKETEXCEPTION, "socket_login", e);
                 runOnUiThread(new Runnable() {
 
                     @Override
                     public void run() {
-
                         message.showMessage();
                     }
                 });
@@ -433,7 +427,7 @@ public class LoginActivity extends Activity implements OnClickListener, Location
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            if (result.equals(CommonString.KEY_SUCCESS)) {
+            if (result != null && !result.equals("") && result.equalsIgnoreCase(CommonString.KEY_SUCCESS)) {
                 if (preferences.getString(CommonString.KEY_VERSION, "").equals(Integer.toString(versionCode))) {
                     intent = new Intent(getBaseContext(), NoticeBoardActivity.class);
                     startActivity(intent);
@@ -519,12 +513,12 @@ public class LoginActivity extends Activity implements OnClickListener, Location
     }
 
     private boolean checkAndRequestPermissions() {
-        int permissionwrite_storage = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        int CAMERA = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
-        int ACCESS_NETWORK_STATE = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_NETWORK_STATE);
-        int ACCESS_COARSE_LOCATION = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION);
-        int locationPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
-        int READ_EXTERNAL_STORAGE = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
+        int permissionwrite_storage = ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        int CAMERA = ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA);
+        int ACCESS_NETWORK_STATE = ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_NETWORK_STATE);
+        int ACCESS_COARSE_LOCATION = ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION);
+        int locationPermission = ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION);
+        int READ_EXTERNAL_STORAGE = ContextCompat.checkSelfPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE);
         List<String> listPermissionsNeeded = new ArrayList<>();
 
         if (permissionwrite_storage != PackageManager.PERMISSION_GRANTED) {
@@ -550,7 +544,7 @@ public class LoginActivity extends Activity implements OnClickListener, Location
 
 
         if (!listPermissionsNeeded.isEmpty()) {
-            ActivityCompat.requestPermissions(this, listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]), PERMISSION_ALL);
+            ActivityCompat.requestPermissions((Activity) context, listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]), PERMISSION_ALL);
             return false;
         }
         return true;
@@ -586,9 +580,10 @@ public class LoginActivity extends Activity implements OnClickListener, Location
                             && perms.get(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
 
 
-                        File file = new File(Environment.getExternalStorageDirectory(), "MT_GSK_Images");
-                        if (!file.isDirectory()) {
-                            file.mkdir();
+                        File sdCard = Environment.getExternalStorageDirectory();
+                        File dir = new File(sdCard.getAbsolutePath() + "/" + CommonString.FOLDER_NAME_IMAGE);
+                        if (!dir.exists()) {
+                            dir.mkdirs();
                         }
 
                         Log.d("", "sms & location services permission granted");
@@ -599,12 +594,12 @@ public class LoginActivity extends Activity implements OnClickListener, Location
                         //permission is denied (this is the first time, when "never ask again" is not checked) so ask again explaining the usage of permission
 //                        // shouldShowRequestPermissionRationale will return true
                         //show the dialog or snackbar saying its necessary and try again otherwise proceed with setup.
-                        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) ||
-                                ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA) ||
-                                ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_NETWORK_STATE) ||
-                                ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_COARSE_LOCATION) ||
-                                ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION) ||
-                                ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                        if (ActivityCompat.shouldShowRequestPermissionRationale((Activity) context, Manifest.permission.WRITE_EXTERNAL_STORAGE) ||
+                                ActivityCompat.shouldShowRequestPermissionRationale((Activity) context, Manifest.permission.CAMERA) ||
+                                ActivityCompat.shouldShowRequestPermissionRationale((Activity) context, Manifest.permission.ACCESS_NETWORK_STATE) ||
+                                ActivityCompat.shouldShowRequestPermissionRationale((Activity) context, Manifest.permission.ACCESS_COARSE_LOCATION) ||
+                                ActivityCompat.shouldShowRequestPermissionRationale((Activity) context, Manifest.permission.ACCESS_FINE_LOCATION) ||
+                                ActivityCompat.shouldShowRequestPermissionRationale((Activity) context, Manifest.permission.READ_EXTERNAL_STORAGE)) {
                             showDialogOK("Location,File,Call and Camera Services Permission required for this app",
                                     new DialogInterface.OnClickListener() {
                                         @Override
@@ -624,7 +619,7 @@ public class LoginActivity extends Activity implements OnClickListener, Location
                                         }
                                     });
                         } else {
-                            Toast.makeText(this, "Go to settings and enable permissions", Toast.LENGTH_LONG).show();
+                            Toast.makeText(context, "Go to settings and enable permissions", Toast.LENGTH_LONG).show();
                         }
                     }
                 }

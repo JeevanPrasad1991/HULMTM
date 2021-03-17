@@ -106,7 +106,22 @@ public class SKUGetterSetter {
     }
 
     ArrayList<String> MRP_sku = new ArrayList<String>();
-    String meta_data, data_entry_tables, stock_entry_table, stock_image_table, tot_entry_table, tot_image_table;
+    String meta_data;
+    String data_entry_tables;
+    String stock_entry_table;
+    String stock_image_table;
+    String tot_entry_table;
+    String tot_image_table;
+
+    public String getSub_category_sos_faceup() {
+        return sub_category_sos_faceup;
+    }
+
+    public void setSub_category_sos_faceup(String sub_category_sos_faceup) {
+        this.sub_category_sos_faceup = sub_category_sos_faceup;
+    }
+
+    String sub_category_sos_faceup;
 
     public String getTot_entry_table() {
         return tot_entry_table;

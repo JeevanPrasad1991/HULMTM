@@ -1,13 +1,10 @@
 package com.cpm.DailyEntry;
-
 import java.util.ArrayList;
-
 import com.cpm.Constants.CommonString;
-
 import com.cpm.database.GSKMTDatabase;
 import com.cpm.delegates.PerformanceBean;
 import com.example.gsk_mtt.R;
-
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -15,17 +12,12 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-
-import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class StoreWisePerformance extends Activity {

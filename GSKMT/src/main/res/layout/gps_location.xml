@@ -219,7 +219,6 @@
             </RelativeLayout>
 
             <Button
-
                 android:layout_width="wrap_content"
                 android:layout_height="60sp"
                 android:visibility="gone"
@@ -227,7 +226,7 @@
                 android:layout_alignParentRight="true"
                 app:srcCompat="@android:drawable/ic_menu_save"
                 />
-            <android.support.design.widget.FloatingActionButton
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/geotag_sumbitbtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

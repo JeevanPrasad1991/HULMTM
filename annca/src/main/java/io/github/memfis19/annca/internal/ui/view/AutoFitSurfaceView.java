@@ -2,9 +2,10 @@ package io.github.memfis19.annca.internal.ui.view;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+
+import androidx.annotation.NonNull;
 
 /**
  * Created by memfis on 7/6/16.

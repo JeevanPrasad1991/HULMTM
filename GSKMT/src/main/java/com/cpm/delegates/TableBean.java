@@ -36,6 +36,36 @@ public class TableBean {
 	}
 
 	public static String targetforohctoothpestTable;
+
+	public static String getMappingsos_table() {
+		return mappingsos_table;
+	}
+
+	public static void setMappingsos_table(String mappingsos_table) {
+		TableBean.mappingsos_table = mappingsos_table;
+	}
+
+	public static String mappingsos_table;
+
+	public static String getTargetsossubcatwise() {
+		return targetsossubcatwise;
+	}
+
+	public static void setTargetsossubcatwise(String targetsossubcatwise) {
+		TableBean.targetsossubcatwise = targetsossubcatwise;
+	}
+
+	public static String targetsossubcatwise;
+
+	public static String getSubcategory_table() {
+		return subcategory_table;
+	}
+
+	public static void setSubcategory_table(String subcategory_table) {
+		TableBean.subcategory_table = subcategory_table;
+	}
+
+	public static String subcategory_table;
 	
 	public static String getStorewise_pss_table() {
 		return storewise_pss_table;
@@ -153,7 +183,16 @@ public class TableBean {
 	}
 
 	public static String tot_image_table;
-	
+
+	public static String getDr_sos_subcategory_faceup() {
+		return dr_sos_subcategory_faceup;
+	}
+
+	public static void setDr_sos_subcategory_faceup(String dr_sos_subcategory_faceup) {
+		TableBean.dr_sos_subcategory_faceup = dr_sos_subcategory_faceup;
+	}
+
+	public static String dr_sos_subcategory_faceup;
 	public static String getNonworkingReason_table() {
 		return nonworkingReason_table;
 	}
