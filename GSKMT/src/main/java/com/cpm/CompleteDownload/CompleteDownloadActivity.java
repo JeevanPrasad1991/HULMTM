@@ -969,6 +969,7 @@ public class CompleteDownloadActivity extends Activity {
                     TableBean.setTot_entry_table(alltable.getTot_entry_table());
                     TableBean.setTot_image_table(alltable.getTot_image_table());
                     TableBean.setDr_sos_subcategory_faceup(alltable.getSub_category_sos_faceup());
+                    TableBean.setDr_stockinward_table(alltable.getDr_stockinward_table());
 
                     data.value = 80;
                     data.name = "DATA ENTRY TABLES Data";

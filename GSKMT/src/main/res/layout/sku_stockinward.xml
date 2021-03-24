@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="10">
+
+        <LinearLayout
+            android:id="@+id/storename_header"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_weight="1"
+            android:background="@color/colorPrimary"
+            android:orientation="horizontal"
+            android:padding="2dp"
+            android:weightSum="10">
+
+            <TextView
+                android:id="@+id/sos_target"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="5"
+                android:gravity="center_vertical"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/txtsize_16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/sos_target_withohc_target"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="5"
+                android:gravity="center_vertical"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/txtsize_16sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/ListView01"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:focusable="false"
+            android:divider="@color/colorPrimary"
+            android:layout_marginBottom="3dp"
+            android:focusableInTouchMode="false"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/savebtn"
+                android:layout_width="150dp"
+                android:layout_height="60dp"
+                android:layout_centerInParent="true"
+                android:text="Save"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

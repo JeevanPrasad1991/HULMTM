@@ -454,6 +454,10 @@ public class XMLHandlers {
                         failureGetterSetter.setSub_category_sos_faceup(xpp.nextText());
                     }
 
+                    if (xpp.getName().equals("META_DATA16")) {
+                        failureGetterSetter.setDr_stockinward_table(xpp.nextText());
+                    }
+
 
                 }
                 xpp.next();

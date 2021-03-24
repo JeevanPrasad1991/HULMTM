@@ -123,6 +123,16 @@ public class SKUGetterSetter {
 
     String sub_category_sos_faceup;
 
+    public String getDr_stockinward_table() {
+        return dr_stockinward_table;
+    }
+
+    public void setDr_stockinward_table(String dr_stockinward_table) {
+        this.dr_stockinward_table = dr_stockinward_table;
+    }
+
+    String dr_stockinward_table;
+
     public String getTot_entry_table() {
         return tot_entry_table;
     }

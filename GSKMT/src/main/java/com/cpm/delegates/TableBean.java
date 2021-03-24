@@ -193,6 +193,16 @@ public class TableBean {
 	}
 
 	public static String dr_sos_subcategory_faceup;
+
+	public static String getDr_stockinward_table() {
+		return dr_stockinward_table;
+	}
+
+	public static void setDr_stockinward_table(String dr_stockinward_table) {
+		TableBean.dr_stockinward_table = dr_stockinward_table;
+	}
+
+	public static String dr_stockinward_table;
 	public static String getNonworkingReason_table() {
 		return nonworkingReason_table;
 	}

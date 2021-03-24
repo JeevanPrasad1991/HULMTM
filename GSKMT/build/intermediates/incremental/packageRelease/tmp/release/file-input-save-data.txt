@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Mar 17 17:53:06 IST 2021
+#Wed Mar 24 13:10:53 IST 2021
 2.base=E\:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\transforms\\mergeJniLibs\\release\\0
 0.path=lib/x86_64/libcrashlytics.so
 2.baseType=DIRECTORY

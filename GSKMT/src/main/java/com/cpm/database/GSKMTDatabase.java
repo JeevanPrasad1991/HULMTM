@@ -50,8 +50,8 @@ import android.util.Log;
 
 @SuppressLint("LongLogTag")
 public class GSKMTDatabase extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME = "HULMTMDb";
-    public static final int DATABASE_VERSION = 1;
+    public static final String DATABASE_NAME = "HMTMDb";
+    public static final int DATABASE_VERSION = 5;
     private SQLiteDatabase db;
 
     public GSKMTDatabase(Context context) {
@@ -117,6 +117,7 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
         db.execSQL(TableBean.getSubcategory_table());
         db.execSQL(TableBean.getMappingsos_table());
         db.execSQL(TableBean.getDr_sos_subcategory_faceup());
+        db.execSQL(TableBean.getDr_stockinward_table());
 
         db.execSQL(CommonString.CREATE_TABLE_STORE_GEOTAGGING);
         db.execSQL(CommonString.CREATE_TABLE_INSERT_MERCHANDISER_ATTENDENCE_TABLE);
@@ -168,6 +169,7 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
             db.delete("DR_STOCK", CommonString.KEY_STORE_ID + " ='" + storeid + "' AND PROCESS_ID ='" + process_id + "'", null);
             db.delete("DR_SOS_FACING", CommonString.KEY_STORE_ID + " ='" + storeid + "' AND PROCESS_ID ='" + process_id + "'", null);
             db.delete("DR_STOCK_IMAGE", CommonString.KEY_STORE_ID + " ='" + storeid + "' AND PROCESS_ID ='" + process_id + "'", null);
+            db.delete("DR_STOCK_INWARD", CommonString.KEY_STORE_ID + " ='" + storeid + "' AND PROCESS_ID ='" + process_id + "'", null);
             db.delete(CommonString.TABLE_PROMOTION_DATA, CommonString.KEY_STORE_ID + " ='" + storeid + "' AND PROCESS_ID ='" + process_id + "'", null);
             db.delete(CommonString.TABLE_SHELF_VISIBILITY, CommonString.KEY_STORE_ID + " ='" + storeid + "' AND PROCESS_ID ='" + process_id + "'", null);
             db.delete("QUESTION_ANSWER_TABLE_STOCKAFTER", CommonString.KEY_STORE_ID + " ='" + storeid + "' AND PROCESS_ID ='" + process_id + "'", null);
@@ -195,6 +197,7 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
             db.delete("DR_SOS_FACING", null, null);
             db.delete("DR_STOCK", null, null);
             db.delete("DR_STOCK_IMAGE", null, null);
+            db.delete("DR_STOCK_INWARD", null, null);
             db.delete(CommonString.TABLE_AFTERSTOCK_OTHER, null, null);
             db.delete(CommonString.TABLE_QUESTION_ANSWER_STOCKAFTER, null, null);
             db.delete(CommonString.TABLE_INSERT_COMPETITION_INFO, null, null);
@@ -286,6 +289,7 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
                     db.delete("DR_SOS_FACING", null, null);
                     db.delete("DR_STOCK", null, null);
                     db.delete("DR_STOCK_IMAGE", null, null);
+                    db.delete("DR_STOCK_INWARD", null, null);
                     db.delete(CommonString.TABLE_PROMOTION_DATA, null, null);
                     db.delete(CommonString.TABLE_AFTERSTOCK_OTHER, null, null);
                     db.delete(CommonString.TABLE_QUESTION_ANSWER_STOCKAFTER, null, null);
@@ -1269,7 +1273,7 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
         Cursor dbcursor = null;
         try {
 
-            dbcursor = db.rawQuery("SELECT DISTINCT CATEGORY_ID, CATEGORY ,SHOW_FOR_SALE from SKU_MASTER where SKU_ID in" +
+            dbcursor = db.rawQuery("SELECT DISTINCT CATEGORY_ID,CATEGORY,SHOW_FOR_SALE from SKU_MASTER where SKU_ID in" +
                             " (SELECT SKU_ID FROM STOCK_MAPPING_STOREWISE WHERE PROCESS_ID =" + process_id + " AND STORE_ID =" + store_Id + " )",
                     null);
 
@@ -1340,7 +1344,7 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
         ArrayList<SkuBean> list = new ArrayList<SkuBean>();
         Cursor dbcursor = null;
         try {
-            dbcursor = db.rawQuery(" SELECT * FROM (SELECT DISTINCT BR.BRAND_ID, BR.BRAND" +
+            dbcursor = db.rawQuery(" SELECT * FROM (SELECT DISTINCT BR.BRAND_ID as BRAND_ID, BR.BRAND as BRAND" +
                     " FROM BRAND_MASTER BR INNER JOIN SKU_MASTER SK ON SK.BRAND_ID = BR.BRAND_ID "
                     + " INNER JOIN (SELECT * FROM STOCK_MAPPING_STOREWISE WHERE PROCESS_ID =" + process_id
                     + " AND STORE_ID=" + storeId + " ) AS M ON SK.SKU_ID = M.SKU_ID WHERE BR.CATEGORY_ID ="
@@ -1379,7 +1383,7 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
         Cursor dbcursor = null;
         try {
 
-            dbcursor = db.rawQuery("SELECT * FROM (SELECT SK.SKU_ID, SK.SKU FROM BRAND_MASTER BR" +
+            dbcursor = db.rawQuery("SELECT * FROM (SELECT SK.SKU_ID as SKU_ID, SK.SKU as SKU FROM BRAND_MASTER BR" +
                             " INNER JOIN SKU_MASTER SK ON" +
                             " SK.BRAND_ID = BR.BRAND_ID " +
                             " INNER JOIN (SELECT * FROM STOCK_MAPPING_STOREWISE WHERE PROCESS_ID =" + process_id
@@ -1470,7 +1474,7 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
         try {
 
 
-            dbcursor = db.rawQuery("SELECT D.DISPLAY_ID,D.DISPLAY, D.IMAGE_URL FROM DISPLAY_MASTER D INNER JOIN MAPPING_ADDITIONAL_VISIBILITY M" +
+            dbcursor = db.rawQuery("SELECT D.DISPLAY_ID as DISPLAY_ID,D.DISPLAY as DISPLAY, D.IMAGE_URL as IMAGE_URL FROM DISPLAY_MASTER D INNER JOIN MAPPING_ADDITIONAL_VISIBILITY M" +
                             " WHERE M.DISPLAY_ID=D.DISPLAY_ID AND M.STORETYPE_ID ='" + store_type_id + "' AND M.CATEGORY_ID = '" + cat_id + "' AND" +
                             " M.PROCESS_ID = '" + process_id + "'",
                     null);
@@ -1561,7 +1565,8 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
         Cursor dbcursor = null;
 
         try {
-            dbcursor = db.rawQuery("SELECT M.DISPLAY_ID,D.DISPLAY,M.UID, D.IMAGE_URL, BR.BRAND_ID, BR.BRAND FROM MAPPING_PRIMARY_WINDOW_DISPLAY M INNER " +
+            dbcursor = db.rawQuery("SELECT M.DISPLAY_ID as DISPLAY_ID,D.DISPLAY as DISPLAY,M.UID as UID, D.IMAGE_URL as IMAGE_URL," +
+                    " BR.BRAND_ID as BRAND_ID, BR.BRAND as BRAND FROM MAPPING_PRIMARY_WINDOW_DISPLAY M INNER " +
                     " JOIN DISPLAY_MASTER D ON M.DISPLAY_ID=D.DISPLAY_ID INNER JOIN BRAND_MASTER BR ON M.BRAND_ID = BR.BRAND_ID " +
                     " WHERE M.STORE_ID = '" + storeid + "' AND M.CATEGORY_ID = '" + catid + "' AND M.PROCESS_ID ='" + process_id + "'", null);
 
@@ -1620,12 +1625,12 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
         try {
 
             if (category_id != null && category_id.equals("2")) {
-                dbcursor = db.rawQuery("SELECT DISTINCT SK.SKU_ID, SK.SKU, SK.BRAND, SK.BRAND_ID, SK.COMPANY_ID from" +
+                dbcursor = db.rawQuery("SELECT DISTINCT SK.SKU_ID as SKU_ID, SK.SKU as SKU, SK.BRAND as BRAND, SK.BRAND_ID as BRAND_ID, SK.COMPANY_ID as COMPANY_ID from" +
                         " SKU_MASTER SK INNER JOIN STOCK_MAPPING_STOREWISE M ON"
                         + " SK.SKU_ID = M.SKU_ID AND SK.CATEGORY_ID =" + category_id + " AND M.STORE_ID =" + store_id
                         + " AND M.PROCESS_ID =" + process_id + " ORDER BY M.BRAND_SEQUENCE, M.SKU_SEQUENCE", null);
             } else {
-                dbcursor = db.rawQuery("SELECT DISTINCT SK.SKU_ID, SK.SKU, SK.BRAND, SK.BRAND_ID, SK.COMPANY_ID from" +
+                dbcursor = db.rawQuery("SELECT DISTINCT SK.SKU_ID as SKU_ID, SK.SKU as SKU, SK.BRAND as BRAND, SK.BRAND_ID as BRAND_ID, SK.COMPANY_ID as COMPANY_ID from" +
                         " SKU_MASTER SK INNER JOIN STOCK_MAPPING_STOREWISE M ON"
                         + " SK.SKU_ID = M.SKU_ID AND SK.CATEGORY_ID =" + category_id + " AND M.STORE_ID =" + store_id
                         + " AND M.PROCESS_ID =" + process_id + " AND SK.COMPANY_ID=1 ORDER BY M.BRAND_SEQUENCE, M.SKU_SEQUENCE", null);
@@ -1672,6 +1677,48 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
     }
 
 
+    public ArrayList<SkuBean> getBrandSkuListforstockin(String category_id, String store_id, String process_id) {
+        Log.d("FetchingStoredata--------------->Start<------------", "------------------");
+        ArrayList<SkuBean> list = new ArrayList<SkuBean>();
+        Cursor dbcursor = null;
+        try {
+
+
+            dbcursor = db.rawQuery("SELECT DISTINCT SK.SKU_ID as SKU_ID, SK.SKU as SKU, SK.BRAND as BRAND, SK.BRAND_ID as BRAND_ID," +
+                    " SK.COMPANY_ID as COMPANY_ID from SKU_MASTER SK INNER JOIN STOCK_MAPPING_STOREWISE M ON"
+                    + " SK.SKU_ID = M.SKU_ID AND SK.CATEGORY_ID =" + category_id + " AND M.STORE_ID =" + store_id
+                    + " AND M.PROCESS_ID =" + process_id + " AND SK.COMPANY_ID=1 ORDER BY M.BRAND_SEQUENCE, M.SKU_SEQUENCE", null);
+
+            if (dbcursor != null) {
+                dbcursor.moveToFirst();
+                while (!dbcursor.isAfterLast()) {
+                    SkuBean sb = new SkuBean();
+                    sb.setBrand_id(dbcursor.getString(dbcursor.getColumnIndexOrThrow("BRAND_ID")));
+                    sb.setBrand(dbcursor.getString(dbcursor.getColumnIndexOrThrow("BRAND")));
+                    sb.setSku_id(dbcursor.getString(dbcursor.getColumnIndexOrThrow("SKU_ID")));
+                    sb.setSku_name(dbcursor.getString(dbcursor.getColumnIndexOrThrow("SKU")));
+                    sb.setCompany_id(dbcursor.getString(dbcursor.getColumnIndexOrThrow("COMPANY_ID")));
+                    sb.setAfter_Stock("");
+
+                    list.add(sb);
+                    dbcursor.moveToNext();
+                }
+
+                dbcursor.close();
+                return list;
+            }
+
+        } catch (Exception e) {
+            Log.d("Exception when fetching Records!!!!!!!!!!!!!!!!!!!!!", e.toString());
+            return list;
+        }
+
+        Log.d("FetchingStoredat------------>Stop<-----------", "---------------");
+        return list;
+
+    }
+
+
     public ArrayList<SkuBean> getBrandSkuListForSales(String category_id, String store_id, String process_id) {
 
 
@@ -1682,7 +1729,7 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
 
         try {
 
-            dbcursor = db.rawQuery("SELECT DISTINCT SK.SKU_ID, SK.SKU, SK.BRAND, SK.BRAND_ID, SK.COMPANY_ID from SKU_MASTER SK" +
+            dbcursor = db.rawQuery("SELECT DISTINCT SK.SKU_ID as SKU_ID, SK.SKU as SKU, SK.BRAND as BRAND, SK.BRAND_ID as BRAND_ID, SK.COMPANY_ID as COMPANY_ID from SKU_MASTER SK" +
                     " INNER JOIN STOCK_MAPPING_STOREWISE M ON SK.SKU_ID = M.SKU_ID AND SK.CATEGORY_ID =" + category_id + " AND M.PROCESS_ID =" + process_id +
                     " AND M.STORE_ID =" + store_id + " AND SK.COMPANY_ID=1 AND SK.SHOW_FOR_SALE=1 ORDER BY M.BRAND_SEQUENCE, M.SKU_SEQUENCE", null);
 
@@ -1735,7 +1782,7 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
         ArrayList<SkuBean> list = new ArrayList<SkuBean>();
         Cursor dbcursor = null;
         try {
-            dbcursor = db.rawQuery("SELECT DISTINCT SK.SKU_ID, SK.SKU, SK.BRAND, SK.BRAND_ID, SK.COMPANY_ID from" +
+            dbcursor = db.rawQuery("SELECT DISTINCT SK.SKU_ID as SKU_ID, SK.SKU as SKU, SK.BRAND as BRAND, SK.BRAND_ID as BRAND_ID, SK.COMPANY_ID as COMPANY_ID from" +
                     " SKU_MASTER SK" +
                     " INNER JOIN STOCK_MAPPING_STOREWISE M ON"
                     + " SK.SKU_ID = M.SKU_ID AND SK.CATEGORY_ID =" + category_id + " AND M.PROCESS_ID =" +
@@ -1788,7 +1835,8 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
         ArrayList<SkuBean> list = new ArrayList<SkuBean>();
         Cursor dbcursor = null;
         try {
-            dbcursor = db.rawQuery("SELECT DISTINCT SM.SUB_CATEGORY,SM.SUB_CATEGORY_ID,BM.CATEGORY,BM.CATEGORY_ID,MS.LINEAR_MEASUREMENT,TG.TARGET FROM" +
+            dbcursor = db.rawQuery("SELECT DISTINCT SM.SUB_CATEGORY as SUB_CATEGORY,SM.SUB_CATEGORY_ID as SUB_CATEGORY_ID,BM.CATEGORY as CATEGORY," +
+                    "BM.CATEGORY_ID as CATEGORY_ID,MS.LINEAR_MEASUREMENT as LINEAR_MEASUREMENT,TG.TARGET as TARGET FROM" +
                     " SUB_CATEGORY_MASTER SM INNER JOIN MAPPING_SHARE_OF_SHELF MS ON SM.SUB_CATEGORY_ID=MS.SUB_CATEGORY_ID" +
                     " INNER JOIN BRAND_MASTER BM ON SM.CATEGORY_ID=BM.CATEGORY_ID INNER JOIN (SELECT * From TARGET_SOS_SUB_CATEGORY_WISE" +
                     " WHERE STORE_ID=" + storeId + " AND PROCESS_ID=" + processId + ") AS TG ON SM.SUB_CATEGORY_ID=TG.SUB_CATEGORY_ID WHERE MS.PROCESS_ID=" + processId +
@@ -1841,8 +1889,8 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
         Cursor dbcursor = null;
 
         try {
-            dbcursor = db.rawQuery("SELECT D.DISPLAY_ID , D.DISPLAY, D.IMAGE_URL, D.PATH, M.TARGET_QTY," +
-                    " M.TYPE, M.UID, M.BRAND_ID, BR.BRAND FROM DTS_MAPPING M INNER JOIN DISPLAY_MASTER D ON"
+            dbcursor = db.rawQuery("SELECT D.DISPLAY_ID as DISPLAY_ID, D.DISPLAY as DISPLAY, D.IMAGE_URL as IMAGE_URL, D.PATH as PATH, M.TARGET_QTY as TARGET_QTY," +
+                    " M.TYPE as TYPE, M.UID as UID, M.BRAND_ID as BRAND_ID,BR.BRAND as BRAND FROM DTS_MAPPING M INNER JOIN DISPLAY_MASTER D ON"
                     + " M.DISPLAY_ID = D.DISPLAY_ID INNER JOIN BRAND_MASTER BR ON M.BRAND_ID = BR.BRAND_ID WHERE " +
                     " M.STORE_ID = '" + store_id + "' AND M.PROCESS_ID = '" + process_id
                     + "' AND M.CATEGORY_ID = '" + cate_id + "'", null);
@@ -2004,7 +2052,7 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
         try {
 
 
-            dbcursor = db.rawQuery("SELECT Q.QUESTION, Q.QUESTION_ID FROM QUESTION_MASTER Q INNER JOIN "
+            dbcursor = db.rawQuery("SELECT Q.QUESTION as QUESTION, Q.QUESTION_ID as QUESTION_ID FROM QUESTION_MASTER Q INNER JOIN "
                     + " QUESTION_MAPPING MQ ON Q.QUESTION_ID = MQ.QUESTION_ID INNER JOIN"
                     + " DISPLAY_MASTER D ON D.DISPLAY_ID = MQ.DISPLAY_ID"
                     + " WHERE D.DISPLAY_ID='" + display_id + "' order by Q.QUESTION", null);
@@ -2670,8 +2718,8 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
         try {
 
 
-            dbcursor = db.rawQuery("SELECT S.SKU_ID , S.AFTER_STOCK_QTY , S.AFTER_FACEUP," +
-                    " S.ALAST_THREE, S.ATHREE_TO_SIX, S.AMORE_SIX, SK.SKU ,SK.COMPANY_ID ,BR.BRAND FROM DR_STOCK S INNER JOIN SKU_MASTER SK " +
+            dbcursor = db.rawQuery("SELECT S.SKU_ID as SKU_ID, S.AFTER_STOCK_QTY as AFTER_STOCK_QTY, S.AFTER_FACEUP as AFTER_FACEUP," +
+                    " S.ALAST_THREE as ALAST_THREE, S.ATHREE_TO_SIX as ATHREE_TO_SIX, S.AMORE_SIX as AMORE_SIX, SK.SKU as SKU,SK.COMPANY_ID as COMPANY_ID,BR.BRAND as BRAND FROM DR_STOCK S INNER JOIN SKU_MASTER SK " +
                     " ON S.SKU_ID = SK.SKU_ID INNER JOIN BRAND_MASTER BR ON SK.BRAND_ID = BR.BRAND_ID WHERE S.STORE_ID = '" + store_id + "'" +
                     " AND S.CATEGORY_ID = '" + cate_id + "' AND S.PROCESS_ID ='" + process_id + "' order by SK.SKU,BR.BRAND", null);
 
@@ -2969,6 +3017,56 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
 
     }
 
+    public ArrayList<SkuBean> getstockininserteddata(String store_id, String cate_id, String process_id) {
+        Log.d("FetchingStoredata--------------->Start<------------", "------------------");
+        ArrayList<SkuBean> list = new ArrayList<SkuBean>();
+        Cursor dbcursor = null;
+        try {
+
+            if (cate_id.equals("")){
+                dbcursor = db.rawQuery("SELECT S.CATEGORY_ID as CATEGORY_ID, SK.SKU AS SKU,S.SKU_ID AS SKU_ID,S.STOCKIN_QTY AS STOCKIN_QTY,SK.COMPANY_ID AS COMPANY_ID,BR.BRAND_ID AS BRAND_ID," +
+                        "BR.BRAND AS BRAND FROM DR_STOCK_INWARD S INNER JOIN SKU_MASTER SK ON S.SKU_ID = SK.SKU_ID INNER JOIN BRAND_MASTER BR ON SK.BRAND_ID = BR.BRAND_ID" +
+                        " WHERE S.STORE_ID =" + store_id + " AND S.PROCESS_ID =" + process_id + "", null);
+
+            }else {
+                dbcursor = db.rawQuery("SELECT S.CATEGORY_ID as CATEGORY_ID,SK.SKU AS SKU,S.SKU_ID AS SKU_ID,S.STOCKIN_QTY AS STOCKIN_QTY,SK.COMPANY_ID AS COMPANY_ID,BR.BRAND_ID AS BRAND_ID," +
+                        "BR.BRAND AS BRAND FROM DR_STOCK_INWARD S INNER JOIN SKU_MASTER SK ON S.SKU_ID = SK.SKU_ID INNER JOIN BRAND_MASTER BR ON SK.BRAND_ID = BR.BRAND_ID" +
+                        " WHERE S.STORE_ID =" + store_id + " AND S.CATEGORY_ID =" + cate_id + " AND S.PROCESS_ID =" + process_id + "", null);
+
+            }
+
+            if (dbcursor != null) {
+                dbcursor.moveToFirst();
+                while (!dbcursor.isAfterLast()) {
+                    SkuBean sb = new SkuBean();
+                    sb.setSku_name(dbcursor.getString(dbcursor.getColumnIndexOrThrow("SKU")));
+                    sb.setBrand(dbcursor.getString(dbcursor.getColumnIndexOrThrow("BRAND")));
+                    sb.setBrand_id(dbcursor.getString(dbcursor.getColumnIndexOrThrow("BRAND_ID")));
+                    sb.setSku_id(dbcursor.getString(dbcursor.getColumnIndexOrThrow("SKU_ID")));
+                    sb.setAfter_Stock(dbcursor.getString(dbcursor.getColumnIndexOrThrow("STOCKIN_QTY")));
+                    sb.setCompany_id(dbcursor.getString(dbcursor.getColumnIndexOrThrow("COMPANY_ID")));
+                    sb.setCategory_id(dbcursor.getString(dbcursor.getColumnIndexOrThrow("CATEGORY_ID")));
+
+                    list.add(sb);
+                    dbcursor.moveToNext();
+                }
+
+                dbcursor.close();
+                return list;
+            }
+
+        } catch (Exception e) {
+            Log.d("Exception when fetching Records!!!!!!!!!!!!!!!!!!!!!",
+                    e.toString());
+            return list;
+        }
+
+        Log.d("FetchingStoredat---------------------->Stop<-----------",
+                "-------------------");
+        return list;
+
+    }
+
     public long InsertCoverage(CoverageBean data, String store_id, String date, String process_id) {
         ContentValues values = new ContentValues();
         long l = 0;
@@ -3062,6 +3160,39 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
                 values.put("AMORE_SIX", sdata.getAMORE_SIX());
                 values.put("USER_ID", user);
                 l = db.insert("DR_STOCK", null, values);
+            }
+
+        } catch (Exception ex) {
+            Log.d("Database Exception while Insert Stock Data ", ex.getMessage());
+        }
+
+        return l;
+
+    }
+
+
+    public long InsertStockInwardData(String store_id,String visit_dat, ArrayList<SkuBean> sku_brand_list, String user, String cate_id,String catename, String process_id) {
+        db.delete("DR_STOCK_INWARD", "STORE_ID" + " = '" + store_id + "' AND CATEGORY_ID ='" + cate_id + "' AND " + CommonString.KEY_PROCESS_ID + "='" + process_id + "'", null);
+        ContentValues values = new ContentValues();
+        long l = 0;
+
+        try {
+
+            for (int i = 0; i < sku_brand_list.size(); i++) {
+                SkuBean sdata = new SkuBean();
+                sdata = sku_brand_list.get(i);
+                values.put("STORE_ID", store_id);
+                values.put("VISIT_DATE", visit_dat);
+                values.put("PROCESS_ID", process_id);
+                values.put("CATEGORY_ID", cate_id);
+                values.put("CATEGORY", catename);
+                values.put("SKU_ID", sdata.getSku_id());
+                values.put("SKU", sdata.getSku_name());
+                values.put("BRAND_ID", sdata.getBrand_id());
+                values.put("BRAND", sdata.getBrand());
+                values.put("STOCKIN_QTY", sdata.getAfter_Stock());
+
+                l = db.insert("DR_STOCK_INWARD", null, values);
             }
 
         } catch (Exception ex) {
@@ -4983,7 +5114,7 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
         ArrayList<PromotionBean> storedata = new ArrayList<PromotionBean>();
 
         try {
-            cursordata = db.rawQuery("SELECT M.ID, M.SKU_ID, M.PROMOTION, SK.SKU from PROMOTION_MAPPING M INNER JOIN " +
+            cursordata = db.rawQuery("SELECT M.ID as ID, M.SKU_ID as SKU_ID, M.PROMOTION as PROMOTION, SK.SKU as SKU from PROMOTION_MAPPING M INNER JOIN " +
                     " SKU_MASTER SK ON M.SKU_ID = SK.SKU_ID WHERE M.KEY_ID = '" + key_id + "' AND M.PROCESS_ID = '" + process_id + "'" +
                     " AND M.CATEGORY_ID = '" + cate_id + "' AND M.STATE_ID = '" + state_id + "' order by SK.SKU", null);
 
@@ -5554,7 +5685,7 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
         ArrayList<ShelfVisibilityBean> list = new ArrayList<ShelfVisibilityBean>();
         Cursor dbcursor = null;
         try {
-            dbcursor = db.rawQuery("SELECT DISTINCT M.BRAND_ID, BR.BRAND,M.FACING_TARGET FROM MAPPING_PDR_FACING_STATEWISE M" +
+            dbcursor = db.rawQuery("SELECT DISTINCT M.BRAND_ID as BRAND_ID, BR.BRAND as BRAND,M.FACING_TARGET as FACING_TARGET FROM MAPPING_PDR_FACING_STATEWISE M" +
                     " INNER JOIN BRAND_MASTER BR ON M.BRAND_ID = BR.BRAND_ID" +
                     " WHERE M.STORETYPE_ID =' " + store_type_id + "' AND M.STATE_ID ='" + state_Id + "'" +
                     " AND M.PROCESS_ID = '" + process_id + "' AND BR.CATEGORY_ID='" + category_cd + "' AND M.KEY_ID='" + key_Id + "' order by BR.BRAND", null);
@@ -5594,7 +5725,7 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
             String category_id, String process_id) {
 
         for (int i = 0; i < sku_brand_list_second.size(); i++) {
-            if (!sku_brand_list_second.get(i).getYesNo().equalsIgnoreCase("")) {
+            if (!sku_brand_list_second.get(i).getYesNo().equals("")) {
 
 
                 db.delete(CommonString.TABLE_QUESTION_ANSWER_STOCKAFTER, CommonString.DISPLAY_ID
@@ -5633,7 +5764,7 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
         Cursor dbcursor = null;
         try {
             dbcursor = db.rawQuery(
-                    "SELECT DISTINCT CM.COMPANY_ID,CM.COMPANY FROM COMPANY_MASTER CM INNER JOIN MAPPING_COMPETITION_PROMO MP ON  MP.COMPANY_ID=CM.COMPANY_ID WHERE  MP.CATEGORY_ID='" + category_Id + "' ORDER BY CM.COMPANY", null);
+                    "SELECT DISTINCT CM.COMPANY_ID as COMPANY_ID,CM.COMPANY as COMPANY FROM COMPANY_MASTER CM INNER JOIN MAPPING_COMPETITION_PROMO MP ON  MP.COMPANY_ID=CM.COMPANY_ID WHERE  MP.CATEGORY_ID='" + category_Id + "' ORDER BY CM.COMPANY", null);
             if (dbcursor != null) {
                 dbcursor.moveToFirst();
                 while (!dbcursor.isAfterLast()) {
@@ -5838,7 +5969,7 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
         try {
 
 
-            dbcursor = db.rawQuery(" select distinct MP.COMP_SEGMENT_ID,MP.COMP_SEGMENT,MP.BRAND_ID from MAPPING_COMPETITION_PROMO  MP WHERE MP.BRAND_ID='" + brand_Id + "' AND MP.CATEGORY_ID = '" + category_id + "' ORDER BY MP.COMP_SEGMENT ", null);
+            dbcursor = db.rawQuery(" select distinct MP.COMP_SEGMENT_ID as COMP_SEGMENT_ID,MP.COMP_SEGMENT as COMP_SEGMENT,MP.BRAND_ID as BRAND_ID from MAPPING_COMPETITION_PROMO  MP WHERE MP.BRAND_ID='" + brand_Id + "' AND MP.CATEGORY_ID = '" + category_id + "' ORDER BY MP.COMP_SEGMENT ", null);
 
             if (dbcursor != null) {
                 dbcursor.moveToFirst();

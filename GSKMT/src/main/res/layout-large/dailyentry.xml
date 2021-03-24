@@ -308,6 +308,51 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="15"></ImageView>
+
+            <Button
+                android:id="@+id/subcat_sos_facing"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="30"
+                android:background="@drawable/sos"
+                android:visibility="visible" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:visibility="visible"
+                android:layout_weight="10"></ImageView>
+
+            <Button
+                android:id="@+id/stockinward_btn"
+                android:layout_width="0dp"
+                android:layout_height="144dp"
+                android:layout_weight="30"
+                android:background="@drawable/stock_inward_gray"
+                android:enabled="false"
+                android:visibility="visible"></Button>
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="15"></ImageView>
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"></ImageView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="3dp"
             android:orientation="horizontal"
             android:weightSum="100">
@@ -352,33 +397,6 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="40dp"></ImageView>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="100">
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="15"></ImageView>
-
-            <Button
-                android:id="@+id/subcat_sos_facing"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="30"
-                android:background="@drawable/sos"
-                android:visibility="visible" />
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:visibility="visible"
-                android:layout_weight="10"></ImageView>
-        </LinearLayout>
 
 
     </LinearLayout>

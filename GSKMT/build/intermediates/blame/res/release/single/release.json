@@ -2004,12 +2004,20 @@
         "source": "C:\\Users\\cpmin\\.gradle\\caches\\transforms-2\\files-2.1\\fb2b310bb3171aa16a78d81607620477\\res\\drawable-hdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
     },
     {
+        "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\layout_sku_row_stockin.xml.flat",
+        "source": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\src\\main\\res\\layout\\sku_row_stockin.xml"
+    },
+    {
         "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\layout_thumbnail.xml.flat",
         "source": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\src\\main\\res\\layout\\thumbnail.xml"
     },
     {
         "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
         "source": "C:\\Users\\cpmin\\.gradle\\caches\\transforms-2\\files-2.1\\fb2b310bb3171aa16a78d81607620477\\res\\drawable-xhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_stock_inward_tick.png.flat",
+        "source": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\src\\main\\res\\drawable-hdpi\\stock_inward_tick.png"
     },
     {
         "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_competition_promotion.png.flat",
@@ -2264,6 +2272,10 @@
         "source": "C:\\Users\\cpmin\\.gradle\\caches\\transforms-2\\files-2.1\\fb2b310bb3171aa16a78d81607620477\\res\\layout\\abc_action_bar_title_item.xml"
     },
     {
+        "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_stock_inward_gray.png.flat",
+        "source": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\src\\main\\res\\drawable-mdpi\\stock_inward_gray.png"
+    },
+    {
         "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\drawable_competition_promotion.png.flat",
         "source": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\src\\main\\res\\drawable\\competition_promotion.png"
     },
@@ -2278,6 +2290,10 @@
     {
         "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
         "source": "C:\\Users\\cpmin\\.gradle\\caches\\transforms-2\\files-2.1\\fb2b310bb3171aa16a78d81607620477\\res\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_stock_inward.png.flat",
+        "source": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\src\\main\\res\\drawable-mdpi\\stock_inward.png"
     },
     {
         "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_exit_ico.png.flat",
@@ -2522,6 +2538,10 @@
     {
         "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_camera_done.png.flat",
         "source": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\src\\main\\res\\drawable-hdpi\\camera_done.png"
+    },
+    {
+        "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\layout_sku_stockinward.xml.flat",
+        "source": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\src\\main\\res\\layout\\sku_stockinward.xml"
     },
     {
         "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_clipstrips.jpg.flat",
@@ -2944,8 +2964,16 @@
         "source": "C:\\Users\\cpmin\\.gradle\\caches\\transforms-2\\files-2.1\\fb2b310bb3171aa16a78d81607620477\\res\\drawable-xhdpi-v4\\abc_btn_check_to_on_mtrl_000.png"
     },
     {
+        "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_stock_inward_tick.png.flat",
+        "source": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\src\\main\\res\\drawable-mdpi\\stock_inward_tick.png"
+    },
+    {
         "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_oats_done.png.flat",
         "source": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\src\\main\\res\\drawable-mdpi\\oats_done.png"
+    },
+    {
+        "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_stock_inward_gray.png.flat",
+        "source": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\src\\main\\res\\drawable-hdpi\\stock_inward_gray.png"
     },
     {
         "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\layout-large_store_info.xml.flat",
@@ -3458,6 +3486,10 @@
     {
         "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
         "source": "C:\\Users\\cpmin\\.gradle\\caches\\transforms-2\\files-2.1\\fb2b310bb3171aa16a78d81607620477\\res\\drawable-hdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_stock_inward.png.flat",
+        "source": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\src\\main\\res\\drawable-hdpi\\stock_inward.png"
     },
     {
         "merged": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\res\\merged\\release\\drawable_abc_ic_search_api_material.xml.flat",

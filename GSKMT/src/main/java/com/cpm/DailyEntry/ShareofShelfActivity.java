@@ -620,7 +620,8 @@ public class ShareofShelfActivity extends Activity implements OnClickListener {
                     double DD = Double.parseDouble(CommonFunctions.return_decimal_value(sosObj.getNoneyelevel()));
                     double AA = Double.parseDouble(CommonFunctions.return_decimal_value(sosObj.getCategoryEyelevel()));
                     double BB = Double.parseDouble(CommonFunctions.return_decimal_value(sosObj.getCategoryNonEyelevel()));
-                    double sos = ((CC + DD) / (AA + BB)) * 100;
+                   /// double sos = ((CC + DD) / (AA + BB)) * 100 ---- BEFORE FORMULA;
+                    double sos = ((CC/ AA)/2 + (DD/BB)/2) * 100;
                     int i = (int) sos;
                     sos_ach = "" + i;
                     sosAdapter.notifyDataSetChanged();

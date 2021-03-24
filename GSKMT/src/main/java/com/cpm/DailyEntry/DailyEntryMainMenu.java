@@ -24,8 +24,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class DailyEntryMainMenu extends Activity {
-
-    public Button after_stock,
+    public Button after_stock, stockinward_btn,
             after_tot, addtional_info_before, comptitionfor_promotion,
             promo_compliance, comp, backroom_stock, sales, subcat_sos_facing;
     private SharedPreferences preferences;
@@ -50,6 +49,7 @@ public class DailyEntryMainMenu extends Activity {
         setContentView(R.layout.dailyentry);
         context = this;
         after_stock = (Button) findViewById(R.id.after_stock);
+        stockinward_btn = (Button) findViewById(R.id.stockinward_btn);
         subcat_sos_facing = (Button) findViewById(R.id.subcat_sos_facing);
         after_tot = (Button) findViewById(R.id.after_tot);
         addtional_info_before = (Button) findViewById(R.id.before_additional);
@@ -100,6 +100,7 @@ public class DailyEntryMainMenu extends Activity {
         } else {
             sales.setVisibility(View.GONE);
             sales.setEnabled(false);
+            sales.setBackgroundResource(R.drawable.sales_grey);
             salstrackingsupportimg.setVisibility(View.GONE);
             salstrackingsupportimg.setEnabled(false);
         }
@@ -107,11 +108,14 @@ public class DailyEntryMainMenu extends Activity {
         if (db.getBrandSkuListForSales(category_id, store_id, process_id).size() > 0) {
             if (salesData.size() > 0) {
                 sales.setBackgroundResource(R.drawable.sales_tick);
+                sales.setEnabled(true);
             } else {
                 sales.setBackgroundResource(R.drawable.sales);
+                sales.setEnabled(true);
             }
         } else {
             sales.setBackgroundResource(R.drawable.sales_grey);
+            sales.setEnabled(false);
         }
 
 
@@ -267,9 +271,11 @@ public class DailyEntryMainMenu extends Activity {
             comptitionfor_promotion.setVisibility(View.GONE);
         }
 
-        if (category_id != null && !category_id.equals("2") && afterStockData.size() > 0 && db.getsubcategorySOS(store_id, process_id, region_id, store_type_id, key_id, category_id).size() > 0) {
+        if (category_id != null && !category_id.equals("2") && afterStockData.size() > 0 &&
+                db.getsubcategorySOS(store_id, process_id, region_id, store_type_id, key_id, category_id).size() > 0) {
             subcat_sos_facing.setEnabled(true);
             subcat_sos_facing.setBackgroundResource(R.drawable.sos);
+            ////for stock Inward
             db.open();
             if (db.getsos_facing(store_id, category_id, process_id).size() > 0) {
                 subcat_sos_facing.setEnabled(true);
@@ -283,6 +289,28 @@ public class DailyEntryMainMenu extends Activity {
             subcat_sos_facing.setBackgroundResource(R.drawable.sos_gray);
         }
 
+
+        if (afterStockData.size() > 0) {
+            stockinward_btn.setEnabled(true);
+            stockinward_btn.setBackgroundResource(R.drawable.stock_inward);
+
+            ////for Stock Inwarddd
+            db.open();
+            if (db.getstockininserteddata(store_id, category_id, process_id).size() > 0) {
+                stockinward_btn.setEnabled(true);
+                stockinward_btn.setBackgroundResource(R.drawable.stock_inward_tick);
+            } else {
+                stockinward_btn.setEnabled(true);
+                stockinward_btn.setBackgroundResource(R.drawable.stock_inward);
+            }
+
+
+        } else {
+            stockinward_btn.setEnabled(false);
+            stockinward_btn.setBackgroundResource(R.drawable.stock_inward_gray);
+
+        }
+        
         promo_compliance.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -370,6 +398,15 @@ public class DailyEntryMainMenu extends Activity {
             @Override
             public void onClick(View view) {
                 Intent in = new Intent(context, ShareofShelfActivity.class);
+                startActivity(in);
+                DailyEntryMainMenu.this.finish();
+            }
+        });
+
+        stockinward_btn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(context, StockInActivity.class);
                 startActivity(in);
                 DailyEntryMainMenu.this.finish();
             }

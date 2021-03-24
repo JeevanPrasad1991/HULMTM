@@ -1297,6 +1297,9 @@ drawable sos_tick
 drawable start_video_record_button
 drawable stock_after_ico
 drawable stock_before_ico
+drawable stock_inward
+drawable stock_inward_gray
+drawable stock_inward_tick
 drawable stop_button_background
 drawable store
 drawable switch_camera_mode_selector
@@ -1492,6 +1495,7 @@ id editText2
 id edit_query
 id edt_comp_priceoff
 id edt_comp_promotion
+id edt_stock
 id end
 id end_padder
 id enterAlways
@@ -1780,6 +1784,7 @@ id stock
 id stock_count
 id stock_fill
 id stock_score
+id stockinward_btn
 id storeM
 id store_image
 id storelistviewxml_storeaddress
@@ -1847,6 +1852,7 @@ id tv_text
 id tv_title
 id txt_brands
 id txt_ownbrands
+id txt_stock
 id txt_target
 id uniform
 id unlabeled
@@ -2014,6 +2020,8 @@ layout shelf_visibility
 layout sku_afterstockdisplay
 layout sku_row
 layout sku_row_after
+layout sku_row_stockin
+layout sku_stockinward
 layout sos_activity
 layout spinner_custom_item
 layout spinner_text_view

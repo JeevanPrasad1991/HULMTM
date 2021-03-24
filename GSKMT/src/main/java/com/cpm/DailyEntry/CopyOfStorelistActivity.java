@@ -64,6 +64,7 @@ public class CopyOfStorelistActivity extends Activity {
     ArrayList<SkuBean> afterStockData = new ArrayList<SkuBean>();
     ArrayList<SkuBean> sosfacingList = new ArrayList<SkuBean>();
     ArrayList<SkuBean> sosfacingfilledList = new ArrayList<SkuBean>();
+    ArrayList<SkuBean> stockInwardList = new ArrayList<SkuBean>();
     ArrayList<SkuBean> additionalData = new ArrayList<SkuBean>();
     ArrayList<SkuBean> salesData = new ArrayList<SkuBean>();
     ArrayList<TOTBean> totMappingData = new ArrayList<TOTBean>();
@@ -134,7 +135,8 @@ public class CopyOfStorelistActivity extends Activity {
         ArrayList<CoverageBean> coverageBeanlist = new ArrayList<CoverageBean>();
         coverageBeanlist = db.getCoverageData(date, null, null);
         for (int i = 0; i < coverageBeanlist.size(); i++) {
-            boolean before_tot = false, after_tot = false, flagTOT = false, Promo = false, competitionpromotionflag = false, sales_flag = false, sos_facing = false;
+            boolean before_tot = false, after_tot = false, flagTOT = false, Promo = false, competitionpromotionflag = false, sales_flag = false,
+                    sos_facing = false, stock_InwardFlag = false;
             boolean flagCheckout = false;
             ///change by jeevan RAna
             db.open();
@@ -157,6 +159,9 @@ public class CopyOfStorelistActivity extends Activity {
 
                         db.open();
                         sosfacingfilledList = db.getsos_facing(coverageBeanlist.get(i).getStoreId(), category_list.get(j).getCategory_id(),
+                                coverageBeanlist.get(i).getProcess_id());
+                        db.open();
+                        stockInwardList = db.getstockininserteddata(coverageBeanlist.get(i).getStoreId(), category_list.get(j).getCategory_id(),
                                 coverageBeanlist.get(i).getProcess_id());
                         db.open();
                         additionalData = db.getProductEntryDetail(coverageBeanlist.get(i).getStoreId(), category_list.get(j).getCategory_id(),
@@ -266,11 +271,17 @@ public class CopyOfStorelistActivity extends Activity {
                             sos_facing = true;
                         }
 
+                        if (stockInwardList.size() > 0) {
+                            stock_InwardFlag = true;
+                        } else {
+                            stock_InwardFlag = false;
+                        }
+
                         if (coverageBeanlist.get(i).getProcess_id().equals("2")) {
                             if (before_tot == true && after_tot == true && afterStockData.size() > 0 && additionalData.size() > 0 && Promo
                                     && flagTOT && db.getEnteredCompetitionDetail(coverageBeanlist.get(i).getStoreId(),
                                     category_list.get(j).getCategory_id(), coverageBeanlist.get(i).getProcess_id()).size() > 0
-                                    && competitionpromotionflag == true && sales_flag && sos_facing) {
+                                    && competitionpromotionflag == true && sales_flag && sos_facing && stock_InwardFlag) {
                                 flagCheckout = true;
                             } else {
                                 flagCheckout = false;
@@ -281,7 +292,7 @@ public class CopyOfStorelistActivity extends Activity {
                                     && additionalData.size() > 0 && Promo && flagTOT
                                     && db.getEnteredCompetitionDetail(coverageBeanlist.get(i).getStoreId(),
                                     category_list.get(j).getCategory_id(), coverageBeanlist.get(i).getProcess_id()).size() > 0
-                                    && competitionpromotionflag == true && sales_flag && sos_facing) {
+                                    && competitionpromotionflag == true && sales_flag && sos_facing && stock_InwardFlag) {
                                 flagCheckout = true;
                             } else {
                                 flagCheckout = false;

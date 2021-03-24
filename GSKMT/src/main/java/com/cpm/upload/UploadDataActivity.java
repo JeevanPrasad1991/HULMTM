@@ -65,6 +65,7 @@ public class UploadDataActivity extends Activity {
     ArrayList<CoverageBean> coverageBeanlist = new ArrayList<CoverageBean>();
     ArrayList<SkuBean> beforeStockData = new ArrayList<SkuBean>();
     ArrayList<SkuBean> sosfacingList = new ArrayList<SkuBean>();
+    ArrayList<SkuBean> stockInList = new ArrayList<SkuBean>();
     ArrayList<SkuBean> stockImages = new ArrayList<SkuBean>();
     ArrayList<SkuBean> backRoomStockData = new ArrayList<SkuBean>();
     ArrayList<SkuBean> salesStockData = new ArrayList<SkuBean>();
@@ -537,6 +538,69 @@ public class UploadDataActivity extends Activity {
 
                                     public void run() {
                                         message.setText("SOS Data Uploaded");
+                                    }
+                                });
+
+
+                                database.open();
+                                // Stock inward data
+                                String cateId = "";
+                                stockInList = database.getstockininserteddata(coverageBeanlist.get(i).getStoreId(), cateId, coverageBeanlist.get(i).getProcess_id());
+                                final_xml = "";
+                                onXML = "";
+                                if (stockInList.size() > 0) {
+                                    for (int j = 0; j < stockInList.size(); j++) {
+                                        onXML = "[USER_DATA][MID]"
+                                                + mid
+                                                + "[/MID][CREATED_BY]"
+                                                + username
+                                                + "[/CREATED_BY][CATEGORY_ID]"
+                                                + stockInList.get(j).getCategory_id()
+                                                + "[/CATEGORY_ID]"
+                                                + "[SKU_ID]"
+                                                + stockInList.get(j).getSku_id()
+                                                + "[/SKU_ID]"
+                                                + "[STOCKIN_QTY]"
+                                                + stockInList.get(j).getAfter_Stock()
+                                                + "[/STOCKIN_QTY]"
+                                                + "[/USER_DATA]";
+
+                                        final_xml = final_xml + onXML;
+                                    }
+
+
+                                    final_xml = "[DATA]" + final_xml + "[/DATA]";
+                                    request = new SoapObject(CommonString.NAMESPACE, CommonString.METHOD_UPLOAD_STOCK_XML_DATA);
+                                    request.addProperty("MID", mid);
+                                    request.addProperty("KEYS", "STOCKIN_XML");
+                                    request.addProperty("USERNAME", username);
+                                    request.addProperty("XMLDATA", final_xml);
+                                    envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+                                    envelope.dotNet = true;
+                                    envelope.setOutputSoapObject(request);
+                                    androidHttpTransport = new HttpTransportSE(CommonString.URL);
+                                    androidHttpTransport.call(CommonString.SOAP_ACTION_UPLOAD_ASSET_XMLDATA, envelope);
+                                    result = (Object) envelope.getResponse();
+                                    if (!result.toString().equalsIgnoreCase(CommonString.KEY_SUCCESS)) {
+                                        if (result.toString().equalsIgnoreCase(CommonString.KEY_FALSE)) {
+                                            return CommonString.METHOD_UPLOAD_ASSET;
+                                        }
+
+                                        FailureXMLHandler failureXMLHandler = new FailureXMLHandler();
+                                        xmlR.setContentHandler(failureXMLHandler);
+                                        InputSource is = new InputSource();
+                                        is.setCharacterStream(new StringReader(result.toString()));
+                                        xmlR.parse(is);
+                                        failureGetterSetter = failureXMLHandler.getFailureGetterSetter();
+                                        if (failureGetterSetter.getStatus().equalsIgnoreCase(CommonString.KEY_FAILURE)) {
+                                            return CommonString.METHOD_UPLOAD_ASSET + "," + failureGetterSetter.getErrorMsg();
+                                        }
+                                    }
+
+                                }
+                                runOnUiThread(new Runnable() {
+                                    public void run() {
+                                        message.setText("STOCK IN Data Uploaded");
                                     }
                                 });
 

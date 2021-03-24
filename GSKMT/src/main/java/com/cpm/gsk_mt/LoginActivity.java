@@ -100,7 +100,7 @@ public class LoginActivity extends Activity implements OnClickListener, Location
         mPassword = (EditText) findViewById(R.id.login_locktextbox);
         version_text = (TextView) findViewById(R.id.version_text);
         //mUsername.setText("testmer");
-        ///// mPassword.setText("cpm123");
+        // mPassword.setText("cpm123");
 
         mLogin = (Button) findViewById(R.id.login_loginbtn);
         preferences = PreferenceManager.getDefaultSharedPreferences(context);

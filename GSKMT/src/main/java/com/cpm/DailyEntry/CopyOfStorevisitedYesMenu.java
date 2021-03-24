@@ -291,7 +291,7 @@ public class CopyOfStorevisitedYesMenu extends Activity {
 
             holder.CategoryName.setText(category_list.get(position).getCategory());
             if (category_list.get(position).getCategory_id().equals("2")) {
-                if (cat_wellness) {
+                if (cat_wellness && checkstockinward(category_list.get(position).getCategory_id())) {
                     holder.img.setImageResource(R.drawable.wellness_tick);
                 } else {
                     holder.img.setImageResource(R.drawable.wellness_ico);
@@ -299,7 +299,7 @@ public class CopyOfStorevisitedYesMenu extends Activity {
             }
 
             if (category_list.get(position).getCategory().equalsIgnoreCase("HFD")) {
-                if (cat_HFD && checkcatwise_sosfacing(category_list.get(position).getCategory_id())) {
+                if (cat_HFD && checkcatwise_sosfacing(category_list.get(position).getCategory_id()) && checkstockinward(category_list.get(position).getCategory_id())) {
                     holder.img.setImageResource(R.drawable.hfd_tick);
                 } else {
                     holder.img.setImageResource(R.drawable.hfd_ico);
@@ -308,16 +308,16 @@ public class CopyOfStorevisitedYesMenu extends Activity {
 
 
             if (category_list.get(position).getCategory_id().equals("6") || category_list.get(position).getCategory().equalsIgnoreCase("Oats")) {
-                if (flagOUTS && checkcatwise_sosfacing(category_list.get(position).getCategory_id())) {
+                if (flagOUTS && checkcatwise_sosfacing(category_list.get(position).getCategory_id()) && checkstockinward(category_list.get(position).getCategory_id())) {
                     holder.img.setImageResource(R.drawable.oats_done);
                 } else {
                     holder.img.setImageResource(R.drawable.oats);
                 }
             }
 
-            if (category_list.get(position).getCategory_id().equals("3") ||
-                    category_list.get(position).getCategory().equalsIgnoreCase("Oral Care")) {
-                if (cat_oral && checkcatwise_sosfacing(category_list.get(position).getCategory_id())) {
+
+            if (category_list.get(position).getCategory_id().equals("3") || category_list.get(position).getCategory().equalsIgnoreCase("Oral Care")) {
+                if (cat_oral && checkcatwise_sosfacing(category_list.get(position).getCategory_id()) && checkstockinward(category_list.get(position).getCategory_id())) {
                     holder.img.setImageResource(R.drawable.ohc_tick);
                 } else {
                     holder.img.setImageResource(R.drawable.ohc_ico);
@@ -365,6 +365,22 @@ public class CopyOfStorevisitedYesMenu extends Activity {
             }
 
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
+
+    private boolean checkstockinward(String category_id) {
+        boolean flag = true;
+        try {
+            db.open();
+            if (db.getstockininserteddata(store_id, category_id, process_id).size() > 0) {
+                flag = true;
+            } else {
+                flag = false;
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

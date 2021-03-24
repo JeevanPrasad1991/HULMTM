@@ -1,20 +1,20 @@
 -- Merging decision tree log ---
 provider#androidx.core.content.FileProvider
-INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:237:9-245:20
+INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:246:9-254:20
 	android:grantUriPermissions
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:241:13-47
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:250:13-47
 	android:authorities
 		INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:239:13-64
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:248:13-64
 	android:exported
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:240:13-37
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:249:13-37
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:238:13-62
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:247:13-62
 manifest
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:2:1-253:12
-INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:2:1-253:12
-INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:2:1-253:12
-INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:2:1-253:12
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:2:1-262:12
+INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:2:1-262:12
+INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:2:1-262:12
+INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:2:1-262:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\249265f34d13b42ef3be0cdd6167810a\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\e047f9c2be94ae37637d2e055b575089\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\fb2b310bb3171aa16a78d81607620477\AndroidManifest.xml:17:1-22:12
@@ -81,9 +81,9 @@ MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\cpmin\.gradle
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\ca45376c542230e5e98cfaa5adc34aef\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\c3d2dcca3740bfc10a80a1316303df84\AndroidManifest.xml:17:1-22:12
 MERGED from [:annca] E:\hul-all-projrct\GSK_MT1\annca\build\.transforms\2a91f8f02d6b6ff915fedc2f9367b13b\AndroidManifest.xml:2:1-18:12
-INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:2:1-253:12
-INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:2:1-253:12
-INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:2:1-253:12
+INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:2:1-262:12
+INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:2:1-262:12
+INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:2:1-262:12
 	package
 		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:3:5-34
 		INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml
@@ -183,31 +183,31 @@ ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:14:5-80
 	android:name
 		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:14:22-77
 uses-feature#android.hardware.camera
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:15:5-60
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:16:5-60
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:15:19-57
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:16:19-57
 uses-permission#android.permission.REQUEST_INSTALL_PACKAGES
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:16:5-83
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:18:5-83
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:16:22-80
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:18:22-80
 uses-permission#android.permission.CAMERA
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:17:5-65
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:19:5-65
 MERGED from [:annca] E:\hul-all-projrct\GSK_MT1\annca\build\.transforms\2a91f8f02d6b6ff915fedc2f9367b13b\AndroidManifest.xml:11:5-65
 MERGED from [:annca] E:\hul-all-projrct\GSK_MT1\annca\build\.transforms\2a91f8f02d6b6ff915fedc2f9367b13b\AndroidManifest.xml:11:5-65
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:17:22-62
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:19:22-62
 uses-permission#android.hardware.camera.autofocus
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:18:5-73
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:20:5-73
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:18:22-70
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:20:22-70
 supports-screens
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:20:5-22:39
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:22:5-24:39
 	android:largeScreens
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:22:9-36
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:24:9-36
 	android:anyDensity
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:21:9-34
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:23:9-34
 application
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:24:5-251:19
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:26:5-260:19
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\249265f34d13b42ef3be0cdd6167810a\AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\249265f34d13b42ef3be0cdd6167810a\AndroidManifest.xml:9:5-20
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\e047f9c2be94ae37637d2e055b575089\AndroidManifest.xml:22:5-20
@@ -275,391 +275,401 @@ MERGED from [:annca] E:\hul-all-projrct\GSK_MT1\annca\build\.transforms\2a91f8f0
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.2.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\42668d0cac316a33ae5a9b4473d35a23\AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:30:9-35
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:33:9-35
 	android:label
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:28:9-41
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:30:9-41
 	android:largeHeap
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:29:9-33
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:31:9-33
 	android:icon
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:27:9-38
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:29:9-38
 	android:allowBackup
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:26:9-35
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:28:9-35
 	android:theme
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:31:9-40
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:34:9-40
 	android:usesCleartextTraffic
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:33:9-44
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:35:9-44
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:25:9-56
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:27:9-56
 activity#com.cpm.gsk_mt.LoginActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:34:9-43:20
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:36:9-45:20
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:37:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:39:13-49
 	android:label
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:36:13-45
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:38:13-45
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:35:13-56
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:37:13-56
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:38:13-42:29
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:40:13-44:29
 action#android.intent.action.MAIN
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:39:17-69
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:41:17-69
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:39:25-66
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:41:25-66
 category#android.intent.category.LAUNCHER
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:41:17-77
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:43:17-77
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:41:27-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:43:27-74
 activity#com.cpm.gsk_mt.MainMenuActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:44:9-47:52
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:46:9-49:52
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:47:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:49:13-49
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:46:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:48:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:45:13-59
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:47:13-59
 activity#com.cpm.CompleteDownload.CompleteDownloadActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:48:9-51:52
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:50:9-53:52
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:51:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:53:13-49
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:50:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:52:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:49:13-77
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:51:13-77
 activity#com.cpm.DailyEntry.CopyOfStorelistActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:52:9-55:52
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:54:9-57:52
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:55:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:57:13-49
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:54:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:56:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:53:13-70
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:55:13-70
 activity#com.cpm.DailyEntry.StoreInformationActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:56:9-59:52
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:58:9-61:52
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:59:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:61:13-49
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:58:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:60:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:57:13-71
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:59:13-71
 activity#com.cpm.DailyEntry.StoreVisitedActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:60:9-63:52
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:62:9-65:52
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:63:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:65:13-49
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:62:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:64:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:61:13-67
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:63:13-67
 activity#com.cpm.DailyEntry.StorevisitedYesMenu
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:64:9-67:52
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:66:9-69:52
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:67:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:69:13-49
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:66:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:68:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:65:13-66
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:67:13-66
 activity#com.cpm.DailyEntry.CopyOfStorevisitedYesMenu
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:68:9-71:52
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:70:9-73:52
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:71:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:73:13-49
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:70:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:72:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:69:13-72
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:71:13-72
 activity#com.cpm.DailyEntry.DailyEntryMainMenu
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:72:9-75:52
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:74:9-77:52
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:75:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:77:13-49
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:74:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:76:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:73:13-65
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:75:13-65
 activity#com.cpm.DailyEntry.NonWorkingActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:76:9-80:58
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:78:9-82:58
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:79:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:81:13-49
 	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:80:13-55
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:82:13-55
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:78:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:80:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:77:13-65
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:79:13-65
 activity#com.cpm.autoupdate.AutoupdateActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:81:9-85:58
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:83:9-87:58
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:84:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:86:13-49
 	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:85:13-55
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:87:13-55
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:83:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:85:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:82:13-65
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:84:13-65
 activity#com.cpm.DailyEntry.AfterStockActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:86:9-90:68
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:88:9-92:68
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:89:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:91:13-49
 	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:90:13-65
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:92:13-65
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:88:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:90:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:87:13-65
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:89:13-65
+activity#com.cpm.DailyEntry.StockInActivity
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:94:9-98:68
+	android:screenOrientation
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:97:13-49
+	android:windowSoftInputMode
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:98:13-65
+	android:configChanges
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:96:13-74
+	android:name
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:95:13-62
 activity#com.cpm.DailyEntry.BeforeTOT
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:91:9-95:68
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:100:9-104:68
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:94:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:103:13-49
 	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:95:13-65
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:104:13-65
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:93:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:102:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:92:13-56
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:101:13-56
 activity#com.cpm.DailyEntry.TOTstock_Activity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:96:9-100:68
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:105:9-109:68
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:99:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:108:13-49
 	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:100:13-65
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:109:13-65
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:98:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:107:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:97:13-64
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:106:13-64
 activity#com.cpm.DailyEntry.Sales
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:101:9-105:68
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:110:9-114:68
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:104:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:113:13-49
 	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:105:13-65
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:114:13-65
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:103:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:112:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:102:13-52
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:111:13-52
 activity#com.cpm.DailyEntry.CompetitionTracking
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:106:9-110:58
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:115:9-119:58
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:109:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:118:13-49
 	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:110:13-55
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:119:13-55
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:108:13-59
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:117:13-59
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:107:13-66
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:116:13-66
 activity#com.cpm.DailyEntry.BeforeStock
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:111:9-115:55
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:120:9-124:55
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:114:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:123:13-49
 	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:115:13-52
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:124:13-52
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:113:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:122:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:112:13-58
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:121:13-58
 activity#com.cpm.DailyEntry.StockwareHouse
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:116:9-120:55
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:125:9-129:55
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:119:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:128:13-49
 	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:120:13-52
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:129:13-52
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:118:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:127:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:117:13-61
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:126:13-61
 activity#com.cpm.DailyEntry.AfterTOT
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:121:9-125:55
-	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:124:13-49
-	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:125:13-52
-	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:123:13-74
-	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:122:13-55
-activity#com.cpm.DailyEntry.BeforeAdditionalDisplay
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:126:9-129:52
-	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:129:13-49
-	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:128:13-74
-	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:127:13-70
-activity#com.cpm.DailyEntry.StoreWisePerformance
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:130:9-133:52
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:130:9-134:55
 	android:screenOrientation
 		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:133:13-49
+	android:windowSoftInputMode
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:134:13-52
 	android:configChanges
 		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:132:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:131:13-67
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:131:13-55
+activity#com.cpm.DailyEntry.BeforeAdditionalDisplay
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:135:9-138:52
+	android:screenOrientation
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:138:13-49
+	android:configChanges
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:137:13-74
+	android:name
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:136:13-70
+activity#com.cpm.DailyEntry.StoreWisePerformance
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:139:9-142:52
+	android:screenOrientation
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:142:13-49
+	android:configChanges
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:141:13-74
+	android:name
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:140:13-67
 activity#com.cpm.DailyEntry.CategoryWisePerformance
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:134:9-137:52
-	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:137:13-49
-	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:136:13-74
-	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:135:13-70
-activity#com.cpm.DailyEntry.PromoCompliance
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:138:9-142:68
-	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:141:13-49
-	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:142:13-65
-	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:140:13-74
-	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:139:13-62
-activity#com.cpm.DailyEntry.ShareofShelfActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:143:9-147:68
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:143:9-146:52
 	android:screenOrientation
 		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:146:13-49
-	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:147:13-65
 	android:configChanges
 		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:145:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:144:13-67
-activity#com.cpm.DailyEntry.CheckOutStoreActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:148:9-151:52
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:144:13-70
+activity#com.cpm.DailyEntry.PromoCompliance
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:147:9-151:68
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:151:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:150:13-49
+	android:windowSoftInputMode
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:151:13-65
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:150:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:149:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:149:13-68
-activity#com.cpm.upload.UploadOptionActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:152:9-155:52
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:148:13-62
+activity#com.cpm.DailyEntry.ShareofShelfActivity
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:152:9-156:68
 	android:screenOrientation
 		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:155:13-49
+	android:windowSoftInputMode
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:156:13-65
 	android:configChanges
 		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:154:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:153:13-63
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:153:13-67
+activity#com.cpm.DailyEntry.CheckOutStoreActivity
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:157:9-160:52
+	android:screenOrientation
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:160:13-49
+	android:configChanges
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:159:13-74
+	android:name
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:158:13-68
+activity#com.cpm.upload.UploadOptionActivity
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:161:9-164:52
+	android:screenOrientation
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:164:13-49
+	android:configChanges
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:163:13-74
+	android:name
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:162:13-63
 activity#com.cpm.upload.UploadDataActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:156:9-159:52
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:165:9-168:52
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:159:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:168:13-49
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:158:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:167:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:157:13-61
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:166:13-61
 activity#com.cpm.upload.UploadImageActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:160:9-163:52
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:169:9-172:52
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:163:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:172:13-49
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:162:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:171:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:161:13-62
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:170:13-62
 activity#com.cpm.upload.ImageUploadActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:164:9-167:52
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:173:9-176:52
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:167:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:176:13-49
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:166:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:175:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:165:13-62
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:174:13-62
 activity#com.cpm.geotagging.GeoTagging
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:168:9-171:52
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:177:9-180:52
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:171:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:180:13-49
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:170:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:179:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:169:13-57
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:178:13-57
 uses-library#com.google.android.maps
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:173:9-64
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:182:9-64
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:173:23-61
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:182:23-61
 meta-data#com.google.android.geo.API_KEY
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:181:9-183:71
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:190:9-192:71
 	android:value
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:183:13-68
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:192:13-68
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:182:13-58
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:191:13-58
 meta-data#com.google.android.gms.version
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:185:9-187:69
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:194:9-196:69
 MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\2410800e0de0917eb3644592bccf4f20\AndroidManifest.xml:23:9-25:69
 MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\2410800e0de0917eb3644592bccf4f20\AndroidManifest.xml:23:9-25:69
 	android:value
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:187:13-66
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:196:13-66
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:186:13-58
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:195:13-58
 activity#com.cpm.geotagging.GeoTagActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:196:9-202:55
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:205:9-211:55
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:200:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:209:13-49
 	android:label
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:199:13-59
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:208:13-59
 	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:202:13-52
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:211:13-52
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:198:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:207:13-74
 	android:theme
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:201:13-56
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:210:13-56
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:197:13-61
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:206:13-61
 activity#com.cpm.DailyEntry.MerchandisingAttendenceActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:204:9-208:55
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:213:9-217:55
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:207:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:216:13-49
 	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:208:13-52
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:217:13-52
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:206:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:215:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:205:13-78
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:214:13-78
 activity#com.cpm.gsk_mt.NoticeBoardActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:210:9-214:55
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:219:9-223:55
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:213:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:222:13-49
 	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:214:13-52
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:223:13-52
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:212:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:221:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:211:13-62
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:220:13-62
 activity#com.cpm.DailyEntry.CompetitionPromotionActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:216:9-221:54
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:225:9-230:55
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:220:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:229:13-49
 	android:label
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:219:13-50
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:228:13-50
 	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:221:13-52
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:230:13-52
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:218:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:227:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:217:13-75
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:226:13-75
 activity#io.github.memfis19.annca.internal.ui.camera.Camera1Activity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:224:9-227:54
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:233:9-236:54
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:226:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:235:13-49
 	android:theme
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:227:13-51
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:236:13-51
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:225:13-87
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:234:13-87
 activity#io.github.memfis19.annca.internal.ui.camera2.Camera2Activity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:228:9-231:54
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:237:9-240:54
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:230:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:239:13-49
 	android:theme
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:231:13-51
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:240:13-51
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:229:13-88
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:238:13-88
 activity#io.github.memfis19.annca.internal.ui.preview.PreviewActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:232:9-235:54
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:241:9-244:54
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:234:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:243:13-49
 	android:theme
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:235:13-51
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:244:13-51
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:233:13-88
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:242:13-88
 uses-library#org.apache.http.legacy
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:247:9-249:40
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:256:9-258:40
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\82c087c764c118b3d58020385a1ea2ab\AndroidManifest.xml:33:9-35:40
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\82c087c764c118b3d58020385a1ea2ab\AndroidManifest.xml:33:9-35:40
 	android:required
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:249:13-37
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:258:13-37
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:248:13-50
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:257:13-50
 uses-sdk
 INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml
@@ -807,11 +817,11 @@ INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml
 		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml
 		INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:242:13-244:58
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:251:13-253:58
 	android:resource
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:244:17-55
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:253:17-55
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:243:17-67
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:252:17-67
 service#com.google.firebase.messaging.FirebaseMessagingService
 ADDED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\9becb86db50079dd058bacd1e9c5a7e9\AndroidManifest.xml:28:9-35:19
 	android:exported

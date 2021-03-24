@@ -72,7 +72,6 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="5"
-                        android:dropDownSelector="#ff9933"
                         android:gravity="center"
                         android:inputType="text">
 
@@ -107,7 +106,6 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_weight="5"
-                        android:dropDownSelector="#ff9933"
                         android:gravity="center">
 
                     </Spinner>
@@ -178,10 +176,7 @@
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
-
-
     </LinearLayout>
-
 
     <LinearLayout
         android:id="@+id/list_layout"
@@ -200,6 +195,6 @@
             android:divider="@color/colorPrimary"
             android:dividerHeight="2dp"
             android:fastScrollEnabled="true"
-            android:smoothScrollbar="true"></ListView>
+            android:smoothScrollbar="true"/>
     </LinearLayout>
 </LinearLayout>
