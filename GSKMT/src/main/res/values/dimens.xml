@@ -4,13 +4,34 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="margin2dp">3dp</dimen>
     <dimen name="custom_margin">5dp</dimen>
     <dimen name="fortxtsize20sp">20sp</dimen>
-
     <dimen name="text_size_xsmall">12sp</dimen>
     <dimen name="txtsize_16sp">16sp</dimen>
     <dimen name="padding_10dp">10dp</dimen>
     <dimen name="padding_18sp">18sp</dimen>
-    <dimen name="store_p_activity_vertical_margin">6dp</dimen>
+    <dimen name="text_size_14">14sp</dimen>
+    <dimen name="store_p_activity_vertical_margin">8dp</dimen>
+
+    <dimen name="nav_header_height">160dp</dimen>
+    <dimen name="text_size_normal">15sp</dimen>
+    <dimen name="text_size_small">16sp</dimen>
+    <dimen name="text_size_medium">18sp</dimen>
+    <dimen name="store_entry_text_size">15sp</dimen>
+    <dimen name="text_size_very_small">12sp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="padding_standard">5dp</dimen>
+    <dimen name="custom_layout_margin">30dp</dimen>
+    <dimen name="text_size_big">25sp</dimen>
+    <dimen name="margin11dp">11dp</dimen>
+    <dimen name="margin1dp">1dp</dimen>
+    <dimen name="padding10dp">10dp</dimen>
+    <dimen name="hight40dp">40dp</dimen>
+    <dimen name="textsize14">14sp</dimen>
+    <dimen name="text_size_20">20sp</dimen>
+    <dimen name="text_size_13sp">13sp</dimen>
+    <dimen name="custom_layout_margin35">35dp</dimen>
+    <dimen name="button_margin">15dp</dimen>
 
 </resources>

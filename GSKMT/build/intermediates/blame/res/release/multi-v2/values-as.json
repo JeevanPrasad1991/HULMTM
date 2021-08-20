@@ -4,6 +4,23 @@
             "outputFile": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-as\\values-as.xml",
             "map": [
                 {
+                    "source": "C:\\Users\\cpmin\\.gradle\\caches\\transforms-2\\files-2.1\\95852be2d6e543cda26358f66da1d064\\res\\values-as\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "184",
+                        "endOffsets": "431"
+                    },
+                    "to": {
+                        "startLines": "37",
+                        "startColumns": "4",
+                        "startOffsets": "3991",
+                        "endColumns": "184",
+                        "endOffsets": "4171"
+                    }
+                },
+                {
                     "source": "C:\\Users\\cpmin\\.gradle\\caches\\transforms-2\\files-2.1\\42668d0cac316a33ae5a9b4473d35a23\\res\\values-as\\values-as.xml",
                     "from": {
                         "startLines": "2",
@@ -38,7 +55,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\cpmin\\.gradle\\caches\\transforms-2\\files-2.1\\9becb86db50079dd058bacd1e9c5a7e9\\res\\values-as\\values.xml",
+                    "source": "C:\\Users\\cpmin\\.gradle\\caches\\transforms-2\\files-2.1\\f3f01149618ba1afe3a4cba4185d7707\\res\\values-as\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -69,23 +86,6 @@
                         "startOffsets": "2861,2971,3156,3281,3393,3582,3706,3849,4176,4378,4489,4670,4797,4989,5173,5263,5359",
                         "endColumns": "109,184,124,111,188,123,142,141,201,110,180,126,191,183,89,95,115",
                         "endOffsets": "2966,3151,3276,3388,3577,3701,3844,3986,4373,4484,4665,4792,4984,5168,5258,5354,5470"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\cpmin\\.gradle\\caches\\transforms-2\\files-2.1\\2410800e0de0917eb3644592bccf4f20\\res\\values-as\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "184",
-                        "endOffsets": "431"
-                    },
-                    "to": {
-                        "startLines": "37",
-                        "startColumns": "4",
-                        "startOffsets": "3991",
-                        "endColumns": "184",
-                        "endOffsets": "4171"
                     }
                 }
             ]

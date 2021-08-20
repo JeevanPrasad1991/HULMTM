@@ -7,6 +7,7 @@ import com.cpm.database.GSKMTDatabase;
 import com.cpm.delegates.PromotionBean;
 import com.cpm.delegates.SkuBean;
 import com.cpm.delegates.TOTBean;
+import com.cpm.xmlGetterSetter.MAPPING_ALLSKU_ASSORTMENT;
 import com.example.gsk_mtt.R;
 
 import android.app.Activity;
@@ -26,7 +27,7 @@ import android.widget.TextView;
 public class DailyEntryMainMenu extends Activity {
     public Button after_stock, stockinward_btn,
             after_tot, addtional_info_before, comptitionfor_promotion,
-            promo_compliance, comp, backroom_stock, sales, subcat_sos_facing;
+            promo_compliance, comp, backroom_stock, sales, subcat_sos_facing, btn_customer_connect;
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor = null;
     String store_id, category_id, date, process_id, key_id, region_id, store_type_id, cat_name, COMPETITION_PROMOTION_flag, saleenable_flag = "", categorywise_salesflag = "";
@@ -48,6 +49,7 @@ public class DailyEntryMainMenu extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dailyentry);
         context = this;
+        btn_customer_connect = (Button) findViewById(R.id.btn_customer_connect);
         after_stock = (Button) findViewById(R.id.after_stock);
         stockinward_btn = (Button) findViewById(R.id.stockinward_btn);
         subcat_sos_facing = (Button) findViewById(R.id.subcat_sos_facing);
@@ -85,232 +87,9 @@ public class DailyEntryMainMenu extends Activity {
         db = new GSKMTDatabase(context);
         db.open();
         category_name.setText(cat_name);
-        db.open();
-        afterStockData = db.getAfterStockData(store_id, category_id, process_id);
-        db.open();
-        backRoomStockData = db.getBackRoomStock(store_id, category_id, process_id);
-        db.open();
-        salesData = db.getSalesStockData(store_id, category_id, process_id);
-        if (saleenable_flag != null && !saleenable_flag.equals("") && saleenable_flag.equals("1") && categorywise_salesflag != null
-                && !categorywise_salesflag.equals("") && categorywise_salesflag.equals("1")) {
-            sales.setVisibility(View.VISIBLE);
-            sales.setEnabled(true);
-            salstrackingsupportimg.setVisibility(View.VISIBLE);
-            salstrackingsupportimg.setEnabled(true);
-        } else {
-            sales.setVisibility(View.GONE);
-            sales.setEnabled(false);
-            sales.setBackgroundResource(R.drawable.sales_grey);
-            salstrackingsupportimg.setVisibility(View.GONE);
-            salstrackingsupportimg.setEnabled(false);
-        }
 
-        if (db.getBrandSkuListForSales(category_id, store_id, process_id).size() > 0) {
-            if (salesData.size() > 0) {
-                sales.setBackgroundResource(R.drawable.sales_tick);
-                sales.setEnabled(true);
-            } else {
-                sales.setBackgroundResource(R.drawable.sales);
-                sales.setEnabled(true);
-            }
-        } else {
-            sales.setBackgroundResource(R.drawable.sales_grey);
-            sales.setEnabled(false);
-        }
-
-
-        for (int i = 0; i < afterStockData.size(); i++) {
-            afterStockQuantity = afterStockData.get(i).getAfter_Stock();
-        }
-        db.open();
-        beforeAddtionalData = db.getProductEntryDetail(store_id, category_id, process_id);
-        db.open();
-        afterTOTData = db.getAfterTOTData(store_id, category_id, process_id);
-        db.open();
-        promotionData = db.getInsertedPromoCompliances(store_id, category_id, process_id);
-        db.open();
-        entered_comp_data = db.getEnteredCompetitionDetail(store_id, category_id, process_id);
-        db.open();
-        sos_target_list = db.getSOSTarget(store_id, category_id, process_id);
-
-        if (backRoomStockData.size() > 0) {
-            backroom_stock.setBackgroundResource(R.drawable.backroom_tick);
-
-        } else {
-            backroom_stock.setBackgroundResource(R.drawable.backroom);
-        }
-
-        db.open();
-        mappingDataTOTCategoryWise = db.getTOTData(store_id, process_id, category_id);
-        db.open();
-        mappingPromotion = db.getPromoComplianceData(key_id, process_id, category_id);
-        if (!afterStockQuantity.equals("")) {
-            after_stock.setBackgroundResource(R.drawable.tick_stock_after_ico);
-            sos_after = db.getAFTERSOS(store_id, category_id, process_id);
-            if (category_id.equals("2")) {
-                after_sos.setVisibility(View.VISIBLE);
-                if (sos_target_list.size() > 0) {
-                    if (sos_after == null) {
-                        after_sos.setText("SOS : 0");
-                    } else {
-                        if (!sos_after.equals("")) {
-                            float b = Float.parseFloat(sos_after);
-                            int s_after = (int) Math.round(b);
-                            if (s_after == 100) {
-                                after_sos.setText("SOS: 100");
-                                after_sos.setTextColor(Color.GREEN);
-                            } else {
-                                after_sos.setText("SOS: 0");
-                                after_sos.setTextColor(Color.RED);
-                            }
-                        } else {
-                            after_sos.setText("SOS : 0");
-                        }
-                    }
-                } else {
-                    after_sos.setText("SOS : 0");
-                }
-            } else {
-                after_sos.setVisibility(View.INVISIBLE);
-                /*if (sos_target_list.size() > 0) {
-                    if (sos_after == null) {
-                        after_sos.setText("SOS : 0");
-                    } else {
-                        if (!sos_after.equals("")) {
-                            float b = Float.parseFloat(sos_after);
-                            int s_after = (int) Math.round(b);
-                            String s_target = sos_target_list.get(0).getSos_target();
-                            int target = Integer.parseInt(s_target);
-                            if (s_after < target) {
-                                after_sos.setText("SOS: " + s_after);
-                                after_sos.setTextColor(Color.RED);
-                            } else {
-                                after_sos.setText("SOS: " + s_after);
-                                after_sos.setTextColor(Color.GREEN);
-                            }
-                        } else {
-                            after_sos.setText("SOS : 0");
-                        }
-                    }
-                } else {
-                    after_sos.setText("SOS : 0");
-                }*/
-            }
-        }
-
-        if (!afterStockQuantity.equals("")) {
-            db.open();
-            TOTdata = db.getTOTData(store_id, process_id, category_id);
-            if (TOTdata.size() > 0) {
-                after_tot.setEnabled(true);
-                after_tot.setBackgroundResource(R.drawable.tot_after_ico);
-            } else {
-                after_tot.setBackgroundResource(R.drawable.disabled_tot_after_ico);
-            }
-        }
-
-
-        if (!afterStockQuantity.equals("") && afterTOTData.size() > 0) {
-            after_tot.setBackgroundResource(R.drawable.tick_tot_after_ico);
-        }
-
-
-        if (mappingDataTOTCategoryWise.size() > 0) {
-            if (beforeAddtionalData.size() > 0) {
-                addtional_info_before.setBackgroundResource(R.drawable.additional_display_tick);
-            }
-        } else {
-            if (beforeAddtionalData.size() > 0) {
-                addtional_info_before.setBackgroundResource(R.drawable.additional_display_tick);
-            }
-        }
-
-        if (mappingPromotion.size() > 0) {
-            promo_compliance.setEnabled(true);
-            promo_compliance.setBackgroundResource(R.drawable.promo_compliance);
-            if (promotionData.size() > 0) {
-                promo_compliance.setBackgroundResource(R.drawable.promo_compliance_tick);
-            } else {
-                promo_compliance.setBackgroundResource(R.drawable.promo_compliance);
-            }
-
-        } else {
-            promo_compliance.setEnabled(false);
-            promo_compliance.setBackgroundResource(R.drawable.disabled_promo_compliance);
-        }
-
-        if (entered_comp_data.size() > 0) {
-            comp.setBackgroundResource(R.drawable.competition_asset_done);
-        } else {
-            comp.setBackgroundResource(R.drawable.competition_asset);
-        }
-
-
-        if (category_id != null && category_id.equals("1") || category_id != null && category_id.equals("3")) {
-            if (COMPETITION_PROMOTION_flag != null && COMPETITION_PROMOTION_flag.equalsIgnoreCase("Y")) {
-                comptitionfor_promotion.setEnabled(true);
-                comptitionfor_promotion.setVisibility(View.VISIBLE);
-                db.open();
-                if (db.getcomptitiondataforpromotion(category_id).size() > 0) {
-                    db.open();
-                    if (db.getcompetitionPromotionfromDatabase(store_id, category_id, process_id).size() > 0) {
-                        comptitionfor_promotion.setBackgroundResource(R.drawable.competition_promotion_done);
-                    } else {
-                        comptitionfor_promotion.setBackgroundResource(R.drawable.competition_promotion);
-                    }
-                } else {
-                    comptitionfor_promotion.setBackgroundResource(R.drawable.competition_promotion_disable);
-                }
-            } else {
-                comptitionfor_promotion.setEnabled(false);
-                comptitionfor_promotion.setBackgroundResource(R.drawable.competition_promotion_disable);
-                comptitionfor_promotion.setVisibility(View.VISIBLE);
-            }
-        } else {
-            comptitionfor_promotion.setEnabled(false);
-            comptitionfor_promotion.setVisibility(View.GONE);
-        }
-
-        if (category_id != null && !category_id.equals("2") && afterStockData.size() > 0 &&
-                db.getsubcategorySOS(store_id, process_id, region_id, store_type_id, key_id, category_id).size() > 0) {
-            subcat_sos_facing.setEnabled(true);
-            subcat_sos_facing.setBackgroundResource(R.drawable.sos);
-            ////for stock Inward
-            db.open();
-            if (db.getsos_facing(store_id, category_id, process_id).size() > 0) {
-                subcat_sos_facing.setEnabled(true);
-                subcat_sos_facing.setBackgroundResource(R.drawable.sos_tick);
-            } else {
-                subcat_sos_facing.setEnabled(true);
-                subcat_sos_facing.setBackgroundResource(R.drawable.sos);
-            }
-        } else {
-            subcat_sos_facing.setEnabled(false);
-            subcat_sos_facing.setBackgroundResource(R.drawable.sos_gray);
-        }
-
-
-        if (afterStockData.size() > 0) {
-            stockinward_btn.setEnabled(true);
-            stockinward_btn.setBackgroundResource(R.drawable.stock_inward);
-
-            ////for Stock Inwarddd
-            db.open();
-            if (db.getstockininserteddata(store_id, category_id, process_id).size() > 0) {
-                stockinward_btn.setEnabled(true);
-                stockinward_btn.setBackgroundResource(R.drawable.stock_inward_tick);
-            } else {
-                stockinward_btn.setEnabled(true);
-                stockinward_btn.setBackgroundResource(R.drawable.stock_inward);
-            }
-
-
-        } else {
-            stockinward_btn.setEnabled(false);
-            stockinward_btn.setBackgroundResource(R.drawable.stock_inward_gray);
-
-        }
-        
+        called_all_function();
+        checkfor_backroom();
         promo_compliance.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -412,6 +191,15 @@ public class DailyEntryMainMenu extends Activity {
             }
         });
 
+        btn_customer_connect.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(context, StoreFootFallActivity.class);
+                startActivity(in);
+                DailyEntryMainMenu.this.finish();
+            }
+        });
+
     }
 
     @Override
@@ -421,6 +209,240 @@ public class DailyEntryMainMenu extends Activity {
         startActivity(in);
         DailyEntryMainMenu.this.finish();
 
+    }
+
+    protected void checkfor_backroom() {
+        ///for inward
+        if (afterStockData.size() > 0) {
+            if (db.getBrandSkuListBackroom(category_id, store_id, process_id).size() > 0) {
+                stockinward_btn.setEnabled(true);
+                stockinward_btn.setBackgroundResource(R.drawable.stock_inward);
+                ////for Stock Inwarddd
+                db.open();
+                if (db.getstockininserteddata(store_id, category_id, process_id).size() > 0) {
+                    stockinward_btn.setEnabled(true);
+                    stockinward_btn.setBackgroundResource(R.drawable.stock_inward_tick);
+                } else {
+                    stockinward_btn.setEnabled(true);
+                    stockinward_btn.setBackgroundResource(R.drawable.stock_inward);
+                }
+            } else {
+                stockinward_btn.setEnabled(false);
+                stockinward_btn.setBackgroundResource(R.drawable.stock_inward_gray);
+            }
+        } else {
+            stockinward_btn.setEnabled(false);
+            stockinward_btn.setBackgroundResource(R.drawable.stock_inward_gray);
+        }
+        ///For check Backroom Stock.......
+        if (db.getBrandSkuListBackroom(category_id, store_id, process_id).size() > 0) {
+            db.open();
+            backRoomStockData = db.getBackRoomStock(store_id, category_id, process_id);
+            if (backRoomStockData.size() > 0) {
+                backroom_stock.setBackgroundResource(R.drawable.backroom_tick);
+                backroom_stock.setEnabled(true);
+            } else {
+                backroom_stock.setBackgroundResource(R.drawable.backroom);
+                backroom_stock.setEnabled(true);
+            }
+        } else {
+            backroom_stock.setBackgroundResource(R.drawable.backroom_gray);
+            backroom_stock.setEnabled(false);
+        }
+    }
+
+    private void called_all_function() {
+        db.open();
+        afterStockData = db.getAfterStockData(store_id, category_id, process_id);
+        db.open();
+        salesData = db.getSalesStockData(store_id, category_id, process_id);
+        if (saleenable_flag != null && !saleenable_flag.equals("") && saleenable_flag.equals("1")
+                && categorywise_salesflag != null
+                && !categorywise_salesflag.equals("")
+                && categorywise_salesflag.equals("1")) {
+            sales.setVisibility(View.VISIBLE);
+            sales.setEnabled(true);
+            salstrackingsupportimg.setVisibility(View.VISIBLE);
+            salstrackingsupportimg.setEnabled(true);
+        } else {
+            sales.setVisibility(View.GONE);
+            sales.setEnabled(false);
+            sales.setBackgroundResource(R.drawable.sales_grey);
+            salstrackingsupportimg.setVisibility(View.GONE);
+            salstrackingsupportimg.setEnabled(false);
+        }
+
+        if (db.getBrandSkuListForSales(category_id, store_id, process_id).size() > 0) {
+            if (salesData.size() > 0) {
+                sales.setBackgroundResource(R.drawable.sales_tick);
+                sales.setEnabled(true);
+            } else {
+                sales.setBackgroundResource(R.drawable.sales);
+                sales.setEnabled(true);
+            }
+        } else {
+            sales.setBackgroundResource(R.drawable.sales_grey);
+            sales.setEnabled(false);
+        }
+
+
+        for (int i = 0; i < afterStockData.size(); i++) {
+            afterStockQuantity = afterStockData.get(i).getAfter_Stock();
+        }
+        db.open();
+        beforeAddtionalData = db.getProductEntryDetail(store_id, category_id, process_id);
+        db.open();
+        afterTOTData = db.getAfterTOTData(store_id, category_id, process_id);
+        db.open();
+        promotionData = db.getInsertedPromoCompliances(store_id, category_id, process_id);
+        db.open();
+        entered_comp_data = db.getEnteredCompetitionDetail(store_id, category_id, process_id);
+        db.open();
+        sos_target_list = db.getSOSTarget(store_id, category_id, process_id);
+
+
+        db.open();
+        mappingDataTOTCategoryWise = db.getTOTData(store_id, process_id, category_id);
+        db.open();
+        mappingPromotion = db.getPromoComplianceData(key_id, process_id, category_id);
+        if (!afterStockQuantity.equals("")) {
+            after_stock.setBackgroundResource(R.drawable.tick_stock_after_ico);
+            sos_after = db.getAFTERSOS(store_id, category_id, process_id);
+            if (category_id.equals("2")) {
+                after_sos.setVisibility(View.VISIBLE);
+                if (sos_target_list.size() > 0) {
+                    if (sos_after == null) {
+                        after_sos.setText("SOS : 0");
+                    } else {
+                        if (!sos_after.equals("")) {
+                            float b = Float.parseFloat(sos_after);
+                            int s_after = (int) Math.round(b);
+                            if (s_after == 100) {
+                                after_sos.setText("SOS: 100");
+                                after_sos.setTextColor(Color.GREEN);
+                            } else {
+                                after_sos.setText("SOS: 0");
+                                after_sos.setTextColor(Color.RED);
+                            }
+                        } else {
+                            after_sos.setText("SOS : 0");
+                        }
+                    }
+                } else {
+                    after_sos.setText("SOS : 0");
+                }
+            } else {
+                after_sos.setVisibility(View.INVISIBLE);
+            }
+        }
+
+        if (!afterStockQuantity.equals("")) {
+            db.open();
+            TOTdata = db.getTOTData(store_id, process_id, category_id);
+            if (TOTdata.size() > 0) {
+                after_tot.setEnabled(true);
+                after_tot.setBackgroundResource(R.drawable.tot_after_ico);
+            } else {
+                after_tot.setBackgroundResource(R.drawable.disabled_tot_after_ico);
+            }
+        }
+
+
+        if (!afterStockQuantity.equals("") && afterTOTData.size() > 0) {
+            after_tot.setBackgroundResource(R.drawable.tick_tot_after_ico);
+        }
+
+
+        if (mappingDataTOTCategoryWise.size() > 0) {
+            if (beforeAddtionalData.size() > 0) {
+                addtional_info_before.setBackgroundResource(R.drawable.additional_display_tick);
+            }
+        } else {
+            if (beforeAddtionalData.size() > 0) {
+                addtional_info_before.setBackgroundResource(R.drawable.additional_display_tick);
+            }
+        }
+
+        if (mappingPromotion.size() > 0) {
+            promo_compliance.setEnabled(true);
+            promo_compliance.setBackgroundResource(R.drawable.promo_compliance);
+            if (promotionData.size() > 0) {
+                promo_compliance.setBackgroundResource(R.drawable.promo_compliance_tick);
+            } else {
+                promo_compliance.setBackgroundResource(R.drawable.promo_compliance);
+            }
+
+        } else {
+            promo_compliance.setEnabled(false);
+            promo_compliance.setBackgroundResource(R.drawable.disabled_promo_compliance);
+        }
+
+        if (entered_comp_data.size() > 0) {
+            comp.setBackgroundResource(R.drawable.competition_asset_done);
+        } else {
+            comp.setBackgroundResource(R.drawable.competition_asset);
+        }
+
+
+        if (category_id != null && category_id.equals("1") || category_id != null && category_id.equals("3")) {
+            if (COMPETITION_PROMOTION_flag != null && COMPETITION_PROMOTION_flag.equalsIgnoreCase("Y")) {
+                comptitionfor_promotion.setEnabled(true);
+                comptitionfor_promotion.setVisibility(View.VISIBLE);
+                db.open();
+                if (db.getcomptitiondataforpromotion(category_id).size() > 0) {
+                    db.open();
+                    if (db.getcompetitionPromotionfromDatabase(store_id, category_id, process_id).size() > 0) {
+                        comptitionfor_promotion.setBackgroundResource(R.drawable.competition_promotion_done);
+                    } else {
+                        comptitionfor_promotion.setBackgroundResource(R.drawable.competition_promotion);
+                    }
+                } else {
+                    comptitionfor_promotion.setBackgroundResource(R.drawable.competition_promotion_disable);
+                }
+            } else {
+                comptitionfor_promotion.setEnabled(false);
+                comptitionfor_promotion.setBackgroundResource(R.drawable.competition_promotion_disable);
+                comptitionfor_promotion.setVisibility(View.VISIBLE);
+            }
+        } else {
+            comptitionfor_promotion.setEnabled(false);
+            comptitionfor_promotion.setVisibility(View.VISIBLE);
+            comptitionfor_promotion.setBackgroundResource(R.drawable.competition_promotion_disable);
+        }
+
+        if (category_id != null && !category_id.equals("2") && afterStockData.size() > 0 &&
+                db.getsubcategorySOS(store_id, process_id, region_id, store_type_id, key_id, category_id).size() > 0) {
+            subcat_sos_facing.setEnabled(true);
+            subcat_sos_facing.setBackgroundResource(R.drawable.sos);
+            ////for stock Inward
+            db.open();
+            if (db.getsos_facing(store_id, category_id, process_id).size() > 0) {
+                subcat_sos_facing.setEnabled(true);
+                subcat_sos_facing.setBackgroundResource(R.drawable.sos_tick);
+            } else {
+                subcat_sos_facing.setEnabled(true);
+                subcat_sos_facing.setBackgroundResource(R.drawable.sos);
+            }
+        } else {
+            subcat_sos_facing.setEnabled(false);
+            subcat_sos_facing.setBackgroundResource(R.drawable.sos_gray);
+        }
+
+        //For Customer Connect-----&*
+        if (process_id != null && !process_id.equals("") && !process_id.equals("3")) {
+            db.open();
+            MAPPING_ALLSKU_ASSORTMENT footfallobject = db.getinserted_storeFootfall(store_id, category_id, process_id);
+            if (footfallobject != null && footfallobject.getDaily_storeFootfall() != null && !footfallobject.getDaily_storeFootfall().equals("")) {
+                btn_customer_connect.setEnabled(true);
+                btn_customer_connect.setBackgroundResource(R.drawable.consumer_connect_tick);
+            } else {
+                btn_customer_connect.setEnabled(true);
+                btn_customer_connect.setBackgroundResource(R.drawable.consumer_connect);
+            }
+        } else {
+            btn_customer_connect.setEnabled(false);
+            btn_customer_connect.setBackgroundResource(R.drawable.consumer_connect_gray);
+        }
     }
 
 }

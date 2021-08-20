@@ -4,23 +4,6 @@
             "outputFile": "E:\\hul-all-projrct\\GSK_MT1\\GSKMT\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-mk\\values-mk.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\cpmin\\.gradle\\caches\\transforms-2\\files-2.1\\2410800e0de0917eb3644592bccf4f20\\res\\values-mk\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "247",
-                        "endColumns": "195",
-                        "endOffsets": "442"
-                    },
-                    "to": {
-                        "startLines": "37",
-                        "startColumns": "4",
-                        "startOffsets": "4038",
-                        "endColumns": "195",
-                        "endOffsets": "4229"
-                    }
-                },
-                {
                     "source": "C:\\Users\\cpmin\\.gradle\\caches\\transforms-2\\files-2.1\\fb2b310bb3171aa16a78d81607620477\\res\\values-mk\\values-mk.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
@@ -38,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\cpmin\\.gradle\\caches\\transforms-2\\files-2.1\\9becb86db50079dd058bacd1e9c5a7e9\\res\\values-mk\\values.xml",
+                    "source": "C:\\Users\\cpmin\\.gradle\\caches\\transforms-2\\files-2.1\\f3f01149618ba1afe3a4cba4185d7707\\res\\values-mk\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
@@ -52,6 +35,23 @@
                         "startOffsets": "5593",
                         "endColumns": "103",
                         "endOffsets": "5692"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\cpmin\\.gradle\\caches\\transforms-2\\files-2.1\\95852be2d6e543cda26358f66da1d064\\res\\values-mk\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "247",
+                        "endColumns": "195",
+                        "endOffsets": "442"
+                    },
+                    "to": {
+                        "startLines": "37",
+                        "startColumns": "4",
+                        "startOffsets": "4038",
+                        "endColumns": "195",
+                        "endOffsets": "4229"
                     }
                 },
                 {

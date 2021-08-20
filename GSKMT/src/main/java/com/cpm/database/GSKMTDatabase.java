@@ -20,6 +20,7 @@ import com.cpm.xmlGetterSetter.CompetitionGetterSetter;
 import com.cpm.xmlGetterSetter.DisplayGetterSetter;
 import com.cpm.xmlGetterSetter.EmpMeetingStatus;
 import com.cpm.xmlGetterSetter.JCPGetterSetter;
+import com.cpm.xmlGetterSetter.MAPPING_ALLSKU_ASSORTMENT;
 import com.cpm.xmlGetterSetter.MappingCompetitionPromotionGetterSetter;
 import com.cpm.xmlGetterSetter.MappingSos;
 import com.cpm.xmlGetterSetter.MappingWellnessSos;
@@ -50,8 +51,8 @@ import android.util.Log;
 
 @SuppressLint("LongLogTag")
 public class GSKMTDatabase extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME = "HMTMDb";
-    public static final int DATABASE_VERSION = 5;
+    public static final String DATABASE_NAME = "HULMTMDatab";
+    public static final int DATABASE_VERSION = 2;
     private SQLiteDatabase db;
 
     public GSKMTDatabase(Context context) {
@@ -96,6 +97,7 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
         db.execSQL(CommonString.CREATE_TABLE_TOT_BEFORE);
         db.execSQL(TableBean.getQuestion_mapping_table());
         db.execSQL(CommonString.CREATE_TABLE_COVERAGE_DATA);
+        db.execSQL(CommonString.CREATE_TABLE_STORE_PROFILE);
         db.execSQL(TableBean.getPromotional_mapping_table());
         db.execSQL(CommonString.CREATE_TABLE_GEO_TAG_MAPPING);
         db.execSQL(CommonString.CREATE_TABLE_PROMOTION_DATA);
@@ -118,10 +120,12 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
         db.execSQL(TableBean.getMappingsos_table());
         db.execSQL(TableBean.getDr_sos_subcategory_faceup());
         db.execSQL(TableBean.getDr_stockinward_table());
-
+        db.execSQL(TableBean.getMappingallsku_table());
         db.execSQL(CommonString.CREATE_TABLE_STORE_GEOTAGGING);
         db.execSQL(CommonString.CREATE_TABLE_INSERT_MERCHANDISER_ATTENDENCE_TABLE);
         db.execSQL(CommonString.CREATE_TABLE_INSERT_COMPETITION_PROMOTION);
+        db.execSQL(CommonString.CREATE_TABLE_INSERT_LISTED_SKU);
+        db.execSQL(CommonString.CREATE_TABLE_STORE_FOOTFALL);
 
 
     }
@@ -181,6 +185,9 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
             db.delete(CommonString.TABLE_INSERT_COMPETITION_PROMOTION, CommonString.KEY_STORE_ID + " ='" + storeid + "'  AND PROCESS_ID ='" + process_id + "'", null);
             db.delete(CommonString.TABLE_INSERT_COMPETITION_INFO, CommonString.KEY_STORE_ID + " ='" + storeid + "'  AND PROCESS_ID ='" + process_id + "'", null);
             db.delete(CommonString.TABLE_STOCKWAREHOUSE, CommonString.KEY_STORE_ID + " ='" + storeid + "'  AND PROCESS_ID ='" + process_id + "'", null);
+            db.delete(CommonString.TABLE_INSERT_LISTED_SKU, CommonString.KEY_STORE_ID + " ='" + storeid + "'  AND PROCESS_ID ='" + process_id + "'", null);
+            db.delete(CommonString.TABLE_STORE_FOOTFALL, CommonString.KEY_STORE_ID + " ='" + storeid + "'  AND PROCESS_ID ='" + process_id + "'", null);
+            db.delete(CommonString.TABLE_STORE_PROFILE, CommonString.KEY_STORE_ID + " ='" + storeid + "'  AND PROCESS_ID ='" + process_id + "'", null);
         } finally {
 
         }
@@ -206,6 +213,9 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
             db.delete(CommonString.TABLE_PROMOTION_DATA, null, null);
             db.delete(CommonString.TABLE_INSERT_COMPETITION_PROMOTION, null, null);
             db.delete(CommonString.TABLE_STOCKWAREHOUSE, null, null);
+            db.delete(CommonString.TABLE_INSERT_LISTED_SKU, null, null);
+            db.delete(CommonString.TABLE_STORE_FOOTFALL, null, null);
+            db.delete(CommonString.TABLE_STORE_PROFILE, null, null);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -299,6 +309,9 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
                     db.delete(CommonString.TABLE_INSERT_MERCHANDISER_ATTENDENCE_TABLE, null, null);
                     db.delete(CommonString.TABLE_INSERT_COMPETITION_PROMOTION, null, null);
                     db.delete(CommonString.TABLE_STOCKWAREHOUSE, null, null);
+                    db.delete(CommonString.TABLE_INSERT_LISTED_SKU, null, null);
+                    db.delete(CommonString.TABLE_STORE_FOOTFALL, null, null);
+                    db.delete(CommonString.TABLE_STORE_PROFILE, null, null);
                 }
                 dbcursor.close();
             }
@@ -351,6 +364,22 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
     }
 
 
+    public long InsertAllSkuData(MAPPING_ALLSKU_ASSORTMENT data) {
+        db.delete("MAPPING_ALLSKU_ASSORTMENT", null, null);
+        ContentValues values = new ContentValues();
+        long l = 0;
+        try {
+            for (int i = 0; i < data.getSkuId().size(); i++) {
+                values.put("SKU_ID", data.getSkuId().get(i));
+                l = db.insert("MAPPING_ALLSKU_ASSORTMENT", null, values);
+            }
+        } catch (Exception ex) {
+            Log.d("Database Exception while Insert Store Data ", ex.getMessage());
+        }
+        return l;
+    }
+
+
     public void InsertBrandMasterData(SKUGetterSetter data
     ) {
 
@@ -389,22 +418,22 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
                 values.put("VISIT_DATE", data.getVISIT_DATE().get(i));
                 values.put("PROCESS_ID", data.getPROCESS_ID().get(i));
                 values.put("STORETYPE_ID", data.getSTORETYPE_ID().get(i));
-
                 values.put("KEY_ID", data.getKEY_ID().get(i));
-
                 values.put("REGION_ID", data.getREGION_ID().get(i));
                 values.put("UPLOAD_STATUS", data.getUPLOAD_STATUS().get(i));
-
                 values.put("CHECKOUT_STATUS", data.getCHECKOUT_STATUS().get(i));
-
                 values.put("PKD_ENABLE", data.getPACKED_KEY().get(i));
-
                 values.put("STATE_ID", data.getSTATE_ID().get(i));
                 values.put("CLASS_ID", data.getCLASS_ID().get(i));
                 values.put("COMP_ENABLE", data.getCOMP_ENABLE().get(i));
                 values.put("SALE_ENABLE", data.getSaleEnable().get(i));
-                db.insert("JOURNEY_PLAN", null, values);
+                values.put("LISTED_ENTRY", data.getListedEntry().get(i));
 
+                values.put("ADDRESS", data.getAddress().get(i));
+                values.put("LOCALITY", data.getLocality().get(i));
+                values.put("PINCODE", data.getPincode().get(i));
+
+                db.insert("JOURNEY_PLAN", null, values);
             }
 
         } catch (Exception ex) {
@@ -1010,6 +1039,11 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
                 dbcursor.moveToFirst();
                 while (!dbcursor.isAfterLast()) {
                     StoreBean sb = new StoreBean();
+                    sb.setAddress(dbcursor.getString(dbcursor.getColumnIndexOrThrow("ADDRESS")));
+                    sb.setLocality(dbcursor.getString(dbcursor.getColumnIndexOrThrow("LOCALITY")));
+                    sb.setPinCode(dbcursor.getString(dbcursor.getColumnIndexOrThrow("PINCODE")));
+
+                    sb.setListedEntry(dbcursor.getString(dbcursor.getColumnIndexOrThrow("LISTED_ENTRY")));
                     sb.setSTORE_ID(dbcursor.getString(dbcursor.getColumnIndexOrThrow(CommonString.KEY_STORE_CD)));
                     sb.setSTORE((dbcursor.getString(dbcursor.getColumnIndexOrThrow(CommonString.KEY_STORE))));
                     sb.setCITY(dbcursor.getString(dbcursor.getColumnIndexOrThrow(CommonString.KEY_ADDRES)));
@@ -1055,6 +1089,10 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
                 int numrows = dbcursor.getCount();
                 dbcursor.moveToFirst();
                 for (int i = 0; i < numrows; i++) {
+                    sb.setAddress(dbcursor.getString(dbcursor.getColumnIndexOrThrow("ADDRESS")));
+                    sb.setLocality(dbcursor.getString(dbcursor.getColumnIndexOrThrow("LOCALITY")));
+                    sb.setPinCode(dbcursor.getString(dbcursor.getColumnIndexOrThrow("PINCODE")));
+                    sb.setListedEntry(dbcursor.getString(dbcursor.getColumnIndexOrThrow("LISTED_ENTRY")));
                     sb.setSTORE_ID(dbcursor.getString(dbcursor.getColumnIndexOrThrow(CommonString.KEY_STORE_CD)));
                     sb.setSTORE(dbcursor.getString(dbcursor.getColumnIndexOrThrow(CommonString.KEY_STORE)));
                     sb.setCITY(dbcursor.getString(dbcursor.getColumnIndexOrThrow(CommonString.KEY_ADDRES)));
@@ -1220,6 +1258,7 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
             Log.d("Database Exception while Insert Closes Data ",
                     ex.toString());
         }
+
 
     }
 
@@ -1718,12 +1757,71 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
 
     }
 
+    public ArrayList<SkuBean> getSkuListed() {
+        Log.d("FetchingStoredata--------------->Start<------------", "------------------");
+        ArrayList<SkuBean> list = new ArrayList<SkuBean>();
+        Cursor dbcursor = null;
+
+        try {
+
+            dbcursor = db.rawQuery("SELECT DISTINCT SK.SKU_ID as SKU_ID, SK.SKU as SKU, SK.BRAND as BRAND, SK.BRAND_ID as BRAND_ID" +
+                    " FROM SKU_MASTER SK INNER JOIN MAPPING_ALLSKU_ASSORTMENT M ON SK.SKU_ID = M.SKU_ID ORDER BY SK.BRAND,SK.SKU", null);
+
+            if (dbcursor != null) {
+                dbcursor.moveToFirst();
+                while (!dbcursor.isAfterLast()) {
+                    SkuBean sb = new SkuBean();
+                    sb.setBrand_id(dbcursor.getString(dbcursor.getColumnIndexOrThrow("BRAND_ID")));
+                    sb.setBrand(dbcursor.getString(dbcursor.getColumnIndexOrThrow("BRAND")));
+                    sb.setSku_id(dbcursor.getString(dbcursor.getColumnIndexOrThrow("SKU_ID")));
+                    sb.setSku_name(dbcursor.getString(dbcursor.getColumnIndexOrThrow("SKU")));
+                    sb.setReasons(getreasons());
+                    sb.setReason_name("");
+
+                    list.add(sb);
+                    dbcursor.moveToNext();
+                }
+
+                dbcursor.close();
+                return list;
+            }
+
+        } catch (Exception e) {
+            Log.d("Exception when fetching Records!!!!!!!!!!!!!!!!!!!!!",
+                    e.toString());
+            return list;
+        }
+
+        Log.d("FetchingStoredat------------>Stop<-----------", "---------------");
+        return list;
+
+    }
+
+    public ArrayList<SkuBean> getreasons() {
+        ArrayList<SkuBean> reasonlist = new ArrayList<>();
+        try {
+            SkuBean reason = new SkuBean();
+            reason.setReason_name("- Select -");
+            reasonlist.add(0, reason);
+
+            reason = new SkuBean();
+            reason.setReason_name("Yes");
+            reasonlist.add(1, reason);
+
+            reason = new SkuBean();
+            reason.setReason_name("No");
+            reasonlist.add(2, reason);
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return reasonlist;
+    }
+
 
     public ArrayList<SkuBean> getBrandSkuListForSales(String category_id, String store_id, String process_id) {
-
-
-        Log.d("FetchingStoredata--------------->Start<------------",
-                "------------------");
+        Log.d("FetchingStoredata--------------->Start<------------", "------------------");
         ArrayList<SkuBean> list = new ArrayList<SkuBean>();
         Cursor dbcursor = null;
 
@@ -3023,12 +3121,12 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
         Cursor dbcursor = null;
         try {
 
-            if (cate_id.equals("")){
+            if (cate_id.equals("")) {
                 dbcursor = db.rawQuery("SELECT S.CATEGORY_ID as CATEGORY_ID, SK.SKU AS SKU,S.SKU_ID AS SKU_ID,S.STOCKIN_QTY AS STOCKIN_QTY,SK.COMPANY_ID AS COMPANY_ID,BR.BRAND_ID AS BRAND_ID," +
                         "BR.BRAND AS BRAND FROM DR_STOCK_INWARD S INNER JOIN SKU_MASTER SK ON S.SKU_ID = SK.SKU_ID INNER JOIN BRAND_MASTER BR ON SK.BRAND_ID = BR.BRAND_ID" +
                         " WHERE S.STORE_ID =" + store_id + " AND S.PROCESS_ID =" + process_id + "", null);
 
-            }else {
+            } else {
                 dbcursor = db.rawQuery("SELECT S.CATEGORY_ID as CATEGORY_ID,SK.SKU AS SKU,S.SKU_ID AS SKU_ID,S.STOCKIN_QTY AS STOCKIN_QTY,SK.COMPANY_ID AS COMPANY_ID,BR.BRAND_ID AS BRAND_ID," +
                         "BR.BRAND AS BRAND FROM DR_STOCK_INWARD S INNER JOIN SKU_MASTER SK ON S.SKU_ID = SK.SKU_ID INNER JOIN BRAND_MASTER BR ON SK.BRAND_ID = BR.BRAND_ID" +
                         " WHERE S.STORE_ID =" + store_id + " AND S.CATEGORY_ID =" + cate_id + " AND S.PROCESS_ID =" + process_id + "", null);
@@ -3066,6 +3164,34 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
         return list;
 
     }
+
+    public long insert_store_information_data(StoreBean data, String userId) {
+        ContentValues values = new ContentValues();
+        long l = 0;
+        try {
+
+            db.delete(CommonString.TABLE_STORE_PROFILE, CommonString.KEY_STORE_ID + "='" + data.getSTORE_ID() +
+                    "' and " + CommonString.KEY_VISIT_DATE + "='" + data.getVISIT_DATE() + "' AND PROCESS_ID ='" + data.getPROCESS_ID() + "'", null);
+
+            values.put("ADDRESS", data.getAddress());
+            values.put("LOCALITY", data.getLocality());
+            values.put("PINCODE", data.getPinCode());
+            values.put("CITY", data.getCITY());
+            values.put(CommonString.KEY_USER_ID, userId);
+            values.put(CommonString.KEY_STORE_ID, data.getSTORE_ID());
+            values.put(CommonString.KEY_VISIT_DATE, data.getVISIT_DATE());
+            values.put(CommonString.KEY_STORE_NAME, data.getSTORE());
+            values.put(CommonString.KEY_PROCESS_ID, data.getPROCESS_ID());
+            l = db.insert(CommonString.TABLE_STORE_PROFILE, null, values);
+
+        } catch (Exception ex) {
+            Log.d("Database Exception while Insert Closes Data ", ex.toString());
+        }
+
+        return l;
+
+    }
+
 
     public long InsertCoverage(CoverageBean data, String store_id, String date, String process_id) {
         ContentValues values = new ContentValues();
@@ -3171,7 +3297,7 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
     }
 
 
-    public long InsertStockInwardData(String store_id,String visit_dat, ArrayList<SkuBean> sku_brand_list, String user, String cate_id,String catename, String process_id) {
+    public long InsertStockInwardData(String store_id, String visit_dat, ArrayList<SkuBean> sku_brand_list, String user, String cate_id, String catename, String process_id) {
         db.delete("DR_STOCK_INWARD", "STORE_ID" + " = '" + store_id + "' AND CATEGORY_ID ='" + cate_id + "' AND " + CommonString.KEY_PROCESS_ID + "='" + process_id + "'", null);
         ContentValues values = new ContentValues();
         long l = 0;
@@ -3248,11 +3374,9 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
     public void InsertSalesData(String store_id,
                                 ArrayList<SkuBean> sku_brand_list, String user, String cate_id, String process_id) {
 
-
         ContentValues values = new ContentValues();
 
         try {
-
             for (int i = 0; i < sku_brand_list.size(); i++) {
                 SkuBean sdata = new SkuBean();
                 sdata = sku_brand_list.get(i);
@@ -3275,11 +3399,36 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
 
     }
 
+    public long InsertAllListedSku(String store_id, ArrayList<SkuBean> sku_brand_list, String process_id) {
+        ContentValues values = new ContentValues();
+        long l = 0;
+
+        try {
+            for (int i = 0; i < sku_brand_list.size(); i++) {
+                SkuBean sdata = new SkuBean();
+                sdata = sku_brand_list.get(i);
+                values.put(CommonString.KEY_STORE_ID, store_id);
+                values.put(CommonString.KEY_PROCESS_ID, process_id);
+                values.put(CommonString.KEY_BRAND_ID, sdata.getBrand_id());
+                values.put(CommonString.KEY_BRAND, sdata.getBrand());
+                values.put(CommonString.KEY_SKU_ID, sdata.getSku_id());
+                values.put(CommonString.KEY_SKUNAME, sdata.getSku_name());
+                values.put(CommonString.KEY_REASON, sdata.getReason_name());
+
+                l = db.insert(CommonString.TABLE_INSERT_LISTED_SKU, null, values);
+            }
+
+        } catch (Exception ex) {
+            Log.d("Database Exception while Insert Stock Data ", ex.toString());
+        }
+
+        return l;
+
+    }
+
 
     public ArrayList<SkuBean> getSalesStockData(String store_id, String cate_id, String process_id) {
-
-        Log.d("FetchingStoredata--------------->Start<------------",
-                "------------------");
+        Log.d("FetchingStoredata--------------->Start<------------", "------------------");
         ArrayList<SkuBean> list = new ArrayList<SkuBean>();
         Cursor dbcursor = null;
 
@@ -3304,6 +3453,48 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
                     list.add(sb);
                     dbcursor.moveToNext();
                 }
+                dbcursor.close();
+                return list;
+            }
+
+        } catch (Exception e) {
+            Log.d("Exception when fetching Records!!!!!!!!!!!!!!!!!!!!!",
+                    e.getMessage());
+            return list;
+        }
+
+        Log.d("FetchingStoredat---------------------->Stop<-----------",
+                "-------------------");
+        return list;
+
+    }
+
+    public ArrayList<SkuBean> getinsertedlistedSKU(String store_id, String process_id) {
+        Log.d("FetchingStoredata--------------->Start<------------", "------------------");
+        ArrayList<SkuBean> list = new ArrayList<SkuBean>();
+        Cursor dbcursor = null;
+
+        try {
+
+            dbcursor = db.rawQuery("SELECT * FROM " + CommonString.TABLE_INSERT_LISTED_SKU + " WHERE STORE_ID =" + store_id +
+                    " AND PROCESS_ID =" + process_id + "", null);
+
+            if (dbcursor != null) {
+                dbcursor.moveToFirst();
+                while (!dbcursor.isAfterLast()) {
+                    SkuBean sb = new SkuBean();
+                    sb.setBrand(dbcursor.getString(dbcursor.getColumnIndexOrThrow(CommonString.KEY_BRAND)));
+                    sb.setBrand_id(dbcursor.getString(dbcursor.getColumnIndexOrThrow(CommonString.KEY_BRAND_ID)));
+                    sb.setSku_name(dbcursor.getString(dbcursor.getColumnIndexOrThrow(CommonString.KEY_SKUNAME)));
+                    sb.setSku_id(dbcursor.getString(dbcursor.getColumnIndexOrThrow(CommonString.KEY_SKU_ID)));
+                    sb.setProcess_id(dbcursor.getString(dbcursor.getColumnIndexOrThrow(CommonString.KEY_PROCESS_ID)));
+                    sb.setStore_id(dbcursor.getString(dbcursor.getColumnIndexOrThrow(CommonString.KEY_STORE_ID)));
+                    sb.setReason_name(dbcursor.getString(dbcursor.getColumnIndexOrThrow(CommonString.KEY_REASON)));
+                    sb.setReasons(getreasons());
+                    list.add(sb);
+                    dbcursor.moveToNext();
+                }
+
                 dbcursor.close();
                 return list;
             }
@@ -3756,33 +3947,25 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
     }
 
 
-    public void updateAfterTOTData(String storeid, String brand_id, String display_id, String quantity, String stock_count, String image1,
-                                   String image2, String image3, String process_id) {
+    public long updateAfterTOTData(String storeid, String brand_id, String display_id, String quantity, String stock_count, String image1,
+                                   String image2, String image3, String process_id, String categorYId) {
 
+        long l = 0;
         try {
             ContentValues values = new ContentValues();
-
-
             values.put(CommonString.KEY_AFTER_QUANTITY, quantity);
-
             values.put(CommonString.KEY_AFTER_STOCK_COUNT, stock_count);
-
-
             values.put(CommonString.KEY_IMAGE1, image1);
             values.put(CommonString.KEY_IMAGE2, image2);
             values.put(CommonString.KEY_IMAGE3, image3);
 
-
-            db.update(CommonString.TABLE_TOT_AFTER, values,
-                    " STORE_ID ='" + storeid + "' AND  BRAND_ID = '" + brand_id + "' AND DISPLAY_ID = '" + display_id + "'" +
-                            " AND PROCESS_ID ='" + process_id + "'", null);
-
-
+            l = db.update(CommonString.TABLE_TOT_AFTER, values, " STORE_ID ='" + storeid +
+                    "' AND  BRAND_ID = '" + brand_id + "' AND DISPLAY_ID = '" + display_id + "'" +
+                    " AND PROCESS_ID ='" + process_id + "' AND " + CommonString.KEY_CATEGORY_ID + "='" + categorYId + "'", null);
         } catch (Exception e) {
-            Log.d("Exception when fetching Coverage Data!!!!!!!!!!!!!!!!!!!!!",
-                    e.getMessage());
-
+            Log.d("Exception when fetching Coverage Data!!!!!!!!!!!!!!!!!!!!!", e.getMessage());
         }
+        return l;
     }
 
     public void updatePromotionData(String store_id, String category_id, String process_id, String Special_id, String sku_id,
@@ -3798,7 +3981,6 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
             values.put("RUNNING_CHILD_TOGGLE", running_child_toggle);
             values.put("RUNNING_CHILD_PRICE", running_child_price);
             values.put(CommonString.KEY_IMAGE, pop_image);
-
 
             db.update("PROMOTION_DATA", values,
                     " STORE_ID ='" + store_id + "' AND  CATEGORY_ID = '" + category_id + "' AND PROCESS_ID = '" + process_id + "'" +
@@ -3857,6 +4039,23 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
     }
 
 
+    public long updateListedSku(String store_id, String process_id, String reason, String sku_id) {
+        long l = 0;
+        try {
+            ContentValues values = new ContentValues();
+            values.put(CommonString.KEY_REASON, (reason));
+
+            l = db.update(CommonString.TABLE_INSERT_LISTED_SKU, values, "STORE_ID =" + store_id +
+                    " AND PROCESS_ID =" + process_id + " AND SKU_ID =" + sku_id + "", null);
+
+
+        } catch (Exception e) {
+            Log.d("Exception when fetching Coverage Data!!!!!!!!!!!!!!!!!!!!!", e.toString());
+        }
+        return l;
+    }
+
+
     public void updateGapsData(String storeid, String Cat_id, String display_id, String question_id,
                                String answer, String unique_id, String process_id) {
 
@@ -3900,6 +4099,107 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
         }
         return l;
     }
+
+    public long insertstorefootfall(MAPPING_ALLSKU_ASSORTMENT data, String store_id, String cate_id, String process_id) {
+        db.delete(CommonString.TABLE_STORE_FOOTFALL, CommonString.KEY_STORE_ID + " =" + store_id +
+                " AND PROCESS_ID =" + process_id + " AND CATEGORY_ID =" + cate_id + "", null);
+        ContentValues values = new ContentValues();
+        long l = 0;
+
+        try {
+
+            values.put(CommonString.KEY_STORE_ID, store_id);
+            values.put(CommonString.KEY_CATEGORY_ID, cate_id);
+            values.put(CommonString.KEY_PROCESS_ID, process_id);
+            values.put(CommonString.KEY_FOOTFALL, data.getDaily_storeFootfall());
+            values.put(CommonString.KEY_CONTACT, data.getShoperContact());
+            values.put(CommonString.KEY_SALE_CONVERSION, data.getSales_conversion());
+
+            l = db.insert(CommonString.TABLE_STORE_FOOTFALL, null, values);
+
+
+        } catch (Exception ex) {
+            Log.d("Database Exception while Insert Fabricator master data ", ex.toString());
+        }
+
+        return l;
+    }
+
+    public MAPPING_ALLSKU_ASSORTMENT getinserted_storeFootfall(String store_id, String cate_id, String process_id) {
+        Log.d("FetchingStoredata--------------->Start<------------", "------------------");
+        MAPPING_ALLSKU_ASSORTMENT list = new MAPPING_ALLSKU_ASSORTMENT();
+        Cursor dbcursor = null;
+
+        try {
+
+
+            dbcursor = db.rawQuery("SELECT * FROM " + CommonString.TABLE_STORE_FOOTFALL + " WHERE STORE_ID =" + store_id +
+                    " AND PROCESS_ID =" + process_id + " AND CATEGORY_ID =" + cate_id + "", null);
+
+            if (dbcursor != null) {
+                dbcursor.moveToFirst();
+                while (!dbcursor.isAfterLast()) {
+
+                    list.setDaily_storeFootfall(dbcursor.getString(dbcursor.getColumnIndexOrThrow(CommonString.KEY_FOOTFALL)));
+                    list.setShoperContact(dbcursor.getString(dbcursor.getColumnIndexOrThrow(CommonString.KEY_CONTACT)));
+                    list.setSales_conversion(dbcursor.getString(dbcursor.getColumnIndexOrThrow(CommonString.KEY_SALE_CONVERSION)));
+
+                    dbcursor.moveToNext();
+                }
+
+                dbcursor.close();
+                return list;
+            }
+
+        } catch (Exception e) {
+            Log.d("Exception when fetching Records!!!!!!!!!!!!!!!!!!!!!", e.toString());
+            return list;
+        }
+
+        Log.d("FetchingStoredat---------------------->Stop<-----------",
+                "-------------------");
+        return list;
+
+    }
+
+    public ArrayList<MAPPING_ALLSKU_ASSORTMENT> getinserted_storeFootfallforupload(String store_id, String process_id) {
+        Log.d("FetchingStoredata--------------->Start<------------", "------------------");
+        ArrayList<MAPPING_ALLSKU_ASSORTMENT> list = new ArrayList<>();
+        Cursor dbcursor = null;
+
+        try {
+
+
+            dbcursor = db.rawQuery("SELECT * FROM " + CommonString.TABLE_STORE_FOOTFALL + " WHERE STORE_ID =" + store_id +
+                    " AND PROCESS_ID =" + process_id + "", null);
+
+            if (dbcursor != null) {
+                dbcursor.moveToFirst();
+                while (!dbcursor.isAfterLast()) {
+                    MAPPING_ALLSKU_ASSORTMENT sb = new MAPPING_ALLSKU_ASSORTMENT();
+                    sb.setCategoryId(dbcursor.getString(dbcursor.getColumnIndexOrThrow(CommonString.KEY_CATEGORY_ID)));
+                    sb.setDaily_storeFootfall(dbcursor.getString(dbcursor.getColumnIndexOrThrow(CommonString.KEY_FOOTFALL)));
+                    sb.setShoperContact(dbcursor.getString(dbcursor.getColumnIndexOrThrow(CommonString.KEY_CONTACT)));
+                    sb.setSales_conversion(dbcursor.getString(dbcursor.getColumnIndexOrThrow(CommonString.KEY_SALE_CONVERSION)));
+                    list.add(sb);
+                    dbcursor.moveToNext();
+                }
+
+                dbcursor.close();
+                return list;
+            }
+
+        } catch (Exception e) {
+            Log.d("Exception when fetching Records!!!!!!!!!!!!!!!!!!!!!", e.toString());
+            return list;
+        }
+
+        Log.d("FetchingStoredat---------------------->Stop<-----------",
+                "-------------------");
+        return list;
+
+    }
+
 
     public long InsertAdditionalInfo(ArrayList<SkuBean> data, String store_id, String cate_id, String process_id) {
         db.delete(CommonString.TABLE_INSERT_ADDTIONAL_DETAILS, CommonString.KEY_STORE_ID + " ='" + store_id +
@@ -3960,33 +4260,29 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
     }
 
 
-    public void InsertStockTot(TOTBean data) {
+    public long InsertStockTot(TOTBean data) {
         ContentValues values = new ContentValues();
+        long l = 0;
 
         try {
 
             values.put(CommonString.KEY_STORE_ID, data.getStore_id());
             values.put(CommonString.KEY_BRAND, data.getBrand());
             values.put(CommonString.KEY_BRAND_ID, data.getBrand_id());
-
             values.put(CommonString.KEY_DISPLAY_ID, data.getDisplay_id());
-
             values.put(CommonString.KEY_QUANTITY, data.getQuantity());
             values.put(CommonString.KEY_SKU_ID, data.getSku_id());
             values.put(CommonString.KEY_SKUNAME, data.getSku_name());
             values.put(CommonString.UNIQUE_KEY_ID, data.getUnique_id());
-
             values.put(CommonString.KEY_CATEGORY_ID, data.getCategory_id());
-
             values.put(CommonString.KEY_PROCESS_ID, data.getProcess_id());
-
-
-            db.insert(CommonString.TABLE_INSERT_STOCK_TOT, null, values);
+            l = db.insert(CommonString.TABLE_INSERT_STOCK_TOT, null, values);
 
 
         } catch (Exception ex) {
             Log.d("Database Exception while Insert Fabricator master data ", ex.getMessage());
         }
+        return l;
 
     }
 
@@ -4208,8 +4504,7 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
     }
 
 
-    public ArrayList<TOTBean> getTOTStockEntryDetailForUpload(String store_id, String process_id
-    ) {
+    public ArrayList<TOTBean> getTOTStockEntryDetailForUpload(String store_id, String process_id) {
         Cursor cursordata = null;
         ArrayList<TOTBean> productData = new ArrayList<TOTBean>();
 
@@ -4274,6 +4569,47 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
                     ex.getMessage());
         }
         return productData;
+
+    }
+
+    public StoreBean getstore_profile_info_forupload(String store_id, String visit_date, String process_id) {
+        Cursor cursordata = null;
+        StoreBean sb = new StoreBean();
+
+        try {
+
+            if (visit_date.equals("")) {
+                cursordata = db.rawQuery("SELECT  * from " + CommonString.TABLE_STORE_PROFILE + " WHERE "
+                        + CommonString.KEY_STORE_ID + "='" + store_id + "' AND " + CommonString.KEY_PROCESS_ID + " ='" + process_id + "'", null);
+
+            } else {
+                cursordata = db.rawQuery("SELECT  * from " + CommonString.TABLE_STORE_PROFILE + " WHERE "
+                        + CommonString.KEY_STORE_ID + "='" + store_id + "' AND " + CommonString.KEY_VISIT_DATE + "='" + visit_date + "' AND "
+                        + CommonString.KEY_PROCESS_ID + " ='" + process_id + "'", null);
+
+            }
+
+            if (cursordata != null) {
+                cursordata.moveToFirst();
+                while (!cursordata.isAfterLast()) {
+                    sb.setAddress(cursordata.getString(cursordata.getColumnIndexOrThrow("ADDRESS")));
+                    sb.setLocality(cursordata.getString(cursordata.getColumnIndexOrThrow("LOCALITY")));
+                    sb.setPinCode(cursordata.getString(cursordata.getColumnIndexOrThrow("PINCODE")));
+                    sb.setCITY(cursordata.getString(cursordata.getColumnIndexOrThrow("CITY")));
+                    sb.setSTORE(cursordata.getString(cursordata.getColumnIndexOrThrow(CommonString.KEY_STORE_NAME)));
+                    sb.setPROCESS_ID(cursordata.getString(cursordata.getColumnIndexOrThrow(CommonString.KEY_PROCESS_ID)));
+                    sb.setVISIT_DATE(cursordata.getString(cursordata.getColumnIndexOrThrow(CommonString.KEY_VISIT_DATE)));
+                    sb.setSTORE_ID(cursordata.getString(cursordata.getColumnIndexOrThrow(CommonString.KEY_STORE_ID)));
+                    cursordata.moveToNext();
+                }
+
+                cursordata.close();
+            }
+        } catch (Exception ex) {
+            Log.d("Database Exception while Insert Closes Data ", ex.getMessage());
+        }
+
+        return sb;
 
     }
 
@@ -4956,6 +5292,11 @@ public class GSKMTDatabase extends SQLiteOpenHelper {
                 cursordata.moveToFirst();
                 while (!cursordata.isAfterLast()) {
                     StoreBean sb = new StoreBean();
+                    sb.setAddress(cursordata.getString(cursordata.getColumnIndexOrThrow("ADDRESS")));
+                    sb.setLocality(cursordata.getString(cursordata.getColumnIndexOrThrow("LOCALITY")));
+                    sb.setPinCode(cursordata.getString(cursordata.getColumnIndexOrThrow("PINCODE")));
+
+                    sb.setListedEntry(cursordata.getString(cursordata.getColumnIndexOrThrow("LISTED_ENTRY")));
                     sb.setKey_id(cursordata.getString(cursordata.getColumnIndexOrThrow(CommonString.KEY_ID)));
                     sb.setSTORE_ID(cursordata.getString(cursordata.getColumnIndexOrThrow(CommonString.KEY_STORE_ID)));
                     sb.setEMP_ID(cursordata.getString(cursordata.getColumnIndexOrThrow(CommonString.KEY_EMP_CD)));

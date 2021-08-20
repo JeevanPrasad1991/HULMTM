@@ -401,10 +401,7 @@ public class UploadImageActivity extends Activity {
 
                             database.open();
                             afterTOTData = database.getAfterTOTDataForUpload(coverageBeanlist.get(i).getStoreId(), coverageBeanlist.get(i).getProcess_id());
-
                             for (int j = 0; j < afterTOTData.size(); j++) {
-
-
                                 if (afterTOTData.get(j).getImage1() != null
                                         && !afterTOTData.get(j).getImage1()
                                         .equals("")) {
@@ -487,10 +484,7 @@ public class UploadImageActivity extends Activity {
                             beforeaddtionalData = database.getProductEntryDetailForUpload(coverageBeanlist.get(i).getStoreId(), coverageBeanlist.get(i).getProcess_id());
                             for (int j = 0; j < beforeaddtionalData.size(); j++) {
 
-
-                                if (beforeaddtionalData.get(j).getAdditional_image() != null
-                                        && !beforeaddtionalData.get(j).getAdditional_image()
-                                        .equals("")) {
+                                if (beforeaddtionalData.get(j).getAdditional_image() != null && !beforeaddtionalData.get(j).getAdditional_image().equals("")) {
 
                                     if (new File(
                                             Environment.getExternalStorageDirectory() + "/MT_GSK_Images/"

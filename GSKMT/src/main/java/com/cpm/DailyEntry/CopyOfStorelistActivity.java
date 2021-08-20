@@ -20,6 +20,7 @@ import com.cpm.delegates.TOTBean;
 import com.cpm.gsk_mt.LoginActivity;
 import com.cpm.gsk_mt.MainMenuActivity;
 import com.cpm.message.AlertMessage;
+import com.cpm.xmlGetterSetter.MAPPING_ALLSKU_ASSORTMENT;
 import com.example.gsk_mtt.R;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
@@ -65,6 +66,7 @@ public class CopyOfStorelistActivity extends Activity {
     ArrayList<SkuBean> sosfacingList = new ArrayList<SkuBean>();
     ArrayList<SkuBean> sosfacingfilledList = new ArrayList<SkuBean>();
     ArrayList<SkuBean> stockInwardList = new ArrayList<SkuBean>();
+    ArrayList<SkuBean> stockInwardmapping = new ArrayList<SkuBean>();
     ArrayList<SkuBean> additionalData = new ArrayList<SkuBean>();
     ArrayList<SkuBean> salesData = new ArrayList<SkuBean>();
     ArrayList<TOTBean> totMappingData = new ArrayList<TOTBean>();
@@ -136,7 +138,7 @@ public class CopyOfStorelistActivity extends Activity {
         coverageBeanlist = db.getCoverageData(date, null, null);
         for (int i = 0; i < coverageBeanlist.size(); i++) {
             boolean before_tot = false, after_tot = false, flagTOT = false, Promo = false, competitionpromotionflag = false, sales_flag = false,
-                    sos_facing = false, stock_InwardFlag = false;
+                    sos_facing = false, stock_InwardFlag = false, cosumer_connect_flag = false;
             boolean flagCheckout = false;
             ///change by jeevan RAna
             db.open();
@@ -162,6 +164,9 @@ public class CopyOfStorelistActivity extends Activity {
                                 coverageBeanlist.get(i).getProcess_id());
                         db.open();
                         stockInwardList = db.getstockininserteddata(coverageBeanlist.get(i).getStoreId(), category_list.get(j).getCategory_id(),
+                                coverageBeanlist.get(i).getProcess_id());
+                        db.open();
+                        stockInwardmapping = db.getBrandSkuListforstockin(category_list.get(j).getCategory_id(), coverageBeanlist.get(i).getStoreId(),
                                 coverageBeanlist.get(i).getProcess_id());
                         db.open();
                         additionalData = db.getProductEntryDetail(coverageBeanlist.get(i).getStoreId(), category_list.get(j).getCategory_id(),
@@ -271,28 +276,49 @@ public class CopyOfStorelistActivity extends Activity {
                             sos_facing = true;
                         }
 
-                        if (stockInwardList.size() > 0) {
-                            stock_InwardFlag = true;
+
+                        if (stockInwardmapping.size() > 0) {
+                            if (stockInwardList.size() > 0) {
+                                stock_InwardFlag = true;
+                            } else {
+                                stock_InwardFlag = false;
+                            }
+
                         } else {
-                            stock_InwardFlag = false;
+                            stock_InwardFlag = true;
+                        }
+                        //For Customer Connect-----&*
+                        if (!coverageBeanlist.get(i).getProcess_id().equals("3")) {
+                            db.open();
+                            MAPPING_ALLSKU_ASSORTMENT footfallobject = db.getinserted_storeFootfall(coverageBeanlist.get(i).getStoreId(),
+                                    category_list.get(j).getCategory_id(), coverageBeanlist.get(i).getProcess_id());
+                            if (footfallobject != null && footfallobject.getDaily_storeFootfall() != null && !footfallobject.getDaily_storeFootfall().equals("")) {
+                                cosumer_connect_flag = true;
+                            } else {
+                                cosumer_connect_flag = false;
+                            }
+                        } else {
+                            cosumer_connect_flag = true;
                         }
 
                         if (coverageBeanlist.get(i).getProcess_id().equals("2")) {
+                            db.open();
                             if (before_tot == true && after_tot == true && afterStockData.size() > 0 && additionalData.size() > 0 && Promo
                                     && flagTOT && db.getEnteredCompetitionDetail(coverageBeanlist.get(i).getStoreId(),
                                     category_list.get(j).getCategory_id(), coverageBeanlist.get(i).getProcess_id()).size() > 0
-                                    && competitionpromotionflag == true && sales_flag && sos_facing && stock_InwardFlag) {
+                                    && competitionpromotionflag == true && sales_flag && sos_facing && stock_InwardFlag && cosumer_connect_flag) {
                                 flagCheckout = true;
                             } else {
                                 flagCheckout = false;
                                 break;
                             }
                         } else {
+                            db.open();
                             if (before_tot == true && after_tot == true && afterStockData.size() > 0
                                     && additionalData.size() > 0 && Promo && flagTOT
                                     && db.getEnteredCompetitionDetail(coverageBeanlist.get(i).getStoreId(),
                                     category_list.get(j).getCategory_id(), coverageBeanlist.get(i).getProcess_id()).size() > 0
-                                    && competitionpromotionflag == true && sales_flag && sos_facing && stock_InwardFlag) {
+                                    && competitionpromotionflag == true && sales_flag && sos_facing && stock_InwardFlag && cosumer_connect_flag) {
                                 flagCheckout = true;
                             } else {
                                 flagCheckout = false;
@@ -303,7 +329,21 @@ public class CopyOfStorelistActivity extends Activity {
                 }
 
 
-                if (flagCheckout) {
+                boolean sku_listed_flag = false;
+                ///for SKU Listed
+                db.open();
+                if (storestatus != null && storestatus.getListedEntry() != null && storestatus.getListedEntry().equals("1") && db.getSkuListed().size() > 0) {
+                    db.open();
+                    if (db.getinsertedlistedSKU(coverageBeanlist.get(i).getStoreId(), coverageBeanlist.get(i).getProcess_id()).size() > 0) {
+                        sku_listed_flag = true;
+                    } else {
+                        sku_listed_flag = false;
+                    }
+                } else {
+                    sku_listed_flag = true;
+                }
+
+                if (flagCheckout && sku_listed_flag) {
                     db.open();
                     db.updateStoreStatusOnLeave(coverageBeanlist.get(i).getStoreId(), date, CommonString.KEY_VALID, visit_process_id);
                     db.open();
@@ -430,7 +470,9 @@ public class CopyOfStorelistActivity extends Activity {
                                     editor.putString(CommonString.KEY_CLASS_ID, sb.getCLASS_ID());
                                     editor.putString(CommonString.KEY_COMPETITION_PROMOTION, sb.getCOMP_ENABLE());
                                     editor.putString(CommonString.KEY_SALEENABLE_FLAG, sb.getSale_enableFlag());
+                                    editor.putString(CommonString.KEY_SKU_LISTED, sb.getListedEntry());
                                     editor.commit();
+
                                     if (sb.getPROCESS_ID().equals("3")) {
                                         Intent intent = new Intent(getBaseContext(), StoreWisePerformance.class);
                                         startActivity(intent);
@@ -521,6 +563,7 @@ public class CopyOfStorelistActivity extends Activity {
                                                 editor = preferences.edit();
                                                 editor.putString(CommonString.KEY_STORE_ID, storelist.get(position).getSTORE_ID());
                                                 editor.putString(CommonString.KEY_STORE_NAME, storelist.get(position).getSTORE());
+                                                editor.putString(CommonString.KEY_SKU_LISTED, storelist.get(position).getListedEntry());
                                                 editor.putString(CommonString.KEY_OUT_TIME, outTime);
                                                 editor.commit();
                                                 Intent i = new Intent(CopyOfStorelistActivity.this, CheckOutStoreActivity.class);

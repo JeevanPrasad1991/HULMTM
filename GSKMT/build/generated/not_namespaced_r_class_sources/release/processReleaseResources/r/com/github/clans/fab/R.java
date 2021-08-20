@@ -84,30 +84,30 @@ public final class R {
     public static final class dimen {
         private dimen() {}
 
-        public static final int fab_size_mini = 0x7f070087;
-        public static final int fab_size_normal = 0x7f070088;
-        public static final int labels_text_size = 0x7f070097;
+        public static final int fab_size_mini = 0x7f07008b;
+        public static final int fab_size_normal = 0x7f07008c;
+        public static final int labels_text_size = 0x7f07009c;
     }
     public static final class drawable {
         private drawable() {}
 
-        public static final int fab_add = 0x7f0800a8;
+        public static final int fab_add = 0x7f0800ac;
     }
     public static final class id {
         private id() {}
 
-        public static final int down = 0x7f0900a7;
-        public static final int end = 0x7f0900ae;
-        public static final int fab_label = 0x7f0900ba;
-        public static final int left = 0x7f090112;
-        public static final int marquee = 0x7f09012b;
-        public static final int middle = 0x7f09012f;
-        public static final int mini = 0x7f090130;
-        public static final int none = 0x7f090139;
-        public static final int normal = 0x7f09013c;
-        public static final int right = 0x7f09017c;
-        public static final int start = 0x7f0901c8;
-        public static final int up = 0x7f090216;
+        public static final int down = 0x7f0900a8;
+        public static final int end = 0x7f0900b8;
+        public static final int fab_label = 0x7f0900c4;
+        public static final int left = 0x7f09011c;
+        public static final int marquee = 0x7f090135;
+        public static final int middle = 0x7f090139;
+        public static final int mini = 0x7f09013a;
+        public static final int none = 0x7f090143;
+        public static final int normal = 0x7f090146;
+        public static final int right = 0x7f090186;
+        public static final int start = 0x7f0901d3;
+        public static final int up = 0x7f090222;
     }
     public static final class styleable {
         private styleable() {}

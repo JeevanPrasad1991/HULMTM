@@ -311,8 +311,8 @@ public class StockwareHouse extends Activity implements OnClickListener {
             lv.invalidateViews();
             row_pos = 10000;
             if (validate_values()) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setMessage("Are you sure you want to save").setCancelable(false).setPositiveButton("Yes",
+                AlertDialog.Builder builder = new AlertDialog.Builder(this).setTitle(R.string.parinamm);
+                builder.setMessage("Are you sure you want to save ?").setCancelable(false).setPositiveButton("Yes",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 if (update) {

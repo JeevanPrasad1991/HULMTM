@@ -21,7 +21,6 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -44,6 +43,7 @@ import com.cpm.delegates.TOTBean;
 
 import com.cpm.message.AlertMessage;
 import com.cpm.xmlGetterSetter.FailureGetterSetter;
+import com.cpm.xmlGetterSetter.MAPPING_ALLSKU_ASSORTMENT;
 import com.cpm.xmlGetterSetter.SKUGetterSetter;
 import com.cpm.xmlHandler.FailureXMLHandler;
 import com.example.gsk_mtt.R;
@@ -79,8 +79,11 @@ public class UploadDataActivity extends Activity {
     ArrayList<TOTBean> stockTotdata = new ArrayList<TOTBean>();
     private FailureGetterSetter failureGetterSetter = null;
     StoreBean storestatus = new StoreBean();
+    StoreBean store_profileInfo = new StoreBean();
     ArrayList<GeotaggingBeans> geotaglist = new ArrayList<GeotaggingBeans>();
     ArrayList<SKUGetterSetter> competitionpromotionList = new ArrayList<>();
+    public ArrayList<SkuBean> listedsku = new ArrayList<SkuBean>();
+    ArrayList<MAPPING_ALLSKU_ASSORTMENT> customerconvList = new ArrayList<>();
     String sub_reason = "0";
     Context context;
 
@@ -900,6 +903,69 @@ public class UploadDataActivity extends Activity {
                                     }
                                 });
 
+                                //store_profile info
+                                database.open();
+                                String datte = "";
+                                store_profileInfo = database.getstore_profile_info_forupload(coverageBeanlist.get(i).getStoreId(), datte, coverageBeanlist.get(i).getProcess_id());
+                                String profile_info_xml = "";
+                                onXML = "";
+                                if (store_profileInfo != null && store_profileInfo.getSTORE_ID() != null && !store_profileInfo.getSTORE_ID().equals("")) {
+                                    onXML = "[USER_DATA][MID]"
+                                            + mid
+                                            + "[/MID][CREATED_BY]"
+                                            + username
+                                            + "[/CREATED_BY][STORE_ID]"
+                                            + store_profileInfo.getSTORE_ID()
+                                            + "[/STORE_ID]"
+                                            + "[STORE]"
+                                            + store_profileInfo.getSTORE()
+                                            + "[/STORE][ADDRESS]"
+                                            + store_profileInfo.getAddress()
+                                            + "[/ADDRESS][LOCALITY]"
+                                            + store_profileInfo.getLocality()
+                                            + "[/LOCALITY][PINCODE]"
+                                            + store_profileInfo.getPinCode()
+                                            + "[/PINCODE][PROCESS_ID]" + store_profileInfo.getPROCESS_ID()
+                                            + "[/PROCESS_ID][/USER_DATA]";
+
+
+                                    profile_info_xml = profile_info_xml + onXML;
+                                    profile_info_xml = "[DATA]" + profile_info_xml + "[/DATA]";
+                                    request = new SoapObject(CommonString.NAMESPACE, CommonString.METHOD_UPLOAD_STOCK_XML_DATA);
+                                    request.addProperty("MID", mid);
+                                    request.addProperty("KEYS", "STORE_PROFILE_INFO_XML");
+                                    request.addProperty("USERNAME", username);
+                                    request.addProperty("XMLDATA", stock_tot_xml);
+
+                                    envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+                                    envelope.dotNet = true;
+                                    envelope.setOutputSoapObject(request);
+                                    androidHttpTransport = new HttpTransportSE(CommonString.URL);
+                                    androidHttpTransport.call(CommonString.SOAP_ACTION_UPLOAD_ASSET_XMLDATA, envelope);
+                                    result = (Object) envelope.getResponse();
+                                    if (!result.toString().equalsIgnoreCase(CommonString.KEY_SUCCESS)) {
+                                        if (result.toString().equalsIgnoreCase(CommonString.KEY_FALSE)) {
+                                            return CommonString.METHOD_UPLOAD_ASSET;
+                                        }
+
+                                        FailureXMLHandler failureXMLHandler = new FailureXMLHandler();
+                                        xmlR.setContentHandler(failureXMLHandler);
+
+                                        InputSource is = new InputSource();
+                                        is.setCharacterStream(new StringReader(result.toString()));
+                                        xmlR.parse(is);
+                                        failureGetterSetter = failureXMLHandler.getFailureGetterSetter();
+                                        if (failureGetterSetter.getStatus().equalsIgnoreCase(CommonString.KEY_FAILURE)) {
+                                            return CommonString.METHOD_UPLOAD_ASSET + "," + failureGetterSetter.getErrorMsg();
+                                        }
+                                    }
+                                }
+                                runOnUiThread(new Runnable() {
+                                    public void run() {
+                                        message.setText("Profile Info Data Uploaded");
+                                    }
+                                });
+
                                 // Promotion Data
                                 database.open();
                                 promotionData = database.getInsertedPromoCompliance(coverageBeanlist.get(i).getStoreId(), coverageBeanlist.get(i).getProcess_id());
@@ -1473,6 +1539,146 @@ public class UploadDataActivity extends Activity {
                                         message.setText("Sku Data Uploaded");
                                     }
                                 });
+
+                                //
+
+                                // Listed SKU Data
+                                database.open();
+                                listedsku = database.getinsertedlistedSKU(coverageBeanlist.get(i).getStoreId(), coverageBeanlist.get(i).getProcess_id());
+                                after_add_xml = "";
+                                onXML = "";
+                                if (listedsku.size() > 0) {
+                                    for (int j = 0; j < listedsku.size(); j++) {
+                                        onXML = "[USER_DATA][MID]"
+                                                + mid
+                                                + "[/MID][CREATED_BY]"
+                                                + username
+                                                + "[/CREATED_BY]"
+                                                + "[CATEGORY_ID]"
+                                                + "0"
+                                                + "[/CATEGORY_ID]"
+                                                + "[BRAND_ID]"
+                                                + listedsku.get(j).getBrand_id()
+                                                + "[/BRAND_ID]"
+                                                + "[SKU_ID]"
+                                                + listedsku.get(j).getSku_id()
+                                                + "[/SKU_ID]"
+                                                + "[SKU_LISTED]"
+                                                + listedsku.get(j).getReason_name()
+                                                + "[/SKU_LISTED]"
+                                                + "[/USER_DATA]";
+
+                                        after_add_xml = after_add_xml + onXML;
+                                    }
+
+
+                                    after_add_xml = "[DATA]" + after_add_xml + "[/DATA]";
+                                    request = new SoapObject(CommonString.NAMESPACE, CommonString.METHOD_UPLOAD_STOCK_XML_DATA);
+
+                                    request.addProperty("MID", mid);
+                                    request.addProperty("KEYS", "LISTED_SKU");
+                                    request.addProperty("USERNAME", username);
+                                    request.addProperty("XMLDATA", after_add_xml);
+                                    envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+                                    envelope.dotNet = true;
+                                    envelope.setOutputSoapObject(request);
+                                    androidHttpTransport = new HttpTransportSE(CommonString.URL);
+                                    androidHttpTransport.call(CommonString.SOAP_ACTION_UPLOAD_ASSET_XMLDATA, envelope);
+                                    result = (Object) envelope.getResponse();
+                                    if (!result.toString().equalsIgnoreCase(CommonString.KEY_SUCCESS)) {
+                                        if (result.toString().equalsIgnoreCase(CommonString.KEY_FALSE)) {
+                                            return CommonString.METHOD_UPLOAD_ASSET;
+                                        }
+
+                                        FailureXMLHandler failureXMLHandler = new FailureXMLHandler();
+                                        xmlR.setContentHandler(failureXMLHandler);
+                                        InputSource is = new InputSource();
+                                        is.setCharacterStream(new StringReader(result.toString()));
+                                        xmlR.parse(is);
+                                        failureGetterSetter = failureXMLHandler.getFailureGetterSetter();
+                                        if (failureGetterSetter.getStatus().equalsIgnoreCase(CommonString.KEY_FAILURE)) {
+                                            return CommonString.METHOD_UPLOAD_ASSET + "," + failureGetterSetter.getErrorMsg();
+                                        }
+                                    }
+                                }
+                                runOnUiThread(new Runnable() {
+
+                                    public void run() {
+                                        message.setText("Listed Sku Data Uploaded");
+                                    }
+                                });
+
+
+                                // footfall Data
+                                database.open();
+                                customerconvList = database.getinserted_storeFootfallforupload(coverageBeanlist.get(i).getStoreId(), coverageBeanlist.get(i).getProcess_id());
+                                after_add_xml = "";
+                                onXML = "";
+                                if (customerconvList.size() > 0) {
+                                    for (int j = 0; j < customerconvList.size(); j++) {
+                                        onXML = "[USER_DATA][MID]"
+                                                + mid
+                                                + "[/MID][CREATED_BY]"
+                                                + username
+                                                + "[/CREATED_BY]"
+
+                                                + "[CATEGORY_ID]"
+                                                + customerconvList.get(j).getCategoryId()
+                                                + "[/CATEGORY_ID]"
+                                                + "[FOOTFALL]"
+                                                + customerconvList.get(j).getDaily_storeFootfall()
+                                                + "[/FOOTFALL]"
+                                                + "[CONTACT]"
+                                                + customerconvList.get(j).getShoperContact()
+                                                + "[/CONTACT]"
+
+                                                + "[SALES_CONVERSION]"
+                                                + customerconvList.get(j).getSales_conversion()
+                                                + "[/SALES_CONVERSION]"
+
+                                                + "[/USER_DATA]";
+
+                                        after_add_xml = after_add_xml + onXML;
+                                    }
+
+
+                                    after_add_xml = "[DATA]" + after_add_xml + "[/DATA]";
+                                    request = new SoapObject(CommonString.NAMESPACE, CommonString.METHOD_UPLOAD_STOCK_XML_DATA);
+
+                                    request.addProperty("MID", mid);
+                                    request.addProperty("KEYS", "CUSTOMER_CONVERSION");
+                                    request.addProperty("USERNAME", username);
+                                    request.addProperty("XMLDATA", after_add_xml);
+                                    envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+                                    envelope.dotNet = true;
+                                    envelope.setOutputSoapObject(request);
+                                    androidHttpTransport = new HttpTransportSE(CommonString.URL);
+                                    androidHttpTransport.call(CommonString.SOAP_ACTION_UPLOAD_ASSET_XMLDATA, envelope);
+                                    result = (Object) envelope.getResponse();
+                                    if (!result.toString().equalsIgnoreCase(CommonString.KEY_SUCCESS)) {
+                                        if (result.toString().equalsIgnoreCase(CommonString.KEY_FALSE)) {
+                                            return CommonString.METHOD_UPLOAD_ASSET;
+                                        }
+
+                                        FailureXMLHandler failureXMLHandler = new FailureXMLHandler();
+                                        xmlR.setContentHandler(failureXMLHandler);
+                                        InputSource is = new InputSource();
+                                        is.setCharacterStream(new StringReader(result.toString()));
+                                        xmlR.parse(is);
+                                        failureGetterSetter = failureXMLHandler.getFailureGetterSetter();
+                                        if (failureGetterSetter.getStatus().equalsIgnoreCase(CommonString.KEY_FAILURE)) {
+                                            return CommonString.METHOD_UPLOAD_ASSET + "," + failureGetterSetter.getErrorMsg();
+                                        }
+                                    }
+                                }
+                                runOnUiThread(new Runnable() {
+
+                                    public void run() {
+                                        message.setText("Customer Conversion Data Uploaded");
+                                    }
+                                });
+
+                                ////
                             }
                             database.open();
                             database.updateCoverageStatus(coverageBeanlist.get(i).getStoreId(), CommonString.KEY_D, coverageBeanlist.get(i).getProcess_id());

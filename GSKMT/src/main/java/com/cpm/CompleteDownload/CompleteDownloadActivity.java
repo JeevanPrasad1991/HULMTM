@@ -30,6 +30,7 @@ import com.cpm.xmlGetterSetter.DisplayGetterSetter;
 import com.cpm.xmlGetterSetter.EmpMeetingStatus;
 import com.cpm.xmlGetterSetter.FailureGetterSetter;
 import com.cpm.xmlGetterSetter.JCPGetterSetter;
+import com.cpm.xmlGetterSetter.MAPPING_ALLSKU_ASSORTMENT;
 import com.cpm.xmlGetterSetter.MappingCompetitionPromotionGetterSetter;
 import com.cpm.xmlGetterSetter.MappingSos;
 import com.cpm.xmlGetterSetter.MappingWellnessSos;
@@ -84,6 +85,7 @@ public class CompleteDownloadActivity extends Activity {
     SOSTargetGetterSetter sostarget;
     QuestionGetterSetter questionData, questionMappingData;
     SKUGetterSetter skudata, brandData, alltable;
+    MAPPING_ALLSKU_ASSORTMENT mapping_allsku_assortment;
     JCPGetterSetter jcpData, geotagData;
     StockMappingGetterSetter stockData;
     DisplayGetterSetter displayData;
@@ -107,7 +109,7 @@ public class CompleteDownloadActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mainpage);
-        context=this;
+        context = this;
         tb = new TableBean();
         db = new GSKMTDatabase(context);
         preferences = PreferenceManager.getDefaultSharedPreferences(context);
@@ -208,6 +210,43 @@ public class CompleteDownloadActivity extends Activity {
                 }
 
 
+                ///MAPPING_ALLSKU_ASSORTMENT Downloading
+                request = new SoapObject(CommonString.NAMESPACE, CommonString.METHOD_NAME_UNIVERSAL_DOWNLOAD);
+                request.addProperty("UserName", user_name);
+                request.addProperty("Type", "MAPPING_ALLSKU_ASSORTMENT");
+                envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+                envelope.dotNet = true;
+                envelope.setOutputSoapObject(request);
+                androidHttpTransport = new HttpTransportSE(CommonString.URL);
+                androidHttpTransport.call(CommonString.SOAP_ACTION_UNIVERSAL, envelope);
+                result = (Object) envelope.getResponse();
+                if (result.toString().equalsIgnoreCase(CommonString.KEY_FALSE)) {
+                    return CommonString.METHOD_NAME_UNIVERSAL_DOWNLOAD;
+                }
+                if (result.toString().equalsIgnoreCase(CommonString.KEY_NO_DATA)) {
+                    return CommonString.METHOD_NAME_UNIVERSAL_DOWNLOAD;
+                }
+
+                // for failure
+                xpp.setInput(new StringReader(result.toString()));
+                xpp.next();
+                eventType = xpp.getEventType();
+                failureGetterSetter = XMLHandlers.failureXMLHandler(xpp, eventType);
+                if (failureGetterSetter.getStatus().equalsIgnoreCase(CommonString.KEY_FAILURE)) {
+                    return CommonString.METHOD_NAME_UNIVERSAL_DOWNLOAD + "," + failureGetterSetter.getErrorMsg();
+                }
+                if (!result.toString().equalsIgnoreCase(CommonString.KEY_FALSE)) {
+                    xpp.setInput(new StringReader(result.toString()));
+                    xpp.next();
+                    eventType = xpp.getEventType();
+                    mapping_allsku_assortment = XMLHandlers.ALLSKUXMLHandler(xpp, eventType);
+                    TableBean.setMappingallsku_table(mapping_allsku_assortment.getMeta_table());
+                    data.value = 13;
+                    data.name = "MAPPING ALLSKU ASSORTMENT";
+                    publishProgress(data);
+                }
+
+                ////SKU Master Downloading
                 request = new SoapObject(CommonString.NAMESPACE, CommonString.METHOD_NAME_UNIVERSAL_DOWNLOAD);
                 request.addProperty("UserName", user_name);
                 request.addProperty("Type", "SKUMASTER");
@@ -1546,6 +1585,7 @@ public class CompleteDownloadActivity extends Activity {
 
                 db.open();
                 db.InsertSkuMasterData(skudata);
+                db.InsertAllSkuData(mapping_allsku_assortment);
                 db.InsertJCP(jcpData);
                 db.InsertBrandMasterData(brandData);
                 db.InsertSkuMappingData(stockData);
@@ -1611,7 +1651,7 @@ public class CompleteDownloadActivity extends Activity {
             } catch (Exception e) {
                 FirebaseCrashlytics.getInstance().recordException(e);
                 final AlertMessage message = new AlertMessage(CompleteDownloadActivity.this,
-                        AlertMessage.MESSAGE_EXCEPTION + ""+e.toString(), "download", e);
+                        AlertMessage.MESSAGE_EXCEPTION + "" + e.toString(), "download", e);
 
                 e.getMessage();
                 e.printStackTrace();
@@ -1641,7 +1681,7 @@ public class CompleteDownloadActivity extends Activity {
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
             dialog.dismiss();
-            if (result!=null && !result.equals("") && result.equalsIgnoreCase(CommonString.KEY_SUCCESS)) {
+            if (result != null && !result.equals("") && result.equalsIgnoreCase(CommonString.KEY_SUCCESS)) {
                 AlertMessage message = new AlertMessage(CompleteDownloadActivity.this, AlertMessage.MESSAGE_DOWNLOAD, "success", null);
                 message.showMessage();
             } else if (result.equals(CommonString.METHOD_NAME_JCP)) {

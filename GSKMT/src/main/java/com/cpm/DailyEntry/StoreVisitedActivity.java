@@ -5,15 +5,11 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.Calendar;
-
 import com.cpm.Constants.CommonString;
-
 import com.cpm.database.GSKMTDatabase;
 import com.cpm.delegates.CoverageBean;
-import com.cpm.delegates.StoreBean;
 import com.cpm.message.AlertMessage;
 import com.example.gsk_mtt.R;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -28,10 +24,8 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.Toast;
-
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
@@ -121,7 +115,7 @@ public class StoreVisitedActivity extends Activity {
                             startActivity(i);
                             StoreVisitedActivity.this.finish();
                         } else {
-                            Intent in = new Intent(StoreVisitedActivity.this, CopyOfStorevisitedYesMenu.class);
+                            Intent in = new Intent(StoreVisitedActivity.this, StoreProfileActivity.class);
                             startActivity(in);
                             StoreVisitedActivity.this.finish();
                         }

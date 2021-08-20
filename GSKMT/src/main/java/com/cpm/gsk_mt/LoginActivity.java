@@ -99,9 +99,10 @@ public class LoginActivity extends Activity implements OnClickListener, Location
         mUsername = (EditText) findViewById(R.id.login_usertextbox);
         mPassword = (EditText) findViewById(R.id.login_locktextbox);
         version_text = (TextView) findViewById(R.id.version_text);
-        //mUsername.setText("testmer");
-        // mPassword.setText("cpm123");
-
+      //  mUsername.setText("testmer");
+        //mPassword.setText("cpm123");
+        // mUsername.setText("sanjay.alkar");
+        //mPassword.setText("cpm@5678");
         mLogin = (Button) findViewById(R.id.login_loginbtn);
         preferences = PreferenceManager.getDefaultSharedPreferences(context);
         editor = preferences.edit();
@@ -379,9 +380,7 @@ public class LoginActivity extends Activity implements OnClickListener, Location
 
             } catch (MalformedURLException e) {
                 FirebaseCrashlytics.getInstance().recordException(e);
-                final AlertMessage message = new AlertMessage(
-                        (Activity) context, AlertMessage.MESSAGE_EXCEPTION,
-                        "acra_login", e);
+                final AlertMessage message = new AlertMessage((Activity) context, AlertMessage.MESSAGE_EXCEPTION, "acra_login", e);
                 runOnUiThread(new Runnable() {
 
                     @Override
@@ -389,7 +388,6 @@ public class LoginActivity extends Activity implements OnClickListener, Location
                         message.showMessage();
                     }
                 });
-
             } catch (IOException e) {
                 final AlertMessage message = new AlertMessage(
                         (Activity) context,

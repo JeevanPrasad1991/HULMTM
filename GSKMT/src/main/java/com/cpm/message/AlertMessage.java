@@ -11,11 +11,13 @@ import com.cpm.gsk_mt.MainMenuActivity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class AlertMessage {
@@ -564,5 +566,13 @@ public class AlertMessage {
         AlertDialog alert = builder.create();
         alert.show();
 
+    }
+
+    public static void Show_toast_msg(Context context,String  msg){
+        try {
+            Toast.makeText(context,msg,Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -63,7 +63,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
 		android:background="@color/colorPrimary"
-        android:padding="5sp"
+        android:padding="@dimen/padding_10dp"
 		android:layout_alignParentTop="true"
 		android:layout_alignParentLeft="true"
 		android:layout_alignParentStart="true"
@@ -77,8 +77,9 @@
             android:layout_centerVertical="true"
             android:text=" "
             android:textColor="#ffffff"
-			android:paddingLeft="2dp"
-            android:textSize="15sp" />
+			android:padding="8dp"
+			android:gravity="center_vertical"
+            android:textSize="@dimen/txtsize_16sp" />
 
               <TextView
                   android:id="@+id/storename"
@@ -88,10 +89,10 @@
                   android:layout_alignBottom="@+id/storename_remembermetext"
                   android:layout_centerHorizontal="true"
                   android:text=""
+				  android:gravity="center_vertical"
                   android:textColor="#ffffff"
                   android:textStyle="italic"
                   android:textSize="18sp" />
 
     </RelativeLayout>
-
 </RelativeLayout>

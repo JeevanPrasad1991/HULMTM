@@ -223,6 +223,7 @@ public class ShareofShelfActivity extends Activity implements OnClickListener {
             holder.txt_ownbrands.setId(position);
 
 
+
             if (object.getLINEAR_MEASUREMENT().equals("1")) {
                 holder.eyelavel_faceup.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_FLAG_DECIMAL);
                 holder.eyelavel_faceup.setFilters(new InputFilter[]{new DecimalDigitsInputFilter(6, 1)});
@@ -339,7 +340,6 @@ public class ShareofShelfActivity extends Activity implements OnClickListener {
                         } else {
                             String final_value = "";
                             if (!value1.equals("")) {
-
                                 final_value = CommonFunctions.return_decimal_value(value1);
                                 double stock_total_eyelevelfacup = Double.parseDouble(CommonFunctions.return_decimal_value(object.getCategoryEyelevel()));
                                 double calculated_value = Double.parseDouble(final_value);
@@ -616,12 +616,26 @@ public class ShareofShelfActivity extends Activity implements OnClickListener {
             if (sosObj != null) {
                 if (sosObj.getCategoryEyelevel().equals("") && sosObj.getCategoryNonEyelevel().equals("") && sosObj.getEyelevel().equals("") && sosObj.getNoneyelevel().equals("")) {
                 } else {
-                    double CC = Double.parseDouble(CommonFunctions.return_decimal_value(sosObj.getEyelevel()));
-                    double DD = Double.parseDouble(CommonFunctions.return_decimal_value(sosObj.getNoneyelevel()));
-                    double AA = Double.parseDouble(CommonFunctions.return_decimal_value(sosObj.getCategoryEyelevel()));
-                    double BB = Double.parseDouble(CommonFunctions.return_decimal_value(sosObj.getCategoryNonEyelevel()));
-                   /// double sos = ((CC + DD) / (AA + BB)) * 100 ---- BEFORE FORMULA;
-                    double sos = ((CC/ AA)/2 + (DD/BB)/2) * 100;
+                    double eyeLavelValue = Double.parseDouble(CommonFunctions.return_decimal_value(sosObj.getEyelevel()));
+                    double nonEyelave = Double.parseDouble(CommonFunctions.return_decimal_value(sosObj.getNoneyelevel()));
+                    double cate_eyelave = Double.parseDouble(CommonFunctions.return_decimal_value(sosObj.getCategoryEyelevel()));
+                    double catnonEyeLavel = Double.parseDouble(CommonFunctions.return_decimal_value(sosObj.getCategoryNonEyelevel()));
+                    if (cate_eyelave == 0.0 || cate_eyelave == 0.0) {
+                        eyeLavelValue = 1;
+                        cate_eyelave = 1;
+                    }
+
+                    if (catnonEyeLavel == 0.0 || catnonEyeLavel == 0.0) {
+                        catnonEyeLavel = 1;
+
+                        nonEyelave = 1;
+                    }
+                    double eyenonEyelavel = eyeLavelValue + nonEyelave;
+                    double cateeyenonEyelavel = cate_eyelave + catnonEyeLavel;
+
+                    ///using before method
+                    // double sos = ((CC / AA) / 2 + (DD / BB) / 2) * 100;
+                    double sos = (eyenonEyelavel / cateeyenonEyelavel) * 100;
                     int i = (int) sos;
                     sos_ach = "" + i;
                     sosAdapter.notifyDataSetChanged();

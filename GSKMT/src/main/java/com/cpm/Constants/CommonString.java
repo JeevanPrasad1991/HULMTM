@@ -13,6 +13,7 @@ public class CommonString {
     public static final String KEY_PATH = "path";
     public static final String KEY_VERSION = "APP_VERSION";
     public static final String KEY_DATE = "date";
+    public static final String KEY_SKU_LISTED = "SKU_LISTED";
     public static final String KEY_ATTENDENCE_STATUS = "ATTENDENCE_STATUS";
     public static final String MID = "MID";
     public static final String KEY_P = "P";
@@ -270,6 +271,7 @@ public class CommonString {
     // database
 
     public static final String TABLE_COVERAGE_DATA = "DR_STORE_COVERAGE";
+    public static final String TABLE_STORE_PROFILE = "DR_STORE_PROFILE";
 
 
     // FOR JCP DOWNLOAD
@@ -289,6 +291,9 @@ public class CommonString {
     public static final String KEY_VISIT_DATE = "VISIT_DATE";
     public static final String KEY_PROCESS_ID = "PROCESS_ID";
     public static final String KEY_STOCK = "STOCK";
+    public static final String KEY_FOOTFALL = "FOOTFALL";
+    public static final String KEY_CONTACT = "CONTACT";
+    public static final String KEY_SALE_CONVERSION = "SALE_CONVERSION";
     public static final String KEY_LATITUDE = "LATITUDE";
     public static final String KEY_LONGITUDE = "LONGITUDE";
     public static final String KEY_REASON_ID = "REASON_ID";
@@ -327,9 +332,11 @@ public class CommonString {
     public static final String TABLE_STORE_DETAIL = "STORE_MASTER";
 
     public static final String TABLE_INSERT_ADDTIONAL_DETAILS = "ADDTIONAL_INFO";
+    public static final String TABLE_STORE_FOOTFALL = "DR_STORE_FOOTFALL";
 
     public static final String TABLE_INSERT_STOCK_TOT = "STOCK_TOT";
     public static final String TABLE_INSERT_SALES_STOCK = "SALES_STOCK";
+    public static final String TABLE_INSERT_LISTED_SKU = "DR_LISTED_SKU";
 
     public static final String TABLE_INSERT_COMPETITION_INFO = "COMPETITION_INFO";
 
@@ -365,6 +372,16 @@ public class CommonString {
             + KEY_ADDITIONAL_YESYorNO + " VARCHAR,"
             + KEY_PROCESS_ID + " INTEGER)";
 
+    public static final String CREATE_TABLE_STORE_FOOTFALL = "CREATE TABLE "
+            + TABLE_STORE_FOOTFALL + " (" + KEY_ID
+            + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + KEY_STORE_ID + " INTEGER,"
+            + KEY_CATEGORY_ID + " INTEGER,"
+            + KEY_PROCESS_ID + " INTEGER,"
+            + KEY_FOOTFALL + " INTEGER,"
+            + KEY_CONTACT + " INTEGER,"
+            + KEY_SALE_CONVERSION + " INTEGER)";
+
 
     public static final String CREATE_TABLE_STOCK_TOT = "CREATE TABLE "
             + TABLE_INSERT_STOCK_TOT + " (" + KEY_ID
@@ -387,6 +404,16 @@ public class CommonString {
             + KEY_SKUNAME + " VARCHAR,"
             + KEY_PROCESS_ID + " INTEGER,"
             + KEY_USER_ID + " VARCHAR)";
+
+    public static final String CREATE_TABLE_INSERT_LISTED_SKU = "CREATE TABLE "
+            + TABLE_INSERT_LISTED_SKU + " (" + KEY_ID
+            + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_STORE_ID + " INTEGER,"
+            + KEY_PROCESS_ID + " INTEGER,"
+            + KEY_BRAND_ID + " INTEGER,"
+            + KEY_BRAND + " VARCHAR,"
+            + KEY_SKU_ID + " INTEGER,"
+            + KEY_SKUNAME + " VARCHAR,"
+            + KEY_REASON + " VARCHAR)";
 
 
     public static final String CREATE_TABLE_COMPETITION_INFO = "CREATE TABLE "
@@ -450,6 +477,10 @@ public class CommonString {
             "(KEY_ID INTEGER PRIMARY KEY AUTOINCREMENT ,STORE_ID INT, VISIT_DATE TEXT, IN_TIME TEXT, OUT_TIME TEXT, LATITUDE TEXT, " +
             "LONGITUDE TEXT,  REASON_ID INT, SUB_REASON_ID INT, REMARK  TEXT, IMAGE_ALLOW INT, " +
             "STORE_IMAGE TEXT,  USER_ID TEXT, APP_VERSION TEXT, PROCESS_ID INT,CHECKOUT_IMAGE VARCHAR, STATUS VARCHAR)";
+
+    public static final String CREATE_TABLE_STORE_PROFILE = "CREATE TABLE DR_STORE_PROFILE " +
+            "(KEY_ID INTEGER PRIMARY KEY AUTOINCREMENT ,STORE_ID INT, VISIT_DATE TEXT, STORE_NAME TEXT, ADDRESS TEXT, LOCALITY TEXT, " +
+            "PINCODE TEXT, USER_ID TEXT, PROCESS_ID INT,CITY VARCHAR)";
 
 
     // Upload Image

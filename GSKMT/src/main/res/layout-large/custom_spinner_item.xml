@@ -2,19 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
-    android:background="@android:color/transparent"
-    >
+    android:background="@android:color/transparent">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        card_view:cardBackgroundColor="@color/white"
-        card_view:cardCornerRadius="5dp"
-        >
-
-        <LinearLayout
+    <LinearLayout
             android:id="@+id/parent_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -34,9 +25,5 @@
                 android:textSize="@dimen/txtsize_16sp"
                 android:paddingLeft="@dimen/custom_margin"/>
 
-
         </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
 </LinearLayout>

@@ -60,12 +60,12 @@ import android.widget.ToggleButton;
 public class AfterTOT extends Activity {
     private SharedPreferences preferences;
     static int mposition = -1;
-    public static String store_id, category_id, process_id, date, intime, username, app_version, imgDate, storetype_id, region_id, state_id, key_id, class_id;
+    public static String store_id, category_id, process_id, date, intime, username,
+            app_version, imgDate, storetype_id, region_id, state_id, key_id, class_id;
     public static String img1 = "", img2 = "", img3 = "";
     public String _path = "", reason_id = "0", remark = "", storename, cat_name;
     private static String str;
     String brand_name = "", brand_id = "", sku_name = "", sku_id = "";
-    int row_pos;
     Spinner brand, sku;
     EditText quantity;
     MyAdaptorStock adapterData;
@@ -111,7 +111,6 @@ public class AfterTOT extends Activity {
         class_id = preferences.getString(CommonString.KEY_CLASS_ID, null);
         storename = preferences.getString(CommonString.KEY_STORE_NAME, "");
         cat_name = preferences.getString(CommonString.KEY_CATEGORY_NAME, "");
-
         db = new GSKMTDatabase(context);
         db.open();
         if ((new File(Environment.getExternalStorageDirectory() + "/MT_GSK_Images/")).exists()) {
@@ -126,7 +125,6 @@ public class AfterTOT extends Activity {
         if (data.size() == 0) {
             data = db.getTOTData(store_id, process_id, category_id);
             for (int i2 = 0; i2 < data.size(); i2++) {
-
                 data.get(i2).setCamera1("NO");
                 data.get(i2).setCamera2("NO");
                 data.get(i2).setCamera3("NO");
@@ -205,7 +203,7 @@ public class AfterTOT extends Activity {
                                                                 db.open();
                                                                 db.updateAfterTOTData(store_id, data.get(i).getBrand_id(), data.get(i).getDisplay_id(),
                                                                         data.get(i).getAFTER_QTY(), data.get(i).getStock_count(), data.get(i).getImage1(),
-                                                                        data.get(i).getImage2(), data.get(i).getImage3(), process_id);
+                                                                        data.get(i).getImage2(), data.get(i).getImage3(), process_id, category_id);
 
                                                             }
 
@@ -219,7 +217,6 @@ public class AfterTOT extends Activity {
                                                             startActivity(i);
                                                             AfterTOT.this.finish();
                                                         }
-
                                                     }
                                                 })
                                         .setNegativeButton("Cancel",
@@ -274,11 +271,9 @@ public class AfterTOT extends Activity {
         builder.setMessage("Are you sure you want to quit ?").setCancelable(false).setPositiveButton("Yes",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-
                         Intent in = new Intent(context, DailyEntryMainMenu.class);
                         startActivity(in);
                         AfterTOT.this.finish();
-
                     }
                 }).setNegativeButton("No",
                 new DialogInterface.OnClickListener() {
@@ -301,14 +296,9 @@ public class AfterTOT extends Activity {
 
     }
 
-
     public String getCurrentTime() {
-
         Calendar m_cal = Calendar.getInstance();
-
-        String intime = m_cal.get(Calendar.HOUR_OF_DAY) + ":"
-                + m_cal.get(Calendar.MINUTE) + ":" + m_cal.get(Calendar.SECOND);
-
+        String intime = m_cal.get(Calendar.HOUR_OF_DAY) + ":" + m_cal.get(Calendar.MINUTE) + ":" + m_cal.get(Calendar.SECOND);
         return intime;
 
     }
@@ -336,14 +326,12 @@ public class AfterTOT extends Activity {
 
     public boolean check_conditionForQuestions() {
         boolean result = true;
-
         for (int i = 0; i < data.size(); i++) {
             db.open();
             question_list = db.getInsertedTOTQuestionsData(store_id, data.get(i).getDisplay_id(), category_id, data.get(i).getUnique_id(), process_id);
             if (question_list.size() == 0) {
                 result = false;
                 break;
-
             }
 
         }
@@ -369,9 +357,7 @@ public class AfterTOT extends Activity {
                     result = true;
 
                 }
-
             }
-
 
         }
 
@@ -408,7 +394,6 @@ public class AfterTOT extends Activity {
     }
 
     private class MyAdaptor extends BaseAdapter {
-
         LayoutInflater mInflater;
         private Context mcontext;
 
@@ -416,7 +401,6 @@ public class AfterTOT extends Activity {
         public MyAdaptor(Context context) {
             mInflater = LayoutInflater.from(context);
             mcontext = context;
-
         }
 
         @Override
@@ -437,8 +421,6 @@ public class AfterTOT extends Activity {
         @Override
         public View getView(final int position, View convertView, ViewGroup parent) {
             final ViewHolder holder;
-
-
             if (convertView == null) {
                 convertView = mInflater.inflate(R.layout.after_tot_viewlist, null);
                 holder = new ViewHolder();
@@ -479,7 +461,7 @@ public class AfterTOT extends Activity {
                 public void onClick(View v) {
                     if (data.get(position).getImage_url() != null && !data.get(position).getImage_url().equals("NA")) {
                         if (new File(CommonString.FILE_PATH_PLANOGRAM + data.get(position).getImage_url()).exists()) {
-                            final Dialog dialog = new Dialog(AfterTOT.this);
+                            final Dialog dialog = new Dialog(mcontext);
                             dialog.setContentView(R.layout.popup);
                             ImageView refimage = (ImageView) dialog.findViewById(R.id.displayimage);
                             dialog.setTitle("Reference Image");
@@ -490,10 +472,10 @@ public class AfterTOT extends Activity {
                                 dialog.show();
                             }
                         } else {
-                            Toast.makeText(AfterTOT.this, "Refrence image not availeble", Toast.LENGTH_LONG).show();
+                            Toast.makeText(mcontext, "Refrence image not availeble", Toast.LENGTH_LONG).show();
                         }
                     } else {
-                        Toast.makeText(AfterTOT.this, "Refrence image not availeble", Toast.LENGTH_LONG).show();
+                        Toast.makeText(mcontext, "Refrence image not availeble", Toast.LENGTH_LONG).show();
                     }
 
 
@@ -503,7 +485,6 @@ public class AfterTOT extends Activity {
 
             if (data.get(position).getAFTER_QTY().equals("")) {
                 holder.actual_quanity.setText("");
-
             } else {
                 holder.actual_quanity.setText(data.get(position).getAFTER_QTY());
             }
@@ -515,8 +496,7 @@ public class AfterTOT extends Activity {
                         data.get(position).getUnique_id());
                 if (totStocklist.size() > 0) {
                     db.open();
-                    db.deleteTOTStockEntry(store_id, category_id, process_id, data.get(position).getDisplay_id(),
-                            data.get(position).getUnique_id());
+                    db.deleteTOTStockEntry(store_id, category_id, process_id, data.get(position).getDisplay_id(), data.get(position).getUnique_id());
                 }
 
                 holder.stock_btn.setEnabled(false);
@@ -558,8 +538,8 @@ public class AfterTOT extends Activity {
                 @Override
                 public void onClick(View v) {
                     mposition = position;
-                    _pathforcheck = store_id + "_" + process_id + username + imgDate + "left" +
-                            data.get(position).getBrand_id() + data.get(position).getDisplay_id() + ".jpg";
+                    _pathforcheck = store_id + "_" + process_id + "-" + category_id + "-" + data.get(position).getBrand_id() + "-" +
+                            data.get(position).getDisplay_id() + "-left" + imgDate + ".jpg";
                     _path = str + _pathforcheck;
                     CommonFunctions.startAnncaCameraActivity(mcontext, _path);
 
@@ -571,9 +551,8 @@ public class AfterTOT extends Activity {
                 @Override
                 public void onClick(View v) {
                     mposition = position;
-                    _pathforcheck2 = store_id + "_" + process_id + username + imgDate + "front" +
-                            data.get(position).getBrand_id() + data.get(position).getDisplay_id()
-                            + ".jpg";
+                    _pathforcheck2 = store_id + "_" + process_id + "-" + category_id + "-" + data.get(position).getBrand_id() + "-" +
+                            data.get(position).getDisplay_id() + "-front" + imgDate + ".jpg";
                     _path = str + _pathforcheck2;
                     CommonFunctions.startAnncaCameraActivity(mcontext, _path);
 
@@ -586,8 +565,8 @@ public class AfterTOT extends Activity {
                 @Override
                 public void onClick(View v) {
                     mposition = position;
-                    _pathforcheck3 = store_id + "_" + process_id + username + imgDate + "right" +
-                            data.get(position).getBrand_id() + data.get(position).getDisplay_id() + ".jpg";
+                    _pathforcheck3 = store_id + "_" + process_id + "-" + category_id + "-" + data.get(position).getBrand_id() + "-" +
+                            data.get(position).getDisplay_id() + "-right" + imgDate + ".jpg";
                     _path = str + _pathforcheck3;
                     CommonFunctions.startAnncaCameraActivity(mcontext, _path);
 
@@ -675,7 +654,6 @@ public class AfterTOT extends Activity {
 
                 @Override
                 public void onClick(View v) {
-                    final int position1 = v.getId();
                     final Dialog stockdialog = new Dialog(mcontext);
                     stockdialog.setContentView(R.layout.totstockdialog);
                     stockdialog.setTitle("Stock Display");
@@ -749,7 +727,7 @@ public class AfterTOT extends Activity {
                     db.open();
                     list = db.getTOTStockEntryDetail(store_id, category_id, process_id, data.get(position).getDisplay_id(), data.get(position).getUnique_id());
                     if (list.size() > 0) {
-                        adapterData = new MyAdaptorStock(AfterTOT.this, list);
+                        adapterData = new MyAdaptorStock((Activity) context, list);
                         listview.setAdapter(adapterData);
                         listview.invalidateViews();
                     }
@@ -776,6 +754,7 @@ public class AfterTOT extends Activity {
                                         ab.setProcess_id(process_id);
                                         ab.setQuantity(quan);
                                         ab.setCategory_id(category_id);
+                                        db.open();
                                         db.InsertStockTot(ab);
                                         brand.setSelection(0);
                                         sku.setSelection(0);
@@ -783,20 +762,17 @@ public class AfterTOT extends Activity {
                                         db.open();
                                         list = db.getTOTStockEntryDetail(store_id, category_id, process_id,
                                                 data.get(position).getDisplay_id(), data.get(position).getUnique_id());
-                                        adapterData = new MyAdaptorStock(AfterTOT.this, list);
+                                        adapterData = new MyAdaptorStock((Activity) context, list);
                                         listview.setAdapter(adapterData);
                                         listview.invalidateViews();
                                     } else {
-                                        Toast.makeText(getBaseContext(), "Duplicate Entry !", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(mcontext, "Duplicate Entry !", Toast.LENGTH_LONG).show();
                                     }
                                 } else {
-                                    Toast.makeText(getBaseContext(), "Please Select the Brand & Sku", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(mcontext, "Please Select the Brand & Sku", Toast.LENGTH_LONG).show();
                                 }
-
                             } else {
-
-                                Toast.makeText(getBaseContext(), "Please fill the quantity ", Toast.LENGTH_LONG).show();
-
+                                Toast.makeText(mcontext, "Please fill the quantity ", Toast.LENGTH_LONG).show();
                             }
 
                         }
@@ -811,7 +787,7 @@ public class AfterTOT extends Activity {
                 @Override
                 public void onClick(View v) {
                     final int position1 = v.getId();
-                    final Dialog dialog = new Dialog(AfterTOT.this, R.style.theme_sms_receive_dialog);
+                    final Dialog dialog = new Dialog(context, R.style.theme_sms_receive_dialog);
                     dialog.setContentView(R.layout.dialog);
                     dialog.setTitle("Gap Reasons");
                     ListView listofquestion = (ListView) dialog.findViewById(R.id.list_q);
@@ -824,16 +800,12 @@ public class AfterTOT extends Activity {
                         update1 = false;
                         db.open();
                         question_list = db.getQuestionsData(data.get(position1).getDisplay_id());
-                        listofquestion.setAdapter(new questionAdaptor(AfterTOT.this));
+                        listofquestion.setAdapter(new questionAdaptor(context));
                     } else {
-
                         update1 = true;
                         save_q.setText("Update");
-
                         if (question_list.size() > 0) {
-
-                            listofquestion.setAdapter(new questionAdaptor(AfterTOT.this));
-
+                            listofquestion.setAdapter(new questionAdaptor(context));
                         }
 
                     }
@@ -875,13 +847,10 @@ public class AfterTOT extends Activity {
 
 
     private class questionAdaptor extends BaseAdapter {
-
         LayoutInflater mInflater;
         private Context mcontext;
 
-
         public questionAdaptor(Context context) {
-
             mInflater = LayoutInflater.from(context);
             mcontext = context;
 
@@ -890,13 +859,11 @@ public class AfterTOT extends Activity {
 
         @Override
         public int getCount() {
-
             return question_list.size();
         }
 
         @Override
         public Object getItem(int position) {
-
             return position;
         }
 
@@ -910,17 +877,10 @@ public class AfterTOT extends Activity {
         public View getView(final int position, View convertView, ViewGroup parent) {
             ViewHolder holder;
             if (convertView == null) {
-
-                convertView = mInflater.inflate(R.layout.question_view_list,
-                        null);
+                convertView = mInflater.inflate(R.layout.question_view_list, null);
                 holder = new ViewHolder();
-                holder.question_text = (TextView) convertView
-                        .findViewById(R.id.question);
-
-                holder.answer = (ToggleButton) convertView
-                        .findViewById(R.id.answer);
-
-
+                holder.question_text = (TextView) convertView.findViewById(R.id.question);
+                holder.answer = (ToggleButton) convertView.findViewById(R.id.answer);
                 convertView.setTag(holder);
             } else {
                 holder = (ViewHolder) convertView.getTag();
@@ -928,26 +888,17 @@ public class AfterTOT extends Activity {
 
             holder.question_text.setText(question_list.get(position).getQuestion());
 
-
             holder.answer.setOnClickListener(new OnClickListener() {
 
                 @Override
                 public void onClick(View v) {
-
-
                     final int position = v.getId();
                     final ToggleButton Caption = (ToggleButton) v;
                     String value1 = Caption.getText().toString();
-
                     if (value1.equals("")) {
-
                         question_list.get(position).setAnswer("");
-
                     } else {
-
                         question_list.get(position).setAnswer(value1);
-
-
                     }
 
                 }
@@ -959,6 +910,7 @@ public class AfterTOT extends Activity {
             } else {
                 holder.answer.setChecked(true);
             }
+
             holder.answer.setId(position);
             holder.question_text.setId(position);
 
@@ -980,31 +932,27 @@ public class AfterTOT extends Activity {
                     if (_pathforcheck != null && !_pathforcheck.equals("")) {
                         if (new File(str + _pathforcheck).exists()) {
                             String metadata = CommonFunctions.setMetadataAtImagesforcategory(storename, store_id, "TOT LEFT IMAGE", username, cat_name);
-                            CommonFunctions.addMetadataAndTimeStampToImage(AfterTOT.this, _path, metadata, date);
+                            CommonFunctions.addMetadataAndTimeStampToImage(context, _path, metadata, date);
                             img1 = _pathforcheck;
                             lv.invalidateViews();
                             _pathforcheck = "";
                             break;
 
                         }
-                    }
-
-                    if (_pathforcheck2 != null && !_pathforcheck2.equals("")) {
+                    } else if (_pathforcheck2 != null && !_pathforcheck2.equals("")) {
                         if (new File(str + _pathforcheck2).exists()) {
                             String metadata = CommonFunctions.setMetadataAtImagesforcategory(storename, store_id, "TOT FRONT IMAGE", username, cat_name);
-                            CommonFunctions.addMetadataAndTimeStampToImage(AfterTOT.this, _path, metadata, date);
+                            CommonFunctions.addMetadataAndTimeStampToImage(context, _path, metadata, date);
                             img2 = _pathforcheck2;
                             lv.invalidateViews();
                             _pathforcheck2 = "";
                             break;
 
                         }
-                    }
-
-                    if (_pathforcheck3 != null && !_pathforcheck3.equals("")) {
+                    } else if (_pathforcheck3 != null && !_pathforcheck3.equals("")) {
                         if (new File(str + _pathforcheck3).exists()) {
                             String metadata = CommonFunctions.setMetadataAtImagesforcategory(storename, store_id, "TOT RIGHT IMAGE", username, cat_name);
-                            CommonFunctions.addMetadataAndTimeStampToImage(AfterTOT.this, _path, metadata, date);
+                            CommonFunctions.addMetadataAndTimeStampToImage(context, _path, metadata, date);
                             img3 = _pathforcheck3;
                             lv.invalidateViews();
                             _pathforcheck3 = "";
@@ -1026,7 +974,6 @@ public class AfterTOT extends Activity {
         private ArrayList<TOTBean> list;
 
         public MyAdaptorStock(Activity activity, ArrayList<TOTBean> list1) {
-
             mInflater = LayoutInflater.from(getBaseContext());
             mcontext = activity;
             list = list1;
@@ -1034,19 +981,16 @@ public class AfterTOT extends Activity {
 
         @Override
         public int getCount() {
-
             return list.size();
         }
 
         @Override
         public Object getItem(int position1) {
-
             return position1;
         }
 
         @Override
         public long getItemId(int position1) {
-
             return position1;
         }
 
@@ -1058,11 +1002,8 @@ public class AfterTOT extends Activity {
 
         @Override
         public View getView(final int position1, View convertView, ViewGroup parent) {
-
             final ViewHolder holder;
-
             if (convertView == null) {
-
                 convertView = mInflater.inflate(R.layout.tot_stock_list, null);
                 holder = new ViewHolder();
                 holder.brand = (TextView) convertView.findViewById(R.id.brand_name);
@@ -1078,40 +1019,31 @@ public class AfterTOT extends Activity {
 
                 @Override
                 public void onClick(View v) {
-
-                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                            AfterTOT.this);
-
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
                     // set title
                     alertDialogBuilder.setTitle("Do You Want To Delete?");
-
                     // set dialog message
-                    alertDialogBuilder
-                            .setMessage("Click Yes To Delete!")
-                            .setCancelable(false)
-                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    // if this button is clicked, close
-                                    // current activity
-                                    db.open();
-                                    db.deleteTOTStockEntry(list.get(position1).getKEY_ID());
+                    alertDialogBuilder.setMessage("Click Yes To Delete!").setCancelable(false).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            // if this button is clicked, close
+                            // current activity
+                            db.open();
+                            db.deleteTOTStockEntry(list.get(position1).getKEY_ID());
+                            adapterData.notifyDataSetChanged();
+                            db.open();
+                            list = db.getTOTStockEntryDetail(store_id, category_id, process_id,
+                                    list.get(position1).getDisplay_id(), list.get(position1).getUnique_id());
+                            listview.setAdapter(new MyAdaptorStock((Activity) context, list));
+                            listview.invalidateViews();
 
-                                    adapterData.notifyDataSetChanged();
-                                    db.open();
-                                    list = db.getTOTStockEntryDetail(store_id, category_id, process_id,
-                                            list.get(position1).getDisplay_id(), list.get(position1).getUnique_id());
-                                    listview.setAdapter(new MyAdaptorStock(AfterTOT.this, list));
-                                    listview.invalidateViews();
-
-                                }
-                            })
-                            .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    // if this button is clicked, just close
-                                    // the dialog box and do nothing
-                                    dialog.cancel();
-                                }
-                            });
+                        }
+                    }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            // if this button is clicked, just close
+                            // the dialog box and do nothing
+                            dialog.cancel();
+                        }
+                    });
 
                     // create alert dialog
                     AlertDialog alertDialog = alertDialogBuilder.create();
@@ -1123,15 +1055,11 @@ public class AfterTOT extends Activity {
             });
 
 
-            holder.brand.setText(list.get(position1).getBrand()
-                    .toString());
-            holder.display.setText(list.get(position1).getSku_name().toString());
-
-            holder.qty_bought.setText(list.get(position1).getQuantity());
-
-
+            holder.brand.setText(list.get(position1).getBrand().toString());
             holder.brand.setId(position1);
+            holder.display.setText(list.get(position1).getSku_name().toString());
             holder.display.setId(position1);
+            holder.qty_bought.setText(list.get(position1).getQuantity());
             holder.qty_bought.setId(position1);
             holder.delete.setId(position1);
 
@@ -1148,18 +1076,14 @@ public class AfterTOT extends Activity {
 
     }
 
-
     public boolean validateduplicateEntry(String display_id, String unique_id) {
         boolean result = true;
         db.open();
-        list = db.getTOTStockEntryDetailFORVAlidation(store_id, category_id, process_id,
-                display_id, unique_id, brand_id, sku_id);
-
+        list = db.getTOTStockEntryDetailFORVAlidation(store_id, category_id, process_id, display_id, unique_id, brand_id, sku_id);
         if (list.size() > 0) {
             result = false;
         }
         return result;
     }
-
 
 }

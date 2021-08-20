@@ -1,6 +1,15 @@
 package com.cpm.delegates;
 
 public class TableBean {
+	public static String getMappingallsku_table() {
+		return mappingallsku_table;
+	}
+
+	public static void setMappingallsku_table(String mappingallsku_table) {
+		TableBean.mappingallsku_table = mappingallsku_table;
+	}
+
+	public static String  mappingallsku_table;
 	public static String  sku_master_table;
 	public static String jorney_plan_table;
 	public static String brand_master_table;

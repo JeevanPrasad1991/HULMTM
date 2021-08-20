@@ -318,7 +318,7 @@ public class CheckOutStoreActivity extends Activity implements GoogleApiClient.C
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
             dialog.dismiss();
-            if (result.equals(CommonString.KEY_SUCCESS)) {
+            if (result.equalsIgnoreCase(CommonString.KEY_SUCCESS)) {
                 AlertMessage message = new AlertMessage(CheckOutStoreActivity.this, AlertMessage.MESSAGE_CHECKOUT,
                         "checkout", null);
                 message.showMessage();

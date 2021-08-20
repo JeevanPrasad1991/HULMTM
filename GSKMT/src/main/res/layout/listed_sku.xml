@@ -1,0 +1,49 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/home_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/brand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="5dp"
+        android:gravity="center_vertical"
+        android:padding="@dimen/store_p_activity_vertical_margin"
+        android:text="Horlicks"
+        android:textSize="@dimen/txtsize_16sp"
+        android:textColor="#000000" />
+
+    <LinearLayout
+        android:id="@+id/mainpage_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/list_selector"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <TextView
+            android:id="@+id/mainpage_rememberme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="7"
+            android:gravity="center_vertical"
+            android:padding="@dimen/store_p_activity_vertical_margin"
+            android:paddingLeft="5dp"
+            android:text=""
+            android:textSize="14sp" />
+
+        <Spinner
+            android:id="@+id/spin_sku_availeb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:background="@null"/>
+    </LinearLayout>
+</LinearLayout>

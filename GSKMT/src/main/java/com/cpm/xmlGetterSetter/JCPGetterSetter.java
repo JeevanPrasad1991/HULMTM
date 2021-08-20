@@ -47,6 +47,45 @@ public class JCPGetterSetter {
 
 	ArrayList<String>saleEnable = new ArrayList<String>();
 
+	public ArrayList<String> getListedEntry() {
+		return listedEntry;
+	}
+
+	public void setListedEntry(String listedEntry) {
+		this.listedEntry.add(listedEntry);
+	}
+
+	ArrayList<String>listedEntry = new ArrayList<String>();
+
+	ArrayList<String>address = new ArrayList<String>();
+	ArrayList<String>locality = new ArrayList<String>();
+
+	public ArrayList<String> getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address.add(address);
+	}
+
+	public ArrayList<String> getLocality() {
+		return locality;
+	}
+
+	public void setLocality(String locality) {
+		this.locality.add(locality);
+	}
+
+	public ArrayList<String> getPincode() {
+		return pincode;
+	}
+
+	public void setPincode(String pincode) {
+		this.pincode.add(pincode);
+	}
+
+	ArrayList<String>pincode = new ArrayList<String>();
+
 	public ArrayList<String> getPACKED_KEY() {
 		return PACKED_KEY;
 	}

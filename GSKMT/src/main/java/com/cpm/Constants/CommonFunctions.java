@@ -24,6 +24,7 @@ import androidx.core.app.ActivityCompat;
 
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -45,6 +46,18 @@ import io.github.memfis19.annca.internal.configuration.AnncaConfiguration;
  */
 
 public class CommonFunctions {
+    public static String removed_special_char(EditText common_edt) {
+        String value_edt = "";
+        try {
+
+            value_edt = common_edt.getText().toString().trim().replaceAll("[/;(!@#$%^&*?)\"]", "");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return value_edt;
+    }
+
     public static String getCurrentTime() {
 
         Calendar m_cal = Calendar.getInstance();

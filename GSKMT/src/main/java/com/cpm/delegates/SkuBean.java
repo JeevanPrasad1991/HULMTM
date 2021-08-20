@@ -1,5 +1,7 @@
 package com.cpm.delegates;
 
+import java.util.ArrayList;
+
 public class SkuBean {
 	public String sku_id;
 
@@ -12,6 +14,16 @@ public class SkuBean {
 	}
 
 	public String LINEAR_MEASUREMENT="";
+
+	public String getReason_name() {
+		return reason_name;
+	}
+
+	public void setReason_name(String reason_name) {
+		this.reason_name = reason_name;
+	}
+
+	public String reason_name="";
 	public String sku_name;
 	public String brand;
 	public String brand_id;
@@ -412,4 +424,14 @@ public class SkuBean {
 	}
 
 	String noneyelevel="";
+
+	ArrayList<SkuBean>reasons=new ArrayList<>();
+
+	public ArrayList<SkuBean> getReasons() {
+		return reasons;
+	}
+
+	public void setReasons(ArrayList<SkuBean> reasons) {
+		this.reasons = reasons;
+	}
 }

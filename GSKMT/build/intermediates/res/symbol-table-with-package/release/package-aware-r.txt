@@ -892,6 +892,8 @@ dimen abc_text_size_title_material
 dimen abc_text_size_title_material_toolbar
 dimen activity_horizontal_margin
 dimen activity_vertical_margin
+dimen appbar_padding_top
+dimen button_margin
 dimen cardview_compat_inset_shadow
 dimen cardview_default_elevation
 dimen cardview_default_radius
@@ -902,6 +904,8 @@ dimen compat_button_padding_vertical_material
 dimen compat_control_corner_material
 dimen compat_notification_large_icon_max_height
 dimen compat_notification_large_icon_max_width
+dimen custom_layout_margin
+dimen custom_layout_margin35
 dimen custom_margin
 dimen design_appbar_elevation
 dimen design_bottom_navigation_active_item_max_width
@@ -959,6 +963,7 @@ dimen fortxtsize20sp
 dimen highlight_alpha_material_colored
 dimen highlight_alpha_material_dark
 dimen highlight_alpha_material_light
+dimen hight40dp
 dimen hint_alpha_material_dark
 dimen hint_alpha_material_light
 dimen hint_pressed_alpha_material_dark
@@ -967,6 +972,9 @@ dimen item_touch_helper_max_drag_scroll_per_frame
 dimen item_touch_helper_swipe_escape_max_velocity
 dimen item_touch_helper_swipe_escape_velocity
 dimen labels_text_size
+dimen margin11dp
+dimen margin1dp
+dimen margin2dp
 dimen mtrl_bottomappbar_fabOffsetEndMode
 dimen mtrl_bottomappbar_fab_cradle_margin
 dimen mtrl_bottomappbar_fab_cradle_rounded_corner_radius
@@ -1015,6 +1023,7 @@ dimen mtrl_textinput_box_stroke_width_default
 dimen mtrl_textinput_box_stroke_width_focused
 dimen mtrl_textinput_outline_box_expanded_padding
 dimen mtrl_toolbar_default_height
+dimen nav_header_height
 dimen notification_action_icon_size
 dimen notification_action_text_size
 dimen notification_big_circle_margin
@@ -1030,14 +1039,26 @@ dimen notification_small_icon_size_as_large
 dimen notification_subtext_size
 dimen notification_top_pad
 dimen notification_top_pad_large_text
+dimen padding10dp
 dimen padding_10dp
 dimen padding_18sp
+dimen padding_standard
+dimen store_entry_text_size
 dimen store_p_activity_vertical_margin
 dimen subtitle_corner_radius
 dimen subtitle_outline_width
 dimen subtitle_shadow_offset
 dimen subtitle_shadow_radius
+dimen text_size_13sp
+dimen text_size_14
+dimen text_size_20
+dimen text_size_big
+dimen text_size_medium
+dimen text_size_normal
+dimen text_size_small
+dimen text_size_very_small
 dimen text_size_xsmall
+dimen textsize14
 dimen tooltip_corner_radius
 dimen tooltip_horizontal_padding
 dimen tooltip_margin
@@ -1140,6 +1161,7 @@ drawable auto_update_ico
 drawable avd_hide_password
 drawable avd_show_password
 drawable backroom
+drawable backroom_gray
 drawable backroom_tick
 drawable bg_red
 drawable brandedtrays
@@ -1185,6 +1207,9 @@ drawable competition_asset_done
 drawable competition_promotion
 drawable competition_promotion_disable
 drawable competition_promotion_done
+drawable consumer_connect
+drawable consumer_connect_gray
+drawable consumer_connect_tick
 drawable daily_entry_ico
 drawable deletecross
 drawable design_bottom_navigation_item_background
@@ -1291,6 +1316,9 @@ drawable sales_tick
 drawable shelfinshelf
 drawable signin_btn
 drawable skirting
+drawable sku_listed
+drawable sku_listed_gray
+drawable sku_listed_tick
 drawable sos
 drawable sos_gray
 drawable sos_tick
@@ -1422,6 +1450,7 @@ id brand
 id brand_name
 id brand_namespinner
 id brandname
+id btn_customer_connect
 id buttonPanel
 id cam1
 id cam2
@@ -1493,9 +1522,18 @@ id down
 id editText1
 id editText2
 id edit_query
+id edt_DailyStoreFootfall
+id edt_ShopperContact
+id edt_city
 id edt_comp_priceoff
 id edt_comp_promotion
+id edt_sales_conversion
 id edt_stock
+id edt_storeId
+id edt_store_address
+id edt_store_locality
+id edt_store_name
+id edt_store_pincode
 id end
 id end_padder
 id enterAlways
@@ -1770,6 +1808,7 @@ id sos_target
 id sos_target_withohc_target
 id spacer
 id spin_exist
+id spin_sku_availeb
 id spinner1
 id split_action_bar
 id spread
@@ -1853,6 +1892,7 @@ id tv_title
 id txt_brands
 id txt_ownbrands
 id txt_stock
+id txt_store_name
 id txt_target
 id uniform
 id unlabeled
@@ -1932,6 +1972,8 @@ layout activity_maps
 layout activity_merchandising_attendence
 layout activity_notice_board
 layout activity_preview
+layout activity_store_profile
+layout activity_storefootfall
 layout addtional_before_display
 layout addtional_list
 layout after_tot
@@ -1983,6 +2025,7 @@ layout item_sos
 layout item_storewiseperformace_list
 layout keyboard1
 layout keyboardforphone
+layout listed_sku
 layout login
 layout mainpage
 layout mtrl_layout_snackbar
@@ -2658,6 +2701,7 @@ style Widget_MaterialComponents_TextInputLayout_OutlinedBox
 style Widget_MaterialComponents_TextInputLayout_OutlinedBox_Dense
 style Widget_MaterialComponents_Toolbar
 style Widget_Support_CoordinatorLayout
+style selectionTextStyle
 style theme_sms_receive_dialog
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity

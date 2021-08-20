@@ -1,27 +1,27 @@
 -- Merging decision tree log ---
 provider#androidx.core.content.FileProvider
-INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:246:9-254:20
+INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:261:9-269:20
 	android:grantUriPermissions
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:250:13-47
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:265:13-47
 	android:authorities
 		INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:248:13-64
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:263:13-64
 	android:exported
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:249:13-37
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:264:13-37
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:247:13-62
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:262:13-62
 manifest
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:2:1-262:12
-INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:2:1-262:12
-INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:2:1-262:12
-INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:2:1-262:12
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:2:1-277:12
+INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:2:1-277:12
+INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:2:1-277:12
+INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:2:1-277:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\249265f34d13b42ef3be0cdd6167810a\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\e047f9c2be94ae37637d2e055b575089\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\fb2b310bb3171aa16a78d81607620477\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\e559f60bd9fe456e7d2fddd4529ac5f1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\5e3b09ab8ae4fe89e39a20ddc4513a29\AndroidManifest.xml:17:1-22:12
 MERGED from [com.github.clans:fab:1.6.2] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\c070ca06ebc1dda6bc257e15ca2f8ffb\AndroidManifest.xml:2:1-14:12
-MERGED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\9becb86db50079dd058bacd1e9c5a7e9\AndroidManifest.xml:17:1-45:12
+MERGED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\f3f01149618ba1afe3a4cba4185d7707\AndroidManifest.xml:17:1-45:12
 MERGED from [com.google.android.gms:play-services-location:17.1.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\ad63be80d8170ff5acfa64b145c79bcf\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\82c087c764c118b3d58020385a1ea2ab\AndroidManifest.xml:17:1-38:12
 MERGED from [com.google.firebase:firebase-iid:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\aad9fb00d1dd492d4d234e762e3b00b8\AndroidManifest.xml:17:1-47:12
@@ -34,7 +34,7 @@ MERGED from [com.google.firebase:firebase-datatransport:17.0.3] C:\Users\cpmin\.
 MERGED from [com.google.firebase:firebase-analytics:17.6.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\2b78c267a5fd332c7571d7f5bae726b8\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-measurement-api:17.6.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\1606dd1655d70727c908e99d01bf640b\AndroidManifest.xml:17:1-36:12
 MERGED from [com.google.firebase:firebase-installations:16.3.3] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\6bf582111409526b11fa1774143370a2\AndroidManifest.xml:2:1-23:12
-MERGED from [com.google.firebase:firebase-common:19.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\001b3d80951dde2d6560a71b695471b7\AndroidManifest.xml:15:1-40:12
+MERGED from [com.google.firebase:firebase-common:19.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\65ecfa9cd4d26bac1e64d33e4116cd49\AndroidManifest.xml:15:1-40:12
 MERGED from [com.google.android.gms:play-services-cloud-messaging:16.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\513eb3d1a990e8881702cee9253db70b\AndroidManifest.xml:2:1-13:12
 MERGED from [com.google.firebase:firebase-installations-interop:16.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\ac34dfb1b8e105e9d5622389c93f1ed6\AndroidManifest.xml:15:1-23:12
 MERGED from [com.google.android.gms:play-services-tasks:17.1.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\4c2acf75987408043af0720fddc56e8a\AndroidManifest.xml:2:1-9:12
@@ -46,7 +46,7 @@ MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] C:\Users
 MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\e280472b62f4115fc913dcb6795924bb\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.6.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\0b5c67074fbc30add937a0c44bf3c615\AndroidManifest.xml:17:1-27:12
 MERGED from [com.google.android.gms:play-services-measurement-base:17.6.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\a8e9a26dd1ecec185259381d179b8cd8\AndroidManifest.xml:2:1-9:12
-MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\2410800e0de0917eb3644592bccf4f20\AndroidManifest.xml:17:1-28:12
+MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\95852be2d6e543cda26358f66da1d064\AndroidManifest.xml:17:1-28:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\3e220d0c323e097cec8e537ef26cc480\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.fragment:fragment:1.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\cd02ffcf6885021ce3b16e2ed1e36b04\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\d3d8a7828322d3baa3279bef8caf0680\AndroidManifest.xml:17:1-22:12
@@ -71,19 +71,19 @@ MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\User
 MERGED from [androidx.print:print:1.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\2a6bfda0a6afcf68387686343213c9da\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\5f1be44592c326abc45ea8f1ea635c7b\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\aa2867f19de638a5a9aa356b02999434\AndroidManifest.xml:17:1-22:12
-MERGED from [com.google.firebase:firebase-components:16.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\12a93464c91a53b250fdc03915ee6ade\AndroidManifest.xml:15:1-23:12
-MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\128cc7677ac6eb22be4ea4c928fb5a71\AndroidManifest.xml:15:1-38:12
-MERGED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\08d98f04d65739acb07f1f841b4fa53b\AndroidManifest.xml:15:1-41:12
-MERGED from [com.google.android.datatransport:transport-api:2.2.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\a8983202e42ca683c78a90a68a13337b\AndroidManifest.xml:15:1-22:12
+MERGED from [com.google.firebase:firebase-components:16.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\aa16b3f83b3e69c29177aec489b9e9b4\AndroidManifest.xml:15:1-23:12
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\31ed006d764effe654d386660accaa8e\AndroidManifest.xml:15:1-38:12
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\a4024c9ae4a82510df1d0755f9f13744\AndroidManifest.xml:15:1-41:12
+MERGED from [com.google.android.datatransport:transport-api:2.2.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\4479285b65136db4851bb5264d4f045f\AndroidManifest.xml:15:1-22:12
 MERGED from [com.google.firebase:firebase-encoders-json:17.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\bf1da678b1acc9645c8a3c1b67f19743\AndroidManifest.xml:15:1-23:12
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\465873f8d5562d7aeda0a7e7b89b14e3\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\3a94f392a5b197abeaff21551e65508e\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\ca45376c542230e5e98cfaa5adc34aef\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\c3d2dcca3740bfc10a80a1316303df84\AndroidManifest.xml:17:1-22:12
 MERGED from [:annca] E:\hul-all-projrct\GSK_MT1\annca\build\.transforms\2a91f8f02d6b6ff915fedc2f9367b13b\AndroidManifest.xml:2:1-18:12
-INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:2:1-262:12
-INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:2:1-262:12
-INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:2:1-262:12
+INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:2:1-277:12
+INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:2:1-277:12
+INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:2:1-277:12
 	package
 		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:3:5-34
 		INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml
@@ -116,10 +116,10 @@ MERGED from [com.google.android.gms:play-services-measurement-impl:17.6.0] C:\Us
 MERGED from [com.google.android.gms:play-services-measurement-impl:17.6.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\b737763d00968e14045bd5323aebc8c0\AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.6.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\0b5c67074fbc30add937a0c44bf3c615\AndroidManifest.xml:24:5-79
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.6.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\0b5c67074fbc30add937a0c44bf3c615\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\128cc7677ac6eb22be4ea4c928fb5a71\AndroidManifest.xml:25:5-79
-MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\128cc7677ac6eb22be4ea4c928fb5a71\AndroidManifest.xml:25:5-79
-MERGED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\08d98f04d65739acb07f1f841b4fa53b\AndroidManifest.xml:22:5-79
-MERGED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\08d98f04d65739acb07f1f841b4fa53b\AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\31ed006d764effe654d386660accaa8e\AndroidManifest.xml:25:5-79
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\31ed006d764effe654d386660accaa8e\AndroidManifest.xml:25:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\a4024c9ae4a82510df1d0755f9f13744\AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\a4024c9ae4a82510df1d0755f9f13744\AndroidManifest.xml:22:5-79
 	android:name
 		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:7:22-76
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
@@ -150,8 +150,8 @@ MERGED from [com.google.android.gms:play-services-measurement-impl:17.6.0] C:\Us
 MERGED from [com.google.android.gms:play-services-measurement-impl:17.6.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\b737763d00968e14045bd5323aebc8c0\AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.6.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\0b5c67074fbc30add937a0c44bf3c615\AndroidManifest.xml:23:5-67
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.6.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\0b5c67074fbc30add937a0c44bf3c615\AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\128cc7677ac6eb22be4ea4c928fb5a71\AndroidManifest.xml:26:5-67
-MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\128cc7677ac6eb22be4ea4c928fb5a71\AndroidManifest.xml:26:5-67
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\31ed006d764effe654d386660accaa8e\AndroidManifest.xml:26:5-67
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\31ed006d764effe654d386660accaa8e\AndroidManifest.xml:26:5-67
 	android:name
 		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:10:22-64
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
@@ -207,15 +207,15 @@ ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:22:5-24
 	android:anyDensity
 		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:23:9-34
 application
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:26:5-260:19
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:26:5-275:19
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\249265f34d13b42ef3be0cdd6167810a\AndroidManifest.xml:9:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\249265f34d13b42ef3be0cdd6167810a\AndroidManifest.xml:9:5-20
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\e047f9c2be94ae37637d2e055b575089\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\e047f9c2be94ae37637d2e055b575089\AndroidManifest.xml:22:5-20
 MERGED from [com.github.clans:fab:1.6.2] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\c070ca06ebc1dda6bc257e15ca2f8ffb\AndroidManifest.xml:12:5-20
 MERGED from [com.github.clans:fab:1.6.2] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\c070ca06ebc1dda6bc257e15ca2f8ffb\AndroidManifest.xml:12:5-20
-MERGED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\9becb86db50079dd058bacd1e9c5a7e9\AndroidManifest.xml:22:5-43:19
-MERGED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\9becb86db50079dd058bacd1e9c5a7e9\AndroidManifest.xml:22:5-43:19
+MERGED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\f3f01149618ba1afe3a4cba4185d7707\AndroidManifest.xml:22:5-43:19
+MERGED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\f3f01149618ba1afe3a4cba4185d7707\AndroidManifest.xml:22:5-43:19
 MERGED from [com.google.android.gms:play-services-location:17.1.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\ad63be80d8170ff5acfa64b145c79bcf\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-location:17.1.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\ad63be80d8170ff5acfa64b145c79bcf\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\82c087c764c118b3d58020385a1ea2ab\AndroidManifest.xml:30:5-36:19
@@ -240,8 +240,8 @@ MERGED from [com.google.android.gms:play-services-measurement-api:17.6.0] C:\Use
 MERGED from [com.google.android.gms:play-services-measurement-api:17.6.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\1606dd1655d70727c908e99d01bf640b\AndroidManifest.xml:26:5-34:19
 MERGED from [com.google.firebase:firebase-installations:16.3.3] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\6bf582111409526b11fa1774143370a2\AndroidManifest.xml:13:5-21:19
 MERGED from [com.google.firebase:firebase-installations:16.3.3] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\6bf582111409526b11fa1774143370a2\AndroidManifest.xml:13:5-21:19
-MERGED from [com.google.firebase:firebase-common:19.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\001b3d80951dde2d6560a71b695471b7\AndroidManifest.xml:25:5-38:19
-MERGED from [com.google.firebase:firebase-common:19.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\001b3d80951dde2d6560a71b695471b7\AndroidManifest.xml:25:5-38:19
+MERGED from [com.google.firebase:firebase-common:19.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\65ecfa9cd4d26bac1e64d33e4116cd49\AndroidManifest.xml:25:5-38:19
+MERGED from [com.google.firebase:firebase-common:19.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\65ecfa9cd4d26bac1e64d33e4116cd49\AndroidManifest.xml:25:5-38:19
 MERGED from [com.google.android.gms:play-services-tasks:17.1.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\4c2acf75987408043af0720fddc56e8a\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-tasks:17.1.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\4c2acf75987408043af0720fddc56e8a\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-measurement:17.6.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\f886a108afc0909c661eba740bd5445b\AndroidManifest.xml:28:5-44:19
@@ -258,16 +258,16 @@ MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] C:\User
 MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\e280472b62f4115fc913dcb6795924bb\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-measurement-base:17.6.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\a8e9a26dd1ecec185259381d179b8cd8\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-measurement-base:17.6.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\a8e9a26dd1ecec185259381d179b8cd8\AndroidManifest.xml:7:5-20
-MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\2410800e0de0917eb3644592bccf4f20\AndroidManifest.xml:22:5-26:19
-MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\2410800e0de0917eb3644592bccf4f20\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\95852be2d6e543cda26358f66da1d064\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\95852be2d6e543cda26358f66da1d064\AndroidManifest.xml:22:5-26:19
 MERGED from [androidx.core:core:1.2.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\42668d0cac316a33ae5a9b4473d35a23\AndroidManifest.xml:24:5-89
 MERGED from [androidx.core:core:1.2.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\42668d0cac316a33ae5a9b4473d35a23\AndroidManifest.xml:24:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\1cfe44f3ae2e34c4e4787cf6da0977f8\AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\1cfe44f3ae2e34c4e4787cf6da0977f8\AndroidManifest.xml:24:5-25:19
-MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\128cc7677ac6eb22be4ea4c928fb5a71\AndroidManifest.xml:28:5-36:19
-MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\128cc7677ac6eb22be4ea4c928fb5a71\AndroidManifest.xml:28:5-36:19
-MERGED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\08d98f04d65739acb07f1f841b4fa53b\AndroidManifest.xml:25:5-39:19
-MERGED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\08d98f04d65739acb07f1f841b4fa53b\AndroidManifest.xml:25:5-39:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\31ed006d764effe654d386660accaa8e\AndroidManifest.xml:28:5-36:19
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\31ed006d764effe654d386660accaa8e\AndroidManifest.xml:28:5-36:19
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\a4024c9ae4a82510df1d0755f9f13744\AndroidManifest.xml:25:5-39:19
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\a4024c9ae4a82510df1d0755f9f13744\AndroidManifest.xml:25:5-39:19
 MERGED from [:annca] E:\hul-all-projrct\GSK_MT1\annca\build\.transforms\2a91f8f02d6b6ff915fedc2f9367b13b\AndroidManifest.xml:13:5-16:19
 MERGED from [:annca] E:\hul-all-projrct\GSK_MT1\annca\build\.transforms\2a91f8f02d6b6ff915fedc2f9367b13b\AndroidManifest.xml:13:5-16:19
 	android:requestLegacyExternalStorage
@@ -333,343 +333,371 @@ ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:54:9-57
 	android:name
 		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:55:13-70
 activity#com.cpm.DailyEntry.StoreInformationActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:58:9-61:52
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:58:9-62:68
 	android:screenOrientation
 		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:61:13-49
+	android:windowSoftInputMode
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:62:13-65
 	android:configChanges
 		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:60:13-74
 	android:name
 		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:59:13-71
+activity#com.cpm.DailyEntry.StoreProfileActivity
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:64:9-68:68
+	android:screenOrientation
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:67:13-49
+	android:windowSoftInputMode
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:68:13-65
+	android:configChanges
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:66:13-74
+	android:name
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:65:13-67
 activity#com.cpm.DailyEntry.StoreVisitedActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:62:9-65:52
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:69:9-72:52
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:65:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:72:13-49
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:64:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:71:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:63:13-67
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:70:13-67
 activity#com.cpm.DailyEntry.StorevisitedYesMenu
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:66:9-69:52
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:73:9-76:52
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:69:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:76:13-49
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:68:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:75:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:67:13-66
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:74:13-66
 activity#com.cpm.DailyEntry.CopyOfStorevisitedYesMenu
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:70:9-73:52
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:77:9-80:52
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:73:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:80:13-49
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:72:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:79:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:71:13-72
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:78:13-72
 activity#com.cpm.DailyEntry.DailyEntryMainMenu
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:74:9-77:52
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:81:9-84:52
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:77:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:84:13-49
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:76:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:83:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:75:13-65
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:82:13-65
 activity#com.cpm.DailyEntry.NonWorkingActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:78:9-82:58
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:85:9-89:58
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:81:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:88:13-49
 	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:82:13-55
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:89:13-55
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:80:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:87:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:79:13-65
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:86:13-65
 activity#com.cpm.autoupdate.AutoupdateActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:83:9-87:58
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:90:9-94:58
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:86:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:93:13-49
 	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:87:13-55
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:94:13-55
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:85:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:92:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:84:13-65
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:91:13-65
 activity#com.cpm.DailyEntry.AfterStockActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:88:9-92:68
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:95:9-99:68
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:91:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:98:13-49
 	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:92:13-65
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:99:13-65
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:90:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:97:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:89:13-65
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:96:13-65
 activity#com.cpm.DailyEntry.StockInActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:94:9-98:68
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:101:9-105:68
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:97:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:104:13-49
 	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:98:13-65
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:105:13-65
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:96:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:103:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:95:13-62
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:102:13-62
 activity#com.cpm.DailyEntry.BeforeTOT
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:100:9-104:68
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:107:9-111:68
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:103:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:110:13-49
 	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:104:13-65
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:111:13-65
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:102:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:109:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:101:13-56
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:108:13-56
 activity#com.cpm.DailyEntry.TOTstock_Activity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:105:9-109:68
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:112:9-116:68
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:108:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:115:13-49
 	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:109:13-65
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:116:13-65
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:107:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:114:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:106:13-64
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:113:13-64
 activity#com.cpm.DailyEntry.Sales
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:110:9-114:68
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:117:9-121:68
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:113:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:120:13-49
 	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:114:13-65
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:121:13-65
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:112:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:119:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:111:13-52
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:118:13-52
 activity#com.cpm.DailyEntry.CompetitionTracking
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:115:9-119:58
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:122:9-126:58
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:118:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:125:13-49
 	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:119:13-55
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:126:13-55
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:117:13-59
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:124:13-59
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:116:13-66
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:123:13-66
 activity#com.cpm.DailyEntry.BeforeStock
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:120:9-124:55
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:127:9-131:55
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:123:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:130:13-49
 	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:124:13-52
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:131:13-52
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:122:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:129:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:121:13-58
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:128:13-58
 activity#com.cpm.DailyEntry.StockwareHouse
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:125:9-129:55
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:132:9-136:55
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:128:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:135:13-49
 	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:129:13-52
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:136:13-52
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:127:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:134:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:126:13-61
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:133:13-61
 activity#com.cpm.DailyEntry.AfterTOT
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:130:9-134:55
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:137:9-141:55
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:133:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:140:13-49
 	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:134:13-52
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:141:13-52
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:132:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:139:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:131:13-55
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:138:13-55
 activity#com.cpm.DailyEntry.BeforeAdditionalDisplay
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:135:9-138:52
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:142:9-145:52
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:138:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:145:13-49
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:137:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:144:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:136:13-70
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:143:13-70
+activity#com.cpm.DailyEntry.SkuListedActivity
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:146:9-149:52
+	android:screenOrientation
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:149:13-49
+	android:configChanges
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:148:13-74
+	android:name
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:147:13-64
+activity#com.cpm.DailyEntry.StoreFootFallActivity
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:150:9-153:52
+	android:screenOrientation
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:153:13-49
+	android:configChanges
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:152:13-74
+	android:name
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:151:13-68
 activity#com.cpm.DailyEntry.StoreWisePerformance
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:139:9-142:52
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:154:9-157:52
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:142:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:157:13-49
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:141:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:156:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:140:13-67
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:155:13-67
 activity#com.cpm.DailyEntry.CategoryWisePerformance
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:143:9-146:52
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:158:9-161:52
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:146:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:161:13-49
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:145:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:160:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:144:13-70
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:159:13-70
 activity#com.cpm.DailyEntry.PromoCompliance
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:147:9-151:68
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:162:9-166:68
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:150:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:165:13-49
 	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:151:13-65
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:166:13-65
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:149:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:164:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:148:13-62
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:163:13-62
 activity#com.cpm.DailyEntry.ShareofShelfActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:152:9-156:68
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:167:9-171:68
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:155:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:170:13-49
 	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:156:13-65
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:171:13-65
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:154:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:169:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:153:13-67
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:168:13-67
 activity#com.cpm.DailyEntry.CheckOutStoreActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:157:9-160:52
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:172:9-175:52
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:160:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:175:13-49
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:159:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:174:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:158:13-68
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:173:13-68
 activity#com.cpm.upload.UploadOptionActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:161:9-164:52
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:176:9-179:52
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:164:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:179:13-49
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:163:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:178:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:162:13-63
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:177:13-63
 activity#com.cpm.upload.UploadDataActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:165:9-168:52
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:180:9-183:52
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:168:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:183:13-49
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:167:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:182:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:166:13-61
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:181:13-61
 activity#com.cpm.upload.UploadImageActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:169:9-172:52
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:184:9-187:52
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:172:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:187:13-49
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:171:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:186:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:170:13-62
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:185:13-62
 activity#com.cpm.upload.ImageUploadActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:173:9-176:52
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:188:9-191:52
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:176:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:191:13-49
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:175:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:190:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:174:13-62
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:189:13-62
 activity#com.cpm.geotagging.GeoTagging
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:177:9-180:52
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:192:9-195:52
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:180:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:195:13-49
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:179:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:194:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:178:13-57
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:193:13-57
 uses-library#com.google.android.maps
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:182:9-64
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:197:9-64
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:182:23-61
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:197:23-61
 meta-data#com.google.android.geo.API_KEY
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:190:9-192:71
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:205:9-207:71
 	android:value
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:192:13-68
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:207:13-68
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:191:13-58
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:206:13-58
 meta-data#com.google.android.gms.version
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:194:9-196:69
-MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\2410800e0de0917eb3644592bccf4f20\AndroidManifest.xml:23:9-25:69
-MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\2410800e0de0917eb3644592bccf4f20\AndroidManifest.xml:23:9-25:69
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:209:9-211:69
+MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\95852be2d6e543cda26358f66da1d064\AndroidManifest.xml:23:9-25:69
+MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\95852be2d6e543cda26358f66da1d064\AndroidManifest.xml:23:9-25:69
 	android:value
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:196:13-66
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:211:13-66
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:195:13-58
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:210:13-58
 activity#com.cpm.geotagging.GeoTagActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:205:9-211:55
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:220:9-226:55
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:209:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:224:13-49
 	android:label
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:208:13-59
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:223:13-59
 	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:211:13-52
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:226:13-52
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:207:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:222:13-74
 	android:theme
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:210:13-56
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:225:13-56
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:206:13-61
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:221:13-61
 activity#com.cpm.DailyEntry.MerchandisingAttendenceActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:213:9-217:55
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:228:9-232:55
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:216:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:231:13-49
 	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:217:13-52
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:232:13-52
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:215:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:230:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:214:13-78
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:229:13-78
 activity#com.cpm.gsk_mt.NoticeBoardActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:219:9-223:55
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:234:9-238:55
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:222:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:237:13-49
 	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:223:13-52
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:238:13-52
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:221:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:236:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:220:13-62
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:235:13-62
 activity#com.cpm.DailyEntry.CompetitionPromotionActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:225:9-230:55
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:240:9-245:55
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:229:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:244:13-49
 	android:label
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:228:13-50
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:243:13-50
 	android:windowSoftInputMode
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:230:13-52
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:245:13-52
 	android:configChanges
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:227:13-74
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:242:13-74
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:226:13-75
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:241:13-75
 activity#io.github.memfis19.annca.internal.ui.camera.Camera1Activity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:233:9-236:54
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:248:9-251:54
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:235:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:250:13-49
 	android:theme
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:236:13-51
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:251:13-51
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:234:13-87
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:249:13-87
 activity#io.github.memfis19.annca.internal.ui.camera2.Camera2Activity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:237:9-240:54
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:252:9-255:54
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:239:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:254:13-49
 	android:theme
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:240:13-51
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:255:13-51
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:238:13-88
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:253:13-88
 activity#io.github.memfis19.annca.internal.ui.preview.PreviewActivity
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:241:9-244:54
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:256:9-259:54
 	android:screenOrientation
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:243:13-49
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:258:13-49
 	android:theme
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:244:13-51
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:259:13-51
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:242:13-88
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:257:13-88
 uses-library#org.apache.http.legacy
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:256:9-258:40
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:271:9-273:40
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\82c087c764c118b3d58020385a1ea2ab\AndroidManifest.xml:33:9-35:40
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\82c087c764c118b3d58020385a1ea2ab\AndroidManifest.xml:33:9-35:40
 	android:required
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:258:13-37
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:273:13-37
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:257:13-50
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:272:13-50
 uses-sdk
 INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml
@@ -686,8 +714,8 @@ MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\cpmin\.gradle\ca
 MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\5e3b09ab8ae4fe89e39a20ddc4513a29\AndroidManifest.xml:20:5-44
 MERGED from [com.github.clans:fab:1.6.2] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\c070ca06ebc1dda6bc257e15ca2f8ffb\AndroidManifest.xml:8:5-10:41
 MERGED from [com.github.clans:fab:1.6.2] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\c070ca06ebc1dda6bc257e15ca2f8ffb\AndroidManifest.xml:8:5-10:41
-MERGED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\9becb86db50079dd058bacd1e9c5a7e9\AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\9becb86db50079dd058bacd1e9c5a7e9\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\f3f01149618ba1afe3a4cba4185d7707\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\f3f01149618ba1afe3a4cba4185d7707\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-location:17.1.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\ad63be80d8170ff5acfa64b145c79bcf\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-location:17.1.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\ad63be80d8170ff5acfa64b145c79bcf\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\82c087c764c118b3d58020385a1ea2ab\AndroidManifest.xml:20:5-44
@@ -712,8 +740,8 @@ MERGED from [com.google.android.gms:play-services-measurement-api:17.6.0] C:\Use
 MERGED from [com.google.android.gms:play-services-measurement-api:17.6.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\1606dd1655d70727c908e99d01bf640b\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-installations:16.3.3] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\6bf582111409526b11fa1774143370a2\AndroidManifest.xml:6:5-8:41
 MERGED from [com.google.firebase:firebase-installations:16.3.3] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\6bf582111409526b11fa1774143370a2\AndroidManifest.xml:6:5-8:41
-MERGED from [com.google.firebase:firebase-common:19.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\001b3d80951dde2d6560a71b695471b7\AndroidManifest.xml:20:5-22:41
-MERGED from [com.google.firebase:firebase-common:19.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\001b3d80951dde2d6560a71b695471b7\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-common:19.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\65ecfa9cd4d26bac1e64d33e4116cd49\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-common:19.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\65ecfa9cd4d26bac1e64d33e4116cd49\AndroidManifest.xml:20:5-22:41
 MERGED from [com.google.android.gms:play-services-cloud-messaging:16.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\513eb3d1a990e8881702cee9253db70b\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-cloud-messaging:16.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\513eb3d1a990e8881702cee9253db70b\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-installations-interop:16.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\ac34dfb1b8e105e9d5622389c93f1ed6\AndroidManifest.xml:19:5-21:41
@@ -736,8 +764,8 @@ MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.6.0] C:
 MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.6.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\0b5c67074fbc30add937a0c44bf3c615\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-measurement-base:17.6.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\a8e9a26dd1ecec185259381d179b8cd8\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-measurement-base:17.6.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\a8e9a26dd1ecec185259381d179b8cd8\AndroidManifest.xml:5:5-44
-MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\2410800e0de0917eb3644592bccf4f20\AndroidManifest.xml:20:5-44
-MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\2410800e0de0917eb3644592bccf4f20\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\95852be2d6e543cda26358f66da1d064\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\95852be2d6e543cda26358f66da1d064\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\3e220d0c323e097cec8e537ef26cc480\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\3e220d0c323e097cec8e537ef26cc480\AndroidManifest.xml:20:5-44
 MERGED from [androidx.fragment:fragment:1.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\cd02ffcf6885021ce3b16e2ed1e36b04\AndroidManifest.xml:20:5-44
@@ -786,14 +814,14 @@ MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] C:\Users\cpmin\.gradl
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\5f1be44592c326abc45ea8f1ea635c7b\AndroidManifest.xml:20:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\aa2867f19de638a5a9aa356b02999434\AndroidManifest.xml:20:5-44
 MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\aa2867f19de638a5a9aa356b02999434\AndroidManifest.xml:20:5-44
-MERGED from [com.google.firebase:firebase-components:16.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\12a93464c91a53b250fdc03915ee6ade\AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.firebase:firebase-components:16.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\12a93464c91a53b250fdc03915ee6ade\AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\128cc7677ac6eb22be4ea4c928fb5a71\AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\128cc7677ac6eb22be4ea4c928fb5a71\AndroidManifest.xml:19:5-21:41
-MERGED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\08d98f04d65739acb07f1f841b4fa53b\AndroidManifest.xml:18:5-20:41
-MERGED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\08d98f04d65739acb07f1f841b4fa53b\AndroidManifest.xml:18:5-20:41
-MERGED from [com.google.android.datatransport:transport-api:2.2.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\a8983202e42ca683c78a90a68a13337b\AndroidManifest.xml:18:5-20:41
-MERGED from [com.google.android.datatransport:transport-api:2.2.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\a8983202e42ca683c78a90a68a13337b\AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.firebase:firebase-components:16.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\aa16b3f83b3e69c29177aec489b9e9b4\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-components:16.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\aa16b3f83b3e69c29177aec489b9e9b4\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\31ed006d764effe654d386660accaa8e\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\31ed006d764effe654d386660accaa8e\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\a4024c9ae4a82510df1d0755f9f13744\AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\a4024c9ae4a82510df1d0755f9f13744\AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-api:2.2.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\4479285b65136db4851bb5264d4f045f\AndroidManifest.xml:18:5-20:41
+MERGED from [com.google.android.datatransport:transport-api:2.2.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\4479285b65136db4851bb5264d4f045f\AndroidManifest.xml:18:5-20:41
 MERGED from [com.google.firebase:firebase-encoders-json:17.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\bf1da678b1acc9645c8a3c1b67f19743\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-encoders-json:17.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\bf1da678b1acc9645c8a3c1b67f19743\AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\465873f8d5562d7aeda0a7e7b89b14e3\AndroidManifest.xml:20:5-44
@@ -817,29 +845,29 @@ INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml
 		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml
 		INJECTED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:251:13-253:58
+ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:266:13-268:58
 	android:resource
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:253:17-55
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:268:17-55
 	android:name
-		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:252:17-67
+		ADDED from E:\hul-all-projrct\GSK_MT1\GSKMT\src\main\AndroidManifest.xml:267:17-67
 service#com.google.firebase.messaging.FirebaseMessagingService
-ADDED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\9becb86db50079dd058bacd1e9c5a7e9\AndroidManifest.xml:28:9-35:19
+ADDED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\f3f01149618ba1afe3a4cba4185d7707\AndroidManifest.xml:28:9-35:19
 	android:exported
-		ADDED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\9becb86db50079dd058bacd1e9c5a7e9\AndroidManifest.xml:31:13-37
+		ADDED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\f3f01149618ba1afe3a4cba4185d7707\AndroidManifest.xml:31:13-37
 	android:directBootAware
-		ADDED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\9becb86db50079dd058bacd1e9c5a7e9\AndroidManifest.xml:30:13-43
+		ADDED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\f3f01149618ba1afe3a4cba4185d7707\AndroidManifest.xml:30:13-43
 	android:name
-		ADDED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\9becb86db50079dd058bacd1e9c5a7e9\AndroidManifest.xml:29:13-82
+		ADDED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\f3f01149618ba1afe3a4cba4185d7707\AndroidManifest.xml:29:13-82
 intent-filter#action:name:com.google.firebase.MESSAGING_EVENT
-ADDED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\9becb86db50079dd058bacd1e9c5a7e9\AndroidManifest.xml:32:13-34:29
+ADDED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\f3f01149618ba1afe3a4cba4185d7707\AndroidManifest.xml:32:13-34:29
 	android:priority
-		ADDED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\9becb86db50079dd058bacd1e9c5a7e9\AndroidManifest.xml:32:28-51
+		ADDED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\f3f01149618ba1afe3a4cba4185d7707\AndroidManifest.xml:32:28-51
 action#com.google.firebase.MESSAGING_EVENT
-ADDED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\9becb86db50079dd058bacd1e9c5a7e9\AndroidManifest.xml:33:17-78
+ADDED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\f3f01149618ba1afe3a4cba4185d7707\AndroidManifest.xml:33:17-78
 	android:name
-		ADDED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\9becb86db50079dd058bacd1e9c5a7e9\AndroidManifest.xml:33:25-75
+		ADDED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\f3f01149618ba1afe3a4cba4185d7707\AndroidManifest.xml:33:25-75
 service#com.google.firebase.components.ComponentDiscoveryService
-ADDED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\9becb86db50079dd058bacd1e9c5a7e9\AndroidManifest.xml:36:9-42:19
+ADDED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\f3f01149618ba1afe3a4cba4185d7707\AndroidManifest.xml:36:9-42:19
 MERGED from [com.google.firebase:firebase-iid:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\aad9fb00d1dd492d4d234e762e3b00b8\AndroidManifest.xml:29:9-35:19
 MERGED from [com.google.firebase:firebase-iid:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\aad9fb00d1dd492d4d234e762e3b00b8\AndroidManifest.xml:29:9-35:19
 MERGED from [com.google.firebase:firebase-crashlytics-ndk:17.2.2] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\3bd2fd136859cf2c935525719da3012b\AndroidManifest.xml:32:9-38:19
@@ -852,22 +880,22 @@ MERGED from [com.google.android.gms:play-services-measurement-api:17.6.0] C:\Use
 MERGED from [com.google.android.gms:play-services-measurement-api:17.6.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\1606dd1655d70727c908e99d01bf640b\AndroidManifest.xml:27:9-33:19
 MERGED from [com.google.firebase:firebase-installations:16.3.3] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\6bf582111409526b11fa1774143370a2\AndroidManifest.xml:14:9-20:19
 MERGED from [com.google.firebase:firebase-installations:16.3.3] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\6bf582111409526b11fa1774143370a2\AndroidManifest.xml:14:9-20:19
-MERGED from [com.google.firebase:firebase-common:19.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\001b3d80951dde2d6560a71b695471b7\AndroidManifest.xml:33:9-37:35
-MERGED from [com.google.firebase:firebase-common:19.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\001b3d80951dde2d6560a71b695471b7\AndroidManifest.xml:33:9-37:35
+MERGED from [com.google.firebase:firebase-common:19.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\65ecfa9cd4d26bac1e64d33e4116cd49\AndroidManifest.xml:33:9-37:35
+MERGED from [com.google.firebase:firebase-common:19.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\65ecfa9cd4d26bac1e64d33e4116cd49\AndroidManifest.xml:33:9-37:35
 	android:exported
-		ADDED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\9becb86db50079dd058bacd1e9c5a7e9\AndroidManifest.xml:38:13-37
+		ADDED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\f3f01149618ba1afe3a4cba4185d7707\AndroidManifest.xml:38:13-37
 	tools:targetApi
-		ADDED from [com.google.firebase:firebase-common:19.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\001b3d80951dde2d6560a71b695471b7\AndroidManifest.xml:37:13-32
+		ADDED from [com.google.firebase:firebase-common:19.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\65ecfa9cd4d26bac1e64d33e4116cd49\AndroidManifest.xml:37:13-32
 	android:directBootAware
-		ADDED from [com.google.firebase:firebase-common:19.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\001b3d80951dde2d6560a71b695471b7\AndroidManifest.xml:35:13-43
+		ADDED from [com.google.firebase:firebase-common:19.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\65ecfa9cd4d26bac1e64d33e4116cd49\AndroidManifest.xml:35:13-43
 	android:name
-		ADDED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\9becb86db50079dd058bacd1e9c5a7e9\AndroidManifest.xml:37:13-84
+		ADDED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\f3f01149618ba1afe3a4cba4185d7707\AndroidManifest.xml:37:13-84
 meta-data#com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar
-ADDED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\9becb86db50079dd058bacd1e9c5a7e9\AndroidManifest.xml:39:13-41:85
+ADDED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\f3f01149618ba1afe3a4cba4185d7707\AndroidManifest.xml:39:13-41:85
 	android:value
-		ADDED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\9becb86db50079dd058bacd1e9c5a7e9\AndroidManifest.xml:41:17-82
+		ADDED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\f3f01149618ba1afe3a4cba4185d7707\AndroidManifest.xml:41:17-82
 	android:name
-		ADDED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\9becb86db50079dd058bacd1e9c5a7e9\AndroidManifest.xml:40:17-119
+		ADDED from [com.google.firebase:firebase-messaging:20.3.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\f3f01149618ba1afe3a4cba4185d7707\AndroidManifest.xml:40:17-119
 uses-feature#0x00020000
 ADDED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\82c087c764c118b3d58020385a1ea2ab\AndroidManifest.xml:26:5-28:35
 	android:glEsVersion
@@ -939,17 +967,17 @@ ADDED from [com.google.firebase:firebase-installations:16.3.3] C:\Users\cpmin\.g
 	android:name
 		ADDED from [com.google.firebase:firebase-installations:16.3.3] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\6bf582111409526b11fa1774143370a2\AndroidManifest.xml:18:17-127
 provider#com.google.firebase.provider.FirebaseInitProvider
-ADDED from [com.google.firebase:firebase-common:19.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\001b3d80951dde2d6560a71b695471b7\AndroidManifest.xml:26:9-31:39
+ADDED from [com.google.firebase:firebase-common:19.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\65ecfa9cd4d26bac1e64d33e4116cd49\AndroidManifest.xml:26:9-31:39
 	android:authorities
-		ADDED from [com.google.firebase:firebase-common:19.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\001b3d80951dde2d6560a71b695471b7\AndroidManifest.xml:28:13-72
+		ADDED from [com.google.firebase:firebase-common:19.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\65ecfa9cd4d26bac1e64d33e4116cd49\AndroidManifest.xml:28:13-72
 	android:exported
-		ADDED from [com.google.firebase:firebase-common:19.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\001b3d80951dde2d6560a71b695471b7\AndroidManifest.xml:30:13-37
+		ADDED from [com.google.firebase:firebase-common:19.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\65ecfa9cd4d26bac1e64d33e4116cd49\AndroidManifest.xml:30:13-37
 	android:directBootAware
-		ADDED from [com.google.firebase:firebase-common:19.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\001b3d80951dde2d6560a71b695471b7\AndroidManifest.xml:29:13-43
+		ADDED from [com.google.firebase:firebase-common:19.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\65ecfa9cd4d26bac1e64d33e4116cd49\AndroidManifest.xml:29:13-43
 	android:initOrder
-		ADDED from [com.google.firebase:firebase-common:19.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\001b3d80951dde2d6560a71b695471b7\AndroidManifest.xml:31:13-36
+		ADDED from [com.google.firebase:firebase-common:19.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\65ecfa9cd4d26bac1e64d33e4116cd49\AndroidManifest.xml:31:13-36
 	android:name
-		ADDED from [com.google.firebase:firebase-common:19.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\001b3d80951dde2d6560a71b695471b7\AndroidManifest.xml:27:13-77
+		ADDED from [com.google.firebase:firebase-common:19.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\65ecfa9cd4d26bac1e64d33e4116cd49\AndroidManifest.xml:27:13-77
 uses-permission#com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE
 ADDED from [com.google.android.gms:play-services-measurement:17.6.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\f886a108afc0909c661eba740bd5445b\AndroidManifest.xml:26:5-110
 MERGED from [com.google.android.gms:play-services-measurement-impl:17.6.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\b737763d00968e14045bd5323aebc8c0\AndroidManifest.xml:26:5-110
@@ -983,30 +1011,30 @@ ADDED from [com.google.android.gms:play-services-measurement:17.6.0] C:\Users\cp
 	android:name
 		ADDED from [com.google.android.gms:play-services-measurement:17.6.0] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\f886a108afc0909c661eba740bd5445b\AndroidManifest.xml:40:13-87
 service#com.google.android.datatransport.runtime.backends.TransportBackendDiscovery
-ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\128cc7677ac6eb22be4ea4c928fb5a71\AndroidManifest.xml:29:9-35:19
-MERGED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\08d98f04d65739acb07f1f841b4fa53b\AndroidManifest.xml:36:9-38:40
-MERGED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\08d98f04d65739acb07f1f841b4fa53b\AndroidManifest.xml:36:9-38:40
+ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\31ed006d764effe654d386660accaa8e\AndroidManifest.xml:29:9-35:19
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\a4024c9ae4a82510df1d0755f9f13744\AndroidManifest.xml:36:9-38:40
+MERGED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\a4024c9ae4a82510df1d0755f9f13744\AndroidManifest.xml:36:9-38:40
 	android:exported
-		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\128cc7677ac6eb22be4ea4c928fb5a71\AndroidManifest.xml:31:13-37
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\31ed006d764effe654d386660accaa8e\AndroidManifest.xml:31:13-37
 	android:name
-		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\128cc7677ac6eb22be4ea4c928fb5a71\AndroidManifest.xml:30:13-103
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\31ed006d764effe654d386660accaa8e\AndroidManifest.xml:30:13-103
 meta-data#backend:com.google.android.datatransport.cct.CctBackendFactory
-ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\128cc7677ac6eb22be4ea4c928fb5a71\AndroidManifest.xml:32:13-34:39
+ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\31ed006d764effe654d386660accaa8e\AndroidManifest.xml:32:13-34:39
 	android:value
-		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\128cc7677ac6eb22be4ea4c928fb5a71\AndroidManifest.xml:34:17-36
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\31ed006d764effe654d386660accaa8e\AndroidManifest.xml:34:17-36
 	android:name
-		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\128cc7677ac6eb22be4ea4c928fb5a71\AndroidManifest.xml:33:17-94
+		ADDED from [com.google.android.datatransport:transport-backend-cct:2.3.1] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\31ed006d764effe654d386660accaa8e\AndroidManifest.xml:33:17-94
 service#com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService
-ADDED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\08d98f04d65739acb07f1f841b4fa53b\AndroidManifest.xml:26:9-30:19
+ADDED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\a4024c9ae4a82510df1d0755f9f13744\AndroidManifest.xml:26:9-30:19
 	android:exported
-		ADDED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\08d98f04d65739acb07f1f841b4fa53b\AndroidManifest.xml:28:13-37
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\a4024c9ae4a82510df1d0755f9f13744\AndroidManifest.xml:28:13-37
 	android:permission
-		ADDED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\08d98f04d65739acb07f1f841b4fa53b\AndroidManifest.xml:29:13-69
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\a4024c9ae4a82510df1d0755f9f13744\AndroidManifest.xml:29:13-69
 	android:name
-		ADDED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\08d98f04d65739acb07f1f841b4fa53b\AndroidManifest.xml:27:13-117
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\a4024c9ae4a82510df1d0755f9f13744\AndroidManifest.xml:27:13-117
 receiver#com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver
-ADDED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\08d98f04d65739acb07f1f841b4fa53b\AndroidManifest.xml:32:9-34:40
+ADDED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\a4024c9ae4a82510df1d0755f9f13744\AndroidManifest.xml:32:9-34:40
 	android:exported
-		ADDED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\08d98f04d65739acb07f1f841b4fa53b\AndroidManifest.xml:34:13-37
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\a4024c9ae4a82510df1d0755f9f13744\AndroidManifest.xml:34:13-37
 	android:name
-		ADDED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\08d98f04d65739acb07f1f841b4fa53b\AndroidManifest.xml:33:13-132
+		ADDED from [com.google.android.datatransport:transport-runtime:2.2.4] C:\Users\cpmin\.gradle\caches\transforms-2\files-2.1\a4024c9ae4a82510df1d0755f9f13744\AndroidManifest.xml:33:13-132

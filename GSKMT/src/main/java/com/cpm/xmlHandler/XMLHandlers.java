@@ -13,6 +13,7 @@ import com.cpm.xmlGetterSetter.EmpMeetingStatus;
 import com.cpm.xmlGetterSetter.FailureGetterSetter;
 import com.cpm.xmlGetterSetter.JCPGetterSetter;
 import com.cpm.xmlGetterSetter.LoginGetterSetter;
+import com.cpm.xmlGetterSetter.MAPPING_ALLSKU_ASSORTMENT;
 import com.cpm.xmlGetterSetter.MappingCompetitionPromotionGetterSetter;
 import com.cpm.xmlGetterSetter.MappingSos;
 import com.cpm.xmlGetterSetter.MappingWellnessSos;
@@ -151,6 +152,31 @@ public class XMLHandlers {
         return jcpGetterSetter;
     }
 
+    public static MAPPING_ALLSKU_ASSORTMENT ALLSKUXMLHandler(XmlPullParser xpp, int eventType) {
+        MAPPING_ALLSKU_ASSORTMENT jcpGetterSetter = new MAPPING_ALLSKU_ASSORTMENT();
+
+        try {
+            while (xpp.getEventType() != XmlPullParser.END_DOCUMENT) {
+                if (xpp.getEventType() == XmlPullParser.START_TAG) {
+
+                    if (xpp.getName().equals("META_DATA")) {
+                        jcpGetterSetter.setMeta_table(xpp.nextText());
+                    }
+
+                    if (xpp.getName().equals("SKU_ID")) {
+                        jcpGetterSetter.setSkuId(xpp.nextText());
+                    }
+                }
+                xpp.next();
+            }
+        } catch (XmlPullParserException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return jcpGetterSetter;
+    }
+
     // JCP XML HANDLER
     public static JCPGetterSetter JCPXMLHandler(XmlPullParser xpp, int eventType) {
         JCPGetterSetter jcpGetterSetter = new JCPGetterSetter();
@@ -222,6 +248,20 @@ public class XMLHandlers {
 
                     if (xpp.getName().equals("SALE_ENABLE")) {
                         jcpGetterSetter.setSaleEnable(xpp.nextText());
+                    }
+
+                    if (xpp.getName().equals("LISTED_ENTRY")) {
+                        jcpGetterSetter.setListedEntry(xpp.nextText());
+                    }
+
+                    if (xpp.getName().equals("ADDRESS")) {
+                        jcpGetterSetter.setAddress(xpp.nextText());
+                    }
+                    if (xpp.getName().equals("LOCALITY")) {
+                        jcpGetterSetter.setLocality(xpp.nextText());
+                    }
+                    if (xpp.getName().equals("PINCODE")) {
+                        jcpGetterSetter.setPincode(xpp.nextText());
                     }
 
                 }

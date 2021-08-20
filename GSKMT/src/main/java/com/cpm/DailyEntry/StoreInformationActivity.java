@@ -187,7 +187,7 @@ public class StoreInformationActivity extends Activity implements
                                         runOnUiThread(new Runnable() {
                                             @Override
                                             public void run() {
-                                                new InstantUpload(StoreInformationActivity.this, "error").execute();
+                                                new InstantUpload(context, "error").execute();
                                             }
                                         });
                                         editor = preferences.edit();
@@ -282,7 +282,7 @@ public class StoreInformationActivity extends Activity implements
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent in = new Intent(StoreInformationActivity.this, CopyOfStorelistActivity.class);
+        Intent in = new Intent(context, CopyOfStorelistActivity.class);
         startActivity(in);
         StoreInformationActivity.this.finish();
     }
@@ -426,13 +426,13 @@ public class StoreInformationActivity extends Activity implements
                 db.InsertCoverage(data, store_id, date, process_id);
                 db.open();
                 db.updateStoreStatusOnLeave(store_id, date, CommonString.KEY_CHECK_IN, process_id);
-                Intent in = new Intent(StoreInformationActivity.this, CopyOfStorevisitedYesMenu.class);
+                Intent in = new Intent(context, StoreProfileActivity.class);
                 startActivity(in);
                 StoreInformationActivity.this.finish();
-                Toast.makeText(getApplicationContext(), "Intime Successfully Uploaded", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "Intime Successfully Uploaded", Toast.LENGTH_LONG).show();
             } else {
                 if (!flag) {
-                    final AlertMessage message = new AlertMessage(StoreInformationActivity.this, AlertMessage.MESSAGE_EXCEPTION + result, "acra_checkout", result, "");
+                    final AlertMessage message = new AlertMessage((Activity) context, AlertMessage.MESSAGE_EXCEPTION + result, "acra_checkout", result, "");
                     message.showMessage();
                     flag = true;
                 } else {
@@ -480,7 +480,8 @@ public class StoreInformationActivity extends Activity implements
 
     @Override
     public void onConnected(Bundle bundle) {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
             // here to request the missing permissions, and then overriding

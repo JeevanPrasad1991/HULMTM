@@ -2,8 +2,62 @@ package com.cpm.delegates;
 
 public class StoreBean {
 	
-	public String EMP_ID,STORE,CITY,VISIT_DATE,PROCESS_ID,UPLOAD_STATUS,STORE_ID, storeType_id, key_id, REGION_ID
-	, CHECKOUT_STATUS, store_type, geotag_status, key_account, Latitude, Longitude,pkdKey,STATE_ID;
+	public String EMP_ID;
+	public String address="";
+	public String locality="";
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getLocality() {
+		return locality;
+	}
+
+	public void setLocality(String locality) {
+		this.locality = locality;
+	}
+
+	public String getPinCode() {
+		return pinCode;
+	}
+
+	public void setPinCode(String pinCode) {
+		this.pinCode = pinCode;
+	}
+
+	public String pinCode="";
+	public String STORE;
+	public String CITY;
+	public String VISIT_DATE;
+	public String PROCESS_ID;
+	public String UPLOAD_STATUS;
+	public String STORE_ID;
+	public String storeType_id;
+	public String key_id;
+	public String REGION_ID;
+	public String CHECKOUT_STATUS;
+	public String store_type;
+	public String geotag_status;
+	public String key_account;
+	public String Latitude;
+	public String Longitude;
+	public String pkdKey;
+	public String STATE_ID;
+
+	public String getListedEntry() {
+		return listedEntry;
+	}
+
+	public void setListedEntry(String listedEntry) {
+		this.listedEntry = listedEntry;
+	}
+
+	public String listedEntry="";
 
 	public String getCLASS_ID() {
 		return CLASS_ID;
